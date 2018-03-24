@@ -5,7 +5,9 @@ TESIS="Tesis"
 MAIN="main"
 
 if [ -d ".git" ]; then
-	cd $DIRECTORY
+    cd $DIRECTORY
+    echo "pdflatex $MAIN"
+    pdflatex $MAIN
     echo "pdflatex $MAIN"
     pdflatex $MAIN
     echo "make"
@@ -31,7 +33,7 @@ if [ -d ".git" ]; then
     fi
 else
     echo "This directory has not been initialized with git."
-	exit 1
+    exit 1
 fi
 
 

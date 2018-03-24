@@ -1,20 +1,20 @@
 \chapter{Teorema de Fatou y Teorema de Carathéodory}
 
 \begin{comment}
-\begin{theorem}[Lema de Schwart]
-Sea $f: \mathbb{D} \rightarrow \overline{\mathbb{D}}$ una función $\in \mathcal{H}(\mathbb{D})$ tal que $f(0) = 0$. Entonces:
-\begin{itemize}
-    \item $\abs{f(z)} \leq \abs{z}$ para todo $z \in \mathbb{D}$.
-    \item Si para algún $z_0 \not = 0$ tenemos que $\abs{f(z_0)} = \abs{z_0}$, entonces existe $\alpha \in \mathbb{C}, \abs{\alpha} = 1$ tal que $f(z)=\alpha z$.
-\end{itemize}
-\end{theorem}
+    \begin{theorem}[Lema de Schwart]
+        Sea $f: \mathbb{D} \rightarrow \overline{\mathbb{D}}$ una función $\in \mathcal{H}(\mathbb{D})$ tal que $f(0) = 0$. Entonces:
+        \begin{itemize}
+            \item $\abs{f(z)} \leq \abs{z}$ para todo $z \in \mathbb{D}$.
+            \item Si para algún $z_0 \not = 0$ tenemos que $\abs{f(z_0)} = \abs{z_0}$, entonces existe $\alpha \in \mathbb{C}, \abs{\alpha} = 1$ tal que $f(z)=\alpha z$.
+        \end{itemize}
+    \end{theorem}
 
-\begin{proof}
-Sea $f(z) = a_1z + \cdots$ la serie de potencias de $f$. El término constante es $0$ puesto que suponemos que $f(0) = 0$. Entonces $f(z)/z$ es una función holomorfa y
-\begin{equation*}
-\abs{\dfrac{f(z)}{z}} < 1/r \text{ para } \abs{z} = r < 1
-\end{equation*}
-\end{proof}
+    \begin{proof}
+        Sea $f(z) = a_1z + \cdots$ la serie de potencias de $f$. El término constante es $0$ puesto que suponemos que $f(0) = 0$. Entonces $f(z)/z$ es una función holomorfa y
+        \begin{equation*}
+            \abs{\dfrac{f(z)}{z}} < 1/r \text{ para } \abs{z} = r < 1
+        \end{equation*}
+    \end{proof}
 \end{comment}
 
 \section{Integral de Poisson y Teorema de Fatou}
@@ -22,15 +22,15 @@ Sea $f(z) = a_1z + \cdots$ la serie de potencias de $f$. El término constante e
 \subsection{La Integral de Poisson}
 
 \begin{definition}
-Se llama núcleo de Poisson a la función $P$ definida por
-\begin{equation*}
-P:(r,t) \in [0,1)\times \mathbb{R} \mapsto P_r(t) = \sum_{n=-\infty}^{\infty} r^{\abs{n}}e^{int}
-\end{equation*}
+    Se llama núcleo de Poisson a la función $P$ definida por
+    \begin{equation*}
+        P:(r,t) \in [0,1)\times \mathbb{R} \mapsto P_r(t) = \sum_{n=-\infty}^{\infty} r^{\abs{n}}e^{int}
+    \end{equation*}
 
-Si $z=re^{i \theta}$, con $r \in [0,1)$ y $\theta \in \mathbb{R}$, se tiene que
-\begin{equation*}
-P_r(\theta - t) = \Re \left[ \dfrac{e^{it} + z}{e^{it} - z} \right] = \dfrac{1 - r^2}{1 - 2r \cos (\theta - t) + r^2}
-\end{equation*}
+    Si $z=re^{i \theta}$, con $r \in [0,1)$ y $\theta \in \mathbb{R}$, se tiene que
+    \begin{equation*}
+        P_r(\theta - t) = \Re \left[ \dfrac{e^{it} + z}{e^{it} - z} \right] = \dfrac{1 - r^2}{1 - 2r \cos (\theta - t) + r^2}
+    \end{equation*}
 \end{definition}
 
 \bigskip
@@ -38,248 +38,248 @@ P_r(\theta - t) = \Re \left[ \dfrac{e^{it} + z}{e^{it} - z} \right] = \dfrac{1 -
 Propiedades de la integral de Poisson:
 
 \begin{equation}
-\dfrac{1}{2 \pi} \int_{- \pi}^{\pi} P_r (t) dt = 1, \forall r \in [0,1)
+    \dfrac{1}{2 \pi} \int_{- \pi}^{\pi} P_r (t) dt = 1, \forall r \in [0,1)
 \end{equation}
 
 \begin{equation}
-P_r(t) > 0, \forall r \in [0,1), t \in \mathbb{R}
+    P_r(t) > 0, \forall r \in [0,1), t \in \mathbb{R}
 \end{equation}
 
 \begin{equation}
-P_r(t) = P_r(-t), \forall r \in [0,1), t \in \mathbb{R}
+    P_r(t) = P_r(-t), \forall r \in [0,1), t \in \mathbb{R}
 \end{equation}
 
 \begin{equation}
-P_r(t) < P_r(\delta), 0 < \delta < \abs{t} \leq \pi
+    P_r(t) < P_r(\delta), 0 < \delta < \abs{t} \leq \pi
 \end{equation}
 
 \begin{equation}
-\lim_{r \rightarrow 1} P_r(\delta) = 0, \forall \delta \in (0,\pi]
+    \lim_{r \rightarrow 1} P_r(\delta) = 0, \forall \delta \in (0,\pi]
 \end{equation}
 
 \medskip
 
 \begin{definition}
-Se llama integral de Poisson de una función $f \in L^p(\partial \mathbb{D})$ a la función $F$ definida en $\mathbb{D}$ dada por
-\begin{equation*}
-F(re^{i \theta}) = \dfrac{1}{2 \pi} \int_{- \pi}^{\pi} P_r (\theta - t) f(t) dt.
-\end{equation*}
+    Se llama integral de Poisson de una función $f \in L^p(\partial \mathbb{D})$ a la función $F$ definida en $\mathbb{D}$ dada por
+    \begin{equation*}
+        F(re^{i \theta}) = \dfrac{1}{2 \pi} \int_{- \pi}^{\pi} P_r (\theta - t) f(t) dt.
+    \end{equation*}
 
-Algunas veces nos convendrá referirnos a ella como $F=P[f]$.
+    Algunas veces nos convendrá referirnos a ella como $F=P[f]$.
 \end{definition}
 
 \subsection{Teorema de Fatou}
 
 \begin{theorem}[Teorema de Fatou]
-Para toda función $f \in \mathcal{H}^\infty(\mathbb{D})$, existe una función $f^* \in L^{\infty} (\partial \mathbb{D})$ definida en casi todo punto tal que
-\begin{equation}
-\label{fatou1}
-f^*(e^{it}) = \lim_{r \rightarrow 1} f(re^{it})
-\end{equation}
+    Para toda función $f \in \mathcal{H}^\infty(\mathbb{D})$, existe una función $f^* \in L^{\infty} (\partial \mathbb{D})$ definida en casi todo punto tal que
+    \begin{equation}
+        \label{fatou1}
+        f^*(e^{it}) = \lim_{r \rightarrow 1} f(re^{it})
+    \end{equation}
 
-Se tiene la igualdad $\norminf{f} = \norminf{f^*}$. Para todo $z \in U$, la fórmula integral de Cauchy
-\begin{equation}
-\label{fatou2}
-f(z) = \dfrac{1}{2 \pi i} \int_{\gamma} \dfrac{f^*(\xi)}{\xi - z} d\xi
-\end{equation}
+    Se tiene la igualdad $\norminf{f} = \norminf{f^*}$. Para todo $z \in U$, la fórmula integral de Cauchy
+    \begin{equation}
+        \label{fatou2}
+        f(z) = \dfrac{1}{2 \pi i} \int_{\gamma} \dfrac{f^*(\xi)}{\xi - z} d\xi
+    \end{equation}
 
-se satisface, donde $\gamma$ es el círculo unidad positivamente orientado: $\gamma(t) = e^{it}, 0 \leq t \leq 2 \pi$.
+    se satisface, donde $\gamma$ es el círculo unidad positivamente orientado: $\gamma(t) = e^{it}, 0 \leq t \leq 2 \pi$.
 
-Las funciones $f^* \in L^{\infty}(\partial \mathbb{D})$ que se obtienen mediante este procedimiento son precisamente aquellas que cumplen la siguiente relación
-\begin{equation}
-\label{fatou3}
-\dfrac{1}{2 \pi i} \int_{-\pi}^{\pi} f^*(e^{it})e^{-int} dt = 0, n = -1,-2, \dots
-\end{equation}
+    Las funciones $f^* \in L^{\infty}(\partial \mathbb{D})$ que se obtienen mediante este procedimiento son precisamente aquellas que cumplen la siguiente relación
+
+    \begin{equation}
+        \label{fatou3}
+        \dfrac{1}{2 \pi i} \int_{-\pi}^{\pi} f^*(e^{it})e^{-int} dt = 0, n = -1,-2, \dots
+    \end{equation}
 \end{theorem}
 
-
 \begin{proof}
-La existencia de $f^*$ se sigue del Corolario del Teorema 11.19 (??). %Demostrar la existencia de $f^*$
+    La existencia de $f^*$ se sigue de las observaciones anteriores.
+    
+    Por \ref{fatou1}, tenemos que $\norminf{f^*} \leq \norminf{f}$.
 
-Por \ref{fatou1}, tenemos que $\norminf{f^*} \leq \norminf{f}$.
+    Si $z \in U$ y $\abs{z} < r < 1$, tomemos $\gamma_r(t) = r e^{it}, 0 \leq t \leq 2\pi$. Entonces,
+    \begin{equation*}
+        f(z) = \dfrac{1}{2 \pi i} \int_{\gamma_r} \dfrac{f(\xi)}{\xi - z} d\xi = 
+        \dfrac{r}{2 \pi} \int_{-\pi}^{\pi} \dfrac{f(re^{it})}{re^{it} - z} dt
+    \end{equation*}
 
-Si $z \in U$ y $\abs{z} < r < 1$, tomemos $\gamma_r(t) = r e^{it}, 0 \leq t \leq 2\pi$. Entonces,
-\begin{equation*}
-f(z) = \dfrac{1}{2 \pi i} \int_{\gamma_r} \dfrac{f(\xi)}{\xi - z} d\xi = 
- \dfrac{r}{2 \pi} \int_{-\pi}^{\pi} \dfrac{f(re^{it})}{re^{it} - z} dt
-\end{equation*}
+    Sea $\{r_n\}$ una sucesión tal que $r_n \rightarrow 1$. Por el teorema de la convergencia dominada de Lebesgue tenemos
+    \begin{equation}
+        \label{fatou_proof}
+        f(z) = \dfrac{1}{2 \pi} \int_{-\pi}^{\pi} \dfrac{f^* (e^{it})}{1 - ze^{it}} dt
+    \end{equation}
+    Por lo que ya hemos probado \ref{fatou2}. Por el teorema de Cauchy, se sigue que
+    \begin{equation*}
+        \int_{\gamma_r} f(\xi)\xi^n d\xi = 0, n = 0, 1, \dots
+    \end{equation*}
 
-Sea $\{r_n\}$ una sucesión tal que $r_n \rightarrow 1$. Por el teorema de la convergencia dominada de Lebesgue tenemos
-\begin{equation}
-\label{fatou_proof}
-f(z) = \dfrac{1}{2 \pi} \int_{-\pi}^{\pi} \dfrac{f^* (e^{it})}{1 - ze^{it}} dt
-\end{equation}
-Por lo que ya hemos probado \ref{fatou2}. Por el teorema de Cauchy, se sigue que
-\begin{equation*}
-\int_{\gamma_r} f(\xi)\xi^n d\xi = 0, n = 0, 1, \dots
-\end{equation*}
+    Pasando al límite tenemos que $f^*$ cumple \ref{fatou3}. Además, podemos convertir \ref{fatou_proof} en una integral de Poisson, si $z = re^{i \theta}$,
+    \begin{multline*}
+        f(z) = \dfrac{1}{2 \pi} \int_{- \pi}^{\pi} f^*(e^{it}) \sum_{n=0}^{\infty} r^n e^{in(\theta - t)} dt = \\  \dfrac{1}{2 \pi} \int_{- \pi}^{\pi} f^*(e^{it}) \sum_{n=-\infty}^{\infty} r^{\abs{n}} e^{in(\theta - t)} dt =  \dfrac{1}{2 \pi} \int_{- \pi}^{\pi} P_r(\theta - t) f^*(e^{it}) dt
+    \end{multline*}
 
-Pasando al límite tenemos que $f^*$ cumple \ref{fatou3}. Además, podemos convertir \ref{fatou_proof} en una integral de Poisson, si $z = re^{i \theta}$,
-\begin{multline*}
-f(z) = \dfrac{1}{2 \pi} \int_{- \pi}^{\pi} f^*(e^{it}) \sum_{n=0}^{\infty} r^n e^{in(\theta - t)} dt = \\  \dfrac{1}{2 \pi} \int_{- \pi}^{\pi} f^*(e^{it}) \sum_{n=-\infty}^{\infty} r^{\abs{n}} e^{in(\theta - t)} dt =  \dfrac{1}{2 \pi} \int_{- \pi}^{\pi} P_r(\theta - t) f^*(e^{it}) dt
-\end{multline*}
-
-De esto concluimos que $\norminf{f} \leq \norminf{f^*}$, así que ambas normas coinciden.
+    De esto concluimos que $\norminf{f} \leq \norminf{f^*}$, así que ambas normas coinciden.
 \end{proof}
 
 \section{Teorema de Carathéodory}
 
 \begin{definition}{Aplicación conforme}
-Sean $U$ y $V \subset \mathbb{C}^n$. Una aplicación $f: U \rightarrow V$ se llama conforme en un punto $u \in U$ si preserva la orientación y los ángulos entre curvas que pasan por $u$.
+    Sean $U$ y $V \subset \mathbb{C}^n$. Una aplicación $f: U \rightarrow V$ se llama conforme en un punto $u \in U$ si preserva la orientación y los ángulos entre curvas que pasan por $u$.
 \end{definition}
 
 \begin{prop}
-Sea $U \subset \mathbb{C}$. Una aplicación $f: U \rightarrow \mathbb{C}$ es conforme en $U$ si (y solo si) $f \in \mathcal{H}(U)$ y $f'(z) \not = 0 \, \forall z \in U$.
+    Sea $U \subset \mathbb{C}$. Una aplicación $f: U \rightarrow \mathbb{C}$ es conforme en $U$ si (y solo si) $f \in \mathcal{H}(U)$ y $f'(z) \not = 0 \, \forall z \in U$.
 \end{prop}
 
 \begin{proof}
-$(\Leftarrow)$ Supongamos que $f: U \rightarrow \mathbb{C}$ es holomorfa en $U$ y $f'(z) \not = 0 \, \forall z \in U$. Sea $\gamma: [a,b] \rightarrow U$ una curva simple y sea $z = z(t) = x(t) + iy(t) = \gamma (t)$ la ecuación paramétrica de $\gamma$. Consideremos $w = (f \circ  z)(t)$ holomorfa en $U$.
+    $(\Leftarrow)$ Supongamos que $f: U \rightarrow \mathbb{C}$ es holomorfa en $U$ y $f'(z) \not = 0 \, \forall z \in U$. Sea $\gamma: [a,b] \rightarrow U$ una curva simple y sea $z = z(t) = x(t) + iy(t) = \gamma (t)$ la ecuación paramétrica de $\gamma$. Consideremos $w = (f \circ  z)(t)$ holomorfa en $U$.
 
-Ahora por la regla de la cadena $w'(t) = f'(z(t))z'(t)$. Como el argumento es aditivo para la multiplicación de funciones, tenemos
-\begin{equation*}
-\arg{w'(t_0)} = \arg{f'(z(t_0))} + \arg{z'(t_0)}
-\end{equation*}
+    Ahora por la regla de la cadena $w'(t) = f'(z(t))z'(t)$. Como el argumento es aditivo para la multiplicación de funciones, tenemos
+    \begin{equation*}
+        \arg{w'(t_0)} = \arg{f'(z(t_0))} + \arg{z'(t_0)}
+    \end{equation*}
 
-$f(z)$ rota el vector tangente a $\gamma(t_0) = z_0$ por el mismo ángulo ($\arg{f'(z_0)}$), independientemente del camino $\gamma$.
+    $f(z)$ rota el vector tangente a $\gamma(t_0) = z_0$ por el mismo ángulo ($\arg{f'(z_0)}$), independientemente del camino $\gamma$.
 
-Si nos fijamos en el módulo, obtenemos un resultado similar,
-\begin{equation*}
-\lim_{z \rightarrow z_0} \dfrac{\abs{f(z) - f(z_0)}}{\abs{z - z_0}} = \abs{f'(z_0)}
-\end{equation*}
+    Si nos fijamos en el módulo, obtenemos un resultado similar,
+    \begin{equation*}
+        \lim_{z \rightarrow z_0} \dfrac{\abs{f(z) - f(z_0)}}{\abs{z - z_0}} = \abs{f'(z_0)}
+    \end{equation*}
 
-Así, $f(z)$ cambia el módulo de la distancia entre los puntos por el mismo factor, independientemente de la dirección en la que nos aproximemos a $z_0$. \\
+    Así, $f(z)$ cambia el módulo de la distancia entre los puntos por el mismo factor, independientemente de la dirección en la que nos aproximemos a $z_0$. \\
 
-\noindent\rule{8cm}{0.4pt}
+    \noindent\rule{8cm}{0.4pt}
 
-Podemos escribir
-\begin{equation*}
-w - w_0 = f(z) - f(z_0) = \dfrac{f(z)-f(z_0)}{z - z_0} (z - z_0)
-\end{equation*}
+    Podemos escribir
+    \begin{equation*}
+        w - w_0 = f(z) - f(z_0) = \dfrac{f(z)-f(z_0)}{z - z_0} (z - z_0)
+    \end{equation*}
 
-Entonces
-\begin{equation*}
-\arg{(w - w_0)} =  \arg{ \left( \dfrac{f(z)-f(z_0)}{z - z_0} \right)} + \arg{(z - z_0)}
-\end{equation*}
+    Entonces
+    \begin{equation*}
+        \arg{(w - w_0)} =  \arg{ \left( \dfrac{f(z)-f(z_0)}{z - z_0} \right)} + \arg{(z - z_0)}
+    \end{equation*}
 
-Como $f'(z) \not = 0 \, \forall z \in U$, tomando límites tenemos
-\begin{equation*}
-\phi = \lim_{z \rightarrow z_0} \arg({w-w_0)}= \arg{f'(z_0)} + \theta
-\end{equation*}
+    Como $f'(z) \not = 0 \, \forall z \in U$, tomando límites tenemos
+    \begin{equation*}
+        \phi = \lim_{z \rightarrow z_0} \arg({w-w_0)}= \arg{f'(z_0)} + \theta
+    \end{equation*}
 
-La aplicación $f$ ha rotado el vector tangente a $z_0$ un ángulo dado por $\text{arg } f'(z_0)$. Sean dos curvas que pasan por $z_0$ con ángulos $\theta_1$ y $\theta_2$ con respecto al eje $x$. Entonces el ángulo entre sus imágenes en $w_0$ es 
-\begin{equation*}
-\phi_2 - \phi_1 = \theta_2 + \text{arg } f'(z_0) - \theta_1 - \text{arg } f'(z_0) = \theta_2 - \theta_1
-\end{equation*}
+    La aplicación $f$ ha rotado el vector tangente a $z_0$ un ángulo dado por $\text{arg } f'(z_0)$. Sean dos curvas que pasan por $z_0$ con ángulos $\theta_1$ y $\theta_2$ con respecto al eje $x$. Entonces el ángulo entre sus imágenes en $w_0$ es 
+    \begin{equation*}
+        \phi_2 - \phi_1 = \theta_2 + \text{arg } f'(z_0) - \theta_1 - \text{arg } f'(z_0) = \theta_2 - \theta_1
+    \end{equation*}
 
-Por lo tanto, $f$ preserva la orientación y los ángulos entre curvas que pasan por $z, \, \forall z \in U$.
+    Por lo tanto, $f$ preserva la orientación y los ángulos entre curvas que pasan por $z, \, \forall z \in U$.
 
-\begin{comment}
-$(\Rightarrow)$ Supongamos que $f$ es conforme y que $\frac{\partial f}{\partial x}$ y $\frac{\partial f}{\partial y}$ son continuas. En este caso tenemos
-\begin{equation*}
-w'(t_0) = \dfrac{\partial f}{\partial x} x'(t_0) +  \dfrac{\partial f}{\partial y} y'(t_0)
-\end{equation*}
+    \begin{comment}
+        $(\Rightarrow)$ Supongamos que $f$ es conforme y que $\frac{\partial f}{\partial x}$ y $\frac{\partial f}{\partial y}$ son continuas. En este caso tenemos
+        \begin{equation*}
+            w'(t_0) = \dfrac{\partial f}{\partial x} x'(t_0) +  \dfrac{\partial f}{\partial y} y'(t_0)
+        \end{equation*}
 
-Podemos reescribir esto de la siguiente manera
-\begin{equation*}
-w'(t_0) = \dfrac{1}{2} \left( \dfrac{\partial f}{\partial x} - i\dfrac{\partial f}{\partial y} \right) z'(t_0) + \dfrac{1}{2} \left( \dfrac{\partial f}{\partial x} + i\dfrac{\partial f}{\partial y} \right) \xbar{z'(t_0)}
-\end{equation*}
+        Podemos reescribir esto de la siguiente manera
+        \begin{equation*}
+            w'(t_0) = \dfrac{1}{2} \left( \dfrac{\partial f}{\partial x} - i\dfrac{\partial f}{\partial y} \right) z'(t_0) + \dfrac{1}{2} \left( \dfrac{\partial f}{\partial x} + i\dfrac{\partial f}{\partial y} \right) \xbar{z'(t_0)}
+        \end{equation*}
 
-Si los ángulos se preservan entonces $\arg{(w'(t_0/z'(t_0)))}$ es independiente de $z'(t_0)$. Así,
-\begin{equation*}
-\dfrac{1}{2} \left( \dfrac{\partial f}{\partial x} - i\dfrac{\partial f}{\partial y} \right) + \dfrac{1}{2} \left( \dfrac{\partial f}{\partial x} + i\dfrac{\partial f}{\partial y} \right) \left( \dfrac{\xbar{z'(t_0)}}{z'(t_0)} \right)
-\end{equation*}
-tiene argumento constante.
+        Si los ángulos se preservan entonces $\arg{(w'(t_0/z'(t_0)))}$ es independiente de $z'(t_0)$. Así,
+        \begin{equation*}
+            \dfrac{1}{2} \left( \dfrac{\partial f}{\partial x} - i\dfrac{\partial f}{\partial y} \right) + \dfrac{1}{2} \left( \dfrac{\partial f}{\partial x} + i\dfrac{\partial f}{\partial y} \right) \left( \dfrac{\xbar{z'(t_0)}}{z'(t_0)} \right)
+        \end{equation*}
+        tiene argumento constante.
 
-Supongamos que $z'(t_0) = re^{i \theta}$. Entonces
-\begin{equation*}
-\dfrac{\xbar{z'(t_0)}}{z'(t_0)} = \dfrac{re^{-i \theta}}{re^{i \theta}} = e^{-2i \theta}
-\end{equation*}
+        Supongamos que $z'(t_0) = re^{i \theta}$. Entonces
+        \begin{equation*}
+            \dfrac{\xbar{z'(t_0)}}{z'(t_0)} = \dfrac{re^{-i \theta}}{re^{i \theta}} = e^{-2i \theta}
+        \end{equation*}
 
-Mientras $z'(t_0)$ varía, la curva describe una circunferencia de radio $\frac{1}{2} \abs{\frac{\partial f}{\partial x} - i\frac{\partial f}{\partial y}}$. El argumento solo puede ser constante si $\frac{\partial f}{\partial x} - i\frac{\partial f}{\partial y}$ es cero. Como hemos visto, estas ecuaciones implican que es holomorfa.
-\end{comment}
+        Mientras $z'(t_0)$ varía, la curva describe una circunferencia de radio $\frac{1}{2} \abs{\frac{\partial f}{\partial x} - i\frac{\partial f}{\partial y}}$. El argumento solo puede ser constante si $\frac{\partial f}{\partial x} - i\frac{\partial f}{\partial y}$ es cero. Como hemos visto, estas ecuaciones implican que es holomorfa.
+    \end{comment}
 \end{proof}
 
 \bigskip
 
 \begin{theorem}[Teorema de Carathéodory]
-Sea $\varphi$ una aplicación conforme del disco unidad $\mathbb{D}$ en un dominio de Jordan $\Omega$. Entonces $\varphi$ tiene una extensión continua al disco cerrado $\overline{\mathbb{D}}$, y la extensión es inyectiva de $\overline{\mathbb{D}}$ en $\Omega$.
+    Sea $\varphi$ una aplicación conforme del disco unidad $\mathbb{D}$ en un dominio de Jordan $\Omega$. Entonces $\varphi$ tiene una extensión continua al disco cerrado $\overline{\mathbb{D}}$, y la extensión es inyectiva de $\overline{\mathbb{D}}$ en $\Omega$.
 \end{theorem}
 
 \begin{proof}
-Vamos a suponer que $\Omega$ está acotado. Fijemos $\zeta \in \partial \mathbb{D}$. Primero vamos a probar que $\varphi$ tiene una extensión continua en $\zeta$. Sea $0 < \delta < 1$,
-\begin{equation*}
-D(\zeta, \delta) = \{z: \abs{z - \zeta} < \delta \}
-\end{equation*}
+    Vamos a suponer que $\Omega$ está acotado. Fijemos $\zeta \in \partial \mathbb{D}$. Primero vamos a probar que $\varphi$ tiene una extensión continua en $\zeta$. Sea $0 < \delta < 1$,
+    \begin{equation*}
+        D(\zeta, \delta) = \{z: \abs{z - \zeta} < \delta \}
+    \end{equation*}
 
-y tomemos $\gamma_{\delta} = \mathbb{D} \cap \partial D(\zeta, \delta)$. Entonces $\varphi (\gamma_{\delta})$ es una curva de Jordan de longitud
-\begin{equation*}
-L(\delta) = \int_{\gamma_{\delta}} \abs{\varphi ' (z)} ds
-\end{equation*}
-\\
-Por la desigualdad de Cauchy-Schwartz, tenemos
-\begin{equation*}
-L^2(\delta) \leq \pi \delta \int_{\gamma_{\delta}} \abs{\varphi ' (z)}^2 ds
-\end{equation*}
+    y tomemos $\gamma_{\delta} = \mathbb{D} \cap \partial D(\zeta, \delta)$. Entonces $\varphi (\gamma_{\delta})$ es una curva de Jordan de longitud
+    \begin{equation*}
+        L(\delta) = \int_{\gamma_{\delta}} \abs{\varphi ' (z)} ds
+    \end{equation*}
+    \\
+    Por la desigualdad de Cauchy-Schwartz, tenemos
+    \begin{equation*}
+        L^2(\delta) \leq \pi \delta \int_{\gamma_{\delta}} \abs{\varphi ' (z)}^2 ds
+    \end{equation*}
 
-entonces para $\rho < 1$
+    entonces para $\rho < 1$
 
-\begin{equation*}
-\int_{0}^{\rho} \frac{L^2(\delta)}{\delta} d\delta \leq \pi \int \int_{\mathbb{D} \cap D(\zeta, \rho)} \abs{\varphi ' (z)}^2 dxdy = \pi \text{Area}(\varphi(\mathbb{D} \cap D(\zeta, \rho))) < \infty
-\end{equation*}
-\\
-%Figura
+    \begin{equation*}
+        \int_{0}^{\rho} \frac{L^2(\delta)}{\delta} d\delta \leq \pi \int \int_{\mathbb{D} \cap D(\zeta, \rho)} \abs{\varphi ' (z)}^2 dxdy = \pi \text{Area}(\varphi(\mathbb{D} \cap D(\zeta, \rho))) < \infty
+    \end{equation*}
+    \\
+    %Figura
 
-Entonces, existe una sucesión $\{ \delta_n\} \downarrow 0$ tal que $L(\delta_n) \rightarrow 0$. Cuando $L(\delta_n) < \infty$, la curva $\varphi(\gamma_{\delta_n})$ tiene extremos $\alpha_n, \beta_n \in \xbar{\Omega}$ y ambos puntos deben estar en $\Gamma = \partial \Omega$. De hecho, si $\alpha_n \in \Omega$, entonces algún punto cerca de $\alpha_n$ tiene dos preimágenes distintas en $\mathbb{D}$ y esto es imposible pues $\varphi$ es inyectiva. Además, 
-\begin{equation}\label{res}
-\abs{\alpha_n - \beta_n} \leq L(\delta_n) \rightarrow 0
-\end{equation}
-\\
-Sea $\sigma_n$ el subarco cerrado de $\Gamma$ que tiene extremos $\alpha_n$ y $\beta_n$ y con un diámetro menor. Entonces \ref{res} implica que $\text{diam}(\sigma_n) \rightarrow 0$ porque $\Gamma$ es homeomorfa al círculo. Por el teorema de la curva de Jordan, $\sigma_n \cup \varphi(\gamma_{\delta_n})$ divide al plano en dos regiones, y una de ellas, llamémosla $U_n$ es acotada. Entonces $U_n \subset \Omega$ ya que $\mathbb{C}^* \setminus \xbar{\Omega}$ es conexo por arcos. Como
-\begin{equation}
-\label{res2}
-\text{diam}(\partial U_n) = \text{diam}(\sigma_n \cup \varphi(\gamma_{\delta_n})) \rightarrow 0,
-\text{ concluimos que }
-\text{diam}(U_n) \rightarrow 0.
-\end{equation} 
+    Entonces, existe una sucesión $\{ \delta_n\} \downarrow 0$ tal que $L(\delta_n) \rightarrow 0$. Cuando $L(\delta_n) < \infty$, la curva $\varphi(\gamma_{\delta_n})$ tiene extremos $\alpha_n, \beta_n \in \xbar{\Omega}$ y ambos puntos deben estar en $\Gamma = \partial \Omega$. De hecho, si $\alpha_n \in \Omega$, entonces algún punto cerca de $\alpha_n$ tiene dos preimágenes distintas en $\mathbb{D}$ y esto es imposible pues $\varphi$ es inyectiva. Además, 
+    \begin{equation}\label{res}
+        \abs{\alpha_n - \beta_n} \leq L(\delta_n) \rightarrow 0
+    \end{equation}
+    \\
+    Sea $\sigma_n$ el subarco cerrado de $\Gamma$ que tiene extremos $\alpha_n$ y $\beta_n$ y con un diámetro menor. Entonces \ref{res} implica que $\text{diam}(\sigma_n) \rightarrow 0$ porque $\Gamma$ es homeomorfa al círculo. Por el teorema de la curva de Jordan, $\sigma_n \cup \varphi(\gamma_{\delta_n})$ divide al plano en dos regiones, y una de ellas, llamémosla $U_n$ es acotada. Entonces $U_n \subset \Omega$ ya que $\mathbb{C}^* \setminus \xbar{\Omega}$ es conexo por arcos. Como
+    \begin{equation}
+        \label{res2}
+        \text{diam}(\partial U_n) = \text{diam}(\sigma_n \cup \varphi(\gamma_{\delta_n})) \rightarrow 0,
+        \text{ concluimos que }
+        \text{diam}(U_n) \rightarrow 0.
+    \end{equation} 
 
-Tomamos $D_n = \mathbb{D} \cup \{ z: \abs{z - \zeta} < \delta_n \}$. Sabemos que para $n$ suficientemente grande, $\varphi(D_n) = U_n$. Si no, por conexión tendríamos que $\varphi(\mathbb{D} \setminus \xbar{D_n}) = U_n$ y
-\begin{equation*}
-\text{diam} (U_n) \geq \text{diam} (\varphi(B(0, 1/2))) > 0
-\end{equation*}
+    Tomamos $D_n = \mathbb{D} \cup \{ z: \abs{z - \zeta} < \delta_n \}$. Sabemos que para $n$ suficientemente grande, $\varphi(D_n) = U_n$. Si no, por conexión tendríamos que $\varphi(\mathbb{D} \setminus \xbar{D_n}) = U_n$ y
+    \begin{equation*}
+        \text{diam} (U_n) \geq \text{diam} (\varphi(B(0, 1/2))) > 0
+    \end{equation*}
 
-que contracide con \ref{res2}. Entonces $\text{diam}(\varphi(D_n)) \rightarrow 0$ y $\bigcap \xbar{\varphi(D_n)}$ es un solo punto pues $\varphi(D_{n+1}) \subset \varphi(D_n)$. Esto significa que $\varphi$ tiene una extensión continua en $\mathbb{D} \cap \{ \zeta \}$. La extensión a todos estos puntos define una aplicación continua en $\overline{\mathbb{D}}$.
+    que contracide con \ref{res2}. Entonces $\text{diam}(\varphi(D_n)) \rightarrow 0$ y $\bigcap \xbar{\varphi(D_n)}$ es un solo punto pues $\varphi(D_{n+1}) \subset \varphi(D_n)$. Esto significa que $\varphi$ tiene una extensión continua en $\mathbb{D} \cap \{ \zeta \}$. La extensión a todos estos puntos define una aplicación continua en $\overline{\mathbb{D}}$.
 
-Denotemos ahora por $\varphi$ a la extensión $\varphi : \overline{\mathbb{D}} \rightarrow \xbar{\Omega}$. Como $\varphi(\mathbb{D}) = \Omega$, $\varphi$ lleva  $\overline{\mathbb{D}}$ en $\xbar{\Omega}$. Para probar que $\varphi$ es inyectiva, supongamos que $\varphi(\zeta_1) = \varphi(\zeta_2), \zeta_1 \not = \zeta_2$. El argumento utilizado para mostrar que $\alpha_n \in \Gamma$, también prueba que $\varphi (\partial \mathbb{D}) = \Gamma$, así que podemos suponer que $\zeta_j \in \partial \mathbb{D}, j=1,2$. La curva de Jordan
-\begin{equation*}
-\{\varphi (r \zeta_1) : 0 \leq r \leq 1\} \cup \{\varphi (r \zeta_2) : 0 \leq r \leq 1\}
-\end{equation*}
+    Denotemos ahora por $\varphi$ a la extensión $\varphi : \overline{\mathbb{D}} \rightarrow \xbar{\Omega}$. Como $\varphi(\mathbb{D}) = \Omega$, $\varphi$ lleva  $\overline{\mathbb{D}}$ en $\xbar{\Omega}$. Para probar que $\varphi$ es inyectiva, supongamos que $\varphi(\zeta_1) = \varphi(\zeta_2), \zeta_1 \not = \zeta_2$. El argumento utilizado para mostrar que $\alpha_n \in \Gamma$, también prueba que $\varphi (\partial \mathbb{D}) = \Gamma$, así que podemos suponer que $\zeta_j \in \partial \mathbb{D}, j=1,2$. La curva de Jordan
+    \begin{equation*}
+        \{\varphi (r \zeta_1) : 0 \leq r \leq 1\} \cup \{\varphi (r \zeta_2) : 0 \leq r \leq 1\}
+    \end{equation*}
 
-acota al dominio $W \subset \Omega$, luego $\varphi ^{-1} (W)$ es una de las dos componentes de
-\begin{equation*}
-\mathbb{D} \setminus ( \{ r \zeta_1 : 0 \leq r \leq 1\} \cup \{ r \zeta_2 : 0 \leq r \leq 1\})
-\end{equation*}
-\\
-Pero como $\varphi(\partial \mathbb{D}) \subset \Gamma$,
-\begin{equation*}
-\varphi(\partial \mathbb{D} \cap \partial \varphi ^{-1} (W)) \subset \partial W \cap \partial \Omega = \{ \varphi (\zeta_1)\}
-\end{equation*}
+    acota al dominio $W \subset \Omega$, luego $\varphi ^{-1} (W)$ es una de las dos componentes de
+    \begin{equation*}
+        \mathbb{D} \setminus ( \{ r \zeta_1 : 0 \leq r \leq 1\} \cup \{ r \zeta_2 : 0 \leq r \leq 1\})
+    \end{equation*}
+    \\
+    Pero como $\varphi(\partial \mathbb{D}) \subset \Gamma$,
+    \begin{equation*}
+        \varphi(\partial \mathbb{D} \cap \partial \varphi ^{-1} (W)) \subset \partial W \cap \partial \Omega = \{ \varphi (\zeta_1)\}
+    \end{equation*}
 
-y $\varphi$ es constante en un arco de $\partial \mathbb{D}$, se tiene que $\varphi$ es constante y esta contradicción prueba que $\varphi(\zeta_1) \not = \varphi(\zeta_2)$.
+    y $\varphi$ es constante en un arco de $\partial \mathbb{D}$, se tiene que $\varphi$ es constante y esta contradicción prueba que $\varphi(\zeta_1) \not = \varphi(\zeta_2)$.
 \end{proof}
 
 \begin{theorem}
-Sea $C$ un camino simple, cerrado y continuamente diferenciable con interior $D$. Sea $f \in \mathcal{H}(C \cup D)$ una aplicación inyectiva en $C$. Entonces $f$ es holomorfa e inyectiva en $D$. 
+    Sea $C$ un camino simple, cerrado y continuamente diferenciable con interior $D$. Sea $f \in \mathcal{H}(C \cup D)$ una aplicación inyectiva en $C$. Entonces $f$ es holomorfa e inyectiva en $D$. 
 \end{theorem}
 
 \begin{proof}
-La aplicación $w = f(z)$ lleva $C$ en un camino simple, cerrado y continuamente diferenciable $C'$. Sea $w_0$ un punto arbitrario que no esté en $C'$. Entonces,
-\begin{equation*}
-n = \dfrac{1}{2 \pi i} \int_{C_+} \dfrac{f'(z)}{f(z) - w_0} dz =  \dfrac{1}{2 \pi i} \int_{C'} \dfrac{dw}{w - w_0}.
-\end{equation*}
+    La aplicación $w = f(z)$ lleva $C$ en un camino simple, cerrado y continuamente diferenciable $C'$. Sea $w_0$ un punto arbitrario que no esté en $C'$. Entonces,
+    \begin{equation*}
+        n = \dfrac{1}{2 \pi i} \int_{C_+} \dfrac{f'(z)}{f(z) - w_0} dz =  \dfrac{1}{2 \pi i} \int_{C'} \dfrac{dw}{w - w_0}.
+    \end{equation*}
 
-Ahora la última integral es cero si $w_0$ está fuera de $C'$ y es $\pm 1$ si $w_0$ está dentro de $C'$. Sin embargo, $n$ no puede ser negativo pues la primera integral nos da el número de ceros de $f(z) - w_0$ dentro de $C$. Entonces, $n=1$ si $w_0$ está dentro de $C'$.
+    Ahora la última integral es cero si $w_0$ está fuera de $C'$ y es $\pm 1$ si $w_0$ está dentro de $C'$. Sin embargo, $n$ no puede ser negativo pues la primera integral nos da el número de ceros de $f(z) - w_0$ dentro de $C$. Entonces, $n=1$ si $w_0$ está dentro de $C'$.
 
-Esto prueba que $f(z) = w_0$ tiene una sola solución si $w_0$ está dentro de $C'$, que $f(z)$ es holomorfa e inyectiva en $D$ y lleva $D$ en $D'$ (el interior de $C'$) y que la dirección positiva de $C'$ se corresponde con la dirección positiva de $C$.
+    Esto prueba que $f(z) = w_0$ tiene una sola solución si $w_0$ está dentro de $C'$, que $f(z)$ es holomorfa e inyectiva en $D$ y lleva $D$ en $D'$ (el interior de $C'$) y que la dirección positiva de $C'$ se corresponde con la dirección positiva de $C$.
 \end{proof}
 
 \begin{comment}
