@@ -2,6 +2,8 @@
 *.DS_Store
 *.DS_STORE
 *.cvsignore
+*.swp
+*TeXiS-Manual-1.0.pdf
 
 ## Core latex/pdflatex auxiliary files:
 *.aux
