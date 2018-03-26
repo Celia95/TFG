@@ -23,24 +23,41 @@
 
 \begin{definition}
     Se llama núcleo de Poisson a la función $P$ definida por
-    \begin{equation*}
-        P:(r,t) \in [0,1)\times \mathbb{R} \mapsto P_r(t) = \sum_{n=-\infty}^{\infty} r^{\abs{n}}e^{int}
-    \end{equation*}
+    \begin{equation}
+        \label{poisson1}
+        P:(r,t) \in [0,1)\times \mathbb{R} \mapsto P_r(t) = \sum_{n=-\infty}^{\infty} r^{\abs{n}}e^{int}.
+    \end{equation}
 
-    Si $z=re^{i \theta}$, con $r \in [0,1)$ y $\theta \in \mathbb{R}$, se tiene que
-    \begin{equation*}
+    Podemos considerar el núcleo de Poisson como una función de dos variables $r$ y $t$ o como una familia de funciones de $t$ que dependen de $r$.
+
+    Dados $z=re^{i \theta}$, con $r \in [0,1)$ y $\theta \in \mathbb{R}$ se tiene que
+    \begin{equation}
+    \label{poisson2}
         P_r(\theta - t) = \Re \left[ \dfrac{e^{it} + z}{e^{it} - z} \right] = \dfrac{1 - r^2}{1 - 2r \cos (\theta - t) + r^2}
+    \end{equation}
+    para todo $t \in \mathbb{R}$. En efecto:
+
+    \begin{multline*}
+        P_r(t) = \sum_{n=-\infty}^{\infty} r^{\abs{n}}e^{int} = 1 + \sum_{n=1}^{\infty} r^n e^{int} + \sum_{n=1}^{\infty} r^n e^{-int} = 1 + \sum_{n=1}^{\infty} r^n (e^{int} + e^{-int}) = \\
+        1 + \sum_{n=1}^{\infty} r^n 2 \Re(e^{int}) = \Re \left[ 1 + 2 \sum_{n=1}^{\infty} (r e^{it})^n  \right] = \Re \left[ 1 + 2 \dfrac{re^{it}}{1-re^{it}} \right] = \Re \left[\dfrac{1 + re^{it}}{1-re^{it}} \right].
+    \end{multline*}
+    \\ \par
+    Por otra parte
+    \begin{equation*}
+        \Re \left[ \dfrac{1 + re^{it}}{1-re^{it}} \right] = \Re \left[ \dfrac{(1 + re^{it})(1 - re^{it})}{\abs{1-re^{it}}^2} \right] = \dfrac{1 - r^2}{1 - 2r \cos (\theta - t) + r^2}.
     \end{equation*}
 \end{definition}
 
-\bigskip
+\newpage
 
-Propiedades de la integral de Poisson:
+\textbf{Propiedades del núcleo de Poisson:}% \\ \par
 
+%De \ref{poisson1} tenemos que
 \begin{equation}
-    \dfrac{1}{2 \pi} \int_{- \pi}^{\pi} P_r (t) dt = 1, \forall r \in [0,1)
+    \dfrac{1}{2 \pi} \int_{- \pi}^{\pi} P_r (t) dt = 1, \forall r \in [0,1).
 \end{equation}
 
+%De \ref{poisson2} se sigue que
 \begin{equation}
     P_r(t) > 0, \forall r \in [0,1), t \in \mathbb{R}
 \end{equation}
@@ -57,16 +74,24 @@ Propiedades de la integral de Poisson:
     \lim_{r \rightarrow 1} P_r(\delta) = 0, \forall \delta \in (0,\pi]
 \end{equation}
 
-\medskip
+\bigskip \par
 
 \begin{definition}
-    Se llama integral de Poisson de una función $f \in L^p(\partial \mathbb{D})$ a la función $F$ definida en $\mathbb{D}$ dada por
+    Se llama integral de Poisson de una función $f \in L^1(\partial \mathbb{D})$ a la función $F$ dada por
     \begin{equation*}
-        F(re^{i \theta}) = \dfrac{1}{2 \pi} \int_{- \pi}^{\pi} P_r (\theta - t) f(t) dt.
+        F: z=re^{i \theta} \in \mathbb{D} \mapsto F(re^{i \theta}) = \dfrac{1}{2 \pi} \int_{- \pi}^{\pi} P_r (\theta - t) f(t) dt.
     \end{equation*}
 
     Algunas veces nos convendrá referirnos a ella como $F=P[f]$.
 \end{definition}
+
+\bigskip
+
+Además si $f$ lleva $\partial \mathbb{D}$ en los reales, \ref{poisson2} nos muestra que
+
+\begin{equation*}
+     P[f] = \Re \left[ \dfrac{1}{2} \int_{-\pi}^{\pi} \dfrac{e^{it} + z}{e^{it} - z} f(t) dt \right].
+\end{equation*}
 
 \subsection{Teorema de Fatou}
 
@@ -95,12 +120,12 @@ Propiedades de la integral de Poisson:
 
 \begin{proof}
     La existencia de $f^*$ se sigue de las observaciones anteriores.
-    
+
     Por \ref{fatou1}, tenemos que $\norminf{f^*} \leq \norminf{f}$.
 
     Si $z \in U$ y $\abs{z} < r < 1$, tomemos $\gamma_r(t) = r e^{it}, 0 \leq t \leq 2\pi$. Entonces,
     \begin{equation*}
-        f(z) = \dfrac{1}{2 \pi i} \int_{\gamma_r} \dfrac{f(\xi)}{\xi - z} d\xi = 
+        f(z) = \dfrac{1}{2 \pi i} \int_{\gamma_r} \dfrac{f(\xi)}{\xi - z} d\xi =
         \dfrac{r}{2 \pi} \int_{-\pi}^{\pi} \dfrac{f(re^{it})}{re^{it} - z} dt
     \end{equation*}
 
@@ -154,7 +179,7 @@ Propiedades de la integral de Poisson:
     Podemos escribir
     \begin{equation*}
         w - w_0 = f(z) - f(z_0) = \dfrac{f(z)-f(z_0)}{z - z_0} (z - z_0)
-    \end{equation*}
+    \end{equation*}Entonces
 
     Entonces
     \begin{equation*}
@@ -228,8 +253,7 @@ Propiedades de la integral de Poisson:
     \end{equation*}
     \\
     %Figura
-
-    Entonces, existe una sucesión $\{ \delta_n\} \downarrow 0$ tal que $L(\delta_n) \rightarrow 0$. Cuando $L(\delta_n) < \infty$, la curva $\varphi(\gamma_{\delta_n})$ tiene extremos $\alpha_n, \beta_n \in \xbar{\Omega}$ y ambos puntos deben estar en $\Gamma = \partial \Omega$. De hecho, si $\alpha_n \in \Omega$, entonces algún punto cerca de $\alpha_n$ tiene dos preimágenes distintas en $\mathbb{D}$ y esto es imposible pues $\varphi$ es inyectiva. Además, 
+    Entonces, existe una sucesión $\{ \delta_n\} \downarrow 0$ tal que $L(\delta_n) \rightarrow 0$. Cuando $L(\delta_n) < \infty$, la curva $\varphi(\gamma_{\delta_n})$ tiene extremos $\alpha_n, \beta_n \in \xbar{\Omega}$ y ambos puntos deben estar en $\Gamma = \partial \Omega$. De hecho, si $\alpha_n \in \Omega$, entonces algún punto cerca de $\alpha_n$ tiene dos preimágenes distintas en $\mathbb{D}$ y esto es imposible pues $\varphi$ es inyectiva. Además,
     \begin{equation}\label{res}
         \abs{\alpha_n - \beta_n} \leq L(\delta_n) \rightarrow 0
     \end{equation}
@@ -240,7 +264,7 @@ Propiedades de la integral de Poisson:
         \text{diam}(\partial U_n) = \text{diam}(\sigma_n \cup \varphi(\gamma_{\delta_n})) \rightarrow 0,
         \text{ concluimos que }
         \text{diam}(U_n) \rightarrow 0.
-    \end{equation} 
+    \end{equation}
 
     Tomamos $D_n = \mathbb{D} \cup \{ z: \abs{z - \zeta} < \delta_n \}$. Sabemos que para $n$ suficientemente grande, $\varphi(D_n) = U_n$. Si no, por conexión tendríamos que $\varphi(\mathbb{D} \setminus \xbar{D_n}) = U_n$ y
     \begin{equation*}
@@ -268,7 +292,7 @@ Propiedades de la integral de Poisson:
 \end{proof}
 
 \begin{theorem}
-    Sea $C$ un camino simple, cerrado y continuamente diferenciable con interior $D$. Sea $f \in \mathcal{H}(C \cup D)$ una aplicación inyectiva en $C$. Entonces $f$ es holomorfa e inyectiva en $D$. 
+    Sea $C$ un camino simple, cerrado y continuamente diferenciable con interior $D$. Sea $f \in \mathcal{H}(C \cup D)$ una aplicación inyectiva en $C$. Entonces $f$ es holomorfa e inyectiva en $D$.
 \end{theorem}
 
 \begin{proof}
@@ -296,15 +320,15 @@ and programmed by Alain Matthes on http://tex.stackexchange.com/q/1238/ .
 \begin{tikzpicture}
   \node at (0,0) {$F : I \times I \rightarrow X$};
   \node[label=below:$x_1$]  (x1) at (6,0)  {$\bullet$};
-  \node[label=above:$x_0$]  (x0) at (9,4)  {$\bullet$};  
-  \node  at (9.5,2)  {$\subset X$}; 
+  \node[label=above:$x_0$]  (x0) at (9,4)  {$\bullet$};
+  \node  at (9.5,2)  {$\subset X$};
   \draw (x1.center) to [out=5,in=-90]++(2.8,1.8) to[out=90,in=-95](x0.center);
-  \draw (x1.center) to [out=10,in=-110]++(2.6,2) to[out=70,in=-103](x0.center); 
+  \draw (x1.center) to [out=10,in=-110]++(2.6,2) to[out=70,in=-103](x0.center);
   \draw (x1.center) to [out=15,in=-105](x0.center);
   \draw (x1.center) to [out=30,in=-150](x0.center);
-  \draw (x1.center) to [out=45,in=-170](x0.center); 
-  \draw (x1.center) to [out=50,in=-105]++(1.2,3)to [out=75,in=-172](x0.center); 
-  \draw (x1.center) to [out=55,in=-100]++(1.0,3) to[out=80,in=-175](x0.center); 
+  \draw (x1.center) to [out=45,in=-170](x0.center);
+  \draw (x1.center) to [out=50,in=-105]++(1.2,3)to [out=75,in=-172](x0.center);
+  \draw (x1.center) to [out=55,in=-100]++(1.0,3) to[out=80,in=-175](x0.center);
   \draw (x1.center) to [out=60,in=-90]++(0.8,3) to[out=90,in=-180] (x0.center);
   \begin{scope}[every node/.style={draw, anchor=text, rectangle split,
     rectangle split parts=7,minimum width=2cm}]
@@ -314,15 +338,15 @@ and programmed by Alain Matthes on http://tex.stackexchange.com/q/1238/ .
   \draw[decorate,decoration={brace,mirror,raise=6pt,amplitude=10pt}, thick]
     (R.north west)--(R.south west) ;
   \draw[decorate,decoration={brace,raise=6pt,amplitude=10pt}, thick]
-    (R.north east)--(R.south east); 
+    (R.north east)--(R.south east);
   \draw[->] ($(R.west)+(-20pt,0)$) to[out=-180,in=240] ++(0,2)
-    to [out=60,in=120]node[above,midway]{$F(0,t_2)$}(x0) ; 
+    to [out=60,in=120]node[above,midway]{$F(0,t_2)$}(x0) ;
   \draw[->] ($(R.north)+(0,10pt)$) to [out=60,in=120]
-    node[above,midway]{$\beta \simeq \alpha$} ++(4.5,-1) ; 
+    node[above,midway]{$\beta \simeq \alpha$} ++(4.5,-1) ;
   \draw[->] ($(R.east)+(20pt,0)$)  to [out=0,in=140]
-    node[right,midway]{$F(1,t_2)$}(x1) ; 
+    node[right,midway]{$F(1,t_2)$}(x1) ;
   \draw[->] ($(R.south)+(0,-20pt)$)  to [out=-85,in=-30]
-    node[below,midway]{$\alpha$}++(7,0) ;    
+    node[below,midway]{$\alpha$}++(7,0) ;
 \end{tikzpicture}
 
 \begin{tikzpicture}
@@ -332,7 +356,6 @@ and programmed by Alain Matthes on http://tex.stackexchange.com/q/1238/ .
 
 \draw (3,0) .. controls (0,-0.3) and (1,-1) .. (0,1);
 \end{tikzpicture}
-
 
 \begin{tikzpicture}[use Hobby shortcut,closed=true]
       \filldraw [gray] (-3.5,0.5) circle (2pt)
