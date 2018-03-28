@@ -32,7 +32,7 @@
 
     Dados $z=re^{i \theta}$, con $r \in [0,1)$ y $\theta \in \mathbb{R}$ se tiene que
     \begin{equation}
-    \label{poisson2}
+        \label{poisson2}
         P_r(\theta - t) = \Re \left[ \dfrac{e^{it} + z}{e^{it} - z} \right] = \dfrac{1 - r^2}{1 - 2r \cos (\theta - t) + r^2}
     \end{equation}
     para todo $t \in \mathbb{R}$. En efecto:
@@ -98,7 +98,7 @@ Además si $f$ lleva $\partial \mathbb{D}$ en los reales, \ref{poisson2} nos mue
 Para demostrar el Teorema de Fatou nos vamos a basar en unos resultados clásicos del libro \citet[chap. 11]{rudin} que no vamos a probar.
 
 \begin{theorem}
-\label{fatouaux1}
+    \label{fatouaux1}
     Si $f \in L^1(\partial \mathbb{D})$ y $F = P[f]$, entonces
     \begin{equation*}
         \lim_{r \rightarrow 1} F(re^{i \theta}) = f(e^{i \theta})
@@ -106,7 +106,7 @@ Para demostrar el Teorema de Fatou nos vamos a basar en unos resultados clásico
 \end{theorem}
 
 \begin{theorem}
-\label{fatouaux2}
+    \label{fatouaux2}
     Sean $f \in C (\partial \mathbb{D}), F=P[f]$ y
     \begin{equation*}
         u(re^{i \theta}) =
@@ -179,14 +179,15 @@ Para demostrar el Teorema de Fatou nos vamos a basar en unos resultados clásico
 \end{definition}
 
 \begin{prop}
-    Sea $U \subset \mathbb{C}$. Una aplicación $f: U \rightarrow \mathbb{C}$ es conforme en $U$ si (y solo si) $f \in \mathcal{H}(U)$ y $f'(z) \not = 0 \, \forall z \in U$.
+    Sea $U \subset \mathbb{C}$. Una aplicación $f: U \rightarrow \mathbb{C}$ es conforme en $U$ si y solo si $f \in \mathcal{H}(U)$ y $f'(z) \not = 0 \, \forall z \in U$.
 \end{prop}
 
 \begin{proof}
+    \begin{comment}
     $(\Leftarrow)$ Supongamos que $f(z)$ es una función holomorfa en $U$ tal que $f'(z) \not = 0$ para $z \in U$ y consideremos $f:z \rightarrow w=f(z)$. Sea $\gamma: [a,b] \rightarrow U$ una curva simple. Consideremos $\lambda = (f \circ  \gamma)(t)$. Por la regla de la cadena, $\lambda$ es continuamente diferenciable y como $f'(\gamma(t)) \not = 0$, tenemos
     \begin{equation}
-    \label{chain}
-    \lambda'(t) = f'(\gamma(t))\gamma'(t).
+        \label{cadena}
+        \lambda'(t) = f'(\gamma(t))\gamma'(t).
     \end{equation}
     Por lo tanto, $\lambda$ es una curva simple en el plano $w$.
 
@@ -204,11 +205,12 @@ Para demostrar el Teorema de Fatou nos vamos a basar en unos resultados clásico
     \end{equation*}
 
     Así, el ángulo entre las curvas $\lambda_1$ y $\lambda_2$ en $d = \lambda_1(a) = \lambda_2(a)$ es igual al ángulo $\theta$ entre las curvas $\gamma_1$ y $\gamma_2$ en $c$. \\ \par
+    \end{comment}
 
     $(\Leftarrow)$ Supongamos que $f(z)$ es una función holomorfa en $U$ tal que $f'(z) \not = 0$ para $z \in U$ y consideremos $f:z \rightarrow w=f(z)$. Sea $\gamma: [a,b] \rightarrow U$ una curva simple. Consideremos $\lambda = (f \circ  \gamma)(t)$. Por la regla de la cadena, $\lambda$ es continuamente diferenciable y como $f'(\gamma(t)) \not = 0$, tenemos
     \begin{equation}
-    \label{chain}
-    \lambda'(t) = f'(\gamma(t))\gamma'(t).
+        \label{cadena}
+        \lambda'(t) = f'(\gamma(t))\gamma'(t).
     \end{equation}
 
     Por lo tanto, $\lambda$ es una curva simple en el plano $w$.
@@ -218,38 +220,85 @@ Para demostrar el Teorema de Fatou nos vamos a basar en unos resultados clásico
         \dfrac{\gamma_2'(a)}{\gamma_1'(a)} = \abs{\dfrac{\gamma_2'(a)}{\gamma_1'(a)}} e^{i\theta}.
     \end{equation*}
 
-    La aplicación $f$ lleva las curvas $\gamma_1$ y $\gamma_2$ en curvas simples $\lambda_1=f(\gamma_1)$ y $\lambda_2=f(\gamma_2)$ que tienen como punto inicial $d=f(c)$. Por \ref{chain} tenemos
+    La aplicación $f$ lleva las curvas $\gamma_1$ y $\gamma_2$ en curvas simples $\lambda_1=f(\gamma_1)$ y $\lambda_2=f(\gamma_2)$ que tienen como punto inicial $d=f(c)$. Por \ref{cadena} tenemos
     \begin{equation*}
         \dfrac{\lambda_2'(a)}{\lambda_1'(a)} = \dfrac{\gamma_2'(a)}{\gamma_1'(a)}
     \end{equation*}
-    entonoces el ángulo entre las curvas $\lambda_1$ y $\lambda_2$ en $d = \lambda_1(a) = \lambda_2(a)$ es igual al ángulo $\theta$ entre las curvas $\gamma_1$ y $\gamma_2$ en $c$.
+    entonoces el ángulo entre las curvas $\lambda_1$ y $\lambda_2$ en $d = \lambda_1(a) = \lambda_2(a)$ es igual al ángulo $\theta$ entre las curvas $\gamma_1$ y $\gamma_2$ en $c$. \\ \par
 
-    \begin{comment}
-        $(\Rightarrow)$ Supongamos que $f$ es conforme y que $\frac{\partial f}{\partial x}$ y $\frac{\partial f}{\partial y}$ son continuas. En este caso tenemos
-        \begin{equation*}
-            w'(t_0) = \dfrac{\partial f}{\partial x} x'(t_0) +  \dfrac{\partial f}{\partial y} y'(t_0)
-        \end{equation*}
+    $(\Rightarrow)$ Supongamos que $f$ es conforme. Fijamos $z$ un punto arbitrario de $U$, y elegimos $\varepsilon > 0$ tal que $D(z, \varepsilon) \subset U$. Consideremos la familia de curvas simples $\gamma_{\theta}(t) = z + te^{i \theta}, 0 \leq t \leq \varepsilon, \theta \in \mathbb{R}$. Nótese que el ángulo entre $\gamma_0$ y $\gamma_{\theta}$ en $z$ es $\theta$.
 
-        Podemos reescribir esto de la siguiente manera
-        \begin{equation*}
-            w'(t_0) = \dfrac{1}{2} \left( \dfrac{\partial f}{\partial x} - i\dfrac{\partial f}{\partial y} \right) z'(t_0) + \dfrac{1}{2} \left( \dfrac{\partial f}{\partial x} + i\dfrac{\partial f}{\partial y} \right) \xbar{z'(t_0)}
-        \end{equation*}
 
-        Si los ángulos se preservan entonces $\arg{(w'(t_0/z'(t_0)))}$ es independiente de $z'(t_0)$. Así,
-        \begin{equation*}
-            \dfrac{1}{2} \left( \dfrac{\partial f}{\partial x} - i\dfrac{\partial f}{\partial y} \right) + \dfrac{1}{2} \left( \dfrac{\partial f}{\partial x} + i\dfrac{\partial f}{\partial y} \right) \left( \dfrac{\xbar{z'(t_0)}}{z'(t_0)} \right)
-        \end{equation*}
-        tiene argumento constante.
+    Tomemos $\lambda_\theta = (f \circ  \gamma_\theta)(t)$ la familia de curvas simples. Como $f$ es conforme, el ángulo entre $\lambda_0$ y $\lambda_{\theta}$ en $f(z)$ es $\theta$. Si escribimos el argumento de $\lambda_0'(0)$ como $\alpha$, tenemos
+    \begin{equation*}
+    \label{conformal}
+        e^{-i(\theta + \alpha)} \lambda_{\theta}'(0)= \abs{\lambda_{\theta}'(0)} > 0.
+    \end{equation*}
+    \ref{cauchy-riemann}, nos dice que
+    \begin{equation*}
+    \begin{split}
+        \lambda_{\theta}'(0) & = u_x \cos \theta + u_y \sin \theta + i(v_x \cos \theta + v_y \sin \theta) = \\
+                             & = (u_x + iv_x) \cos \theta + (u_y + i v_y) \sin \theta = f_x \cos \theta + f_y \sin \theta,
+    \end{split}
+    \end{equation*}
+    por lo que
+    \begin{equation*}
+        2 \lambda_{\theta}'(0) = (f_x - i f_y) e^{i \theta} + (f_x + i f_y) e^{-i \theta}.
+    \end{equation*}
 
-        Supongamos que $z'(t_0) = re^{i \theta}$. Entonces
-        \begin{equation*}
-            \dfrac{\xbar{z'(t_0)}}{z'(t_0)} = \dfrac{re^{-i \theta}}{re^{i \theta}} = e^{-2i \theta}
-        \end{equation*}
+    Entonces por \ref{conformal},
+    \begin{equation*}
+         (f_x - i f_y) e^{-i \alpha} + (f_x + i f_y) e^{-2i \theta} = 2 \abs{\lambda_{\theta}'(0)}.
+    \end{equation*}
 
-        Mientras $z'(t_0)$ varía, la curva describe una circunferencia de radio $\frac{1}{2} \abs{\frac{\partial f}{\partial x} - i\frac{\partial f}{\partial y}}$. El argumento solo puede ser constante si $\frac{\partial f}{\partial x} - i\frac{\partial f}{\partial y}$ es cero. Como hemos visto, estas ecuaciones implican que es holomorfa.
-    \end{comment}
+    Derivando en ambos lados con respecto a $\theta$, obtenemos
+    \begin{equation*}
+        -2i (f_x + i f_y) e^{-2i \theta - i \alpha} = \frac{2d}{d \theta} \abs{\lambda_{\theta}'(0)}.
+    \end{equation*}
+
+    Como $\theta$ es una variable real y la parte de la derecha de la igualdad solo toma valores reales, concluimos que
+    \begin{equation*}
+        f_x + i f_y = 0
+    \end{equation*}
+    por lo que
+    \begin{equation*}
+        u_x + v_y + i(v_x + u_y) = 0.
+    \end{equation*}
+
+    Como vemos, $u(x,y)$ y $v(x,y)$ satisfacen las ecuaciones de Cauchy-Riemann en $U$. Luego $f(z) = u(x,y) + i v(x,y)$ es holomorfa en $z = x + iy \in U$. Falta ver que $f(z) \not = 0, z \in U$.
 \end{proof}
 
+\begin{comment}
+\begin{prop}
+    Sea $U \subset \mathbb{C}$. Una aplicación $f: U \rightarrow \mathbb{C}$ es conforme en $U$ si satisface las condiciones de Cauchy-Riemann y $f'(z) \not = 0 \, \forall z \in U$.
+\end{prop}
+
+\begin{proof}
+    Sea $f$ una función continua tal que $f(z) = u(x,y) + i v(x,y), z = x+iv$. Sabemos, por hipótesis, que $u(x,y)$ y $v(x,y)$ son funciones continuamente diferenciables.
+
+    Consideremos la curva simple $\gamma : [a,b] \rightarrow U$, que escribimos como $\gamma (t) = \rho (t) + i \sigma (t)$. Entonces,
+    \begin{equation*}
+        f(\gamma (t)) = u(\rho (t), \sigma (t)) + i v(\rho (t), \sigma (t)).
+    \end{equation*}
+
+    Como $f(\gamma (t))$ es continuamente diferenciable,
+    \begin{equation}
+        \label{cauchy-riemann}
+        \frac{d}{dt}f(\gamma (t)) = u_x \rho' (t) + u_y \sigma' (t) + i (v_x \rho'(t) + v_y \sigma'(t)).
+    \end{equation}
+
+    Por hipótesis tenemos que
+    \begin{equation*}
+        \frac{\partial (u,v)}{\partial (x,y)} =
+        \left|
+        \begin{matrix}
+            u_x(x,y) & u_y(x,y) \\ v_x(x,y) & v_y(x,y)
+        \end{matrix}
+        \right| \not = 0,
+    \end{equation*}
+    por lo que $\frac{d}{dt} f(\gamma (t)) \not = 0$ en $t = 0$ pues $\rho' (t) + i \sigma' (t) = \gamma' (t) \not = 0$. Es decir, la curva $f (\gamma)$ es simple en un entorno de su origen. Por lo tanto, si $\gamma_1$ y $\gamma_2$ son curvas simples con origen $c$, el ángulo entre $f(\gamma_1)$ y $f(\gamma_2)$ en $f(c)$ está bien definido.
+\end{proof}
+\end{comment}
 \bigskip
 
 \begin{theorem}[Teorema de Carathéodory]
