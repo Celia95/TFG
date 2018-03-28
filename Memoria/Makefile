@@ -9,7 +9,7 @@
 #
 # Copyright 2009 Pedro Pablo Gomez-Martin,
 #                Marco Antonio Gomez-Martin
-# 
+#
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
 # the Free Software Foundation, either version 3 of the License, or
@@ -38,7 +38,7 @@ FICHEROS_GLOSARIO = acronimos.gdf
 
 #
 # Genera el documento utilizando pdflatex
-# 
+#
 pdflatex:
 	pdflatex $(NOMBRE_LATEX)
 	-bibtex $(NOMBRE_LATEX)
@@ -109,7 +109,7 @@ imagenesbitmap:
 fast:
 	pdflatex $(NOMBRE_LATEX)
 
-# 
+#
 # Equivalente a fast, pero usando LaTeX
 #
 fastlatex:
@@ -204,7 +204,7 @@ crearZip:
 # se borran todos los ficheros intermedios y backups, y se comprime
 # todo en un .zip que se mete automáticamente en el directorio
 # VersionesPrevias utilizando como nombre la fecha y hora actuales.
-# 
+#
 crearVersion: crearZip
 	mv $(NOMBRE_LATEX).zip VersionesPrevias/$(NOMBRE_LATEX)`date --iso-8601=minutes`.zip
 
@@ -213,7 +213,7 @@ crearVersion: crearZip
 # Limpia todo el proyecto (incluyendo copias de seguridad), genera el pdf
 # con pdflatex, vuelve a limpiarlo todo, y crea un .zip completo de todo el directorio
 # que almacena en ../$(NOMBRE_LATEX).zip (en el directorio de fuera!!!).
-crearBackup: 
+crearBackup:
 	make clean
 	make pdflatex
 	mv $(NOMBRE_LATEX).pdf $(NOMBRE_LATEX).pdf_
@@ -223,9 +223,9 @@ crearBackup:
 
 
 help:
-	@echo 
+	@echo
 	@echo Objetivos disponibles:
-	@echo 
+	@echo
 	@echo "   pdflatex [predefinido] : Genera el pdf usando pdflatex"
 	@echo "   latex : Genera el pdf usando latex"
 	@echo "   fast : Genera el pdf usando pdflatex de una manera rápida"
@@ -247,6 +247,6 @@ help:
 	@echo "   crearVersion : como crearZip, pero lo guarda en VersionesPrevias"
 	@echo "   crearBackup : genera un .zip que incluye también los .zip de las"
 	@echo "                 versiones previas, y lo guarda en el directorio padre"
-	@echo 
+	@echo
 
 ayuda: help

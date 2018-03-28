@@ -95,6 +95,28 @@ Además si $f$ lleva $\partial \mathbb{D}$ en los reales, \ref{poisson2} nos mue
 
 \subsection{Teorema de Fatou}
 
+Para demostrar el Teorema de Fatou nos vamos a basar en unos resultados clásicos del libro \citet[chap. 11]{rudin} que no vamos a probar.
+
+\begin{theorem}
+\label{fatouaux1}
+    Si $f \in L^1(\partial \mathbb{D})$ y $F = P[f]$, entonces
+    \begin{equation*}
+        \lim_{r \rightarrow 1} F(re^{i \theta}) = f(e^{i \theta})
+    \end{equation*}
+\end{theorem}
+
+\begin{theorem}
+\label{fatouaux2}
+    Sean $f \in C (\partial \mathbb{D}), F=P[f]$ y
+    \begin{equation*}
+        u(re^{i \theta}) =
+        \begin{cases}
+            f(re^{i\theta}) & \text{si } r=1\\ F(re^{i\theta}) & \text{si } 0 \leq r<1
+        \end{cases}
+    \end{equation*}
+    Entonces $u$ es una función continua en el disco cerrado $\xbar{\mathbb{D}}$.
+\end{theorem}
+
 \begin{theorem}[Teorema de Fatou]
     Para toda función $f \in \mathcal{H}^\infty(\mathbb{D})$, existe una función $f^* \in L^{\infty} (\partial \mathbb{D})$ definida en casi todo punto tal que
     \begin{equation}
@@ -119,7 +141,7 @@ Además si $f$ lleva $\partial \mathbb{D}$ en los reales, \ref{poisson2} nos mue
 \end{theorem}
 
 \begin{proof}
-    La existencia de $f^*$ se sigue de las observaciones anteriores.
+    La existencia de $f^*$ se sigue de los teoremas \ref{fatouaux1} y \ref{fatouaux2}.
 
     Por \ref{fatou1}, tenemos que $\norminf{f^*} \leq \norminf{f}$.
 
@@ -140,9 +162,12 @@ Además si $f$ lleva $\partial \mathbb{D}$ en los reales, \ref{poisson2} nos mue
     \end{equation*}
 
     Pasando al límite tenemos que $f^*$ cumple \ref{fatou3}. Además, podemos convertir \ref{fatou_proof} en una integral de Poisson, si $z = re^{i \theta}$,
-    \begin{multline*}
-        f(z) = \dfrac{1}{2 \pi} \int_{- \pi}^{\pi} f^*(e^{it}) \sum_{n=0}^{\infty} r^n e^{in(\theta - t)} dt = \\  \dfrac{1}{2 \pi} \int_{- \pi}^{\pi} f^*(e^{it}) \sum_{n=-\infty}^{\infty} r^{\abs{n}} e^{in(\theta - t)} dt =  \dfrac{1}{2 \pi} \int_{- \pi}^{\pi} P_r(\theta - t) f^*(e^{it}) dt
-    \end{multline*}
+    \begin{equation*}
+         \begin{split}
+             f(z) &  = \dfrac{1}{2 \pi} \int_{- \pi}^{\pi} f^*(e^{it}) \sum_{n=0}^{\infty} r^n e^{in(\theta - t)} dt =  \dfrac{1}{2 \pi} \int_{- \pi}^{\pi} f^*(e^{it}) \sum_{n=-\infty}^{\infty} r^{\abs{n}} e^{in(\theta - t)} dt = \\
+                  & =  \dfrac{1}{2 \pi} \int_{- \pi}^{\pi} P_r(\theta - t) f^*(e^{it}) dt
+         \end{split}
+    \end{equation*}
 
     De esto concluimos que $\norminf{f} \leq \norminf{f^*}$, así que ambas normas coinciden.
 \end{proof}
