@@ -183,45 +183,46 @@ Para demostrar el Teorema de Fatou nos vamos a basar en unos resultados clásico
 \end{prop}
 
 \begin{proof}
-    $(\Leftarrow)$ Supongamos que $f: U \rightarrow \mathbb{C}$ es holomorfa en $U$ y $f'(z) \not = 0 \, \forall z \in U$. Sea $\gamma: [a,b] \rightarrow U$ una curva simple y sea $z = z(t) = x(t) + iy(t) = \gamma (t)$ la ecuación paramétrica de $\gamma$. Consideremos $w = (f \circ  z)(t)$ holomorfa en $U$.
+    $(\Leftarrow)$ Supongamos que $f(z)$ es una función holomorfa en $U$ tal que $f'(z) \not = 0$ para $z \in U$ y consideremos $f:z \rightarrow w=f(z)$. Sea $\gamma: [a,b] \rightarrow U$ una curva simple. Consideremos $\lambda = (f \circ  \gamma)(t)$. Por la regla de la cadena, $\lambda$ es continuamente diferenciable y como $f'(\gamma(t)) \not = 0$, tenemos
+    \begin{equation}
+    \label{chain}
+    \lambda'(t) = f'(\gamma(t))\gamma'(t).
+    \end{equation}
+    Por lo tanto, $\lambda$ es una curva simple en el plano $w$.
 
-    Ahora por la regla de la cadena $w'(t) = f'(z(t))z'(t)$. Como el argumento es aditivo para la multiplicación de funciones, tenemos
+    Sean $\gamma_1, \gamma_2: [a,b] \rightarrow U$ curvas simples tales que $c=\gamma_1(a) = \gamma_2(a)$. Definimos el ángulo $\theta$ entre $\gamma_1$ y $\gamma_2$ en $c$ como el argumento de $\frac{\gamma_2'(a)}{\gamma_1'(a)}$. Como el argumento es aditivo para la multiplicación de funciones, tenemos que
     \begin{equation*}
-        \arg{w'(t_0)} = \arg{f'(z(t_0))} + \arg{z'(t_0)}
+    \begin{split}
+        \arg \lambda_1'(a) = \arg f'(c) + \arg \gamma_1'(a)\\
+        \arg \lambda_2'(a) = \arg f'(c) + \arg \gamma_2'(a)
+    \end{split}
     \end{equation*}
 
-    $f(z)$ rota el vector tangente a $\gamma(t_0) = z_0$ por el mismo ángulo ($\arg{f'(z_0)}$), independientemente del camino $\gamma$.
-
-    Si nos fijamos en el módulo, obtenemos un resultado similar,
+    y entonces
     \begin{equation*}
-        \lim_{z \rightarrow z_0} \dfrac{\abs{f(z) - f(z_0)}}{\abs{z - z_0}} = \abs{f'(z_0)}
+        \arg  \frac{\lambda_2'(a)}{\lambda_1'(a)} = \arg \lambda_2'(a) - \arg \lambda_1'(a) = \arg \gamma_2'(a) - \arg \gamma_1'(a) = \arg  \frac{\gamma_2'(a)}{\gamma_1'(a)}.
     \end{equation*}
 
-    Así, $f(z)$ cambia el módulo de la distancia entre los puntos por el mismo factor, independientemente de la dirección en la que nos aproximemos a $z_0$. \\
+    Así, el ángulo entre las curvas $\lambda_1$ y $\lambda_2$ en $d = \lambda_1(a) = \lambda_2(a)$ es igual al ángulo $\theta$ entre las curvas $\gamma_1$ y $\gamma_2$ en $c$. \\ \par
 
-    \noindent\rule{8cm}{0.4pt}
+    $(\Leftarrow)$ Supongamos que $f(z)$ es una función holomorfa en $U$ tal que $f'(z) \not = 0$ para $z \in U$ y consideremos $f:z \rightarrow w=f(z)$. Sea $\gamma: [a,b] \rightarrow U$ una curva simple. Consideremos $\lambda = (f \circ  \gamma)(t)$. Por la regla de la cadena, $\lambda$ es continuamente diferenciable y como $f'(\gamma(t)) \not = 0$, tenemos
+    \begin{equation}
+    \label{chain}
+    \lambda'(t) = f'(\gamma(t))\gamma'(t).
+    \end{equation}
 
-    Podemos escribir
+    Por lo tanto, $\lambda$ es una curva simple en el plano $w$.
+
+    Sean $\gamma_1, \gamma_2: [a,b] \rightarrow U$ curvas simples tales que $c=\gamma_1(a) = \gamma_2(a)$. Definimos el ángulo $\theta$ entre $\gamma_1$ y $\gamma_2$ en $c$ como el argumento de $\frac{\gamma_2'(a)}{\gamma_1'(a)}$, es decir,
     \begin{equation*}
-        w - w_0 = f(z) - f(z_0) = \dfrac{f(z)-f(z_0)}{z - z_0} (z - z_0)
-    \end{equation*}Entonces
-
-    Entonces
-    \begin{equation*}
-        \arg{(w - w_0)} =  \arg{ \left( \dfrac{f(z)-f(z_0)}{z - z_0} \right)} + \arg{(z - z_0)}
+        \dfrac{\gamma_2'(a)}{\gamma_1'(a)} = \abs{\dfrac{\gamma_2'(a)}{\gamma_1'(a)}} e^{i\theta}.
     \end{equation*}
 
-    Como $f'(z) \not = 0 \, \forall z \in U$, tomando límites tenemos
+    La aplicación $f$ lleva las curvas $\gamma_1$ y $\gamma_2$ en curvas simples $\lambda_1=f(\gamma_1)$ y $\lambda_2=f(\gamma_2)$ que tienen como punto inicial $d=f(c)$. Por \ref{chain} tenemos
     \begin{equation*}
-        \phi = \lim_{z \rightarrow z_0} \arg({w-w_0)}= \arg{f'(z_0)} + \theta
+        \dfrac{\lambda_2'(a)}{\lambda_1'(a)} = \dfrac{\gamma_2'(a)}{\gamma_1'(a)}
     \end{equation*}
-
-    La aplicación $f$ ha rotado el vector tangente a $z_0$ un ángulo dado por $\text{arg } f'(z_0)$. Sean dos curvas que pasan por $z_0$ con ángulos $\theta_1$ y $\theta_2$ con respecto al eje $x$. Entonces el ángulo entre sus imágenes en $w_0$ es 
-    \begin{equation*}
-        \phi_2 - \phi_1 = \theta_2 + \text{arg } f'(z_0) - \theta_1 - \text{arg } f'(z_0) = \theta_2 - \theta_1
-    \end{equation*}
-
-    Por lo tanto, $f$ preserva la orientación y los ángulos entre curvas que pasan por $z, \, \forall z \in U$.
+    entonoces el ángulo entre las curvas $\lambda_1$ y $\lambda_2$ en $d = \lambda_1(a) = \lambda_2(a)$ es igual al ángulo $\theta$ entre las curvas $\gamma_1$ y $\gamma_2$ en $c$.
 
     \begin{comment}
         $(\Rightarrow)$ Supongamos que $f$ es conforme y que $\frac{\partial f}{\partial x}$ y $\frac{\partial f}{\partial y}$ son continuas. En este caso tenemos
