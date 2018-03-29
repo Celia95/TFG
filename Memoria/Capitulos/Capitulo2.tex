@@ -1,0 +1,33 @@
+\chapter{Productos infinitos}
+
+\section{Productos de Blaschke}
+
+\begin{prop}
+    Sea $\{\alpha_n\}$ una sucesión en el disco unidad tal que $\alpha_n \not = 0 \, \forall n$ y $\sum_{n=1}^{\infty} (1 - \abs{\alpha_n})$ converge. Entonces el producto
+    \begin{equation*}
+        f(z) = \prod_{n=1}^{\infty} \frac{\alpha_n - z}{1 - \xbar{\alpha_n}z} \dfrac{\abs{\alpha_n}}{\alpha_n}
+    \end{equation*}
+    converge uniformemente para $\abs{z} \leq r < 1$ y define una función holomorfa en el disco unidad que tiene los mismos ceros que $\alpha_n$. Además $\abs{f(z)} \leq 1$.
+\end{prop}
+
+\begin{proof}
+    Sea
+    \begin{equation*}
+        b_n (z) = \frac{\alpha_n - z}{1 - \xbar{\alpha_n}z} \dfrac{\abs{\alpha_n}}{\alpha_n}.
+    \end{equation*}
+
+    Por el Lema 1.1 de \citet[chap. 13]{lang}, sabemos que $\prod_{n=1}^{\infty} b_n$ converge uniformemente si $\sum_{n=1}^{\infty} \abs{1 - b_n}$ converge.
+
+    \begin{equation*}
+        \begin{split}
+            \abs{1 - b_n(z)} & = \abs{1 + \dfrac{z - \alpha_n}{1 - \xbar{\alpha_n}z} \dfrac{\abs{\alpha_n}}{\alpha_n}} = \abs{\dfrac{(1 - \xbar{\alpha_n}z) \alpha_n + (z - \alpha_n) \abs{\alpha_n}}{(1 - \xbar{\alpha_n}z) \alpha_n}} = \\
+                             & = \abs{ \dfrac{(1 - \abs{\alpha_n}) (\alpha_n + \abs{\alpha_n} z)}{(1 - \xbar{\alpha_n}z) \alpha_n}} \leq \dfrac{1 + \abs{z}}{1 - \abs{z}} (1 - \abs{\alpha_n}).
+        \end{split}
+    \end{equation*}
+
+    Entonces,
+    \begin{equation*}
+        \sum_{n=1}^{\infty} \abs{1 - b_n(z)} \leq \dfrac{1 + \abs{z}}{1 - \abs{z}} \sum_{n=1}^{\infty} (1 - \abs{\alpha_n})
+    \end{equation*}
+    converge uniformemente.
+\end{proof}
