@@ -224,7 +224,7 @@ Para demostrar el Teorema de Fatou nos vamos a basar en unos resultados clásico
     \begin{equation*}
         \dfrac{\lambda_2'(a)}{\lambda_1'(a)} = \dfrac{\gamma_2'(a)}{\gamma_1'(a)}
     \end{equation*}
-    entonoces el ángulo entre las curvas $\lambda_1$ y $\lambda_2$ en $d = \lambda_1(a) = \lambda_2(a)$ es igual al ángulo $\theta$ entre las curvas $\gamma_1$ y $\gamma_2$ en $c$. \\ \par
+    entonces el ángulo entre las curvas $\lambda_1$ y $\lambda_2$ en $d = \lambda_1(a) = \lambda_2(a)$ es igual al ángulo $\theta$ entre las curvas $\gamma_1$ y $\gamma_2$ en $c$. \\ \par
 
     $(\Rightarrow)$ Supongamos que $f$ es conforme. Fijamos $z$ un punto arbitrario de $U$, y elegimos $\varepsilon > 0$ tal que $D(z, \varepsilon) \subset U$. Consideremos la familia de curvas simples $\gamma_{\theta}(t) = z + te^{i \theta}, 0 \leq t \leq \varepsilon, \theta \in \mathbb{R}$. Nótese que el ángulo entre $\gamma_0$ y $\gamma_{\theta}$ en $z$ es $\theta$.
 
@@ -316,7 +316,7 @@ Para demostrar el Teorema de Fatou nos vamos a basar en unos resultados clásico
         L(\delta) = \int_{\gamma_{\delta}} \abs{\varphi ' (z)} ds
     \end{equation*}
     \\
-    Por la desigualdad de Cauchy-Schwartz, tenemos
+    Por la desigualdad de Cauchy-Schwarz, tenemos
     \begin{equation*}
         L^2(\delta) \leq \pi \delta \int_{\gamma_{\delta}} \abs{\varphi ' (z)}^2 ds
     \end{equation*}
@@ -324,7 +324,7 @@ Para demostrar el Teorema de Fatou nos vamos a basar en unos resultados clásico
     entonces para $\rho < 1$
 
     \begin{equation*}
-        \int_{0}^{\rho} \frac{L^2(\delta)}{\delta} d\delta \leq \pi \int \int_{\mathbb{D} \cap D(\zeta, \rho)} \abs{\varphi ' (z)}^2 dxdy = \pi \text{Area}(\varphi(\mathbb{D} \cap D(\zeta, \rho))) < \infty
+        \int_{0}^{\rho} \frac{L^2(\delta)}{\delta} d\delta \leq \pi \int \int_{\mathbb{D} \cap D(\zeta, \rho)} \abs{\varphi ' (z)}^2 dxdy = \pi \text{Área}(\varphi(\mathbb{D} \cap D(\zeta, \rho))) < \infty
     \end{equation*}
     \\
     %Figura
@@ -333,20 +333,20 @@ Para demostrar el Teorema de Fatou nos vamos a basar en unos resultados clásico
         \abs{\alpha_n - \beta_n} \leq L(\delta_n) \rightarrow 0
     \end{equation}
     \\
-    Sea $\sigma_n$ el subarco cerrado de $\Gamma$ que tiene extremos $\alpha_n$ y $\beta_n$ y con un diámetro menor. Entonces \ref{res} implica que $\text{diam}(\sigma_n) \rightarrow 0$ porque $\Gamma$ es homeomorfa al círculo. Por el teorema de la curva de Jordan, $\sigma_n \cup \varphi(\gamma_{\delta_n})$ divide al plano en dos regiones, y una de ellas, llamémosla $U_n$ es acotada. Entonces $U_n \subset \Omega$ ya que $\mathbb{C}^* \setminus \xbar{\Omega}$ es conexo por arcos. Como
+    Sea $\sigma_n$ el subarco cerrado de $\Gamma$ que tiene extremos $\alpha_n$ y $\beta_n$ y con un diámetro menor. Entonces \ref{res} implica que $\diam(\sigma_n) \rightarrow 0$ porque $\Gamma$ es homeomorfa al círculo. Por el teorema de la curva de Jordan, $\sigma_n \cup \varphi(\gamma_{\delta_n})$ divide al plano en dos regiones, y una de ellas, llamémosla $U_n$ es acotada. Entonces $U_n \subset \Omega$ ya que $\mathbb{C}^* \setminus \xbar{\Omega}$ es conexo por arcos. Como
     \begin{equation}
         \label{res2}
-        \text{diam}(\partial U_n) = \text{diam}(\sigma_n \cup \varphi(\gamma_{\delta_n})) \rightarrow 0,
+        \diam(\partial U_n) = \diam(\sigma_n \cup \varphi(\gamma_{\delta_n})) \rightarrow 0,
         \text{ concluimos que }
-        \text{diam}(U_n) \rightarrow 0.
+        \diam(U_n) \rightarrow 0.
     \end{equation}
 
     Tomamos $D_n = \mathbb{D} \cup \{ z: \abs{z - \zeta} < \delta_n \}$. Sabemos que para $n$ suficientemente grande, $\varphi(D_n) = U_n$. Si no, por conexión tendríamos que $\varphi(\mathbb{D} \setminus \xbar{D_n}) = U_n$ y
     \begin{equation*}
-        \text{diam} (U_n) \geq \text{diam} (\varphi(B(0, 1/2))) > 0
+        \diam (U_n) \geq \diam (\varphi(B(0, 1/2))) > 0
     \end{equation*}
 
-    que contracide con \ref{res2}. Entonces $\text{diam}(\varphi(D_n)) \rightarrow 0$ y $\bigcap \xbar{\varphi(D_n)}$ es un solo punto pues $\varphi(D_{n+1}) \subset \varphi(D_n)$. Esto significa que $\varphi$ tiene una extensión continua en $\mathbb{D} \cap \{ \zeta \}$. La extensión a todos estos puntos define una aplicación continua en $\overline{\mathbb{D}}$.
+    que contradice con \ref{res2}. Entonces $\diam(\varphi(D_n)) \rightarrow 0$ y $\bigcap \xbar{\varphi(D_n)}$ es un solo punto pues $\varphi(D_{n+1}) \subset \varphi(D_n)$. Esto significa que $\varphi$ tiene una extensión continua en $\mathbb{D} \cap \{ \zeta \}$. La extensión a todos estos puntos define una aplicación continua en $\overline{\mathbb{D}}$.
 
     Denotemos ahora por $\varphi$ a la extensión $\varphi : \overline{\mathbb{D}} \rightarrow \xbar{\Omega}$. Como $\varphi(\mathbb{D}) = \Omega$, $\varphi$ lleva  $\overline{\mathbb{D}}$ en $\xbar{\Omega}$. Para probar que $\varphi$ es inyectiva, supongamos que $\varphi(\zeta_1) = \varphi(\zeta_2), \zeta_1 \not = \zeta_2$. El argumento utilizado para mostrar que $\alpha_n \in \Gamma$, también prueba que $\varphi (\partial \mathbb{D}) = \Gamma$, así que podemos suponer que $\zeta_j \in \partial \mathbb{D}, j=1,2$. La curva de Jordan
     \begin{equation*}
@@ -365,6 +365,8 @@ Para demostrar el Teorema de Fatou nos vamos a basar en unos resultados clásico
 
     y $\varphi$ es constante en un arco de $\partial \mathbb{D}$, se tiene que $\varphi$ es constante y esta contradicción prueba que $\varphi(\zeta_1) \not = \varphi(\zeta_2)$.
 \end{proof}
+
+\bigskip
 
 \begin{theorem}
     Sea $C$ un camino simple, cerrado y continuamente diferenciable con interior $D$. Sea $f \in \mathcal{H}(C \cup D)$ una aplicación inyectiva en $C$. Entonces $f$ es holomorfa e inyectiva en $D$.

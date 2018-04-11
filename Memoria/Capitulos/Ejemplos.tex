@@ -1,0 +1,67 @@
+\chapter{Ejemplos}
+
+En esta sección vamos a estudiar el comportamiento de algunas series de potencias entorno a su radio de convergencia.
+
+1. $\sum_{n=0}^{\infty} z^n, \abs{z} < 1$, diverge en todo punto tal que $\abs{z} = 1$;
+
+2. $\sum_{n=1}^{\infty} \frac{z^n}{n}, \abs{z} < 1$, diverge en $z = 1$  y converge en el resto de punto tales que $\abs{z} = 1$;
+
+3. $\sum_{n=1}^{\infty} \frac{z^n}{n^2}, \abs{z} < 1$, converge absoluta y uniformemente en $\abs{z} = 1$. \\ \par
+
+
+Para el primer ejemplo, es fácil ver que $1 - z^{n+1} = (1 - z) (1+ z + z^2 + \cdots + z^n)$ así que
+\begin{equation}
+    1 + z + \cdots + z^n = \frac{1 - z^{n+1}}{1-z}.
+\end{equation}
+
+Si $\abs{z} < 1$ entonces $\lim z^n = 0$ y la serie converge a
+\begin{equation*}
+    \sum_{n=0}^{\infty} z^n = \frac{1}{z - 1}
+\end{equation*}
+
+Si $\abs{z} > 1$ entonces $\lim z^n = \infty$ y la serie diverge. Pero, ¿qué pasa cuando $\abs{z} = 1$? La serie de potencias $\sum_{n=0}^{\infty} z^n$ diverge en todos los puntos del radio de convergencia pues $\abs{z^n}$ no tiende a 0 cuando $n \rightarrow \infty$.
+
+Sin embargo, $\sum_{n=0}^{\infty} z^n$ puede ser extendida a la función globalmente analítica $\frac{1}{1-z}$ en $\complex \setminus \{1\}$ gracias a una cantidad finita de continuaciones analíticas.
+
+Tomemos $a$ un punto cualquiera de $\complex \setminus \{1\}$ y conectémoslo al origen $o$ mediante la curva de Jordan $\gamma \subset \complex \setminus \{1\}$. Fijemos un punto $z_1$ en $\gamma$ que cumpla $\abs{z} < 1$. $\sum_{n=0}^{\infty} z^n$ puede ser extendida analíticamente en $z_1$ de la siguiente forma:
+\begin{equation*}
+    \frac{1}{1-z} = \sum_{n=0}^{\infty} \frac{1}{(1 - z_1)^{n+1}} (z - z_1)^n , \abs{z - z_1} < \abs{1 - z_1}.
+\end{equation*}
+
+De nuevo, tomemos $z_2$ en $\gamma$ tal que $\abs{z - z_1} < \abs{1 - z_1}$ y $\abs{z} \geq 1$. Podemos extender la serie de potencias a $z_2$
+\begin{equation*}
+    \frac{1}{1-z} = \sum_{n=0}^{\infty} \frac{1}{(1 - z_2)^{n+1}} (z - z_2)^n , \abs{z - z_2} < \abs{1 - z_2}.
+\end{equation*}
+
+Después de un número finito de iteraciones, alcanzaremos el punto $a$ y tendremos
+\begin{equation*}
+    \frac{1}{1-z} = \sum_{n=0}^{\infty} \frac{1}{(1 - a)^{n+1}} (z - a)^n , \abs{z - a} < \abs{1 - a}.
+\end{equation*}
+
+Así, decimos que hemos obtenido la continuación analítica de $\sum_{n=0}^{\infty} z^n$ que pasa por la curva $\gamma$. De hecho, está extensión no depende la curva de Jordan que tomemos. En efecto, sea $\alpha \subset \complex \setminus \{1\}$ otra curva de Jordan que conecta $a$ con $o$ y extendamos analíticamente $\sum_{n=0}^{\infty} z^n$ a través de $\alpha$ hasta el punto $a$. Por la propiedad de unicidad, obtendremos la misma serie que en el caso anterior. Por lo tanto, $\frac{1}{1 - z}$ está bien definida en $\complex \setminus \{1\}$ \\ \par
+
+
+Segundo ejemplo. $\sum_{n=1}^{\infty} \frac{z^n}{n}, \abs{z} < 1$, diverge en $z = 1$  y converge en el resto de punto tales que $\abs{z} = 1$;
+Vamos a aplicar el criterio de Dirichlet que dice lo siguiente: si $\{a_n\}$ son números reales y $\{b_n\}$ son números complejos tales que:
+
+1. $a_1 \geq a_2 \geq \dots$
+
+2. $\lim_{n \rightarrow \infty} a_n = 0$
+
+3. Existe $M > 0$ tal que $\sum_{n=1}^{N} b_n \leq M$ para todo $N \in \natural$
+
+entonces $\sum_{n=1}^{N} a_nb_n$ converge.
+
+En nuestro caso vamos a tomar $a_n = \frac{1}{n}, b_n = z^n$. Las dos primeras condiciones se cumplen, veamos la tercera:
+\begin{equation*}
+\abs{\sum_{n=1}^{\infty} z^n} = \abs{\frac{z - z^{n+1}}{1 - z}} \leq \frac{2}{\abs{1 - z}}
+\end{equation*}
+para todo $N \in \naturals$. Esto muestra que la tercera condición se satisface para todo $z \not = 1$ en el disco unidad.
+
+Por lo tanto, la serie converge para todo $z$ tal que $\abs{z} \leq 1, z \not = 1$ y diverge para $\abs{z} > 1$. \\ \par
+
+
+El tercer ejemplo es fácil ver que converge absoluta y uniformemente en $\abs{z} = 1$ dado que $\sum_{n=1}^{\infty} \abs{\frac{z^n}{n^2}} \leq \sum_{n=1}^{\infty} \abs{\frac{1}{n^2}} < \infty$.
+
+
+
