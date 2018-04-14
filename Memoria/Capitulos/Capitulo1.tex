@@ -2,10 +2,10 @@
 
 \begin{comment}
     \begin{theorem}[Lema de Schwart]
-        Sea $f: \mathbb{D} \rightarrow \overline{\mathbb{D}}$ una función $\in \mathcal{H}(\mathbb{D})$ tal que $f(0) = 0$. Entonces:
+        Sea $f: \disk \rightarrow \closedisk$ una función $\in \holomorphic{\disk}$ tal que $f(0) = 0$. Entonces:
         \begin{itemize}
-            \item $\abs{f(z)} \leq \abs{z}$ para todo $z \in \mathbb{D}$.
-            \item Si para algún $z_0 \not = 0$ tenemos que $\abs{f(z_0)} = \abs{z_0}$, entonces existe $\alpha \in \mathbb{C}, \abs{\alpha} = 1$ tal que $f(z)=\alpha z$.
+            \item $\abs{f(z)} \leq \abs{z}$ para todo $z \in \disk$.
+            \item Si para algún $z_0 \not = 0$ tenemos que $\abs{f(z_0)} = \abs{z_0}$, entonces existe $\alpha \in \complex, \abs{\alpha} = 1$ tal que $f(z)=\alpha z$.
         \end{itemize}
     \end{theorem}
 
@@ -25,17 +25,17 @@
     Se llama núcleo de Poisson a la función $P$ definida por
     \begin{equation}
         \label{poisson1}
-        P:(r,t) \in [0,1)\times \mathbb{R} \mapsto P_r(t) = \sum_{n=-\infty}^{\infty} r^{\abs{n}}e^{int}.
+        P:(r,t) \in [0,1)\times \real \mapsto P_r(t) = \sum_{n=-\infty}^{\infty} r^{\abs{n}}e^{int}.
     \end{equation}
 
     Podemos considerar el núcleo de Poisson como una función de dos variables $r$ y $t$ o como una familia de funciones de $t$ que dependen de $r$.
 
-    Dados $z=re^{i \theta}$, con $r \in [0,1)$ y $\theta \in \mathbb{R}$ se tiene que
+    Dados $z=re^{i \theta}$, con $r \in [0,1)$ y $\theta \in \real$ se tiene que
     \begin{equation}
         \label{poisson2}
         P_r(\theta - t) = \Re \left[ \dfrac{e^{it} + z}{e^{it} - z} \right] = \dfrac{1 - r^2}{1 - 2r \cos (\theta - t) + r^2}
     \end{equation}
-    para todo $t \in \mathbb{R}$. En efecto:
+    para todo $t \in \real$. En efecto:
 
     \begin{multline*}
         P_r(t) = \sum_{n=-\infty}^{\infty} r^{\abs{n}}e^{int} = 1 + \sum_{n=1}^{\infty} r^n e^{int} + \sum_{n=1}^{\infty} r^n e^{-int} = 1 + \sum_{n=1}^{\infty} r^n (e^{int} + e^{-int}) = \\
@@ -44,7 +44,7 @@
     \\ \par
     Por otra parte
     \begin{equation*}
-        \Re \left[ \dfrac{1 + re^{it}}{1-re^{it}} \right] = \Re \left[ \dfrac{(1 + re^{it})(1 - re^{it})}{\abs{1-re^{it}}^2} \right] = \dfrac{1 - r^2}{1 - 2r \cos (\theta - t) + r^2}.
+        \Re \left[ \dfrac{1 + re^{it}}{1-re^{it}} \right] = \Re \left[ \dfrac{(1 + re^{it})(1 - re^{it})}{\abs{1-re^{it}}^2} \right] = \dfrac{1 - r^2}{1 - 2r \cos t + r^2}.
     \end{equation*}
 \end{definition}
 
@@ -59,11 +59,11 @@
 
 %De \ref{poisson2} se sigue que
 \begin{equation}
-    P_r(t) > 0, \forall r \in [0,1), t \in \mathbb{R}
+    P_r(t) > 0, \forall r \in [0,1), t \in \real
 \end{equation}
 
 \begin{equation}
-    P_r(t) = P_r(-t), \forall r \in [0,1), t \in \mathbb{R}
+    P_r(t) = P_r(-t), \forall r \in [0,1), t \in \real
 \end{equation}
 
 \begin{equation}
@@ -77,9 +77,9 @@
 \bigskip \par
 
 \begin{definition}
-    Se llama integral de Poisson de una función $f \in L^1(\partial \mathbb{D})$ a la función $F$ dada por
+    Se llama integral de Poisson de una función $f \in L^1(e^{it})$ a la función $F$ dada por
     \begin{equation*}
-        F: z=re^{i \theta} \in \mathbb{D} \mapsto F(re^{i \theta}) = \dfrac{1}{2 \pi} \int_{- \pi}^{\pi} P_r (\theta - t) f(t) dt.
+        F: z=re^{i \theta} \in \disk \mapsto F(re^{i \theta}) = \dfrac{1}{2 \pi} \int_{- \pi}^{\pi} P_r (\theta - t) f(e^{it}) dt.
     \end{equation*}
 
     Algunas veces nos convendrá referirnos a ella como $F=P[f]$.
@@ -87,7 +87,7 @@
 
 \bigskip
 
-Además si $f$ lleva $\partial \mathbb{D}$ en los reales, \ref{poisson2} nos muestra que
+Además si $f$ lleva $\partial \disk$ en los reales, \ref{poisson2} nos muestra que
 
 \begin{equation*}
      P[f] = \Re \left[ \dfrac{1}{2} \int_{-\pi}^{\pi} \dfrac{e^{it} + z}{e^{it} - z} f(t) dt \right].
@@ -95,11 +95,11 @@ Además si $f$ lleva $\partial \mathbb{D}$ en los reales, \ref{poisson2} nos mue
 
 \subsection{Teorema de Fatou}
 
-Para demostrar el Teorema de Fatou nos vamos a basar en unos resultados clásicos del libro \citet[chap. 11]{rudin} que no vamos a probar.
+Para demostrar el Teorema de Fatou nos vamos a basar en unos resultados clásicos del libro \citet[chap. 11]{rudin}.
 
 \begin{theorem}
     \label{fatouaux1}
-    Si $f \in L^1(\partial \mathbb{D})$ y $F = P[f]$, entonces
+    Si $f \in L^1(\partial \disk)$ y $F = P[f]$, entonces
     \begin{equation*}
         \lim_{r \rightarrow 1} F(re^{i \theta}) = f(e^{i \theta})
     \end{equation*}
@@ -107,22 +107,23 @@ Para demostrar el Teorema de Fatou nos vamos a basar en unos resultados clásico
 
 \begin{theorem}
     \label{fatouaux2}
-    Sean $f \in C (\partial \mathbb{D}), F=P[f]$ y
+    Sean $f \in C (\partial \disk), F=P[f]$ y
     \begin{equation*}
         u(re^{i \theta}) =
         \begin{cases}
             f(re^{i\theta}) & \text{si } r=1\\ F(re^{i\theta}) & \text{si } 0 \leq r<1
         \end{cases}
     \end{equation*}
-    Entonces $u$ es una función continua en el disco cerrado $\xbar{\mathbb{D}}$.
+    Entonces $u$ es una función continua en el disco cerrado $\closedisk$ que es armónica en $\disk$ .
 \end{theorem}
 
 \begin{theorem}[Teorema de Fatou]
-    Para toda función $f \in \mathcal{H}^\infty(\mathbb{D})$, existe una función $f^* \in L^{\infty} (\partial \mathbb{D})$ definida en casi todo punto tal que
+    Para toda función $f \in \bholomorphic{\disk}$, existe una función $f^* \in L^{\infty} (\partial \disk)$ definida por
     \begin{equation}
         \label{fatou1}
         f^*(e^{it}) = \lim_{r \rightarrow 1} f(re^{it})
     \end{equation}
+    en casi todo punto.
 
     Se tiene la igualdad $\norminf{f} = \norminf{f^*}$. Para todo $z \in U$, la fórmula integral de Cauchy
     \begin{equation}
@@ -132,7 +133,7 @@ Para demostrar el Teorema de Fatou nos vamos a basar en unos resultados clásico
 
     se satisface, donde $\gamma$ es el círculo unidad positivamente orientado: $\gamma(t) = e^{it}, 0 \leq t \leq 2 \pi$.
 
-    Las funciones $f^* \in L^{\infty}(\partial \mathbb{D})$ que se obtienen mediante este procedimiento son precisamente aquellas que cumplen la siguiente relación
+    Las funciones $f^* \in L^{\infty}(\partial \disk)$ que se obtienen mediante este procedimiento son precisamente aquellas que cumplen la siguiente relación
 
     \begin{equation}
         \label{fatou3}
@@ -148,20 +149,20 @@ Para demostrar el Teorema de Fatou nos vamos a basar en unos resultados clásico
     Si $z \in U$ y $\abs{z} < r < 1$, tomemos $\gamma_r(t) = r e^{it}, 0 \leq t \leq 2\pi$. Entonces,
     \begin{equation*}
         f(z) = \dfrac{1}{2 \pi i} \int_{\gamma_r} \dfrac{f(\xi)}{\xi - z} d\xi =
-        \dfrac{r}{2 \pi} \int_{-\pi}^{\pi} \dfrac{f(re^{it})}{re^{it} - z} dt
+        \dfrac{r}{2 \pi} \int_{-\pi}^{\pi} \dfrac{f(re^{it})}{re^{it} - z}e^{it} dt
     \end{equation*}
 
-    Sea $\{r_n\}$ una sucesión tal que $r_n \rightarrow 1$. Por el teorema de la convergencia dominada de Lebesgue tenemos
+    Sea $\{r_n\}$ una sucesión tal que $r_n \rightarrow 1$. Por el teorema de la convergencia dominada de Lebesgue tenemos %quizá puedes aclarar a qué sucesión de funciones f_n lo aplicas, para que se vea mejor y no haga falta más abajo repetir el argumento.
     \begin{equation}
         \label{fatou_proof}
-        f(z) = \dfrac{1}{2 \pi} \int_{-\pi}^{\pi} \dfrac{f^* (e^{it})}{1 - ze^{it}} dt
+        f(z) = \dfrac{1}{2 \pi} \int_{-\pi}^{\pi} \dfrac{f^* (e^{it})}{1 - ze^{-it}} dt
     \end{equation}
     Por lo que ya hemos probado \ref{fatou2}. Por el teorema de Cauchy, se sigue que
     \begin{equation*}
         \int_{\gamma_r} f(\xi)\xi^n d\xi = 0, n = 0, 1, \dots
     \end{equation*}
 
-    Pasando al límite tenemos que $f^*$ cumple \ref{fatou3}. Además, podemos convertir \ref{fatou_proof} en una integral de Poisson, si $z = re^{i \theta}$,
+    Tomando de nuevo una sucesión $\{r_n\}$ que tienda a 1, el teorema de la convergencia dominada garantiza que $f^*$ cumple \ref{fatou3}. Además, podemos convertir \ref{fatou_proof} en una integral de Poisson, si $z = re^{i \theta}$,
     \begin{equation*}
          \begin{split}
              f(z) &  = \dfrac{1}{2 \pi} \int_{- \pi}^{\pi} f^*(e^{it}) \sum_{n=0}^{\infty} r^n e^{in(\theta - t)} dt =  \dfrac{1}{2 \pi} \int_{- \pi}^{\pi} f^*(e^{it}) \sum_{n=-\infty}^{\infty} r^{\abs{n}} e^{in(\theta - t)} dt = \\
@@ -175,23 +176,23 @@ Para demostrar el Teorema de Fatou nos vamos a basar en unos resultados clásico
 \section{Teorema de Carathéodory}
 
 \begin{definition}{Aplicación conforme}
-    Sean $U$ y $V \subset \mathbb{C}^n$. Una aplicación $f: U \rightarrow V$ se llama conforme en un punto $u \in U$ si preserva la orientación y los ángulos entre curvas que pasan por $u$.
+    Sean $U$ y $V \subset \complex^n$. Una aplicación $f: U \rightarrow V$ se llama conforme en un punto $u \in U$ si preserva la orientación y los ángulos entre curvas que pasan por $u$.
 \end{definition}
 
 \begin{prop}
-    Sea $U \subset \mathbb{C}$. Una aplicación $f: U \rightarrow \mathbb{C}$ es conforme en $U$ si y solo si $f \in \mathcal{H}(U)$ y $f'(z) \not = 0 \, \forall z \in U$.
+    Sea $U \subset \complex$. Una aplicación $f: U \rightarrow \complex$ es conforme en $U$ si y solo si $f \in \holomorphic{U}$ y $f'(z) \not = 0 \, \forall z \in U$.
+    %a f tienes que pedirle que admita derivadas parciales con respecto a x e y y sean continuas. En la implicación => derivas con respecto a ambas.
 \end{prop}
 
 \begin{proof}
-    \begin{comment}
-    $(\Leftarrow)$ Supongamos que $f(z)$ es una función holomorfa en $U$ tal que $f'(z) \not = 0$ para $z \in U$ y consideremos $f:z \rightarrow w=f(z)$. Sea $\gamma: [a,b] \rightarrow U$ una curva simple. Consideremos $\lambda = (f \circ  \gamma)(t)$. Por la regla de la cadena, $\lambda$ es continuamente diferenciable y como $f'(\gamma(t)) \not = 0$, tenemos
+    $(\Leftarrow)$ Supongamos que $f(z)$ es una función holomorfa en $U$ tal que $f'(z) \not = 0$ para $z \in U$ y consideremos $f:z \rightarrow w=f(z)$. Sea $\gamma: [a,b] \rightarrow U$ una curva suave. Consideremos $\lambda = (f \circ  \gamma)(t)$. Por la regla de la cadena, $\lambda$ es continuamente diferenciable y como $f'(\gamma(t)) \not = 0$, tenemos
     \begin{equation}
         \label{cadena}
         \lambda'(t) = f'(\gamma(t))\gamma'(t).
     \end{equation}
-    Por lo tanto, $\lambda$ es una curva simple en el plano $w$.
+    Por lo tanto, $\lambda$ es una curva suave en el plano $w$.
 
-    Sean $\gamma_1, \gamma_2: [a,b] \rightarrow U$ curvas simples tales que $c=\gamma_1(a) = \gamma_2(a)$. Definimos el ángulo $\theta$ entre $\gamma_1$ y $\gamma_2$ en $c$ como el argumento de $\frac{\gamma_2'(a)}{\gamma_1'(a)}$. Como el argumento es aditivo para la multiplicación de funciones, tenemos que
+    Sean $\gamma_1, \gamma_2: [a,b] \rightarrow U$ curvas suaves tales que $c=\gamma_1(a) = \gamma_2(a)$. Definimos el ángulo $\theta$ entre $\gamma_1$ y $\gamma_2$ en $c$ como el argumento de $\frac{\gamma_2'(a)}{\gamma_1'(a)}$. Como el argumento es aditivo para la multiplicación de funciones, tenemos que
     \begin{equation*}
     \begin{split}
         \arg \lambda_1'(a) = \arg f'(c) + \arg \gamma_1'(a)\\
@@ -205,35 +206,36 @@ Para demostrar el Teorema de Fatou nos vamos a basar en unos resultados clásico
     \end{equation*}
 
     Así, el ángulo entre las curvas $\lambda_1$ y $\lambda_2$ en $d = \lambda_1(a) = \lambda_2(a)$ es igual al ángulo $\theta$ entre las curvas $\gamma_1$ y $\gamma_2$ en $c$. \\ \par
-    \end{comment}
 
-    $(\Leftarrow)$ Supongamos que $f(z)$ es una función holomorfa en $U$ tal que $f'(z) \not = 0$ para $z \in U$ y consideremos $f:z \rightarrow w=f(z)$. Sea $\gamma: [a,b] \rightarrow U$ una curva simple. Consideremos $\lambda = (f \circ  \gamma)(t)$. Por la regla de la cadena, $\lambda$ es continuamente diferenciable y como $f'(\gamma(t)) \not = 0$, tenemos
+    \begin{comment}    
+    $(\Leftarrow)$ Supongamos que $f(z)$ es una función holomorfa en $U$ tal que $f'(z) \not = 0$ para $z \in U$ y consideremos $f:z \rightarrow w=f(z)$. Sea $\gamma: [a,b] \rightarrow U$ una curva suave. Consideremos $\lambda = (f \circ  \gamma)(t)$. Por la regla de la cadena, $\lambda$ es continuamente diferenciable y como $f'(\gamma(t)) \not = 0$, tenemos
     \begin{equation}
         \label{cadena}
         \lambda'(t) = f'(\gamma(t))\gamma'(t).
     \end{equation}
 
-    Por lo tanto, $\lambda$ es una curva simple en el plano $w$.
+    Por lo tanto, $\lambda$ es una curva suave en el plano $w$.
 
-    Sean $\gamma_1, \gamma_2: [a,b] \rightarrow U$ curvas simples tales que $c=\gamma_1(a) = \gamma_2(a)$. Definimos el ángulo $\theta$ entre $\gamma_1$ y $\gamma_2$ en $c$ como el argumento de $\frac{\gamma_2'(a)}{\gamma_1'(a)}$, es decir,
+    Sean $\gamma_1, \gamma_2: [a,b] \rightarrow U$ curvas suaves tales que $c=\gamma_1(a) = \gamma_2(a)$. Definimos el ángulo $\theta$ entre $\gamma_1$ y $\gamma_2$ en $c$ como el argumento de $\frac{\gamma_2'(a)}{\gamma_1'(a)}$, es decir,
     \begin{equation*}
         \dfrac{\gamma_2'(a)}{\gamma_1'(a)} = \abs{\dfrac{\gamma_2'(a)}{\gamma_1'(a)}} e^{i\theta}.
     \end{equation*}
 
-    La aplicación $f$ lleva las curvas $\gamma_1$ y $\gamma_2$ en curvas simples $\lambda_1=f(\gamma_1)$ y $\lambda_2=f(\gamma_2)$ que tienen como punto inicial $d=f(c)$. Por \ref{cadena} tenemos
+    La aplicación $f$ lleva las curvas $\gamma_1$ y $\gamma_2$ en curvas suaves $\lambda_1=f(\gamma_1)$ y $\lambda_2=f(\gamma_2)$ que tienen como punto inicial $d=f(c)$. Por \ref{cadena} tenemos
     \begin{equation*}
         \dfrac{\lambda_2'(a)}{\lambda_1'(a)} = \dfrac{\gamma_2'(a)}{\gamma_1'(a)}
     \end{equation*}
     entonces el ángulo entre las curvas $\lambda_1$ y $\lambda_2$ en $d = \lambda_1(a) = \lambda_2(a)$ es igual al ángulo $\theta$ entre las curvas $\gamma_1$ y $\gamma_2$ en $c$. \\ \par
+    \end{comment}
 
-    $(\Rightarrow)$ Supongamos que $f$ es conforme. Fijamos $z$ un punto arbitrario de $U$, y elegimos $\varepsilon > 0$ tal que $D(z, \varepsilon) \subset U$. Consideremos la familia de curvas simples $\gamma_{\theta}(t) = z + te^{i \theta}, 0 \leq t \leq \varepsilon, \theta \in \mathbb{R}$. Nótese que el ángulo entre $\gamma_0$ y $\gamma_{\theta}$ en $z$ es $\theta$.
+    $(\Rightarrow)$ Supongamos que $f$ es conforme. Fijamos $z$ un punto arbitrario de $U$, y elegimos $\varepsilon > 0$ tal que $D(z, \varepsilon) \subset U$. Consideremos la familia de curvas suaves $\gamma_{\theta}(t) = z + te^{i \theta}, 0 \leq t \leq \varepsilon, \theta \in \real$. Nótese que el ángulo entre $\gamma_0$ y $\gamma_{\theta}$ en $z$ es $\theta$.
 
 
-    Tomemos $\lambda_\theta = (f \circ  \gamma_\theta)(t)$ la familia de curvas simples. Como $f$ es conforme, el ángulo entre $\lambda_0$ y $\lambda_{\theta}$ en $f(z)$ es $\theta$. Si escribimos el argumento de $\lambda_0'(0)$ como $\alpha$, tenemos
-    \begin{equation*}
+    Tomemos $\lambda_\theta = (f \circ  \gamma_\theta)(t)$ una familia de curvas. Como $f$ es conforme, el ángulo entre $\lambda_0$ y $\lambda_{\theta}$ en $f(z)$ es $\theta$. Como $f$ es conforme, el ángulo entre $\lambda_0$ y $\lambda_{\theta}$, es decir, el argumento de $\frac{\lambda_{\theta}'(0)}{\lambda_0' (0)}$ es igual a $\theta$. Si escribimos el argumento de $\lambda_0'(0)$ como $\alpha$, el argumento de $\lambda_{\theta}'(0)$ será $\alpha+\theta$ y, por tanto,
+    \begin{equation}
     \label{conformal}
         e^{-i(\theta + \alpha)} \lambda_{\theta}'(0)= \abs{\lambda_{\theta}'(0)} > 0.
-    \end{equation*}
+    \end{equation}
     \ref{cauchy-riemann}, nos dice que
     \begin{equation*}
     \begin{split}
@@ -241,14 +243,14 @@ Para demostrar el Teorema de Fatou nos vamos a basar en unos resultados clásico
                              & = (u_x + iv_x) \cos \theta + (u_y + i v_y) \sin \theta = f_x \cos \theta + f_y \sin \theta,
     \end{split}
     \end{equation*}
-    por lo que
+    por la identidad de Euler,
     \begin{equation*}
         2 \lambda_{\theta}'(0) = (f_x - i f_y) e^{i \theta} + (f_x + i f_y) e^{-i \theta}.
     \end{equation*}
 
     Entonces por \ref{conformal},
     \begin{equation*}
-         (f_x - i f_y) e^{-i \alpha} + (f_x + i f_y) e^{-2i \theta} = 2 \abs{\lambda_{\theta}'(0)}.
+         (f_x - i f_y) e^{-i \alpha} + (f_x + i f_y) e^{-2i \theta -i  \alpha} = 2 \abs{\lambda_{\theta}'(0)}.
     \end{equation*}
 
     Derivando en ambos lados con respecto a $\theta$, obtenemos
@@ -256,7 +258,7 @@ Para demostrar el Teorema de Fatou nos vamos a basar en unos resultados clásico
         -2i (f_x + i f_y) e^{-2i \theta - i \alpha} = \frac{2d}{d \theta} \abs{\lambda_{\theta}'(0)}.
     \end{equation*}
 
-    Como $\theta$ es una variable real y la parte de la derecha de la igualdad solo toma valores reales, concluimos que
+    Como $\theta$ es una variable real y la parte de la derecha de la igualdad solo toma valores reales, concluimos que %¿es esto la parte imaginaria de lo que la izquierda? No me doy cuenta de por qué es 0.
     \begin{equation*}
         f_x + i f_y = 0
     \end{equation*}
@@ -265,18 +267,18 @@ Para demostrar el Teorema de Fatou nos vamos a basar en unos resultados clásico
         u_x + v_y + i(v_x + u_y) = 0.
     \end{equation*}
 
-    Como vemos, $u(x,y)$ y $v(x,y)$ satisfacen las ecuaciones de Cauchy-Riemann en $U$. Luego $f(z) = u(x,y) + i v(x,y)$ es holomorfa en $z = x + iy \in U$. Falta ver que $f(z) \not = 0, z \in U$.
+    Como vemos, $u(x,y)$ y $v(x,y)$ satisfacen las ecuaciones de Cauchy-Riemann en $U$. Luego $f(z) = u(x,y) + i v(x,y)$ es holomorfa en $z = x + iy \in U$. Falta ver que $f(z) \not = 0, z \in U$. %era una errata del libro y había que usar que lo que el libro llama (3.5)
 \end{proof}
 
 \begin{comment}
 \begin{prop}
-    Sea $U \subset \mathbb{C}$. Una aplicación $f: U \rightarrow \mathbb{C}$ es conforme en $U$ si satisface las condiciones de Cauchy-Riemann y $f'(z) \not = 0 \, \forall z \in U$.
+    Sea $U \subset \complex$. Una aplicación $f: U \rightarrow \complex$ es conforme en $U$ si satisface las condiciones de Cauchy-Riemann y $f'(z) \not = 0 \, \forall z \in U$.
 \end{prop}
 
 \begin{proof}
     Sea $f$ una función continua tal que $f(z) = u(x,y) + i v(x,y), z = x+iv$. Sabemos, por hipótesis, que $u(x,y)$ y $v(x,y)$ son funciones continuamente diferenciables.
 
-    Consideremos la curva simple $\gamma : [a,b] \rightarrow U$, que escribimos como $\gamma (t) = \rho (t) + i \sigma (t)$. Entonces,
+    Consideremos la curva suave $\gamma : [a,b] \rightarrow U$, que escribimos como $\gamma (t) = \rho (t) + i \sigma (t)$. Entonces,
     \begin{equation*}
         f(\gamma (t)) = u(\rho (t), \sigma (t)) + i v(\rho (t), \sigma (t)).
     \end{equation*}
@@ -296,22 +298,22 @@ Para demostrar el Teorema de Fatou nos vamos a basar en unos resultados clásico
         \end{matrix}
         \right| \not = 0,
     \end{equation*}
-    por lo que $\frac{d}{dt} f(\gamma (t)) \not = 0$ en $t = 0$ pues $\rho' (t) + i \sigma' (t) = \gamma' (t) \not = 0$. Es decir, la curva $f (\gamma)$ es simple en un entorno de su origen. Por lo tanto, si $\gamma_1$ y $\gamma_2$ son curvas simples con origen $c$, el ángulo entre $f(\gamma_1)$ y $f(\gamma_2)$ en $f(c)$ está bien definido.
+    por lo que $\frac{d}{dt} f(\gamma (t)) \not = 0$ en $t = 0$ pues $\rho' (t) + i \sigma' (t) = \gamma' (t) \not = 0$. Es decir, la curva $f (\gamma)$ es suave en un entorno de su origen. Por lo tanto, si $\gamma_1$ y $\gamma_2$ son curvas suaves con origen $c$, el ángulo entre $f(\gamma_1)$ y $f(\gamma_2)$ en $f(c)$ está bien definido.
 \end{proof}
 \end{comment}
 \bigskip
 
 \begin{theorem}[Teorema de Carathéodory]
-    Sea $\varphi$ una aplicación conforme del disco unidad $\mathbb{D}$ en un dominio de Jordan $\Omega$. Entonces $\varphi$ tiene una extensión continua al disco cerrado $\overline{\mathbb{D}}$, y la extensión es inyectiva de $\overline{\mathbb{D}}$ en $\Omega$.
+    Sea $\varphi$ una aplicación conforme del disco unidad $\disk$ en un dominio de Jordan $\Omega$. Entonces $\varphi$ tiene una extensión continua al disco cerrado $\closedisk$, y la extensión es inyectiva de $\closedisk$ en $\xbar{\Omega}$.
 \end{theorem}
 
 \begin{proof}
-    Vamos a suponer que $\Omega$ está acotado. Fijemos $\zeta \in \partial \mathbb{D}$. Primero vamos a probar que $\varphi$ tiene una extensión continua en $\zeta$. Sea $0 < \delta < 1$,
+    Vamos a suponer que $\Omega$ está acotado. Fijemos $\zeta \in \partial \disk$. Primero vamos a probar que $\varphi$ tiene una extensión continua en $\zeta$. Sea $0 < \delta < 1$,
     \begin{equation*}
         D(\zeta, \delta) = \{z: \abs{z - \zeta} < \delta \}
     \end{equation*}
 
-    y tomemos $\gamma_{\delta} = \mathbb{D} \cap \partial D(\zeta, \delta)$. Entonces $\varphi (\gamma_{\delta})$ es una curva de Jordan de longitud
+    y tomemos $\gamma_{\delta} = \disk \cap \partial D(\zeta, \delta)$. Entonces $\varphi (\gamma_{\delta})$ es una curva de Jordan de longitud
     \begin{equation*}
         L(\delta) = \int_{\gamma_{\delta}} \abs{\varphi ' (z)} ds
     \end{equation*}
@@ -324,16 +326,16 @@ Para demostrar el Teorema de Fatou nos vamos a basar en unos resultados clásico
     entonces para $\rho < 1$
 
     \begin{equation*}
-        \int_{0}^{\rho} \frac{L^2(\delta)}{\delta} d\delta \leq \pi \int \int_{\mathbb{D} \cap D(\zeta, \rho)} \abs{\varphi ' (z)}^2 dxdy = \pi \text{Área}(\varphi(\mathbb{D} \cap D(\zeta, \rho))) < \infty
+        \int_{0}^{\rho} \frac{L^2(\delta)}{\delta} d\delta \leq \pi \int \int_{\disk \cap D(\zeta, \rho)} \abs{\varphi ' (z)}^2 dxdy = \pi \text{Área}(\varphi(\disk \cap D(\zeta, \rho))) < \infty
     \end{equation*}
     \\
     %Figura
-    Entonces, existe una sucesión $\{ \delta_n\} \downarrow 0$ tal que $L(\delta_n) \rightarrow 0$. Cuando $L(\delta_n) < \infty$, la curva $\varphi(\gamma_{\delta_n})$ tiene extremos $\alpha_n, \beta_n \in \xbar{\Omega}$ y ambos puntos deben estar en $\Gamma = \partial \Omega$. De hecho, si $\alpha_n \in \Omega$, entonces algún punto cerca de $\alpha_n$ tiene dos preimágenes distintas en $\mathbb{D}$ y esto es imposible pues $\varphi$ es inyectiva. Además,
+    Entonces, existe una sucesión $\{ \delta_n\} \downarrow 0$ tal que $L(\delta_n) \rightarrow 0$. Cuando $L(\delta_n) < \infty$, la curva $\varphi(\gamma_{\delta_n})$ tiene extremos $\alpha_n, \beta_n \in \xbar{\Omega}$ y ambos puntos deben estar en $\Gamma = \partial \Omega$. De hecho, si $\alpha_n \in \Omega$, entonces algún punto cerca de $\alpha_n$ tiene dos preimágenes distintas en $\disk$ y esto es imposible pues $\varphi$ es inyectiva. Además,
     \begin{equation}\label{res}
         \abs{\alpha_n - \beta_n} \leq L(\delta_n) \rightarrow 0
     \end{equation}
     \\
-    Sea $\sigma_n$ el subarco cerrado de $\Gamma$ que tiene extremos $\alpha_n$ y $\beta_n$ y con un diámetro menor. Entonces \ref{res} implica que $\diam(\sigma_n) \rightarrow 0$ porque $\Gamma$ es homeomorfa al círculo. Por el teorema de la curva de Jordan, $\sigma_n \cup \varphi(\gamma_{\delta_n})$ divide al plano en dos regiones, y una de ellas, llamémosla $U_n$ es acotada. Entonces $U_n \subset \Omega$ ya que $\mathbb{C}^* \setminus \xbar{\Omega}$ es conexo por arcos. Como
+    Sea $\sigma_n$ el subarco cerrado de $\Gamma$ que tiene extremos $\alpha_n$ y $\beta_n$ y con un diámetro menor. Entonces \ref{res} implica que $\diam(\sigma_n) \rightarrow 0$ porque $\Gamma$ es homeomorfa al círculo. Por el teorema de la curva de Jordan, $\sigma_n \cup \varphi(\gamma_{\delta_n})$ divide al plano en dos regiones, y una de ellas, llamémosla $U_n$ es acotada. Entonces $U_n \subset \Omega$ ya que $\complex^* \setminus \xbar{\Omega}$ es conexo por arcos. Como
     \begin{equation}
         \label{res2}
         \diam(\partial U_n) = \diam(\sigma_n \cup \varphi(\gamma_{\delta_n})) \rightarrow 0,
@@ -341,46 +343,49 @@ Para demostrar el Teorema de Fatou nos vamos a basar en unos resultados clásico
         \diam(U_n) \rightarrow 0.
     \end{equation}
 
-    Tomamos $D_n = \mathbb{D} \cup \{ z: \abs{z - \zeta} < \delta_n \}$. Sabemos que para $n$ suficientemente grande, $\varphi(D_n) = U_n$. Si no, por conexión tendríamos que $\varphi(\mathbb{D} \setminus \xbar{D_n}) = U_n$ y
+    Tomamos $D_n = \disk \cup \{ z: \abs{z - \zeta} < \delta_n \}$. Sabemos que para $n$ suficientemente grande, $\varphi(D_n) = U_n$. Si no, por conexión tendríamos que $\varphi(\disk \setminus \xbar{D_n}) = U_n$ y
     \begin{equation*}
         \diam (U_n) \geq \diam (\varphi(B(0, 1/2))) > 0
     \end{equation*}
 
-    que contradice con \ref{res2}. Entonces $\diam(\varphi(D_n)) \rightarrow 0$ y $\bigcap \xbar{\varphi(D_n)}$ es un solo punto pues $\varphi(D_{n+1}) \subset \varphi(D_n)$. Esto significa que $\varphi$ tiene una extensión continua en $\mathbb{D} \cap \{ \zeta \}$. La extensión a todos estos puntos define una aplicación continua en $\overline{\mathbb{D}}$.
+    que contradice con \ref{res2}. Entonces $\diam(\varphi(D_n)) \rightarrow 0$ y $\bigcap \xbar{\varphi(D_n)}$ es un solo punto pues $\varphi(D_{n+1}) \subset \varphi(D_n)$. Esto significa que $\varphi$ tiene una extensión continua en $\disk \cap \{ \zeta \}$. La extensión a todos estos puntos define una aplicación continua en $\closedisk$.
 
-    Denotemos ahora por $\varphi$ a la extensión $\varphi : \overline{\mathbb{D}} \rightarrow \xbar{\Omega}$. Como $\varphi(\mathbb{D}) = \Omega$, $\varphi$ lleva  $\overline{\mathbb{D}}$ en $\xbar{\Omega}$. Para probar que $\varphi$ es inyectiva, supongamos que $\varphi(\zeta_1) = \varphi(\zeta_2), \zeta_1 \not = \zeta_2$. El argumento utilizado para mostrar que $\alpha_n \in \Gamma$, también prueba que $\varphi (\partial \mathbb{D}) = \Gamma$, así que podemos suponer que $\zeta_j \in \partial \mathbb{D}, j=1,2$. La curva de Jordan
+    Denotemos ahora por $\varphi$ a la extensión $\varphi : \closedisk \rightarrow \xbar{\Omega}$. Como $\varphi(\disk) = \Omega$, $\varphi$ lleva  $\closedisk$ en $\xbar{\Omega}$. Para probar que $\varphi$ es inyectiva, supongamos que $\varphi(\zeta_1) = \varphi(\zeta_2), \zeta_1 \not = \zeta_2$. El argumento utilizado para mostrar que $\alpha_n \in \Gamma$, también prueba que $\varphi (\partial \disk) = \Gamma$, así que podemos suponer que $\zeta_j \in \partial \disk, j=1,2$. La curva de Jordan
     \begin{equation*}
         \{\varphi (r \zeta_1) : 0 \leq r \leq 1\} \cup \{\varphi (r \zeta_2) : 0 \leq r \leq 1\}
     \end{equation*}
 
     acota al dominio $W \subset \Omega$, luego $\varphi ^{-1} (W)$ es una de las dos componentes de
     \begin{equation*}
-        \mathbb{D} \setminus ( \{ r \zeta_1 : 0 \leq r \leq 1\} \cup \{ r \zeta_2 : 0 \leq r \leq 1\})
+        \disk \setminus ( \{ r \zeta_1 : 0 \leq r \leq 1\} \cup \{ r \zeta_2 : 0 \leq r \leq 1\})
     \end{equation*}
     \\
-    Pero como $\varphi(\partial \mathbb{D}) \subset \Gamma$,
+    Pero como $\varphi(\partial \disk) \subset \Gamma$,
     \begin{equation*}
-        \varphi(\partial \mathbb{D} \cap \partial \varphi ^{-1} (W)) \subset \partial W \cap \partial \Omega = \{ \varphi (\zeta_1)\}
+        \varphi(\partial \disk \cap \partial \varphi ^{-1} (W)) \subset \partial W \cap \partial \Omega = \{ \varphi (\zeta_1)\}
     \end{equation*}
 
-    y $\varphi$ es constante en un arco de $\partial \mathbb{D}$, se tiene que $\varphi$ es constante y esta contradicción prueba que $\varphi(\zeta_1) \not = \varphi(\zeta_2)$.
+    y $\varphi$ es constante en un arco de $\partial \disk$. Se tiene que $\varphi$ es constante, por el principio de reflexión de Schwarz, y esta contradicción prueba que $\varphi(\zeta_1) \not = \varphi(\zeta_2)$.
 \end{proof}
 
 \bigskip
 
+El resultado que presentamos a continuación es un recíproco parcial del teorema de Carathéodory. Muestra que la inyectividad en el borde del dominio se traslada al interior, en condiciones adecuadas.
+
 \begin{theorem}
-    Sea $C$ un camino simple, cerrado y continuamente diferenciable con interior $D$. Sea $f \in \mathcal{H}(C \cup D)$ una aplicación inyectiva en $C$. Entonces $f$ es holomorfa e inyectiva en $D$.
+    %Sea \Omega un abierto cuya frontera \Gamma es una curva simple y suave.
+    Sea $\Gamma$ una curva simple, cerrada y suave con interior $\Omega$. Sea $f \in \holomorphic{\Gamma \cup \Omega}$ una aplicación inyectiva en $\Gamma$. Entonces $f$ es holomorfa e inyectiva en $\Omega$.
 \end{theorem}
 
 \begin{proof}
-    La aplicación $w = f(z)$ lleva $C$ en un camino simple, cerrado y continuamente diferenciable $C'$. Sea $w_0$ un punto arbitrario que no esté en $C'$. Entonces,
+    La aplicación $w = f(z)$ lleva $\Gamma$ en un camino simple, cerrado y suave $\Gamma'$. Sea $w_0$ un punto arbitrario que no esté en $\Gamma'$. Entonces, si llamamos $\Gamma_+$ al camino positivamente orientado,
     \begin{equation*}
-        n = \dfrac{1}{2 \pi i} \int_{C_+} \dfrac{f'(z)}{f(z) - w_0} dz =  \dfrac{1}{2 \pi i} \int_{C'} \dfrac{dw}{w - w_0}.
+        n = \dfrac{1}{2 \pi i} \int_{\Gamma_+} \dfrac{f'(z)}{f(z) - w_0} dz =  \dfrac{1}{2 \pi i} \int_{\Gamma'} \dfrac{dw}{w - w_0}.
     \end{equation*}
 
-    Ahora la última integral es cero si $w_0$ está fuera de $C'$ y es $\pm 1$ si $w_0$ está dentro de $C'$. Sin embargo, $n$ no puede ser negativo pues la primera integral nos da el número de ceros de $f(z) - w_0$ dentro de $C$. Entonces, $n=1$ si $w_0$ está dentro de $C'$.
+    Ahora la última integral es cero si $w_0$ está fuera de $\Gamma'$ y es $\pm 1$ si $w_0$ está dentro de $\Gamma'$. Sin embargo, $n$ no puede ser negativo pues la primera integral nos da el número de ceros de $f(z) - w_0$ dentro de $\Gamma$ Entonces, $n=1$ si $w_0$ está dentro de $\Gamma'$.
 
-    Esto prueba que $f(z) = w_0$ tiene una sola solución si $w_0$ está dentro de $C'$, que $f(z)$ es holomorfa e inyectiva en $D$ y lleva $D$ en $D'$ (el interior de $C'$) y que la dirección positiva de $C'$ se corresponde con la dirección positiva de $C$.
+    Esto prueba que $f(z) = w_0$ tiene una sola solución si $w_0$ está dentro de $\Gamma'$, que $f(z)$ es holomorfa e inyectiva en $\Omega$ y lleva $\Omega$ en $\Omega'$ (el interior de $\Gamma'$) y que la dirección positiva de $\Gamma'$ se corresponde con la dirección positiva de $\Gamma$.
 \end{proof}
 
 \begin{comment}
