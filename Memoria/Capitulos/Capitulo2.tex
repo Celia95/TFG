@@ -1,6 +1,66 @@
 \chapter{Productos infinitos}
 
-%Introducción a productos infinitos, definición de convergencia de un producto infinito. Probar el Lema 1.1 de Lang que se menciona.
+\begin{definition}
+    Sea $\{u_n\} \ (n=1,2, \dots)$ una sucesión de números complejos. Su producto infinito se define como el límite de los productos parciales $u_1 u_2 \cdots u_N$ cuando $N$ tiende a infinito:
+\begin{equation*}
+    \prod_{n=1}^{\infty} u_n = \lim_{N \rightarrow \infty} \prod_{n=1}^{N} u_n.
+\end{equation*}
+
+
+Además, decimos que el producto converge cuando el límite existe y no es cero. En otro caso, se dice que el producto diverge.
+\end{definition}
+
+\bigskip
+
+\begin{prop}
+    Sea $\{u_n\} \, (n=1,2, \dots)$ una sucesión de números complejos no nulos.
+    Decimos que producto infinito
+    \begin{equation*}
+        \prod_{n=1}^{\infty} u_n
+    \end{equation*}
+    converge absolutamente si $\lim u_n =1$ y si la serie
+    \begin{equation*}
+        \sum_{n=1}^{\infty} \log u_n
+    \end{equation*}
+    converge absolutamente, es decir, $ \sum_{n=1}^{\infty} \abs{\log u_n}$ converge.
+\end{prop}
+
+\begin{proof}
+    Si $n$ es suficientemente grande, entonces $u_n$ puede escribirse como $u_n = 1 - \alpha_n$, donde $\abs{\alpha_n} < 1$, y entonces podemos definir $\log{u_n}$ como $\log{(1 - \alpha_n)}$. Por hipótesis, se sigue que la serie
+    \begin{equation*}
+        \sum_{n=1}^{\infty} \log u_n = \sum_{n=1}^{\infty} \log{(1 - \alpha_n)}
+    \end{equation*}
+    converge. Así que las sumas parciales
+    \begin{equation*}
+        \sum_{n=1}^{N} \log u_n
+    \end{equation*}
+    tienen límite. Como la función exponencial es continua, podemos exponenciar las sumas parciales y vemos que
+    \begin{equation*}
+        \prod_{n=1}^{\infty} u_n = \lim_{N \rightarrow \infty} \prod_{n=1}^{N} u_n
+    \end{equation*}
+    existe.
+\end{proof}
+
+\begin{lemma}
+    \label{convergencia}
+    Sea $\{\alpha_n\}$ una sucesión de números complejos tales que $\alpha_n \not = 1$ para todo $n$. Supongamos que
+    \begin{equation*}
+        \sum_{n=1}^{\infty} \abs{\alpha_n}
+    \end{equation*}
+    converge. Entonces
+    \begin{equation*}
+        \prod_{n=1}^{\infty} (1 - \alpha_n)
+    \end{equation*}
+    converge absolutamente.
+\end{lemma}
+
+\begin{proof}
+    Para una cantidad finita $n$, tenemos que $\abs{\alpha_n} < \frac{1}{2}$, así que $\log{(1 - \alpha_n)}$ está definido por la serie usual, y para alguna constante $C$, tenemos
+    \begin{equation*}
+        \abs{\log{(1 - \alpha_n)}} \leq C \abs{\alpha_n}.
+    \end{equation*}
+    Por tanto, el producto converge absolutamente por definición y utilizando la hipótesis de que $\sum_{n=1}^{\infty} \abs{\alpha_n}$ converge.
+\end{proof}
 
 \section{Productos de Blaschke}
 
@@ -18,7 +78,8 @@
         b_n (z) = \frac{\alpha_n - z}{1 - \xbar{\alpha_n}z} \dfrac{\abs{\alpha_n}}{\alpha_n}.
     \end{equation*}
 
-    Por el Lema 1.1 de \citet[chap. 13]{lang}, sabemos que $\prod_{n=1}^{\infty} b_n$ converge uniformemente si $\sum_{n=1}^{\infty} \abs{1 - b_n}$ converge.
+    %Lema 1.1 de \citet[chap. 13]{lang}
+    Por el lema \ref{convergencia}, sabemos que $\prod_{n=1}^{\infty} b_n$ converge uniformemente si $\sum_{n=1}^{\infty} \abs{1 - b_n}$ converge.
 
     \begin{equation*}
         \begin{split}
@@ -29,7 +90,21 @@
 
     Entonces,
     \begin{equation*}
-        \sum_{n=1}^{\infty} \abs{1 - b_n(z)} \leq \dfrac{1 + \abs{z}}{1 - \abs{z}} \sum_{n=1}^{\infty} (1 - \abs{\alpha_n}) %Aquí merece detallar por qué convergen uniformemente en el disco de radio r<1. Con este cálculo no queda tan claro.
+        \sum_{n=1}^{\infty} \abs{1 - b_n(z)} \leq \dfrac{1 + \abs{z}}{1 - \abs{z}} \sum_{n=1}^{\infty} (1 - \abs{\alpha_n}) \leq \dfrac{1 + r}{1 - r} \sum_{n=1}^{\infty} (1 - \abs{\alpha_n})          %Aquí merece detallar por qué convergen uniformemente en el disco de radio r<1.
     \end{equation*}
-    converge uniformemente.
+    converge uniformemente. Por lo que $\prod_{n=1}^{\infty} b_n$ converge uniformemente para $\abs{z} \leq r < 1$.
+
+    Falta ver que $f(z)$ define una función holomorfa en el disco unidad que tiene los mismos ceros que $\alpha_n$ y $\abs{f(z)} \leq 1$.
+
+    Sea $B(z) = \prod_{n=1}^{\infty} b_n$ el producto infinito y $B_n(z) = \prod_{k=1}^{n} b_k$ el producto parcial,
+    \begin{equation*}
+        \abs{\frac{B(0)}{B_n(0)}} \leq \frac{1}{2 \pi} \int_{0}^{2 \pi} \abs{\frac{B(e^{i \theta})}{B_n(e^{i \theta})}} d \theta = \frac{1}{2 \pi}  \int_{0}^{2 \pi} \abs{ B(e^{i \theta})} d \theta
+    \end{equation*}
+
+    Tomando $n \rightarrow \infty$, obtenemos
+    \begin{equation*}
+         \frac{1}{2 \pi}  \int_{0}^{2 \pi} \abs{ B(e^{i \theta})} d \theta = 1,
+    \end{equation*}
+    y, por consiguiente, $\abs{ B(e^{i \theta})} = 1$ en casi todo punto. Es decir, $\abs{f(z)} = 1$ en $\partial \disk$.
 \end{proof}
+
