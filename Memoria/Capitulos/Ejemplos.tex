@@ -4,74 +4,177 @@
 
 En esta sección vamos a estudiar el comportamiento de algunas series de potencias en el borde de su disco de convergencia.
 
-1. $\sum_{n=0}^{\infty} z^n, \abs{z} < 1$, diverge en todo punto tal que $\abs{z} = 1$;
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%EJEMPLO 1
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-2. $\sum_{n=1}^{\infty} \frac{z^n}{n}, \abs{z} < 1$, diverge en $z = 1$  y converge en el resto de punto tales que $\abs{z} = 1$;
+\begin{example}
+    Mostrar que
+    \begin{equation*}
+        \sum_{n=0}^{\infty} z^n, \abs{z} < 1
+    \end{equation*}
+    diverge en todo punto tal que $\abs{z} = 1$.
+\end{example}
 
-3. $\sum_{n=1}^{\infty} \frac{z^n}{n^2}, \abs{z} < 1$, converge absoluta y uniformemente en $\abs{z} = 1$.
-
-4. 4. La serie lagunar: $\sum_{n=1}^{\infty}  z^{2^n}, \abs{z} < 1$,  \\ \par
-
-
-Para el primer ejemplo, es fácil ver que $1 - z^{n+1} = (1 - z) (1+ z + z^2 + \cdots + z^n)$ así que
+\begin{proof}
+Es fácil ver que $1 - z^{n+1} = (1 - z) (1+ z + z^2 + \cdots + z^n)$ así que
 \begin{equation}
     1 + z + \cdots + z^n = \frac{1 - z^{n+1}}{1-z}.
 \end{equation}
 
-Si $\abs{z} < 1$ entonces $\lim z^n = 0$ y la serie converge a
+Si $\abs{z} < 1$ entonces $\lim_{n \rightarrow \infty} z^n = 0$ y la serie converge a
 \begin{equation*}
     \sum_{n=0}^{\infty} z^n = \frac{1}{1 - z}
 \end{equation*}
 
-Si $\abs{z} > 1$ entonces $\lim z^n = \infty$ y la serie diverge. Pero, ¿qué pasa cuando $\abs{z} = 1$? La serie de potencias $\sum_{n=0}^{\infty} z^n$ diverge en todos los puntos del radio de convergencia pues $\abs{z^n}$ no tiende a 0 cuando $n \rightarrow \infty$.
+Si $\abs{z} > 1$ entonces $\lim_{n \rightarrow} z^n = \infty$ y la serie diverge. Pero, ¿qué pasa cuando $\abs{z} = 1$? La serie de potencias $\sum_{n=0}^{\infty} z^n$ diverge en todos los puntos del radio de convergencia pues $\abs{z^n}$ no tiende a 0 cuando $n \rightarrow \infty$.
 
 Sin embargo, $\sum_{n=0}^{\infty} z^n$ puede ser extendida a la función globalmente analítica $\frac{1}{1-z}$ en $\complex \setminus \{1\}$ gracias a una cantidad finita de prolongaciones analíticas.
 
 Tomemos $a$ un punto cualquiera de $\complex \setminus \{1\}$ y conectémoslo al origen $0$ mediante la curva de Jordan $\gamma \subset \complex \setminus \{1\}$. Fijemos un punto $z_1$ en $\gamma$ que cumpla $\abs{z} < 1$. $\sum_{n=0}^{\infty} z^n$ puede ser extendida analíticamente en $z_1$ de la siguiente forma:
 \begin{equation*}
-    \frac{1}{1-z} = \sum_{n=0}^{\infty} \frac{1}{(1 - z_1)^{n+1}} (z - z_1)^n , \abs{z - z_1} < \abs{1 - z_1}.
+    \begin{split}
+        \frac{1}{1-z} & = \frac{1}{1 - z_1 - (z - z_1)} = \frac{1}{1 - z_1} \frac{1}{1 - \frac{z - z_1}{1 - z_1}} = \frac{1}{1 - z_1} \sum_{n=0}^{\infty} \left(\frac{z - z_1}{1 - z_1} \right)^n = \\
+                      & = \sum_{n=0}^{\infty}  \frac{1}{(1 - z_1)^{n+1}} (z - z_1)^n, \abs{z - z_1} < \abs{1 - z_1}.
+    \end{split}
 \end{equation*}
 
-De nuevo, tomemos $z_2$ en $\gamma$ tal que $\abs{z - z_1} < \abs{1 - z_1}$ y $\abs{z} \geq 1$. Podemos extender la serie de potencias a $z_2$
+De nuevo, tomemos $z_2$ en $\gamma$ tal que $\abs{z - z_1} < \abs{1 - z_1}$ y $\abs{z} \geq 1$. Podemos extender la serie de potencias a $z_2$.
 \begin{equation*}
     \frac{1}{1-z} = \sum_{n=0}^{\infty} \frac{1}{(1 - z_2)^{n+1}} (z - z_2)^n , \abs{z - z_2} < \abs{1 - z_2}.
 \end{equation*}
 
-%Aquí vendría bien un dibujo, como en el libro de Lin. Y quizá hacer una vez el cálculo como te he anotado en la hoja que te has llevado. Por ejemplo, escribir que si b \neq 1, entonces 1/(1-z)=1/(1-b-(z-b)) y que converge a la serie apropiada si |z-b|<|1-b|. Poner ese cálculo antes de empezar a prolongar y luego omitir los cálculos, como hace Lin, para explicar el proceso.  
+% Hacer dibujo, como en el libro de Lin.
 
 Después de un número finito de iteraciones, alcanzaremos el punto $a$ y tendremos
 \begin{equation*}
     \frac{1}{1-z} = \sum_{n=0}^{\infty} \frac{1}{(1 - a)^{n+1}} (z - a)^n , \abs{z - a} < \abs{1 - a}.
 \end{equation*}
 
-Así, decimos que hemos obtenido la prolongación analítica de $\sum_{n=0}^{\infty} z^n$ que pasa por la curva $\gamma$. De hecho, está extensión no depende la curva de Jordan que tomemos. En efecto, sea $\alpha \subset \complex \setminus \{1\}$ otra curva de Jordan que conecta $a$ con $0$ y extendamos analíticamente $\sum_{n=0}^{\infty} z^n$ a través de $\alpha$ hasta el punto $a$. Por la propiedad de unicidad, obtendremos la misma serie que en el caso anterior. Por lo tanto, $\frac{1}{1 - z}$ está bien definida en $\complex \setminus \{1\}$ \\ \par
+Así, decimos que hemos obtenido la prolongación analítica de $\sum_{n=0}^{\infty} z^n$ que pasa por la curva $\gamma$. De hecho, está extensión no depende la curva de Jordan que tomemos. En efecto, sea $\alpha \subset \complex \setminus \{1\}$ otra curva de Jordan que conecta $a$ con $0$ y extendamos analíticamente $\sum_{n=0}^{\infty} z^n$ a través de $\alpha$ hasta el punto $a$. Por la propiedad de unicidad, obtendremos la misma serie que en el caso anterior. Por lo tanto, $\frac{1}{1 - z}$ está bien definida en $\complex \setminus \{1\}$.
+\end{proof}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%EJEMPLO 2
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Segundo ejemplo. $\sum_{n=1}^{\infty} \frac{z^n}{n}, \abs{z} < 1$, diverge en $z = 1$  y converge en el resto de punto tales que $\abs{z} = 1$;
-Vamos a aplicar el criterio de Dirichlet que dice lo siguiente: si $\{a_n\}$ son números reales y $\{b_n\}$ son números complejos tales que:
+\begin{example}
+    Mostrar que
+    \begin{equation*}
+        g(z) = \sum_{n=1}^{\infty} \frac{z^n}{n}, \abs{z} < 1
+    \end{equation*}
+    diverge en $z = 1$  y converge en el resto de punto tales que $\abs{z} = 1$;
 
-1. $a_1 \geq a_2 \geq \dots$
+\end{example}
 
-2. $\lim_{n \rightarrow \infty} a_n = 0$
+\begin{proof}
+    Para demostrar que la serie diverge en $z = 1$  y converge en el resto de punto tales que $\abs{z} = 1$ vamos a aplicar el criterio de Dirichlet: \\ \par
 
-3. Existe $M > 0$ tal que $\sum_{n=1}^{N} b_n \leq M$ para todo $N \in \naturals$
+    Sean $\{a_n\} \subset \real$ y $\{b_n\} \subset \complex$ sucesiones tales que:
+    \begin{itemize}
+        \item[1.] $\{a_n\}$ es monótona con límite $0$
+        \item[2.] Las sumas parciales de la serie $\sum_{n=1}^{\infty} b_n$ están acotadas
+    \end{itemize}
+    %\begin{itemize}
+    %    \item[1.] $a_1 \geq a_2 \geq \dots$
+    %    \item [2.] $\lim_{n \rightarrow \infty} a_n = 0$
+    %    \item[3.] Existe $M > 0$ tal que $\sum_{n=1}^{N} b_n \leq M$ para todo $N \in \naturals$
+    %\end{itemize}
+    entonces $\sum_{n=1}^{N} a_nb_n$ converge. \\ \par
 
-entonces $\sum_{n=1}^{N} a_nb_n$ converge.
+    En nuestro caso vamos a tomar $a_n = \frac{1}{n}$ y $b_n = z^n$. La primera condición se cumple, veamos la que resta:
+    \begin{equation*}
+        \abs{\sum_{n=1}^{N} z^n} = \abs{\frac{z - z^{N+1}}{1 - z}} \leq \frac{2}{\abs{1 - z}}, \text{ si } z \neq 1 \text{, para todo } N \in \naturals.
+    \end{equation*}
 
-En nuestro caso vamos a tomar $a_n = \frac{1}{n}, b_n = z^n$. Las dos primeras condiciones se cumplen, veamos la tercera:
-\begin{equation*}
-\abs{\sum_{n=1}^{N} z^n} = \abs{\frac{z - z^{N+1}}{1 - z}} \leq \frac{2}{\abs{1 - z}}, \text{ si } z \neq 1 \text{, para todo } N \in \naturals.
-\end{equation*}
+    Esto muestra que la condición se satisface para todo $z \not = 1$ en el disco unidad. Por lo tanto, la serie converge para todo $z$ tal que $\abs{z} \leq 1, z \not = 1$ y diverge para $\abs{z} > 1$. \\ \par
 
-Esto muestra que la tercera condición se satisface para todo $z \not = 1$ en el disco unidad. Por lo tanto, la serie converge para todo $z$ tal que $\abs{z} \leq 1, z \not = 1$ y diverge para $\abs{z} > 1$. \\ \par
+    Vamos a ver que la suma de la serie es $\log{\frac{1}{1 - z}}$. En efecto, derivando tenemos que
+    \begin{equation*}
+        g'(z) = \sum_{n=1}^{\infty} z^{n-1} \Rightarrow z g'(z) = \sum_{n=0}^{\infty} z^n = \frac{1}{1 - z}.
+     \end{equation*}
 
-% Si derivas, te sale la serie geométrica de arriba e, integrando, la suma es, puesto que en 0 vale 0, -Log(1-z).
+     Si integramos ahora la expresión de la derecha tenemos que la suma es $\log{\frac{1}{1 - z}}$. %Puesto que en 0 vale 0.
 
-%Puedes  añadir que un argumento análogo permite presentar ejemplos de series con disco de convergencia de radio 1, pero que divergen en una cantidad arbitraria de puntos del borde. Por ejemplo, la serie de término general z^{pn}/n, diverge en las p raíces p-ésimas de la unidad.
+     %Puedes  añadir que un argumento análogo permite presentar ejemplos de series con disco de convergencia de radio 1, pero que divergen en una cantidad arbitraria de puntos del borde. Por ejemplo, la serie de término general z^{pn}/n, diverge en las p raíces p-ésimas de la unidad.
+\end{proof}
 
-El tercer ejemplo es fácil ver que converge absoluta y uniformemente en $\abs{z} = 1$ dado que $\sum_{n=1}^{\infty} \abs{\frac{z^n}{n^2}} \leq \sum_{n=1}^{\infty} \abs{\frac{1}{n^2}} < \infty$.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%EJEMPLO 3
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%Sobre este ejemplo diría que define una función holomorfa y acotada en el disco abierto, continua en el disco cerrado. De nuevo se puede sumar, usando una argumento como el de antes.
+\begin{example}
+    Mostrar que
+    \begin{equation*}
+        f(z) = \sum_{n=1}^{\infty} \frac{z^n}{n^2}, \abs{z} < 1
+    \end{equation*}
+    converge absoluta y uniformemente en $\abs{z} = 1$.
+\end{example}
 
-%Faltaría el ejemplo 4 de la serie lagunar, con mucho coeficientes nulos y otros 1's, pero muy separados. Lo comentamos un día, pero también están en el libro de Lin, páginas 38 y 39.
+\begin{proof}
+    Es fácil ver que converge absoluta y uniformemente en $\abs{z} = 1$ dado que
+    \begin{equation*}
+        \sum_{n=1}^{\infty} \abs{\frac{z^n}{n^2}} \leq \sum_{n=1}^{\infty} \abs{\frac{1}{n^2}} < \infty.
+    \end{equation*}
 
+        % Sobre este ejemplo diría que define una función holomorfa y acotada en el disco abierto, continua en el disco cerrado.
+
+    Vamos a ver que la suma de la serie es $z + \log{(1 - z)(1 - z)}$. En efecto, si derivamos nos queda
+    \begin{equation*}
+        f'(z) =  \sum_{n=1}^{\infty} \frac{z^{n-1}}{n} \Rightarrow zf'(z) = \sum_{n=1}^{\infty} \frac{z^{n}}{n} = g(z) = \log{\frac{1}{1 - z}}.
+    \end{equation*}
+
+    Integrando la expresión de la derecha tenemos el resultado.
+    \begin{comment}
+    \begin{equation*}
+        f''(z) =  \sum_{n=2}^{\infty} \frac{(n - 1)}{n} z^{n-2} =  \sum_{n=2}^{\infty} z^{n-2} - \sum_{n=2}^{\infty} \frac{1}{n} z^{n-2}
+    \end{equation*}
+     \begin{equation*}
+         \sum_{n=2}^{\infty} z^{n-2} = \sum_{n=0}^{\infty} z^{n} = \frac{1}{1 - z}.
+    \end{equation*}
+    \end{comment}
+
+ \end{proof}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%EJEMPLO 4
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{example}
+    Mostrar que la serie lagunar,
+    \begin{equation*}
+        h(z) = \sum_{n=0}^{\infty}  z^{2^n}, \abs{z} < 1
+    \end{equation*}
+ tiene una singularidad en cada punto tal que $\abs{z} = 1$.
+\end{example}
+
+\begin{proof}
+     Sea $h(z) = \sum_{n=0}^{\infty} z^{2^n} = z + z^2 + z^4 + z^8 + \cdots$. Podemos escribir lo siguiente:
+    \begin{equation*}
+         h(z^2) = h(z) - z, \,
+         h(z^4) = h(z^2) - z^2,
+    \end{equation*}
+    y aplicando inducción tenemos que 
+    \begin{equation*}
+        h(z^{2^k}) = h(z^{2^{k-1}}) - z^{2^{k-1}}
+    \end{equation*}
+
+    Así,
+    \begin{equation*}
+        h(z) = z + h(z^2) = z + z^2 + h(z^4) = \cdots = z + z^2 + \cdots + z^{2^{k-1}} + z^{2^k}.
+    \end{equation*}
+
+    Si $m, n \in \naturals$ y $r \in (0,1)$ y llamamos $r$ a $e^{2 \pi i \frac{m}{2^n}}$, tenemos que
+    \begin{equation*}
+        h(r^{2^n}) = \sum_{k=0}^{\infty} (r^{2^n})^{2^k} = \sum_{k=0}^{\infty} r^{2^n \cdot 2^k} = \sum_{k=0}^{\infty} r^{2^{(n+k)}} =  \sum_{k=n}^{\infty} r^{2^k}.
+    \end{equation*}
+
+    Como
+    \begin{equation*}
+        \sum_{k=n}^{\infty} r^{2^k} \geq \sum_{k=n}^{N} r^{2^k} > (N + 1) r^{2^k} \rightarrow N + 1,
+    \end{equation*}
+    
+    entonces $\lim_{r \rightarrow 1} \abs{h(re^{2 \pi i \frac{m}{2^n}})} = \infty \, \, \forall m, n$. \\ \par
+
+    Puesto que $\{e^{2 \pi i \frac{m}{2^n}} : m, n \in \naturals\}$ es denso en $\partial \disk$, todos los puntos del borde del disco unidad son singulares.
+\end{proof}

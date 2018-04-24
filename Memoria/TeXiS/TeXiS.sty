@@ -20,7 +20,7 @@
 % version 2005/12/01 or later.
 %
 % This work has the LPPL maintenance status `maintained'.
-% 
+%
 % The Current Maintainers of this work are Marco Antonio Gomez-Martin
 % and Pedro Pablo Gomez-Martin
 %
@@ -55,7 +55,7 @@
 %
 %       \texis
 %
-% Resultado: 
+% Resultado:
 %
 % Escribe TeXiS elevando y bajando las vocales.
 %
@@ -234,54 +234,55 @@
 % LaTeX aparecía a la derecha), y se ha añadido algún comentario.
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\newwrite\example@out
-\newenvironment{example}%
+%Lo comento para que no de problemas con mi memoria
+%\newwrite\example@out
+%\newenvironment{example}%
 % Al principio del entorno, se abre un fichero auxiliar
 % donde se graba todo lo que se lee dentro del entorno
- {\begingroup
-  \@bsphack
-  \immediate\openout \example@out \jobname.exa
-  \let\do\@makeother\dospecials\catcode`\^^M\active
-  \def\verbatim@processline{%
-    \immediate\write\example@out{\the\verbatim@line}}%
-  \verbatim@start}%
+% {\begingroup
+%  \@bsphack
+%  \immediate\openout \example@out \jobname.exa
+%  \let\do\@makeother\dospecials\catcode`\^^M\active
+%  \def\verbatim@processline{%
+%    \immediate\write\example@out{\the\verbatim@line}}%
+%  \verbatim@start}%
 % Al final del entorno, se cierra el fichero auxiliar y...
- {\immediate\closeout\example@out\@esphack\endgroup%
+% {\immediate\closeout\example@out\@esphack\endgroup%
 %
 % ... se copia en dos minipage distintas, una que tiene un verbatim
 % para que el texto quede tal cual, y otra normal para que se
 % compile.
 %
-  \par\small\addvspace{3ex plus 1ex}\vskip -\parskip
-  \noindent
-  \makebox[0.5\linewidth][l]{%
-  \begin{minipage}[t]{0.50\linewidth}
-    \vspace*{-1ex}
-    \verbatiminput{\jobname.exa}
-  \end{minipage}}
-  \hfill%
-  \makebox[0.45\linewidth][l]{%
-  \begin{minipage}[t]{0.45\linewidth}
-    \vspace*{-2ex}
-    \setlength{\parindent}{0pt}
-    \setlength{\parskip}{1ex plus 0.4ex minus 0.2ex}
-    \begin{trivlist}
-      \item\input{\jobname.exa}
-    \end{trivlist}
-  \end{minipage}}%
-  \par\addvspace{3ex plus 1ex}\vskip -\parskip
-}
+%  \par\small\addvspace{3ex plus 1ex}\vskip -\parskip
+%  \noindent
+%  \makebox[0.5\linewidth][l]{%
+%  \begin{minipage}[t]{0.50\linewidth}
+%    \vspace*{-1ex}
+%    \verbatiminput{\jobname.exa}
+%  \end{minipage}}
+%  \hfill%
+%  \makebox[0.45\linewidth][l]{%
+%  \begin{minipage}[t]{0.45\linewidth}
+%    \vspace*{-2ex}
+%    \setlength{\parindent}{0pt}
+%    \setlength{\parskip}{1ex plus 0.4ex minus 0.2ex}
+%    \begin{trivlist}
+%      \item\input{\jobname.exa}
+%    \end{trivlist}
+%  \end{minipage}}%
+%  \par\addvspace{3ex plus 1ex}\vskip -\parskip
+%}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
-% Comando: 
+% Comando:
 %
 %       \begin{cambiamargen}{izdo}{der}
 %            BLA BLA BLA
 %       \end{cambiamargen}
 %
-% Resultado: 
+% Resultado:
 %
 % Modifica el margen de la página en los párrafos que estén dentro del
 % entorno. Los dos parámetros indican el _desplazamiento_ del margen
@@ -296,7 +297,7 @@
 %
 % Para más información sobre los márgenes, consulta el fichero de la
 % portada, TeXiS_cover.tex
-% 
+%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newenvironment{cambiamargen}[2]{%
   \begin{list}{}{%

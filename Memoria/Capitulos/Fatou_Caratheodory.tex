@@ -37,10 +37,12 @@
     \end{equation}
     para todo $t \in \real$. En efecto:
 
-    \begin{multline*}
-        P_r(t) = \sum_{n=-\infty}^{\infty} r^{\abs{n}}e^{int} = 1 + \sum_{n=1}^{\infty} r^n e^{int} + \sum_{n=1}^{\infty} r^n e^{-int} = 1 + \sum_{n=1}^{\infty} r^n (e^{int} + e^{-int}) = \\
-        1 + \sum_{n=1}^{\infty} r^n 2 \Re(e^{int}) = \Re \left[ 1 + 2 \sum_{n=1}^{\infty} (r e^{it})^n  \right] = \Re \left[ 1 + 2 \dfrac{re^{it}}{1-re^{it}} \right] = \Re \left[\dfrac{1 + re^{it}}{1-re^{it}} \right].
-    \end{multline*}
+    \begin{equation*}
+        \begin{split}
+            P_r(t) & = \sum_{n=-\infty}^{\infty} r^{\abs{n}}e^{int} = 1 + \sum_{n=1}^{\infty} r^n e^{int} + \sum_{n=1}^{\infty} r^n e^{-int} = 1 + \sum_{n=1}^{\infty} r^n (e^{int} + e^{-int}) = \\
+                   & =  1 + \sum_{n=1}^{\infty} r^n 2 \Re(e^{int}) = \Re \left[ 1 + 2 \sum_{n=1}^{\infty} (r e^{it})^n  \right] = \Re \left[ 1 + 2 \dfrac{re^{it}}{1-re^{it}} \right] = \Re \left[\dfrac{1 + re^{it}}{1-re^{it}} \right].
+        \end{split}
+    \end{equation*}
     \\ \par
     Por otra parte
     \begin{equation*}
@@ -165,7 +167,7 @@ Para demostrar el Teorema de Fatou nos vamos a basar en unos resultados clásico
     Tomando de nuevo una sucesión $\{r_n\}$ que tienda a 1, el teorema de la convergencia dominada garantiza que $f^*$ cumple \ref{fatou3}. Además, podemos convertir \ref{fatou_proof} en una integral de Poisson, si $z = re^{i \theta}$,
     \begin{equation*}
          \begin{split}
-             f(z) &  = \dfrac{1}{2 \pi} \int_{- \pi}^{\pi} f^*(e^{it}) \sum_{n=0}^{\infty} r^n e^{in(\theta - t)} dt =  \dfrac{1}{2 \pi} \int_{- \pi}^{\pi} f^*(e^{it}) \sum_{n=-\infty}^{\infty} r^{\abs{n}} e^{in(\theta - t)} dt = \\
+             f(z) & = \dfrac{1}{2 \pi} \int_{- \pi}^{\pi} f^*(e^{it}) \sum_{n=0}^{\infty} r^n e^{in(\theta - t)} dt =  \dfrac{1}{2 \pi} \int_{- \pi}^{\pi} f^*(e^{it}) \sum_{n=-\infty}^{\infty} r^{\abs{n}} e^{in(\theta - t)} dt = \\
                   & =  \dfrac{1}{2 \pi} \int_{- \pi}^{\pi} P_r(\theta - t) f^*(e^{it}) dt
          \end{split}
     \end{equation*}
