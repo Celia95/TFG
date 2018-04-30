@@ -11,7 +11,7 @@ En esta sección vamos a estudiar el comportamiento de algunas series de potenci
 \begin{example}
     Mostrar que
     \begin{equation*}
-        \sum_{n=0}^{\infty} z^n, \abs{z} < 1
+        \sum_{n=0}^{\infty} z^n, \, \abs{z} < 1
     \end{equation*}
     diverge en todo punto tal que $\abs{z} = 1$.
 \end{example}
@@ -39,19 +39,19 @@ Tomemos $a$ un punto cualquiera de $\complex \setminus \{1\}$ y conectémoslo al
     \end{split}
 \end{equation*}
 
-De nuevo, tomemos $z_2$ en $\gamma$ tal que $\abs{z - z_1} < \abs{1 - z_1}$ y $\abs{z} \geq 1$. Podemos extender la serie de potencias a $z_2$.
+De nuevo, tomemos $z_2$ en $\gamma$ tal que $\abs{z_2 - z_1} < \abs{1 - z_1}$ y $\abs{z_2} \geq 1$. Podemos extender la serie de potencias a $z_2$.
 \begin{equation*}
     \frac{1}{1-z} = \sum_{n=0}^{\infty} \frac{1}{(1 - z_2)^{n+1}} (z - z_2)^n , \abs{z - z_2} < \abs{1 - z_2}.
 \end{equation*}
 
 % Hacer dibujo, como en el libro de Lin.
 
-Después de un número finito de iteraciones, alcanzaremos el punto $a$ y tendremos
+Después de un número finito de iteraciones, dado que la curva es un conjunto compacto, alcanzaremos el punto $a$ y tendremos
 \begin{equation*}
     \frac{1}{1-z} = \sum_{n=0}^{\infty} \frac{1}{(1 - a)^{n+1}} (z - a)^n , \abs{z - a} < \abs{1 - a}.
 \end{equation*}
 
-Así, decimos que hemos obtenido la prolongación analítica de $\sum_{n=0}^{\infty} z^n$ que pasa por la curva $\gamma$. De hecho, está extensión no depende la curva de Jordan que tomemos. En efecto, sea $\alpha \subset \complex \setminus \{1\}$ otra curva de Jordan que conecta $a$ con $0$ y extendamos analíticamente $\sum_{n=0}^{\infty} z^n$ a través de $\alpha$ hasta el punto $a$. Por la propiedad de unicidad, obtendremos la misma serie que en el caso anterior. Por lo tanto, $\frac{1}{1 - z}$ está bien definida en $\complex \setminus \{1\}$.
+Así, decimos que hemos obtenido la prolongación analítica de $\sum_{n=0}^{\infty} z^n$ que pasa por la curva $\gamma$.
 \end{proof}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -61,7 +61,7 @@ Así, decimos que hemos obtenido la prolongación analítica de $\sum_{n=0}^{\in
 \begin{example}
     Mostrar que
     \begin{equation*}
-        g(z) = \sum_{n=1}^{\infty} \frac{z^n}{n}, \abs{z} < 1
+        g(z) = \sum_{n=1}^{\infty} \frac{z^n}{n}, \, \abs{z} < 1
     \end{equation*}
     diverge en $z = 1$  y converge en el resto de punto tales que $\abs{z} = 1$;
 
@@ -96,7 +96,8 @@ Así, decimos que hemos obtenido la prolongación analítica de $\sum_{n=0}^{\in
 
      Si integramos ahora la expresión de la derecha tenemos que la suma es $\log{\frac{1}{1 - z}}$. %Puesto que en 0 vale 0.
 
-     %Puedes  añadir que un argumento análogo permite presentar ejemplos de series con disco de convergencia de radio 1, pero que divergen en una cantidad arbitraria de puntos del borde. Por ejemplo, la serie de término general z^{pn}/n, diverge en las p raíces p-ésimas de la unidad.
+     % Falta comentar que la serie armónica diverge
+     % Puedes  añadir que un argumento análogo permite presentar ejemplos de series con disco de convergencia de radio 1, pero que divergen en una cantidad arbitraria de puntos del borde. Por ejemplo, la serie de término general z^{pn}/n, diverge en las p raíces p-ésimas de la unidad.
 \end{proof}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -106,7 +107,7 @@ Así, decimos que hemos obtenido la prolongación analítica de $\sum_{n=0}^{\in
 \begin{example}
     Mostrar que
     \begin{equation*}
-        f(z) = \sum_{n=1}^{\infty} \frac{z^n}{n^2}, \abs{z} < 1
+        f(z) = \sum_{n=1}^{\infty} \frac{z^n}{n^2}, \, \abs{z} < 1
     \end{equation*}
     converge absoluta y uniformemente en $\abs{z} = 1$.
 \end{example}
@@ -117,7 +118,7 @@ Así, decimos que hemos obtenido la prolongación analítica de $\sum_{n=0}^{\in
         \sum_{n=1}^{\infty} \abs{\frac{z^n}{n^2}} \leq \sum_{n=1}^{\infty} \abs{\frac{1}{n^2}} < \infty.
     \end{equation*}
 
-        % Sobre este ejemplo diría que define una función holomorfa y acotada en el disco abierto, continua en el disco cerrado.
+     % Sobre este ejemplo diría que define una función holomorfa y acotada en el disco abierto, continua en el disco cerrado.
 
     Vamos a ver que la suma de la serie es $z + \log{(1 - z)(1 - z)}$. En efecto, si derivamos nos queda
     \begin{equation*}
@@ -143,7 +144,7 @@ Así, decimos que hemos obtenido la prolongación analítica de $\sum_{n=0}^{\in
 \begin{example}
     Mostrar que la serie lagunar,
     \begin{equation*}
-        h(z) = \sum_{n=0}^{\infty}  z^{2^n}, \abs{z} < 1
+        h(z) = \sum_{n=0}^{\infty}  z^{2^n}, \, \abs{z} < 1
     \end{equation*}
  tiene una singularidad en cada punto tal que $\abs{z} = 1$.
 \end{example}
@@ -154,14 +155,14 @@ Así, decimos que hemos obtenido la prolongación analítica de $\sum_{n=0}^{\in
          h(z^2) = h(z) - z, \,
          h(z^4) = h(z^2) - z^2,
     \end{equation*}
-    y aplicando inducción tenemos que 
+    y aplicando inducción tenemos que
     \begin{equation*}
         h(z^{2^k}) = h(z^{2^{k-1}}) - z^{2^{k-1}}
     \end{equation*}
 
     Así,
     \begin{equation*}
-        h(z) = z + h(z^2) = z + z^2 + h(z^4) = \cdots = z + z^2 + \cdots + z^{2^{k-1}} + z^{2^k}.
+        h(z) = z + h(z^2) = z + z^2 + h(z^4) = \cdots = z + z^2 + \cdots + z^{2^{k-1}} + z^{2^k}. % El último término debería ir con h(algo)
     \end{equation*}
 
     Si $m, n \in \naturals$ y $r \in (0,1)$ y llamamos $r$ a $e^{2 \pi i \frac{m}{2^n}}$, tenemos que
@@ -173,8 +174,43 @@ Así, decimos que hemos obtenido la prolongación analítica de $\sum_{n=0}^{\in
     \begin{equation*}
         \sum_{k=n}^{\infty} r^{2^k} \geq \sum_{k=n}^{N} r^{2^k} > (N + 1) r^{2^k} \rightarrow N + 1,
     \end{equation*}
-    
+
     entonces $\lim_{r \rightarrow 1} \abs{h(re^{2 \pi i \frac{m}{2^n}})} = \infty \, \, \forall m, n$. \\ \par
 
     Puesto que $\{e^{2 \pi i \frac{m}{2^n}} : m, n \in \naturals\}$ es denso en $\partial \disk$, todos los puntos del borde del disco unidad son singulares.
+\end{proof}
+
+
+\begin{example}
+    Mostrar que la función
+    \begin{equation*}
+        f(z) = \exp{\left(\frac{z + 1}{z - 1}\right)}, \, z \in \disk
+    \end{equation*}
+    es analítica, $\abs{f(z)} \leq 1$ para todo $z \in \disk$, y $f(t) \rightarrow 0$ cuando $t \rightarrow 1^-$.
+\end{example}
+
+\begin{proof}
+    La función $f$ es holomorfa ya que es la composición de funciones holomorfas. Obsérvese que el único punto singular es $z = 1$.
+
+    La función $g(z) = \frac{z + 1}{z - 1}$ lleva el disco en el semiplano $H = \{w: \Re (w) < 0\}$. Así pues, la exponencial lleva $H$ en $\disk$:
+    \begin{equation*}
+        \abs{e^z} = \abs{e^{x+iy}} = \abs{e^{x}(\cos y + i\sen y)} = \abs{e^{x}\cdot e^{iy}} < 1.
+    \end{equation*}
+
+    La aplicación $g$ es una transformada de Möbius, y las transformadas de Möbius tienen la propiedad de que llevan círculos a líneas o círculos. Como la función lleva $-1$ a $0$, $i$ a $-i$ y $-i$ a $i$, la imagen del círculo $\abs{z}=1$, ha de ser una línea. \\ % Extender esto
+
+    Si tomamos la sucesión $\{t_n\}$ de término general $t$,
+    \begin{equation*}
+        \frac{t + 1}{t - 1} \xrightarrow[t \rightarrow 1^-]{}  - \infty \Rightarrow \exp \left(  \frac{t + 1}{t - 1} \right) \xrightarrow[t \rightarrow 1^-]{} 0.
+    \end{equation*}
+
+     Si tomamos la sucesión $\{z_n\}$ definida por $z_n = g(w_n)$, siendo $\{w_n\}$ la sucesión de término general $-1 + 2n \pi i$. Entonces,
+     \begin{equation*}
+         z_n = \frac{2n \pi i}{-2 + 2n \pi i} = \frac{n \pi i}{n \pi i - 1} =  \frac{(n \pi i + 1) n \pi i}{- n^2 \pi^2 - 1} = \frac{-n^2 \pi^2 + i n \pi}{-n^2 \pi^2 - 1}.
+     \end{equation*}
+
+     Como $g = g^{-1}$ tenemos
+     \begin{equation*}
+         e^{g(z_n)} = e^{w_n} \rightarrow e^{-1} \not = 0.         
+     \end{equation*}
 \end{proof}
