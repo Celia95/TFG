@@ -79,7 +79,7 @@
 \bigskip \par
 
 \begin{definition}
-    Se llama integral de Poisson de una función $f \in L^1(e^{it})$ a la función $F$ dada por
+    Se llama integral de Poisson de una función $f \in L^1(\partial \disk)$ a la función $F$ dada por
     \begin{equation*}
         F: z=re^{i \theta} \in \disk \mapsto F(re^{i \theta}) = \dfrac{1}{2 \pi} \int_{- \pi}^{\pi} P_r (\theta - t) f(e^{it}) dt.
     \end{equation*}
@@ -182,12 +182,11 @@ Para demostrar el Teorema de Fatou nos vamos a basar en unos resultados clásico
 \end{definition}
 
 \begin{prop}
-    Sea $U \subset \complex$. Una aplicación $f: U \rightarrow \complex$ es conforme en $U$ si y solo si $f \in \holomorphic{U}$ y $f'(z) \not = 0 \, \forall z \in U$.
-    %a f tienes que pedirle que admita derivadas parciales con respecto a x e y y sean continuas. En la implicación => derivas con respecto a ambas.
+    Sea $U \subset \complex$. Una aplicación $f: U \rightarrow \complex$ es conforme en $U$ si $f \in \holomorphic{U}$ y $f'(z) \not = 0 \, \forall z \in U$.
 \end{prop}
 
 \begin{proof}
-    $(\Leftarrow)$ Supongamos que $f(z)$ es una función holomorfa en $U$ tal que $f'(z) \not = 0$ para $z \in U$ y consideremos $f:z \rightarrow w=f(z)$. Sea $\gamma: [a,b] \rightarrow U$ una curva suave. Consideremos $\lambda = (f \circ  \gamma)(t)$. Por la regla de la cadena, $\lambda$ es continuamente diferenciable y como $f'(\gamma(t)) \not = 0$, tenemos
+    Supongamos que $f(z)$ es una función holomorfa en $U$ tal que $f'(z) \not = 0$ para $z \in U$ y consideremos $f:z \rightarrow w=f(z)$. Sea $\gamma: [a,b] \rightarrow U$ una curva suave. Consideremos $\lambda = (f \circ  \gamma)(t)$. Por la regla de la cadena, $\lambda$ es continuamente diferenciable y como $f'(\gamma(t)) \not = 0$, tenemos
     \begin{equation}
         \label{cadena}
         \lambda'(t) = f'(\gamma(t))\gamma'(t).
@@ -207,10 +206,10 @@ Para demostrar el Teorema de Fatou nos vamos a basar en unos resultados clásico
         \arg  \frac{\lambda_2'(a)}{\lambda_1'(a)} = \arg \lambda_2'(a) - \arg \lambda_1'(a) = \arg \gamma_2'(a) - \arg \gamma_1'(a) = \arg  \frac{\gamma_2'(a)}{\gamma_1'(a)}.
     \end{equation*}
 
-    Así, el ángulo entre las curvas $\lambda_1$ y $\lambda_2$ en $d = \lambda_1(a) = \lambda_2(a)$ es igual al ángulo $\theta$ entre las curvas $\gamma_1$ y $\gamma_2$ en $c$. \\ \par
+    Así, el ángulo entre las curvas $\lambda_1$ y $\lambda_2$ en $d = \lambda_1(a) = \lambda_2(a)$ es igual al ángulo $\theta$ entre las curvas $\gamma_1$ y $\gamma_2$ en $c$.
 
-    \begin{comment}    
-    $(\Leftarrow)$ Supongamos que $f(z)$ es una función holomorfa en $U$ tal que $f'(z) \not = 0$ para $z \in U$ y consideremos $f:z \rightarrow w=f(z)$. Sea $\gamma: [a,b] \rightarrow U$ una curva suave. Consideremos $\lambda = (f \circ  \gamma)(t)$. Por la regla de la cadena, $\lambda$ es continuamente diferenciable y como $f'(\gamma(t)) \not = 0$, tenemos
+    \begin{comment}
+    Supongamos que $f(z)$ es una función holomorfa en $U$ tal que $f'(z) \not = 0$ para $z \in U$ y consideremos $f:z \rightarrow w=f(z)$. Sea $\gamma: [a,b] \rightarrow U$ una curva suave. Consideremos $\lambda = (f \circ  \gamma)(t)$. Por la regla de la cadena, $\lambda$ es continuamente diferenciable y como $f'(\gamma(t)) \not = 0$, tenemos
     \begin{equation}
         \label{cadena}
         \lambda'(t) = f'(\gamma(t))\gamma'(t).
@@ -227,13 +226,20 @@ Para demostrar el Teorema de Fatou nos vamos a basar en unos resultados clásico
     \begin{equation*}
         \dfrac{\lambda_2'(a)}{\lambda_1'(a)} = \dfrac{\gamma_2'(a)}{\gamma_1'(a)}
     \end{equation*}
-    entonces el ángulo entre las curvas $\lambda_1$ y $\lambda_2$ en $d = \lambda_1(a) = \lambda_2(a)$ es igual al ángulo $\theta$ entre las curvas $\gamma_1$ y $\gamma_2$ en $c$. \\ \par
+    entonces el ángulo entre las curvas $\lambda_1$ y $\lambda_2$ en $d = \lambda_1(a) = \lambda_2(a)$ es igual al ángulo $\theta$ entre las curvas $\gamma_1$ y $\gamma_2$ en $c$.
     \end{comment}
+\end{proof}
 
-    $(\Rightarrow)$ Supongamos que $f$ es conforme. Fijamos $z$ un punto arbitrario de $U$, y elegimos $\varepsilon > 0$ tal que $D(z, \varepsilon) \subset U$. Consideremos la familia de curvas suaves $\gamma_{\theta}(t) = z + te^{i \theta}, 0 \leq t \leq \varepsilon, \theta \in \real$. Nótese que el ángulo entre $\gamma_0$ y $\gamma_{\theta}$ en $z$ es $\theta$.
+Vamos a probar un resultado recíproco a éste que incluye algunas restricciones adicionales sobre $f$.
 
+\begin{prop}
+    Sean $U \subset \complex$ y $f: U \rightarrow \complex$ una aplicación conforme en $U$ que admite derivadas parciales continuas con respecto a $x$ e $y$. Entonces $f \in \holomorphic{U}$ y $f'(z) \not = 0 \, \forall z \in U$.
+\end{prop}
 
-    Tomemos $\lambda_\theta = (f \circ  \gamma_\theta)(t)$ una familia de curvas. Como $f$ es conforme, el ángulo entre $\lambda_0$ y $\lambda_{\theta}$ en $f(z)$ es $\theta$. Como $f$ es conforme, el ángulo entre $\lambda_0$ y $\lambda_{\theta}$, es decir, el argumento de $\frac{\lambda_{\theta}'(0)}{\lambda_0' (0)}$ es igual a $\theta$. Si escribimos el argumento de $\lambda_0'(0)$ como $\alpha$, el argumento de $\lambda_{\theta}'(0)$ será $\alpha+\theta$ y, por tanto,
+\begin{proof}
+    Fijemos $z$ un punto arbitrario de $U$, y elijamos $\varepsilon > 0$ tal que $D(z, \varepsilon) \subset U$. Consideremos la familia de curvas suaves $\gamma_{\theta}(t) = z + te^{i \theta}, 0 \leq t \leq \varepsilon, \theta \in \real$. Nótese que el ángulo entre $\gamma_0$ y $\gamma_{\theta}$ en $z$ es $\theta$.
+
+     Tomemos la familia de curvas $\lambda_\theta = (f \circ \gamma_\theta$. Como $f$ es conforme, el ángulo entre $\lambda_0$ y $\lambda_{\theta}$ en $f(z)$ es $\theta$. Como $f$ es conforme, el ángulo entre $\lambda_0$ y $\lambda_{\theta}$, es decir, el argumento de $\frac{\lambda_{\theta}'(0)}{\lambda_0' (0)}$ es igual a $\theta$. Si escribimos el argumento de $\lambda_0'(0)$ como $\alpha$, el argumento de $\lambda_{\theta}'(0)$ será $\alpha+\theta$ y, por tanto,
     \begin{equation}
     \label{conformal}
         e^{-i(\theta + \alpha)} \lambda_{\theta}'(0)= \abs{\lambda_{\theta}'(0)} > 0.
@@ -259,8 +265,9 @@ Para demostrar el Teorema de Fatou nos vamos a basar en unos resultados clásico
     \begin{equation*}
         -2i (f_x + i f_y) e^{-2i \theta - i \alpha} = \frac{2d}{d \theta} \abs{\lambda_{\theta}'(0)}.
     \end{equation*}
+    Resulta que esa cantidad cumple que al multiplicarla por $-2ie^{-2i\alpha-i\theta}$ tiene siempre parte imaginaria nula. Como el ángulo $\theta$ es arbitrario (pero $\alpha$ es fijo), tiene que ser nulo $f_x+if_y$, ya que el producto por $e^{-2i\alpha-i\theta}$ resulta ser entonces un giro de ángulo arbitrario. Solo puede tener parte imaginaria nula siempre si es nulo, claro.
 
-    Como $\theta$ es una variable real y la parte de la derecha de la igualdad solo toma valores reales, concluimos que %¿es esto la parte imaginaria de lo que la izquierda? No me doy cuenta de por qué es 0.
+    Como $\theta$ es una variable real y la parte de la derecha de la igualdad solo toma valores reales, concluimos que
     \begin{equation*}
         f_x + i f_y = 0
     \end{equation*}
@@ -269,7 +276,8 @@ Para demostrar el Teorema de Fatou nos vamos a basar en unos resultados clásico
         u_x + v_y + i(v_x + u_y) = 0.
     \end{equation*}
 
-    Como vemos, $u(x,y)$ y $v(x,y)$ satisfacen las ecuaciones de Cauchy-Riemann en $U$. Luego $f(z) = u(x,y) + i v(x,y)$ es holomorfa en $z = x + iy \in U$. Falta ver que $f(z) \not = 0, z \in U$. %era una errata del libro y había que usar que lo que el libro llama (3.5)
+    Como vemos, $u(x,y)$ y $v(x,y)$ satisfacen las ecuaciones de Cauchy-Riemann en $U$. Luego $f(z) = u(x,y) + i v(x,y)$ es holomorfa en $z = x + iy \in U$. Falta ver que $f(z) \not = 0, z \in U$.
+    % Errata del libro: hay que usar que lo que el libro llama (3.5) ??
 \end{proof}
 
 \begin{comment}
@@ -375,7 +383,6 @@ Para demostrar el Teorema de Fatou nos vamos a basar en unos resultados clásico
 El resultado que presentamos a continuación es un recíproco parcial del teorema de Carathéodory. Muestra que la inyectividad en el borde del dominio se traslada al interior, en condiciones adecuadas.
 
 \begin{theorem}
-    %Sea \Omega un abierto cuya frontera \Gamma es una curva simple y suave.
     Sea $\Gamma$ una curva simple, cerrada y suave con interior $\Omega$. Sea $f \in \holomorphic{\Gamma \cup \Omega}$ una aplicación inyectiva en $\Gamma$. Entonces $f$ es holomorfa e inyectiva en $\Omega$.
 \end{theorem}
 
@@ -385,7 +392,7 @@ El resultado que presentamos a continuación es un recíproco parcial del teorem
         n = \dfrac{1}{2 \pi i} \int_{\Gamma_+} \dfrac{f'(z)}{f(z) - w_0} dz =  \dfrac{1}{2 \pi i} \int_{\Gamma'} \dfrac{dw}{w - w_0}.
     \end{equation*}
 
-    Ahora la última integral es cero si $w_0$ está fuera de $\Gamma'$ y es $\pm 1$ si $w_0$ está dentro de $\Gamma'$. Sin embargo, $n$ no puede ser negativo pues la primera integral nos da el número de ceros de $f(z) - w_0$ dentro de $\Gamma$ Entonces, $n=1$ si $w_0$ está dentro de $\Gamma'$.
+    Ahora la última integral es cero si $w_0$ está fuera de $\Gamma'$ y es $\pm 1$ si $w_0$ está dentro de $\Gamma'$. Sin embargo, $n$ no puede ser negativo pues la primera integral nos da el número de ceros de $f(z) - w_0$ dentro de $\Gamma$. Entonces, $n=1$ si $w_0$ está dentro de $\Gamma'$.
 
     Esto prueba que $f(z) = w_0$ tiene una sola solución si $w_0$ está dentro de $\Gamma'$, que $f(z)$ es holomorfa e inyectiva en $\Omega$ y lleva $\Omega$ en $\Omega'$ (el interior de $\Gamma'$) y que la dirección positiva de $\Gamma'$ se corresponde con la dirección positiva de $\Gamma$.
 \end{proof}
