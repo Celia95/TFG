@@ -1,10 +1,11 @@
-\usepackage[fleqn]{amsmath}
+\usepackage[fleqn]{amsmath} %leqno to put numbers of equations on the left side
 \usepackage{amssymb}
 \usepackage{amsfonts}
 \usepackage{anysize}
 \usepackage{float}
 \usepackage{amsthm}
 \usepackage{verbatim}
+\usepackage{mathtools}
 
 %Theorem styles
 
@@ -30,12 +31,12 @@
 \newtheorem{theorem}{Teorema}[section] %section restart the theorem counter at every new section.
 \newtheorem{lemma}[theorem]{Lema} %it will use the same counter as the theorem environment.
 \newtheorem{corollary}{Corolario}[theorem] %the counter of this new environment will be reset every time a new theorem environment is used.
-\newtheorem{prop}{Proposición}[theorem]
+\newtheorem{prop}[theorem]{Proposición}
 
 \theoremstyle{definition}
-\newtheorem{definition}{Definición}[section]
-\newtheorem{example}{Ejemplo}[section]
-\newtheorem{conj}{Conjetura}[section]
+\newtheorem{definition}[theorem]{Definición}
+\newtheorem{example}[theorem]{Ejemplo}
+\newtheorem{conj}[theorem]{Conjetura}
 
 \theoremstyle{remark}
 \newtheorem*{remark}{Nota}
@@ -100,4 +101,13 @@
 
 %Fibra
 \newcommand{\fiber}{\mathfrak{M}}
+
+\makeatletter
+\newcommand{\leqnomode}{\tagsleft@true} %to put numbers of equations on the left side
+\newcommand{\reqnomode}{\tagsleft@false} %to put numbers of equations on the right side
+\makeatother
+
+\newtagform{Alph}[\renewcommand{\theequation}{\Alph{equation}}]()
+\newtagform{roman}[\renewcommand{\theequation}{\roman{equation}}]()
+\newtagform{scroman}[\renewcommand{\theequation}{\scshape\roman{equation}}][]
 
