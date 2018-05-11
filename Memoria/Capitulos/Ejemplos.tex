@@ -17,7 +17,7 @@ En esta sección vamos a estudiar el comportamiento de algunas series de potenci
 \end{example}
 
 \begin{proof}
-Es fácil ver que $1 - z^{n+1} = (1 - z) (1+ z + z^2 + \cdots + z^n)$ así que
+Es fácil ver que $1 - z^{n+1} = (1 - z) (1+ z + z^2 + \cdots + z^n)$. Por lo tanto, si $z \neq 1$, se tiene que
 \begin{equation}
     1 + z + \cdots + z^n = \frac{1 - z^{n+1}}{1-z}.
 \end{equation}
@@ -162,7 +162,7 @@ Así, decimos que hemos obtenido la prolongación analítica de $\sum_{n=0}^{\in
 
     Así,
     \begin{equation*}
-        h(z) = z + h(z^2) = z + z^2 + h(z^4) = \cdots = z + z^2 + \cdots + z^{2^{k-1}} + z^{2^k}. % El último término debería ir con h(algo)
+        h(z) = z + h(z^2) = z + z^2 + h(z^4) = \cdots = z + z^2 + \cdots + z^{2^{k-1}} + h(z^{2^k}). % El último término debería ir con h(algo)
     \end{equation*}
 
     Si $m, n \in \naturals$ y $r \in (0,1)$ y llamamos $r$ a $e^{2 \pi i \frac{m}{2^n}}$, tenemos que
@@ -186,7 +186,7 @@ Así, decimos que hemos obtenido la prolongación analítica de $\sum_{n=0}^{\in
     \begin{equation*}
         f(z) = \exp{\left(\frac{z + 1}{z - 1}\right)}, \, z \in \disk
     \end{equation*}
-    es analítica, $\abs{f(z)} \leq 1$ para todo $z \in \disk$, y $f(t) \rightarrow 0$ cuando $t \rightarrow 1^-$.
+    es holomorga, $\abs{f(z)} \leq 1$ para todo $z \in \disk$, y $f(t) \rightarrow 0$ cuando $t \rightarrow 1^-$.
 \end{example}
 
 \begin{proof}
@@ -194,23 +194,24 @@ Así, decimos que hemos obtenido la prolongación analítica de $\sum_{n=0}^{\in
 
     La función $g(z) = \frac{z + 1}{z - 1}$ lleva el disco en el semiplano $H = \{w: \Re (w) < 0\}$. Así pues, la exponencial lleva $H$ en $\disk$:
     \begin{equation*}
-        \abs{e^z} = \abs{e^{x+iy}} = \abs{e^{x}(\cos y + i\sen y)} = \abs{e^{x}\cdot e^{iy}} < 1.
+        \abs{e^z} = \abs{e^{x+iy}} = \abs{e^{x}(\cos y + i\sen y)} = e^{x} < 1. % creo que aquí pondría e^x, sin barras y sin que aparezca la variable   y
     \end{equation*}
 
-    La aplicación $g$ es una transformada de Möbius, y las transformadas de Möbius tienen la propiedad de que llevan círculos a líneas o círculos. Como la función lleva $-1$ a $0$, $i$ a $-i$ y $-i$ a $i$, la imagen del círculo $\abs{z}=1$, ha de ser una línea. \\ % Extender esto
+    La aplicación $g$ es una transformación de Möbius, y las transformadas de Möbius tienen la propiedad de que llevan circunferencias y rectas en circunferencias y rectas. Como la función lleva $-1$ a $0$, $i$ a $-i$ y $-i$ a $i$, la imagen del círculo $\abs{z}=1$, ha de ser una recta. \\ % Extender esto
 
-    Si tomamos la sucesión $\{t_n\}$ de término general $t$,
+
+    Si tomamos una sucesión $\{t_n\}$ en el intervalo $(-1,1)$ que converge a $1$, se tiene que $g(t_n) \to - \infty$. Por lo tanto,
     \begin{equation*}
         \frac{t + 1}{t - 1} \xrightarrow[t \rightarrow 1^-]{}  - \infty \Rightarrow \exp \left(  \frac{t + 1}{t - 1} \right) \xrightarrow[t \rightarrow 1^-]{} 0.
     \end{equation*}
 
-     Si tomamos la sucesión $\{z_n\}$ definida por $z_n = g(w_n)$, siendo $\{w_n\}$ la sucesión de término general $-1 + 2n \pi i$. Entonces,
+    Sin embargo, la función $f$ no tiene límite en $1$. Por ejemplo, si tomamos la sucesión $\{z_n\}$ definida por $z_n = g(w_n)$, siendo $\{w_n\}$ la sucesión de término general $-1 + 2n \pi i$. Entonces,
      \begin{equation*}
          z_n = \frac{2n \pi i}{-2 + 2n \pi i} = \frac{n \pi i}{n \pi i - 1} =  \frac{(n \pi i + 1) n \pi i}{- n^2 \pi^2 - 1} = \frac{-n^2 \pi^2 + i n \pi}{-n^2 \pi^2 - 1}.
      \end{equation*}
 
      Como $g = g^{-1}$ tenemos
      \begin{equation*}
-         e^{g(z_n)} = e^{w_n} \rightarrow e^{-1} \not = 0.         
+         e^{g(z_n)} = e^{w_n} \rightarrow e^{-1} \not = 0.
      \end{equation*}
 \end{proof}
