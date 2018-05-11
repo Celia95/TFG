@@ -17,9 +17,7 @@
     \end{proof}
 \end{comment}
 
-\section{Integral de Poisson y Teorema de Fatou}
-
-\subsection{La Integral de Poisson}
+\section{La Integral de Poisson}
 
 \begin{definition}
     Se llama núcleo de Poisson a la función $P$ definida por
@@ -95,7 +93,7 @@ Además si $f$ lleva $\partial \disk$ en los reales, \ref{poisson2} nos muestra 
      P[f] = \Re \left[ \dfrac{1}{2} \int_{-\pi}^{\pi} \dfrac{e^{it} + z}{e^{it} - z} f(t) dt \right].
 \end{equation*}
 
-\subsection{Teorema de Fatou}
+\section{El Teorema de Fatou}
 
 Para demostrar el Teorema de Fatou nos vamos a basar en unos resultados clásicos del libro \citet[chap. 11]{rudin}.
 
@@ -175,7 +173,7 @@ Para demostrar el Teorema de Fatou nos vamos a basar en unos resultados clásico
     De esto concluimos que $\norminf{f} \leq \norminf{f^*}$, así que ambas normas coinciden.
 \end{proof}
 
-\section{Teorema de Carathéodory}
+\section{Teorema de Carathéodory y aplicaciones conformes}
 
 \begin{definition}{Aplicación conforme}
     Sean $U$ y $V \subset \complex^n$. Una aplicación $f: U \rightarrow V$ se llama conforme en un punto $u \in U$ si preserva la orientación y los ángulos entre curvas que pasan por $u$.
@@ -239,24 +237,25 @@ Vamos a probar un resultado recíproco a éste que incluye algunas restricciones
 \begin{proof}
     Fijemos $z$ un punto arbitrario de $U$, y elijamos $\varepsilon > 0$ tal que $D(z, \varepsilon) \subset U$. Consideremos la familia de curvas suaves $\gamma_{\theta}(t) = z + te^{i \theta}, 0 \leq t \leq \varepsilon, \theta \in \real$. Nótese que el ángulo entre $\gamma_0$ y $\gamma_{\theta}$ en $z$ es $\theta$.
 
-     Tomemos la familia de curvas $\lambda_\theta = (f \circ \gamma_\theta$. Como $f$ es conforme, el ángulo entre $\lambda_0$ y $\lambda_{\theta}$ en $f(z)$ es $\theta$. Como $f$ es conforme, el ángulo entre $\lambda_0$ y $\lambda_{\theta}$, es decir, el argumento de $\frac{\lambda_{\theta}'(0)}{\lambda_0' (0)}$ es igual a $\theta$. Si escribimos el argumento de $\lambda_0'(0)$ como $\alpha$, el argumento de $\lambda_{\theta}'(0)$ será $\alpha+\theta$ y, por tanto,
+     Tomemos la familia de curvas $\lambda_\theta = f \circ \gamma_\theta$. Como $f$ es conforme, el ángulo entre $\lambda_0$ y $\lambda_{\theta}$, es decir, el argumento de $\frac{\lambda_{\theta}'(0)}{\lambda_0' (0)}$ es igual a $\theta$. Si escribimos el argumento de $\lambda_0'(0)$ como $\alpha$, el argumento de $\lambda_{\theta}'(0)$ será $\alpha+\theta$ y, por tanto,
     \begin{equation}
     \label{conformal}
         e^{-i(\theta + \alpha)} \lambda_{\theta}'(0)= \abs{\lambda_{\theta}'(0)} > 0.
     \end{equation}
     \ref{cauchy-riemann}, nos dice que
-    \begin{equation*}
-    \begin{split}
-        \lambda_{\theta}'(0) & = u_x \cos \theta + u_y \sin \theta + i(v_x \cos \theta + v_y \sin \theta) = \\
-                             & = (u_x + iv_x) \cos \theta + (u_y + i v_y) \sin \theta = f_x \cos \theta + f_y \sin \theta,
-    \end{split}
-    \end{equation*}
-    por la identidad de Euler,
+    \begin{equation}
+        \label{nonulo}
+        \begin{split}
+            \lambda_{\theta}'(0) & = u_x \cos \theta + u_y \sen \theta + i(v_x \cos \theta + v_y \sen \theta) = \\
+                             & = (u_x + iv_x) \cos \theta + (u_y + i v_y) \sen \theta = f_x \cos \theta + f_y \sen \theta,
+        \end{split}
+    \end{equation}
+    por la fórmula de Euler, % Tomando que $e^{i \theta} = \cos \theta + i \sen \theta$ y $e^{-i \theta} = \cos \theta - i \sen \theta$ y sustituyendo abajo, llegamos a lo de arriba.
     \begin{equation*}
         2 \lambda_{\theta}'(0) = (f_x - i f_y) e^{i \theta} + (f_x + i f_y) e^{-i \theta}.
     \end{equation*}
 
-    Entonces por \ref{conformal},
+    Entonces por \ref{conformal}, % Sustituyendo $\lambda_{\theta}'(0)= \frac{\abs{\lambda_{\theta}'(0)}}{e^{-i(\theta + \alpha)}}$ y pasando lo de abajo al otro lado.
     \begin{equation*}
          (f_x - i f_y) e^{-i \alpha} + (f_x + i f_y) e^{-2i \theta -i  \alpha} = 2 \abs{\lambda_{\theta}'(0)}.
     \end{equation*}
@@ -265,10 +264,11 @@ Vamos a probar un resultado recíproco a éste que incluye algunas restricciones
     \begin{equation*}
         -2i (f_x + i f_y) e^{-2i \theta - i \alpha} = \frac{2d}{d \theta} \abs{\lambda_{\theta}'(0)}.
     \end{equation*}
-    Resulta que esa cantidad cumple que al multiplicarla por $-2ie^{-2i\alpha-i\theta}$ tiene siempre parte imaginaria nula. Como el ángulo $\theta$ es arbitrario (pero $\alpha$ es fijo), tiene que ser nulo $f_x+if_y$, ya que el producto por $e^{-2i\alpha-i\theta}$ resulta ser entonces un giro de ángulo arbitrario. Solo puede tener parte imaginaria nula siempre si es nulo, claro.
 
-    Como $\theta$ es una variable real y la parte de la derecha de la igualdad solo toma valores reales, concluimos que
-    \begin{equation*}
+% Imagina un vector de $\complex$. Si ese vector esta sobre la recta real y le aplico un giro de 30 grados, ahora tiene parte imaginaria. Pero hemos dicho que tiene que ser real aún así, entonces el único vector que si lo giras lo que quieras y siempre se queda en la recta real es el nulo.
+
+    Como el ángulo $\theta$ es arbitrario, $e^{-2i \theta - i \alpha}$ es un giro arbitrario. Como además la parte de la derecha de la igualdad solo toma valores reales, $-2i(f_x + i f_y)$ bajo cualquier giro tiene que ser real. De esto se sigue que
+       \begin{equation*}
         f_x + i f_y = 0
     \end{equation*}
     por lo que
@@ -276,8 +276,7 @@ Vamos a probar un resultado recíproco a éste que incluye algunas restricciones
         u_x + v_y + i(v_x + u_y) = 0.
     \end{equation*}
 
-    Como vemos, $u(x,y)$ y $v(x,y)$ satisfacen las ecuaciones de Cauchy-Riemann en $U$. Luego $f(z) = u(x,y) + i v(x,y)$ es holomorfa en $z = x + iy \in U$. Falta ver que $f(z) \not = 0, z \in U$.
-    % Errata del libro: hay que usar que lo que el libro llama (3.5) ??
+    Como vemos, $u(x,y)$ y $v(x,y)$ satisfacen las ecuaciones de Cauchy-Riemann en $U$. Luego $f(z) = u(x,y) + i v(x,y)$ es holomorfa en $z = x + iy \in U$. Además se tiene que $f(z) \not = 0, z \in U$. En efecto, como $\lambda'_\theta(0) \neq 0$, \ref{nonulo} garantiza que no pueden anularse a la vez $u_x$ y $u_y$. Por lo tanto, como $\abs{f'(x+iy)}^2 = u_x^2(x,y)+u_y^2(x,y)$, se tiene el resultado.
 \end{proof}
 
 \begin{comment}
