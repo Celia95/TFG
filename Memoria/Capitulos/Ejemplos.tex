@@ -1,6 +1,6 @@
 \chapter{Ejemplos}
 
-%Empezar comentando cómo calcular el radio de convergencia, que los ejemplos son de series con radio de convergencia 1 y que vas a mostrar cómo difieren el comportamiento en la frontera de unos a otros.
+\todo[inline]{Empezar comentando cómo calcular el radio de convergencia, que los ejemplos son de series con radio de convergencia 1 y que vas a mostrar cómo difieren el comportamiento en la frontera de unos a otros.}
 
 En esta sección vamos a estudiar el comportamiento de algunas series de potencias en el borde de su disco de convergencia.
 
@@ -44,7 +44,7 @@ De nuevo, tomemos $z_2$ en $\gamma$ tal que $\abs{z_2 - z_1} < \abs{1 - z_1}$ y 
     \frac{1}{1-z} = \sum_{n=0}^{\infty} \frac{1}{(1 - z_2)^{n+1}} (z - z_2)^n , \abs{z - z_2} < \abs{1 - z_2}.
 \end{equation*}
 
-% Hacer dibujo, como en el libro de Lin.
+\todo[inline]{Hacer dibujo, como en el libro de Lin.}
 
 Después de un número finito de iteraciones, dado que la curva es un conjunto compacto, alcanzaremos el punto $a$ y tendremos
 \begin{equation*}
@@ -68,7 +68,7 @@ Así, decimos que hemos obtenido la prolongación analítica de $\sum_{n=0}^{\in
 \end{example}
 
 \begin{proof}
-    Para demostrar que la serie diverge en $z = 1$  y converge en el resto de punto tales que $\abs{z} = 1$ vamos a aplicar el criterio de Dirichlet: \\ \par
+    En primer lugar, cabe destacar que la serie armónica $\sum_{n=1}^{\infty} \frac{1}{n}$ diverge. Para demostrar que la serie diverge en $z = 1$  y converge en el resto de punto tales que $\abs{z} = 1$ vamos a aplicar el criterio de Dirichlet: \\ \par
 
     Sean $\{a_n\} \subset \real$ y $\{b_n\} \subset \complex$ sucesiones tales que:
     \begin{itemize}
@@ -91,12 +91,10 @@ Así, decimos que hemos obtenido la prolongación analítica de $\sum_{n=0}^{\in
 
     Vamos a ver que la suma de la serie es $\log{\frac{1}{1 - z}}$. En efecto, derivando tenemos que
     \begin{equation*}
-        g'(z) = \sum_{n=1}^{\infty} z^{n-1} \Rightarrow z g'(z) = \sum_{n=0}^{\infty} z^n = \frac{1}{1 - z}.
+        g'(z) = \sum_{n=1}^{\infty} z^{n-1} \Rightarrow z g'(z) = \sum_{n=1}^{\infty} z^n = \frac{z}{1 - z}.
      \end{equation*}
+     Si integramos ahora la expresión de la derecha tenemos que la suma es $\log{\frac{1}{1 - z}}$ puesto que $g(0) = 0$.
 
-     Si integramos ahora la expresión de la derecha tenemos que la suma es $\log{\frac{1}{1 - z}}$. %Puesto que en 0 vale 0.
-
-     % Falta comentar que la serie armónica diverge
      % Puedes  añadir que un argumento análogo permite presentar ejemplos de series con disco de convergencia de radio 1, pero que divergen en una cantidad arbitraria de puntos del borde. Por ejemplo, la serie de término general z^{pn}/n, diverge en las p raíces p-ésimas de la unidad.
 \end{proof}
 
@@ -118,14 +116,11 @@ Así, decimos que hemos obtenido la prolongación analítica de $\sum_{n=0}^{\in
         \sum_{n=1}^{\infty} \abs{\frac{z^n}{n^2}} \leq \sum_{n=1}^{\infty} \abs{\frac{1}{n^2}} < \infty.
     \end{equation*}
 
-     % Sobre este ejemplo diría que define una función holomorfa y acotada en el disco abierto, continua en el disco cerrado.
-
-    Vamos a ver que la suma de la serie es $z + \log{(1 - z)(1 - z)}$. En efecto, si derivamos nos queda
+    Esta función $f$ define una función holomorfa y acotada en el disco abierto $\disk$, que además es continua en el disco cerrado $\closedisk$. Sin embargo, no puede extenderse con continuidad en $z = 1$.
     \begin{equation*}
         f'(z) =  \sum_{n=1}^{\infty} \frac{z^{n-1}}{n} \Rightarrow zf'(z) = \sum_{n=1}^{\infty} \frac{z^{n}}{n} = g(z) = \log{\frac{1}{1 - z}}.
     \end{equation*}
 
-    Integrando la expresión de la derecha tenemos el resultado.
     \begin{comment}
     \begin{equation*}
         f''(z) =  \sum_{n=2}^{\infty} \frac{(n - 1)}{n} z^{n-2} =  \sum_{n=2}^{\infty} z^{n-2} - \sum_{n=2}^{\infty} \frac{1}{n} z^{n-2}
@@ -162,7 +157,7 @@ Así, decimos que hemos obtenido la prolongación analítica de $\sum_{n=0}^{\in
 
     Así,
     \begin{equation*}
-        h(z) = z + h(z^2) = z + z^2 + h(z^4) = \cdots = z + z^2 + \cdots + z^{2^{k-1}} + h(z^{2^k}). % El último término debería ir con h(algo)
+        h(z) = z + h(z^2) = z + z^2 + h(z^4) = \cdots = z + z^2 + \cdots + z^{2^{k-1}} + h(z^{2^k}).
     \end{equation*}
 
     Si $m, n \in \naturals$ y $r \in (0,1)$ y llamamos $r$ a $e^{2 \pi i \frac{m}{2^n}}$, tenemos que
@@ -186,7 +181,7 @@ Así, decimos que hemos obtenido la prolongación analítica de $\sum_{n=0}^{\in
     \begin{equation*}
         f(z) = \exp{\left(\frac{z + 1}{z - 1}\right)}, \, z \in \disk
     \end{equation*}
-    es holomorga, $\abs{f(z)} \leq 1$ para todo $z \in \disk$, y $f(t) \rightarrow 0$ cuando $t \rightarrow 1^-$.
+    es holomorfa, $\abs{f(z)} \leq 1$ para todo $z \in \disk$, y $f(t) \rightarrow 0$ cuando $t \rightarrow 1^-$.
 \end{example}
 
 \begin{proof}
@@ -194,11 +189,10 @@ Así, decimos que hemos obtenido la prolongación analítica de $\sum_{n=0}^{\in
 
     La función $g(z) = \frac{z + 1}{z - 1}$ lleva el disco en el semiplano $H = \{w: \Re (w) < 0\}$. Así pues, la exponencial lleva $H$ en $\disk$:
     \begin{equation*}
-        \abs{e^z} = \abs{e^{x+iy}} = \abs{e^{x}(\cos y + i\sen y)} = e^{x} < 1. % creo que aquí pondría e^x, sin barras y sin que aparezca la variable   y
+        \abs{e^z} = \abs{e^{x+iy}} = \abs{e^{x}(\cos y + i\sen y)} = e^{x} < 1.
     \end{equation*}
 
-    La aplicación $g$ es una transformación de Möbius, y las transformadas de Möbius tienen la propiedad de que llevan circunferencias y rectas en circunferencias y rectas. Como la función lleva $-1$ a $0$, $i$ a $-i$ y $-i$ a $i$, la imagen del círculo $\abs{z}=1$, ha de ser una recta. \\ % Extender esto
-
+    La aplicación $g$ es una transformación de Möbius, y las transformaciones de Möbius tienen la propiedad de que llevan circunferencias y rectas en circunferencias y rectas. Como la función lleva $-1$ a $0$, $i$ a $-i$ y $-i$ a $i$, la imagen del círculo $\abs{z}=1$, ha de ser una recta. \\
 
     Si tomamos una sucesión $\{t_n\}$ en el intervalo $(-1,1)$ que converge a $1$, se tiene que $g(t_n) \to - \infty$. Por lo tanto,
     \begin{equation*}
@@ -214,4 +208,6 @@ Así, decimos que hemos obtenido la prolongación analítica de $\sum_{n=0}^{\in
      \begin{equation*}
          e^{g(z_n)} = e^{w_n} \rightarrow e^{-1} \not = 0.
      \end{equation*}
+
+     \todo[inline]{Extender este ejemplo con lo que hemos visto en el capítulo de espacios de Banach.}
 \end{proof}

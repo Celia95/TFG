@@ -3,7 +3,7 @@
 En este capítulo vamos a trabajar con $\bholomorphic{\disk}$ como el álgebra de las funciones holomorfas acotadas en el disco unidad. \\
 
 \begin{definition}
-    Un espacio vectorial complejo se denomina espacio de Banach si es normado y completo.
+    Un espacio vectorial complejo $X$, dotado de una norma $\norm{\cdot}$ se denomina espacio de Banach si es completo.
 \end{definition}
 
 \medskip
@@ -11,17 +11,17 @@ $\bholomorphic{\disk}$ es un espacio vectorial complejo, que dotado con la norma
 \begin{equation*}
     \norminf{f} = \sup_{\abs{z} < 1} \abs{f(z)},
 \end{equation*}
-es un espacio vectorial normado y completo sobre $\complex$. Atendiendo a la definición anterior, decimos que  $(\bholomorphic{\disk}, \norminf{\cdot})$ es un espacio de Banach. \\
+es normado y completo sobre $\complex$. Atendiendo a la definición anterior, decimos que  $(\bholomorphic{\disk}, \norminf{\cdot})$ es un espacio de Banach. \\
 
 \begin{definition}
-    Decimos que $B$ es un álgebra de Banach si es un espacio de Banach con un álgebra asociada tal que la multiplicación satisface:
+    Decimos que un álgebra $B$, dotada de una norma $\norm{\cdot}$ es un álgebra de Banach si como espacio normado $(B, \norm{\cdot})$ es un espacio de Banach y, además, para el producto satisface:
     \begin{equation*}
         \forall x, y \in B: \, \norm{x \cdot y} \leq \norm{x} \cdot \norm{y}.
     \end{equation*}
 \end{definition}
 
 \medskip
-También podemos ver $\bholomorphic{\disk}$ como un álgebra. En efecto, si $f, g \in \bholomorphic{\disk}$ y $\alpha, \beta \in \complex$, entonces
+Con las operaciones naturales, podemos ver $\bholomorphic{\disk}$ como un álgebra. En efecto, si $f, g \in \bholomorphic{\disk}$ y $\alpha, \beta \in \complex$, entonces
 \begin{equation*}
     \begin{split}
         & \alpha f + \beta g \in \bholomorphic{\disk} \\
@@ -39,20 +39,20 @@ Así, $\bholomorphic{\disk}$ es un álgebra de Banach conmutativa (con la funci�
     \begin{equation*}
         \norm{\varphi} = \sup_{\norm{x} \leq 1} \abs{\varphi(x)}.
     \end{equation*}
-    Con esta norma, $B^*$ es un espacio de Banach al que llamamos espacio conjugado de $B$.
+    Con esta norma, $B^*$ es un espacio de Banach al que llamamos espacio dual de $B$.
 \end{definition}
 
 \medskip
-Además de la topología inducida por la norma en el espacio conjugado $B^*$, vamos a considerar otra topología denominada topología débil-* en $B^*$. Está definida de la siguiente manera. Sea $\varphi_0 \in B^*$ y tomemos una cantidad finita de elementos $x_1, \dots x_n \in B$ y $\varepsilon > 0$. Sea
+Además de la topología inducida por la norma en el espacio dual $B^*$, vamos a considerar otra topología denominada topología débil-* en $B^*$. Está definida de la siguiente manera. Sea $\varphi_0 \in B^*$ y tomemos una cantidad finita de elementos $x_1, \dots x_n \in B$ y $\varepsilon > 0$. Sea
 \begin{equation*}
 U = \{ \varphi \in B^*: \abs{\varphi(x_k) - \varphi_0 (x_k)} < \varepsilon, k = 1, \dots, n\}.
 \end{equation*}
 un entorno $\varphi_0$. Un abierto de esta topología será, por tanto, cualquier unión de tales entornos $U$.
 
-Es la topología más débil de $B^*$ tal que todas las funciones $\varphi \rightarrow \varphi(x)$ son continuas de $B^*$ en $\complex$, con $x \in B$. Esta topología se denota por $\sigma(B^*, B)$. % La topología débil-* es la más débil de $B^*$, es decir, es aquella que tiene el menor número de abiertos.
+Esta topología se denota por $\sigma(B^*, B)$. Es la topología más débil de $B^*$ tal que todas las funciones $\varphi \rightarrow \varphi(x)$ son continuas de $B^*$ en $\complex$, con $x \in B$. % La topología débil-* es la más débil de $B^*$, es decir, es aquella que tiene el menor número de abiertos.
 
 \begin{obs}
-    El disco unidad cerrado de $B^*$ es compacto en la topología débil-*.
+    La bola unidad cerrada de $B^*$ es compacto en la topología débil-*.
 \end{obs}
 \bigskip
 
@@ -64,13 +64,13 @@ Recordemos que $\phi : \bholomorphic{\disk} \rightarrow \complex$ es un homomorf
     \end{split}
 \end{equation}
 
-El espectro de $\bholomorphic{\disk}$, denotado por $\fiber = \fiber (\bholomorphic{\disk})$, es el espacio de los homomorfismos $\phi: \bholomorphic{\disk} \rightarrow \complex$ no nulos. Observamos que tales homomorfismos verifican que $\norm{\phi} = 1$ y son continuos.\\
+El espectro de $\bholomorphic{\disk}$, denotado por $\fiber = \fiber (\bholomorphic{\disk})$, es el espacio de los homomorfismos $\phi: \bholomorphic{\disk} \rightarrow \complex$ no nulos. Observamos que tales homomorfismos verifican que son continuos y $\norm{\phi} = 1$. \\
 
-$\fiber$ es un subconjunto del espacio conjugado $\bholomorphic{\disk}^*$ y, de hecho, está contenido en el disco unidad de $\bholomorphic{\disk}^*$. Además, $\fiber$ es cerrado en la topología débil estrella en $B^*$. \\
+$\fiber$ es un subconjunto del espacio dual $\bholomorphic{\disk}^*$ y, de hecho, está contenido en la bola unidad de $\bholomorphic{\disk}^*$. Además, $\fiber$ es cerrado en la topología débil estrella en $B^*$. \\
 
-Como el disco unidad en $\bholomorphic{\disk}^*$ equipado con la topología débil-* es compacto, se sigue que $\fiber$ (como subconjunto de $\bholomorphic{\disk}^*$) equipado con la topología débil estrella es un espacio Hausdorff compacto. ? \\
+Como la bola unidad en $\bholomorphic{\disk}^*$ equipada con la topología débil-* es compacto, se sigue que $\fiber$ (como subconjunto de $\bholomorphic{\disk}^*$) equipado con la topología débil estrella es un espacio Hausdorff compacto. ? \\
 
-En este punto queremos asociar cada elemento de $x$ de $B$ con uno que estará sobre $\fiber(B)$. Para ello vamos a definir la siguiente aplicación:
+En este punto queremos asociar a cada elemento de $x$ de $B$ con una función continua que estará sobre $\fiber(B)$. Para ello vamos a definir la siguiente aplicación:
 \begin{equation*}
     \begin{split}
         \widehat x:  \fiber(B) & \rightarrow  \complex \\
@@ -93,16 +93,16 @@ Lo que hemos comentado puede aplicarse a $\bholomorphic{\disk}$. Así tenemos la
 \end{equation*}
 con $x \in \bholomorphic{\disk}$, que da lugar a la representación $f \rightarrow \widehat f$. Vamos a poder interpretar $\bholomorphic{\disk}$ como el álgebra de las funciones continuas en el espacio compacto de los ideales maximales $\fiber$. Hay que hablar más de la relación de $\fiber$ y los ideales maximales. \\
 
-Quizá es mejor hablar primero de la transformada de Gelfand y luego introducir la topología débil-* en $\fiber$. \\
+$\widehat f$ es continua sobre el espectro. \\
 
-Al espacio $\fiber$ se le suele llamar el espacio de ideales maximales de $\bholomorphic{\disk}$. Para cada $\phi \in \fiber$, el kernel de $\phi$ es un ideal maximal en el álgebra $\bholomorphic{\disk}$. Recíprocamente, todo ideal maximal en $\bholomorphic{\disk}$ se corresponde con el núcleo de un homomorfismo en $fiber$. Vamos a estudiar la estructura de este espacio. \\
+Al espacio $\fiber$ se le suele llamar el espacio de ideales maximales de $\bholomorphic{\disk}$. Para cada $\phi \in \fiber$, el kernel de $\phi$ es un ideal maximal en el álgebra $\bholomorphic{\disk}$. Recíprocamente, todo ideal maximal en $\bholomorphic{\disk}$ se corresponde con el núcleo de un homomorfismo en $\fiber$. Vamos a estudiar la estructura de este espacio. \\
 
 Los únicos homomorfismos complejos evidentes de $\bholomorphic{\disk}$ son las evaluaciones
 \begin{equation*}
     \delta_z (f) = f(z).
 \end{equation*}
 
-Hablar más de las evaluaciones.
+\todo[inline]{Hablar más de las evaluaciones. Las evaluaciones en puntos del disco abierto son elementos del espectro.}
 
 Existe una aplicación continua que lleva $\fiber$ en el disco unidad cerrado. Si denotamos por $\id$ la función identidad de $\disk$,
 \begin{equation*}
@@ -117,14 +117,17 @@ la proyección que buscamos lleva los homomorfismos $\phi \in \fiber$ en su corr
     \end{split}
 \end{equation}
 
+\todo[inline]{Aquí conviene decir que la función identidad tiene norma 1 y cada $\varphi$ también, por lo que $\abs{\pi(\varphi}\leq 1$. Es decir, que la imagen de $\pi$ está contenida en el disco unidad cerrado.}
+
 \begin{theorem}
-    La aplicación $\pi: \fiber \rightarrow \closedisk$ definida por \ref{proyeccion} es continua. $\pi$ es inyectiva sobre el disco abierto $\disk$ y $\pi^{-1}$ aplica homeomorficamente $\disk$ sobre un abierto de $\fiber$.
+    La aplicación $\pi: \fiber \rightarrow \closedisk$ definida por \ref{proyeccion} es continua. $\pi$ es inyectiva sobre el disco abierto $\disk$ y $\pi^{-1}$ aplica homeomórficamente $\disk$ sobre un abierto de $\fiber$.
 \end{theorem}
 
-En esta prueba llamo $\lambda$ a los puntos del disco y $z$ a la variable de la función $f$.
+\note{En esta prueba llamo $\lambda$ a los puntos del disco y $z$ a la variable de la función $f$.}
 
 \begin{proof}
-$\pi$ es continua por definición. Veamos que $\pi$ lleva $\fiber$ en el disco cerrado. En efecto, ya hemos observado antes que cada punto del disco abierto $\disk$ está en la imagen de $\pi$ puesto que $\pi (\phi_\lambda) = \lambda$. Como $\fiber$ es un conjunto compacto que contiene a $\disk$, y la imagen de un compacto por una aplicación continua es también un compacto, entonces $\pi(\fiber)$ es compacto. Así pues, como $\pi(\fiber)$ es un conjunto compacto que contiene a $\disk$, contiene todo el disco cerrado $\closedisk$. \\
+$\pi$ es continua por definición. Veamos que $\pi$ lleva $\fiber$ en el disco cerrado. En efecto, ya hemos observado antes que cada punto del disco abierto $\disk$ está en la imagen de $\pi$ puesto que $\pi (\delta_\lambda) = \lambda$. Como $\fiber$ es un conjunto compacto que contiene a $\disk$, y la imagen de un compacto por una aplicación continua es también un compacto, entonces $\pi(\fiber)$ es compacto. Así pues, como $\pi(\fiber)$ es un conjunto compacto que contiene a $\disk$, contiene todo el disco cerrado $\closedisk$. \\
+% Al ser continua $\pi$, el espectro compacto y el disco abierto está en la imagen de $\pi$, y este es denso en el disco cerrado, la imagen debe ser todo el disco cerrado.
 
 Veamos ahora que $\pi$ es inyectiva sobre el disco. Para ello supongamos que $\abs{\lambda} < 1$ y $\pi (\phi) = \phi (\id) = \lambda$, con $\phi \in \fiber$. Si $f(\lambda) = 0$, entonces $f(z) = (z - \lambda) g(z)$ y
 \begin{equation*}
@@ -137,7 +140,7 @@ Si $f(\lambda) = c$, entonces $f(z) = c + g(z)$, con $g(z) = 0$ y
 \end{equation*}
 Por lo tanto, $\phi(f) = f(\lambda)$ para toda $f \in \bholomorphic{\disk}$, es decir, $\phi$ es la evaluación en $\lambda$. Esto prueba que $\pi$ es inyectiva sobre los puntos del disco unidad $\disk$. \\
 
-Si tomamos $\Delta = \pi^{-1} (\disk) = \{\phi_z : z \in \disk\}$, entonces $\pi$ lleva $\Delta$ homeomorficamente en el disco $\disk$ ya que la topología de $\Delta$ es la topología débil definida por las aplicaciones $\widehat f$ y la topología de $\disk$ es la topología débil definida por las aplicaciones $f \in \bholomorphic{\disk}$. ?\\
+Si tomamos $\Delta = \pi^{-1} (\disk) = \{\phi_z : z \in \disk\}$, entonces $\pi$ lleva $\Delta$ homeomórficamente en el disco $\disk$ ya que la topología de $\Delta$ es la topología débil definida por las aplicaciones $\widehat f$ y la topología de $\disk$ es la topología débil definida por las aplicaciones $f \in \bholomorphic{\disk}$. ?\\
 \end{proof}
 
 Si $\abs{\alpha} = 1$, decimos que $\pi^{-1} (\alpha)$ es la fibra de $\fiber$ sobre $\alpha$ y lo denotamos por $\fiber_\alpha$:
@@ -154,7 +157,9 @@ Existe una correspondencia uno a uno entre los homomorfismos $\phi: \bholomorphi
 \end{equation*}
 \end{comment}
 
-%Observemos que la imagen de toda función constante por cualquier elemento del espectro es ella misma. Además, la identidad es una función de $\bholomorphic{\disk}$ de norma 1. \\
+\todo[inline]{Observemos que la imagen de toda función constante por cualquier elemento del espectro es ella misma. Además, la identidad es una función de $\bholomorphic{\disk}$ de norma 1.}
+
+\todo[inline]{Las fibras sobre los puntos del disco abierto tienen un único elemento, pero que sobre los números del borde del disco la fibra tiene muchos.}
 
 \begin{theorem}
     \label{result1}
@@ -166,7 +171,7 @@ Existe una correspondencia uno a uno entre los homomorfismos $\phi: \bholomorphi
 \end{theorem}
 
 \begin{proof}
-    Sea $J = \{h\in \bholomorphic{\disk} : \lim_{n \rightarrow \infty} h(z_n) = 0 \}$ un ideal propio en $\bholomorphic{\disk}$. $J$ está contenido en un ideal maximal $M$, esto es, existe un homomorfismo complejo $\phi$ de  $\bholomorphic{\disk}$ del que $M$ es el núcleo. En particular, $\phi(h) = 0$ para todo $h \in J$. Las funciones $(z - \alpha)$ y $(f - \zeta)$ están ambas en $J$. Entonces, $\phi(z) = \alpha$ y $\phi(f) = \zeta$. Por lo tanto $\phi$ es el homomorfismo buscado. \\ %Aquí se usa que \phi(c)=c, siendo c una constante.
+    Sea $J = \{h\in \bholomorphic{\disk} : \lim_{n \rightarrow \infty} h(z_n) = 0 \}$ un ideal propio en $\bholomorphic{\disk}$. $J$ está contenido en un ideal maximal $M$, esto es, existe un homomorfismo complejo $\phi$ de  $\bholomorphic{\disk}$ del que $M$ es el núcleo. En particular, $\phi(h) = 0$ para todo $h \in J$. Las funciones $(z - \alpha)$ y $(f - \zeta)$ están ambas en $J$. Entonces, $\phi(z) = \alpha$ y $\phi(f) = \zeta$. Por lo tanto $\phi$ es el homomorfismo buscado. \\ % Aquí se usa que $\phi(c) = c$, siendo $c$ una constante.
 \end{proof}
 
 \begin{theorem}
@@ -178,15 +183,16 @@ Existe una correspondencia uno a uno entre los homomorfismos $\phi: \bholomorphi
 
     Podemos suponer que $\zeta = 0$. Sea $h(z) = \frac{1}{2} (1 + z \alpha^{-1})$, así que $h(\alpha) = 1$ y $\abs{h} < 1$ en cualquier otro lugar dentro del disco unidad cerrado. Como $f$ es continua en $\alpha$ y toma el valor $0$, es fácil ver que $(1 - h^n) f$ converge uniformemente a $f$ cuando $n \rightarrow \infty$. Si $\phi$ es un homomorfismo complejo de $\bholomorphic{\disk}$ que yace en la fibra $\fiber_\alpha$, es decir, $\phi (z) = \alpha$, entonces $\phi (h) = 1$. Por lo tanto, $\phi [(1 - h^n)f] = 0$, y, como $\phi$ es continua, $\phi (f) = 0$. Así, $\widehat f$ es la función idénticamente nula en $\fiber_\alpha$. \\
 
-    %Si $\widehat f$ vale constantemente $\zeta$ en la fibra $\fiber_\alpha$, entonces el Teorema \ref{result1} implica que $f(z) \rightarrow \zeta$ cuando $z_n \rightarrow \alpha$. Si definimos $f (\alpha) = \zeta$, entonces $f$ se puede extender con continuidad a $\disk \cup \{ \alpha \}$.
+    % Si $\widehat f$ vale constantemente $\zeta$ en la fibra $\fiber_\alpha$, entonces el Teorema \ref{result1} implica que $f(z) \rightarrow \zeta$ cuando $z_n \rightarrow \alpha$. Si definimos $f (\alpha) = \zeta$, entonces $f$ se puede extender con continuidad a $\disk \cup \{ \alpha \}$.
 
     Si $\widehat f$ es constante en la fibra $\fiber_\alpha$, entonces el Teorema \ref{result1} muestra directamente que $f$ se puede extender con continuidad a $\disk \cup \{ \alpha \}$. \\
 \end{proof}
 
-%\bigskip
-%La discusión anterior muestra que $\disk \in \fiber (\bholomorphic{\disk})$. Entonces podemos definir la corona de $\bholomorphic{\disk}$ como $\fiber (\bholomorphic{\disk}) \setminus \disk$.
+% \bigskip
+% La discusión anterior muestra que $\disk \in \fiber (\bholomorphic{\disk})$. Entonces podemos definir la corona de $\bholomorphic{\disk}$ como $\fiber (\bholomorphic{\disk}) \setminus \disk$.
 
-Podemos ahora hacernos algunas preguntas de carácter topológico sobre el espacio de ideales maximales de $\bholomorphic{\disk}$. Las evaluaciones punto a punto llevan el disco unidad abierto en un conjunto abierto $\Delta$ de $\fiber$. El resto de homomorfismos yacen en las fibras $\fiber_\alpha$ y son límites de los puntos de $\Delta$. La cuestión que nos planteamos es la siguiente: ¿son esos homomorfismos realmente límites de $\phi_z$ en la topología de $\fiber$? En otras palabras, ¿es el disco $\disk$ denso en $\fiber$? A esta pregunta se le ha denominado El Problema de la Corona. \\
+Podemos ahora hacernos algunas preguntas de carácter topológico sobre el espacio de ideales maximales de $\bholomorphic{\disk}$. Las evaluaciones punto a punto llevan el disco unidad abierto en un conjunto abierto $\Delta$ de $\fiber$. El resto de homomorfismos yacen en las fibras $\fiber_\alpha$. La cuestión que nos planteamos es la siguiente: ¿son esos homomorfismos realmente límites de $\delta_z$ en la topología de $\fiber$? En otras palabras, ¿es el disco $\disk$ denso en $\fiber$? A esta
+pregunta se le ha denominado El Problema de la Corona. A continuación vamos a dar una formulación algebraica equivalente.\\
 
 \begin{theorem}[Teorema de la Corona]
     El problema de la corona es equivalente a:
@@ -196,7 +202,7 @@ Podemos ahora hacernos algunas preguntas de carácter topológico sobre el espac
 \end{equation*}
      entonces existen $g_1, \dots, g_n \in \bholomorphic{\disk}$ tales que $f_1 g_1 + \cdots + f_n g_n = 1$.
 
-    %Si $\phi \in \fiber \exists (z_\alpha) \subset \disk / \forall g \in \bholomorphic{\disk} \lim_\alpha g(z_\alpha) = \widehat g(\phi) = \phi (g)$, siendo $g(z_\alpha) = \delta_{z_\alpha} (g)$.
+    % Si $\phi \in \fiber \exists (z_\alpha) \subset \disk / \forall g \in \bholomorphic{\disk} \lim_\alpha g(z_\alpha) = \widehat g(\phi) = \phi (g)$, siendo $g(z_\alpha) = \delta_{z_\alpha} (g)$.
 \end{theorem}
 
 \begin{proof}
@@ -217,10 +223,12 @@ no corta a $\disk$. En particular, para cada $z \in \disk$ se cumple que
 \begin{equation*}
     \abs{f_1(z)} + \cdots + \abs{f_n(z)} \geq \delta
 \end{equation*}
-y las funciones $f_1, \dots, f_n$ están en un ideal propio de $J \subset \bholomorphic{\disk}$ ya que $J \subset \ker \phi_0$. %Esto es porque $\phi_0 (f_j) = 0$
+y las funciones $f_1, \dots, f_n$ están en un ideal propio de $J \subset \bholomorphic{\disk}$ ya que $J \subset \ker \phi_0$. % Esto es porque $\phi_0 (f_j) = 0$
 
 La afirmación de que $f_1, \dots, f_n$ están en un ideal propio es equivalente a la afirmación de que la función constante $1$ no se puede escribir de la forma $f_1 g_1 + \cdots + f_n g_n = 1$, con $g_1, \dots, g_n \in \bholomorphic{\disk}$, ya que $\phi (1) = 1$ y $\phi (f_1 g_1 + \cdots + f_n g_n) = \phi (f_1) \phi (g_1) + \cdots + \phi (f_n) \phi (g_n) = 0$. \\
 \end{proof}
+
+\todo[inline]{Introducir la noción de $Cl(f,\alpha)$ y explicitar que el otro contenido también es cierto.}
 
 \begin{prop}
     Para todo $f \in \bholomorphic{\disk}$ y $\alpha$ tal que $\abs{\alpha} = 1$ se cumple que
@@ -237,10 +245,12 @@ La afirmación de que $f_1, \dots, f_n$ están en un ideal propio es equivalente
         & \lim_{n \rightarrow \infty} f(z_n)= \widehat{f} (\phi).
     \end{align}
 
-    Como $\disk$ es denso en $\fiber$ para $w^*$, se cumple que existe $\{z_\alpha\} \subset \disk$ tal que $\delta_{z_\alpha} \rightarrow \phi$. Es decir, para toda función $h \in \bholomorphic{\disk}$ se tiene que $h (z_\alpha) \rightarrow \widehat{h} (\phi)$. En particular, para $g(z) = z$ es cierto por lo que, como $\phi \in \fiber_\alpha$, tenemos
+    Como $\disk$ es denso en $\fiber$ para $w^*$, se cumple que existe $\{z_\alpha\} \subset \disk$ tal que $\delta_{z_\alpha} \rightarrow \phi$. Es decir, para toda función $h \in \bholomorphic{\disk}$ se tiene que $h (z_\alpha) \rightarrow \widehat{h} (\phi)$. En particular, para la función identidad es cierto por lo que, como $\phi \in \fiber_\alpha$, tenemos
     \begin{equation*}
-        g(z_\alpha) = z_\alpha \rightarrow \widehat{g} (\phi) = \alpha.
+        \widehat \id(\phi) = \pi(\id) = \alpha.
     \end{equation*}
 
     Si tomamos ahora $\{z_{\alpha_n}\}$ una subsucesión de $\{z_\alpha\}$ cumplirá que $\lim_{n \rightarrow \infty} z_n = \alpha$ y, además, $\lim_{n \rightarrow \infty} f(z_n)= \widehat{f} (\phi)$. Es decir, $\widehat{f} (\phi) \in Cl (f, \alpha)$. \\
 \end{proof}
+
+\todo[inline]{En este teorema y en el anterior hablo de $w^*$, pero creo que está mal y debería poner simplemente topología débil-* o ponerlo como lo he denotado antes con $\sigma$.}

@@ -12,7 +12,7 @@ Además, decimos que el producto converge cuando el límite existe y no es cero.
 
 \bigskip
 
-% Añadir resultados de convergencia y convergencia absoluta en productos infinitos
+\todo[inline]{Añadir resultados de convergencia y convergencia absoluta en productos infinitos}
 
 \begin{prop}
     Sea $\{u_n\} \, (n=1,2, \dots)$ una sucesión de números complejos no nulos. Si $\lim u_n =1$ y la serie
@@ -63,7 +63,7 @@ Además, decimos que el producto converge cuando el límite existe y no es cero.
     Por tanto, el producto converge absolutamente por definición y utilizando la hipótesis de que $\sum_{n=1}^{\infty} \abs{\alpha_n}$ converge.
 \end{proof}
 
-% Comentario sobre la equivalencia de las tres situaciones.
+\todo[inline]{Añadir comentario sobre la equivalencia de las tres situaciones.}
 
 \section{Productos de Blaschke}
 
@@ -91,15 +91,15 @@ Además, decimos que el producto converge cuando el límite existe y no es cero.
         \end{split}
     \end{equation*}
 
-    Entonces si $\abs{z} \leq 1$,
+    Entonces si $\abs{z} \leq r$,
     \begin{equation*}
-        \sum_{n=1}^{\infty} \abs{1 - b_n(z)} \leq \dfrac{1 + \abs{z}}{1 - \abs{z}} \sum_{n=1}^{\infty} (1 - \abs{\alpha_n}) \leq \dfrac{1 + r}{1 - r} \sum_{n=1}^{\infty} (1 - \abs{\alpha_n})          %Aquí merece detallar por qué convergen uniformemente en el disco de radio r<1.
+        \sum_{n=1}^{\infty} \abs{1 - b_n(z)} \leq \dfrac{1 + \abs{z}}{1 - \abs{z}} \sum_{n=1}^{\infty} (1 - \abs{\alpha_n}) \leq \dfrac{1 + r}{1 - r} \sum_{n=1}^{\infty} (1 - \abs{\alpha_n}). %Aquí merece detallar por qué convergen uniformemente en el disco de radio r<1.
     \end{equation*}
 
-    lo que prueba que la serie $\sum_{n=1}^{\infty} \abs{1 - b_n(z)}$ converge absoluta y uniformemente en el disco cerrado de radio $r$. Por lo que $f(z) = \prod_{n=1}^{\infty} b_n$ converge uniformemente para $\abs{z} \leq r < 1$. Además $f$ define una función holomorfa en el disco unidad ya que $b_n$ son funciones holomorfas y su producto infinito converge uniformemente en los compactos. \\
+    Lo que prueba que la serie $\sum_{n=1}^{\infty} \abs{1 - b_n(z)}$ converge absoluta y uniformemente en el disco cerrado de radio $r$. Por lo que $f(z) = \prod_{n=1}^{\infty} b_n$ converge uniformemente para $\abs{z} \leq r < 1$. Además $f$ define una función holomorfa en el disco unidad ya que $b_n$ son funciones holomorfas y su producto infinito converge uniformemente en los compactos. \\
     % Los productos finitos definen una función holomorfa y el producto infinito converge uniformemente en todos los compactos así que define una función holomorfa.
 
-    % Falta ver que $f(z)$ tiene los mismos ceros que $\alpha_n$ y $\abs{f(z)} \leq 1$.
+    \todo[inline]{Falta ver que $f(z)$ tiene los mismos ceros que $\alpha_n$ y $\abs{f(z)} \leq 1$.}
 
     Sea $B(z) = \prod_{n=1}^{\infty} b_n$ el producto infinito y $B_n(z) = \prod_{k=1}^{n} b_k$ el producto parcial,
     \begin{equation*}

@@ -6,6 +6,11 @@
 \usepackage{amsthm}
 \usepackage{verbatim}
 \usepackage{mathtools}
+\usepackage{xcolor}
+% \usepackage[disable]{todonotes} % notes not showed
+\usepackage[colorinlistoftodos,prependcaption,textsize=normal,linecolor=cyan,backgroundcolor=yellow,bordercolor=black]{todonotes} % notes showed
+% \newcommand{\note}[1]{}  %comment not showed
+\newcommand{\note}[1]{\par {\bfseries \color{blue} #1 \par}} %comment showed
 
 %Theorem styles
 
