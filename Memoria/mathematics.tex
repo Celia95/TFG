@@ -1,12 +1,16 @@
-\usepackage[fleqn]{amsmath} %leqno to put numbers of equations on the left side
+\usepackage[fleqn]{amsmath} %[fleqn] or [leqno] to put numbers of equations on the right or on left side
 \usepackage{amssymb}
 \usepackage{amsfonts}
 \usepackage{anysize}
 \usepackage{float}
 \usepackage{amsthm}
+\usepackage{amsmath}
 \usepackage{verbatim}
 \usepackage{mathtools}
 \usepackage{xcolor}
+\usepackage{tikz}
+\usetikzlibrary{babel, hobby, calc}
+\usepackage{subcaption}
 % \usepackage[disable]{todonotes} % notes not showed
 \usepackage[colorinlistoftodos,prependcaption,textsize=normal,linecolor=cyan,backgroundcolor=yellow,bordercolor=black]{todonotes} % notes showed
 % \newcommand{\note}[1]{}  %comment not showed
@@ -49,35 +53,37 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
-%Para cambiar el símbolo del final de la demostración: \square, \blacksquare
-
+% To change symbol at the end of the proof
 \renewcommand\qedsymbol{$\square$}
 %\renewcommand\qedsymbol{$\blacksquare$}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%
-%Valor absoluto
+% Syntax: [draw options] (center) (initial angle:final angle:radius)
+\def\centerarc[#1](#2)(#3:#4:#5){
+\draw[#1] ($(#2)+({#5*cos(#3)},{#5*sin(#3)})$) arc (#3:#4:#5); }
+
+% Absolute value
 \providecommand{\abs}[1]{\left\lvert#1\right\rvert}
 
-%Norma
+% Norm
 \providecommand{\norm}[1]{\left\lVert#1\right\rVert}
 
-%Norma infinito
+% Infinity norm
 \providecommand{\norminf}[1]{\norm{#1}_{\infty}}
 
-%Holomorfa
+% Holomorphic
 \providecommand{\holomorphic}[1]{\mathcal{H}(#1)}
 
-%Holomorfa y acotada
+% Holomorphic and bounded
 \providecommand{\bholomorphic}[1]{\mathcal{H}^{\infty}(#1)}
 
-%Fibra
+% Fiber
 %\providecommand{\fiber}[1]{\mathfrak{M}(#1)}
 
-%Mas menos centrado
+% Plus minus centering
 \newcommand{\rpm}{\raisebox{.2ex}{$\scriptstyle\pm$}}
 
-%Barra para la adherencia
+% Bar for the closure
 \newcommand*\xbar[1]{%
    \hbox{%
      \vbox{%
@@ -106,7 +112,7 @@
 \newcommand{\id}{\operatorname{id}}
 
 
-%Fibra
+%Fiber
 \newcommand{\fiber}{\mathfrak{M}}
 
 \makeatletter
@@ -114,7 +120,25 @@
 \newcommand{\reqnomode}{\tagsleft@false} %to put numbers of equations on the right side
 \makeatother
 
+% Change the appearance of the numbering of equations. Use with \usetagform{<tagform>
 \newtagform{Alph}[\renewcommand{\theequation}{\Alph{equation}}]()
+\newtagform{alph}[\renewcommand{\theequation}{\alph{equation}}]()
+\newtagform{Roman}[\renewcommand{\theequation}{\roman{equation}}]()
 \newtagform{roman}[\renewcommand{\theequation}{\roman{equation}}]()
 \newtagform{scroman}[\renewcommand{\theequation}{\scshape\roman{equation}}][]
+
+% Change line spacing of equations
+%\setlength{\abovedisplayskip}{30pt}
+%\setlength{\belowdisplayskip}{30pt}
+%\setlength{\jot}{30pt}
+
+% Change de alignment of equations
+%\setlength{\mathindent}{1cm}
+
+% New counter for aligns
+\newcounter{align}[equation]
+\renewcommand{\thealign}{\alph{align}} % style of the numbering
+\newcommand{\alignno}{\refstepcounter{align}\tag{\thealign}}
+\expandafter\let\expandafter\oldalignstar\csname align*\endcsname
+\expandafter\def\csname align*\endcsname{\refstepcounter{equation}\oldalignstar}
 
