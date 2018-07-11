@@ -7,6 +7,7 @@
 \usepackage{amsmath}
 \usepackage{verbatim}
 \usepackage{mathtools}
+\usepackage{enumerate}
 \usepackage{xcolor}
 \usepackage{tikz}
 \usetikzlibrary{babel, hobby, calc}
@@ -136,7 +137,7 @@
 
 % New counter for aligns
 \newcounter{align}[equation]
-\renewcommand{\thealign}{\alph{align}} % style of the numbering
+\renewcommand{\thealign}{\roman{align}} % style of the numbering
 \newcommand{\alignno}{\refstepcounter{align}\tag{\thealign}}
 \expandafter\let\expandafter\oldalignstar\csname align*\endcsname
 \expandafter\def\csname align*\endcsname{\refstepcounter{equation}\oldalignstar}

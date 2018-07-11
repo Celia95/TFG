@@ -22,14 +22,14 @@ Es fácil ver que $1 - z^{n+1} = (1 - z) (1+ z + z^2 + \cdots + z^n)$. Por lo ta
     1 + z + \cdots + z^n = \frac{1 - z^{n+1}}{1-z}.
 \end{equation}
 
-Si $\abs{z} < 1$ entonces $\lim_{n \rightarrow \infty} z^n = 0$ y la serie converge a
+Por un lado, si $\abs{z} < 1$ entonces $\lim_{n \to \infty} z^n = 0$ y la serie converge a
 \begin{equation*}
-    \sum_{n=0}^{\infty} z^n = \frac{1}{1 - z}
+    \sum_{n=0}^{\infty} z^n = \frac{1}{1 - z}.
 \end{equation*}
 
-Si $\abs{z} > 1$ entonces $\lim_{n \rightarrow} z^n = \infty$ y la serie diverge. Pero, ¿qué pasa cuando $\abs{z} = 1$? La serie de potencias $\sum_{n=0}^{\infty} z^n$ diverge en todos los puntos del radio de convergencia pues $\abs{z^n}$ no tiende a 0 cuando $n \rightarrow \infty$.
+Ahora bien, si $\abs{z} > 1$ entonces $\lim_{n \to} z^n = \infty$ y la serie diverge. Pero, ¿qué pasa cuando $\abs{z} = 1$? La serie de potencias $\sum_{n=0}^{\infty} z^n$ diverge en todos los puntos del radio de convergencia pues $\abs{z^n}$ no tiende a 0 cuando $n \to \infty$. \\
 
-Sin embargo, $\sum_{n=0}^{\infty} z^n$ puede ser extendida a la función globalmente analítica $\frac{1}{1-z}$ en $\complex \setminus \{1\}$ gracias a una cantidad finita de prolongaciones analíticas.
+Sin embargo, $\sum_{n=0}^{\infty} z^n$ puede ser extendida a la función globalmente analítica $\frac{1}{1-z}$ en $\complex \setminus \{1\}$ gracias a una cantidad finita de prolongaciones analíticas. \\
 
 Tomemos $a$ un punto cualquiera de $\complex \setminus \{1\}$ y conectémoslo al origen $0$ mediante la curva de Jordan $\gamma \subset \complex \setminus \{1\}$. Fijemos un punto $z_1$ en $\gamma$ que cumpla $\abs{z} < 1$. $\sum_{n=0}^{\infty} z^n$ puede ser extendida analíticamente en $z_1$ de la siguiente forma:
 \begin{equation*}
@@ -39,19 +39,38 @@ Tomemos $a$ un punto cualquiera de $\complex \setminus \{1\}$ y conectémoslo al
     \end{split}
 \end{equation*}
 
-De nuevo, tomemos $z_2$ en $\gamma$ tal que $\abs{z_2 - z_1} < \abs{1 - z_1}$ y $\abs{z_2} \geq 1$. Podemos extender la serie de potencias a $z_2$.
+De nuevo, tomemos $z_2$ en $\gamma$ tal que $\abs{z_2 - z_1} < \abs{1 - z_1}$ y $\abs{z_2} \geq 1$. Podemos extender la serie de potencias a $z_2$ de la misma forma:
 \begin{equation*}
     \frac{1}{1-z} = \sum_{n=0}^{\infty} \frac{1}{(1 - z_2)^{n+1}} (z - z_2)^n , \abs{z - z_2} < \abs{1 - z_2}.
 \end{equation*}
-
-\todo[inline]{Hacer dibujo, como en el libro de Lin.}
 
 Después de un número finito de iteraciones, dado que la curva es un conjunto compacto, alcanzaremos el punto $a$ y tendremos
 \begin{equation*}
     \frac{1}{1-z} = \sum_{n=0}^{\infty} \frac{1}{(1 - a)^{n+1}} (z - a)^n , \abs{z - a} < \abs{1 - a}.
 \end{equation*}
 
-Así, decimos que hemos obtenido la prolongación analítica de $\sum_{n=0}^{\infty} z^n$ que pasa por la curva $\gamma$.
+Así, decimos que hemos obtenido la prolongación analítica de $\sum_{n=0}^{\infty} z^n$ que pasa por la curva $\gamma$. \\
+
+\begin{figure}[h]{}
+    \centering
+    \begin{tikzpicture}[use Hobby shortcut]
+        \draw (4, 1) circle (3.1622776601683795cm);
+        \draw (0, 0) circle (1cm);
+        \draw (0.8377223398316204 ,1) circle (1.01308145723319cm);
+        \draw (0.19918404494511877, 0.5989105159617241) circle (1cm);
+
+        \filldraw[black] (0, 0) circle (1pt) node[below, text=black] {\small $z_0 = 0$};
+        \filldraw[black] (0.19918404494511877, 0.5989105159617241) circle (1pt) node[below right=-0.1, text=black] {\small $z_1$};
+        \filldraw[black] (0.8377223398316204, 1) circle (1pt) node[below right=-0.15, text=black] {\small $z_2$};
+        \filldraw[black] (4, 1) circle (1pt) node[below, text=black] {\small $z_m = a$};
+        \filldraw[black] (1, 0) circle (1pt) node[below, text=black] {\small $1$};
+
+        \draw (0, 0) .. (0.19918404494511877, 0.5989105159617241) .. (0.8377223398316204, 1) .. (4, 1);
+        \node[above] at (2.5, 1.2) {$\gamma$};
+    \end{tikzpicture}
+    \caption{Prolongaciones analíticas.}
+    \label{fig:prolongacion}
+\end{figure}
 \end{proof}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -68,33 +87,33 @@ Así, decimos que hemos obtenido la prolongación analítica de $\sum_{n=0}^{\in
 \end{example}
 
 \begin{proof}
-    En primer lugar, cabe destacar que la serie armónica $\sum_{n=1}^{\infty} \frac{1}{n}$ diverge. Para demostrar que la serie diverge en $z = 1$  y converge en el resto de punto tales que $\abs{z} = 1$ vamos a aplicar el criterio de Dirichlet: \\ \par
+    En primer lugar, cabe destacar que la serie armónica $\sum_{n=1}^{\infty} \frac{1}{n}$ diverge. Para demostrar que la serie diverge en $z = 1$  y converge en el resto de punto tales que $\abs{z} = 1$ vamos a aplicar el criterio de Dirichlet, que recordamos a continuación. \\
 
     Sean $\{a_n\} \subset \real$ y $\{b_n\} \subset \complex$ sucesiones tales que:
-    \begin{itemize}
-        \item[1.] $\{a_n\}$ es monótona con límite $0$
-        \item[2.] Las sumas parciales de la serie $\sum_{n=1}^{\infty} b_n$ están acotadas
-    \end{itemize}
-    %\begin{itemize}
-    %    \item[1.] $a_1 \geq a_2 \geq \dots$
-    %    \item [2.] $\lim_{n \rightarrow \infty} a_n = 0$
-    %    \item[3.] Existe $M > 0$ tal que $\sum_{n=1}^{N} b_n \leq M$ para todo $N \in \naturals$
-    %\end{itemize}
-    entonces $\sum_{n=1}^{N} a_nb_n$ converge. \\ \par
+    \begin{enumerate}
+        \item $\{a_n\}$ es monótona con límite $0$
+        \item Las sumas parciales de la serie $\sum_{n=1}^{\infty} b_n$ están acotadas
+    \end{enumerate}
+    %\begin{enumerate}
+    %    \item $a_1 \geq a_2 \geq \dots$
+    %    \item $\lim_{n \to \infty} a_n = 0$
+    %    \item Existe $M > 0$ tal que $\sum_{n=1}^{N} b_n \leq M$ para todo $N \in \naturals$
+    %\end{enumerate}
+    entonces $\sum_{n=1}^{N} a_nb_n$ converge. \\
 
     En nuestro caso vamos a tomar $a_n = \frac{1}{n}$ y $b_n = z^n$. La primera condición se cumple, veamos la que resta:
     \begin{equation*}
-        \abs{\sum_{n=1}^{N} z^n} = \abs{\frac{z - z^{N+1}}{1 - z}} \leq \frac{2}{\abs{1 - z}}, \text{ si } z \neq 1 \text{, para todo } N \in \naturals.
+        \abs{\sum_{n=1}^{N} z^n} = \abs{\frac{z - z^{N+1}}{1 - z}} \leq \frac{2}{\abs{1 - z}},
     \end{equation*}
+    si $z \neq 1$, para todo $N \in \naturals$. \\
 
-    Esto muestra que la condición se satisface para todo $z \not = 1$ en el disco unidad. Por lo tanto, la serie converge para todo $z$ tal que $\abs{z} \leq 1, z \not = 1$ y diverge para $\abs{z} > 1$. \\ \par
+    Esto muestra que la condición se satisface para todo $z \not = 1$ en el disco unidad. Por lo tanto, la serie converge para todo $z$ tal que $\abs{z} \leq 1, z \not = 1$ y diverge para $\abs{z} > 1$. \\
 
     Vamos a ver que la suma de la serie es $\log{\frac{1}{1 - z}}$. En efecto, derivando tenemos que
     \begin{equation*}
         g'(z) = \sum_{n=1}^{\infty} z^{n-1} \Rightarrow z g'(z) = \sum_{n=1}^{\infty} z^n = \frac{z}{1 - z}.
      \end{equation*}
-     Si integramos ahora la expresión de la derecha tenemos que la suma es $\log{\frac{1}{1 - z}}$ puesto que $g(0) = 0$.
-
+     Si integramos ahora la expresión de la derecha tenemos que la suma es $\log{\frac{1}{1 - z}}$ puesto que $g(0) = 0$. \\
      % Puedes  añadir que un argumento análogo permite presentar ejemplos de series con disco de convergencia de radio 1, pero que divergen en una cantidad arbitraria de puntos del borde. Por ejemplo, la serie de término general z^{pn}/n, diverge en las p raíces p-ésimas de la unidad.
 \end{proof}
 
@@ -111,12 +130,12 @@ Así, decimos que hemos obtenido la prolongación analítica de $\sum_{n=0}^{\in
 \end{example}
 
 \begin{proof}
-    Es fácil ver que converge absoluta y uniformemente en $\abs{z} = 1$ dado que
+    Por el criterio mayorante de Weierstrass, es fácil ver que converge absoluta y uniformemente si $\abs{z} \leq 1$ dado que
     \begin{equation*}
         \sum_{n=1}^{\infty} \abs{\frac{z^n}{n^2}} \leq \sum_{n=1}^{\infty} \abs{\frac{1}{n^2}} < \infty.
     \end{equation*}
-
-    Esta función $f$ define una función holomorfa y acotada en el disco abierto $\disk$, que además es continua en el disco cerrado $\closedisk$. Sin embargo, no puede extenderse con continuidad en $z = 1$.
+    \\
+    Esta función $f$ define una función holomorfa y acotada en el disco abierto $\disk$, que además es continua en el disco cerrado $\closedisk$. Sin embargo, no puede extenderse a una función que sea derivable en $z = 1$. \\
     \begin{equation*}
         f'(z) =  \sum_{n=1}^{\infty} \frac{z^{n-1}}{n} \Rightarrow zf'(z) = \sum_{n=1}^{\infty} \frac{z^{n}}{n} = g(z) = \log{\frac{1}{1 - z}}.
     \end{equation*}
@@ -129,7 +148,6 @@ Así, decimos que hemos obtenido la prolongación analítica de $\sum_{n=0}^{\in
          \sum_{n=2}^{\infty} z^{n-2} = \sum_{n=0}^{\infty} z^{n} = \frac{1}{1 - z}.
     \end{equation*}
     \end{comment}
-
  \end{proof}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -167,12 +185,12 @@ Así, decimos que hemos obtenido la prolongación analítica de $\sum_{n=0}^{\in
 
     Como
     \begin{equation*}
-        \sum_{k=n}^{\infty} r^{2^k} \geq \sum_{k=n}^{N} r^{2^k} > (N + 1) r^{2^k} \rightarrow N + 1,
+        \sum_{k=n}^{\infty} r^{2^k} \geq \sum_{k=n}^{N} r^{2^k} > (N + 1) r^{2^k} \to N + 1,
     \end{equation*}
 
-    entonces $\lim_{r \rightarrow 1} \abs{h(re^{2 \pi i \frac{m}{2^n}})} = \infty \, \, \forall m, n$. \\ \par
+    entonces $\lim_{r \to 1} \abs{h(re^{2 \pi i \frac{m}{2^n}})} = \infty \, \, \forall m, n$. \\
 
-    Puesto que $\{e^{2 \pi i \frac{m}{2^n}} : m, n \in \naturals\}$ es denso en $\partial \disk$, todos los puntos del borde del disco unidad son singulares.
+    Puesto que $\{e^{2 \pi i \frac{m}{2^n}} : m, n \in \naturals\}$ es denso en $\partial \disk$, todos los puntos del borde del disco unidad son singulares. \\
 \end{proof}
 
 
@@ -181,22 +199,22 @@ Así, decimos que hemos obtenido la prolongación analítica de $\sum_{n=0}^{\in
     \begin{equation*}
         f(z) = \exp{\left(\frac{z + 1}{z - 1}\right)}, \, z \in \disk
     \end{equation*}
-    es holomorfa, $\abs{f(z)} \leq 1$ para todo $z \in \disk$, y $f(t) \rightarrow 0$ cuando $t \rightarrow 1^-$.
+    es holomorfa, $\abs{f(z)} < 1$ para todo $z \in \disk$, y $f(t) \to 0$ cuando $t \to 1^-$. % Lo que ocurre es que se puede extender al disco cerrado menos el 1 y |f(w)|=1 si |w|=1 y w\neq 1.
 \end{example}
 
 \begin{proof}
-    La función $f$ es holomorfa ya que es la composición de funciones holomorfas. Obsérvese que el único punto singular es $z = 1$.
+    La función $f$ es holomorfa ya que es la composición de funciones holomorfas. Obsérvese que el único punto singular es $z = 1$. \\
 
     La función $g(z) = \frac{z + 1}{z - 1}$ lleva el disco en el semiplano $H = \{w: \Re (w) < 0\}$. Así pues, la exponencial lleva $H$ en $\disk$:
     \begin{equation*}
         \abs{e^z} = \abs{e^{x+iy}} = \abs{e^{x}(\cos y + i\sen y)} = e^{x} < 1.
     \end{equation*}
 
-    La aplicación $g$ es una transformación de Möbius, y las transformaciones de Möbius tienen la propiedad de que llevan circunferencias y rectas en circunferencias y rectas. Como la función lleva $-1$ a $0$, $i$ a $-i$ y $-i$ a $i$, la imagen del círculo $\abs{z}=1$, ha de ser una recta. \\
+    La aplicación $g$ es una transformación de Möbius, y dichas transformaciones tienen la propiedad de que llevan circunferencias y rectas en circunferencias y rectas. Como la función lleva $-1$ a $0$, $i$ a $-i$ y $-i$ a $i$, la imagen del círculo $\abs{z}=1$, ha de ser una recta. \\
 
-    Si tomamos una sucesión $\{t_n\}$ en el intervalo $(-1,1)$ que converge a $1$, se tiene que $g(t_n) \to - \infty$. Por lo tanto,
+    Si tomamos una sucesión $\{t_n\}$ en el intervalo $(-1,1)$ que converge a $1$ cuando $n$ tiende a $\infty$, se tiene que $g(t_n)  = \frac{t + 1}{t - 1}$ tiende a $- \infty$ cuando $t$ tiende a $1^-$. Por lo tanto,
     \begin{equation*}
-        \frac{t + 1}{t - 1} \xrightarrow[t \rightarrow 1^-]{}  - \infty \Rightarrow \exp \left(  \frac{t + 1}{t - 1} \right) \xrightarrow[t \rightarrow 1^-]{} 0.
+        \frac{t + 1}{t - 1} \xrightarrow[t \to 1^-]{}  - \infty \Rightarrow \exp \left(  \frac{t + 1}{t - 1} \right) \xrightarrow[t \to 1^-]{} 0.
     \end{equation*}
 
     Sin embargo, la función $f$ no tiene límite en $1$. Por ejemplo, si tomamos la sucesión $\{z_n\}$ definida por $z_n = g(w_n)$, siendo $\{w_n\}$ la sucesión de término general $-1 + 2n \pi i$. Entonces,
@@ -206,8 +224,8 @@ Así, decimos que hemos obtenido la prolongación analítica de $\sum_{n=0}^{\in
 
      Como $g = g^{-1}$ tenemos
      \begin{equation*}
-         e^{g(z_n)} = e^{w_n} \rightarrow e^{-1} \not = 0.
+         e^{g(z_n)} = e^{w_n} \to e^{-1} \not = 0.
      \end{equation*}
 
-     \todo[inline]{Extender este ejemplo con lo que hemos visto en el capítulo de espacios de Banach.}
+     \todo[inline]{Decir que en un capítulo posterior vamos a extender este ejemplo (en el capítulo de espacios de Banach).}
 \end{proof}
