@@ -1,4 +1,5 @@
 \chapter{$\bholomorphic{\disk}$ como álgebra de Banach}
+\label{cap:banach}
 
 En este capítulo vamos a trabajar con $\bholomorphic{\disk}$ como el álgebra de las funciones holomorfas acotadas en el disco unidad. \\
 
@@ -242,7 +243,7 @@ y las funciones $f_1, \dots, f_n$ están en un ideal propio de $J \subset \bholo
 La afirmación de que $f_1, \dots, f_n$ están en un ideal propio es equivalente a la afirmación de que la función constante $1$ no se puede escribir de la forma $f_1 g_1 + \cdots + f_n g_n = 1$, con $g_1, \dots, g_n \in \bholomorphic{\disk}$, ya que $\phi (1) = 1$ y $\phi (f_1 g_1 + \cdots + f_n g_n) = \phi (f_1) \phi (g_1) + \cdots + \phi (f_n) \phi (g_n) = 0$. \\
 \end{proof}
 
-\begin{definition} Cluster value \\
+\begin{definition} Cluster set y cluster value \\
     \todo[inline]{Introducir la noción de $Cl(f,\alpha)$ y explicitar que el otro contenido también es cierto.}
 \end{definition}
 
@@ -275,6 +276,43 @@ La afirmación de que $f_1, \dots, f_n$ están en un ideal propio es equivalente
     Podemos elegir una sucesión $(i_n)$ tal que se cumplan al mismo tiempo $\lim z_{i_n}  = \alpha$ y $\lim f(z_{i_n}) = \widehat f(\phi)$. Es decir, si tomamos ahora $\{z_{\alpha_n}\}$ una subsucesión de $\{z_\alpha\}$ cumplirá que $\lim_{n \to \infty} z_n = \alpha$ y, además, $\lim_{n \to \infty} f(z_n)= \widehat{f} (\phi)$. Es decir, $\widehat{f} (\phi) \in Cl (f, \alpha)$. \\
 \end{proof}
 
-\todo[inline]{Comentar el resultado 6.6 del libro de Garnett y compararlo con lo de Mortini, donde la función no es holomorfa, que es el apartado 3.}
+\todo[inline]{Quizá viene bien extender un poco lo de los productos de Blaschke.}
 
-\todo[inline]{Referirse a los productos de Blaschke.}
+\begin{definition}
+    Se dice que una función $f \in \bholomorphic{\disk}$ es una función interna si $\abs{f(e^{i \theta})} = 1$ en casi todo punto.
+\end{definition}
+
+Los productos de Blaschke de los que hemos hablado en el Capítulo tal son un clásico ejemplo de función interna. Además de este tipo de funciones, la función $\exp{\left(\frac{z + 1}{z - 1}\right)}$, que introdujimos en el Ejemplo \ref{ex:exp} es también una función interna. \\
+
+Sea $f \in \bholomorphic{\disk}$ y sea $\alpha \in \partial \disk$. El ``cluster set'' de $f$ en $\alpha$ viene dado por
+\begin{equation}
+    Cl(f, \alpha) = \bigcap_{r>0} \xbar{f(\disk \cap D(\alpha, r))}.
+\end{equation}
+
+Esto es, $\zeta \in Cl(f, \alpha)$ si y solo si existe una sucesión $z_n$ en $\disk$ que tiende a $\alpha$ tal que $f(z_n)$ tiende a $\zeta$. El ``cluster set'' es un conjunto compacto, no vacío y conexo. Además, contiene un único punto si y solo si $f$ es continua en $\disk \cap \{\alpha\}$. Si $f$ es holomorfa en $\alpha$, y no constante, entonces $Cl(f, \alpha) = f(\alpha)$. \\
+
+\begin{theorem}
+    Sea $f$ una función interna en el disco abierto $\disk$ y sea $\alpha \in \partial \disk$ una singularidad de $f(z)$. Entonces $Cl(f, \alpha) = \closedisk$.
+\end{theorem}
+
+El ``cluster set'' se comporta bien cuando tratamos con funciones holomorfas, como hemos visto. Sin embargo, vamos a ver a continuación que no es así en el caso de las funciones no holomorfas.
+
+\begin{example}
+    Sea $h: \disk \to \disk$ dada por
+    \begin{equation*}
+        h(z) = -z \frac{\xbar{z} -1}{z - 1}.
+    \end{equation*}
+
+    %$h$ es una involución biyectiva de $\disk$ en $\disk$. $h$ tiene una extensión continua a $\closedisk \setminus \{1\}$ (con el valor constantemente 1).
+    Entonces el ``cluster set'' $Cl(h,1)$ de $h$ en $1$ se corresponde con la circunferencia unidad $\partial \disk$.
+\end{example}
+
+\begin{proof}
+    El ``cluster set'' de $h$ en $1$ viene dado por
+    \begin{equation*}
+        Cl(h,1) = \bigcap_{n=1}^{\infty} \xbar{h(D_n)},
+    \end{equation*}
+    donde $D_n = \{z \in \disk : \abs{z-1} \leq \frac{1}{n}\}$. $Cl(h,1)$ es un conjunto compacto, conexo y no vacío. Ahora bien, $\lim_{x \to 1, 0 < x < 1} h(x) = -1$ y $\lim_{\theta \to 0} h(e^{i \theta}) = 1$. \\
+
+    Como $\mu \in Cl(h,1)$ si y solo si $\xbar{\mu} \in Cl(h,1)$, pues $h(\xbar{z}) = \xbar{h(z)}$, y $\abs{h(z)} = \abs{z} \to 1$ si $z \to 1$, concluimos que $Cl(h,1) = \partial \disk$.
+\end{proof}

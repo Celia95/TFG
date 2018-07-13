@@ -1,4 +1,5 @@
 \chapter{Ejemplos}
+\label{cap:ejemplos}
 
 \todo[inline]{Empezar comentando cómo calcular el radio de convergencia, que los ejemplos son de series con radio de convergencia 1 y que vas a mostrar cómo difieren el comportamiento en la frontera de unos a otros.}
 
@@ -195,6 +196,7 @@ Así, decimos que hemos obtenido la prolongación analítica de $\sum_{n=0}^{\in
 
 
 \begin{example}
+    \label{ex:exp}
     Mostrar que la función
     \begin{equation*}
         f(z) = \exp{\left(\frac{z + 1}{z - 1}\right)}, \, z \in \disk
@@ -203,9 +205,9 @@ Así, decimos que hemos obtenido la prolongación analítica de $\sum_{n=0}^{\in
 \end{example}
 
 \begin{proof}
-    La función $f$ es holomorfa ya que es la composición de funciones holomorfas. Obsérvese que el único punto singular es $z = 1$. \\
+    La función $f$ es holomorfa ya que es la composición de funciones holomorfas. Obsérvese que el único punto singular es $z = 1$ y $f$ y todas sus derivadas tienen límite no tangencial 0 en $e^{i \theta} = 1$ . \\
 
-    La función $g(z) = \frac{z + 1}{z - 1}$ lleva el disco en el semiplano $H = \{w: \Re (w) < 0\}$. Así pues, la exponencial lleva $H$ en $\disk$:
+    La función $g(z) = \frac{z + 1}{z - 1}$ lleva el disco en el semiplano izquierdo $H = \{w: \Re (w) < 0\}$, así que $z = 1$ se corresponde con $\infty$ y $\partial \disk \setminus \{1\}$ se corresponde con el eje imaginario. Así pues, la exponencial $e^{g(z)}$ es holomorfa en $\partial \disk \setminus \{1\}$ y lleva $H$ en $\disk$:
     \begin{equation*}
         \abs{e^z} = \abs{e^{x+iy}} = \abs{e^{x}(\cos y + i\sen y)} = e^{x} < 1.
     \end{equation*}
@@ -227,5 +229,5 @@ Así, decimos que hemos obtenido la prolongación analítica de $\sum_{n=0}^{\in
          e^{g(z_n)} = e^{w_n} \to e^{-1} \not = 0.
      \end{equation*}
 
-     \todo[inline]{Decir que en un capítulo posterior vamos a extender este ejemplo (en el capítulo de espacios de Banach).}
-\end{proof}
+     Estudiaremos este ejemplo con más detalle en el Capítulo \ref{cap:banach}, centrándonos de nuevo en el comportamiento de la función en el punto singular $z = 1$.
+ \end{proof}

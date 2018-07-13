@@ -152,12 +152,13 @@ clean:
 	@if [ -d Capitulos ]; then cd Capitulos; make clean; fi
 	@echo Borrado recursivo de los apéndices...
 	@if [ -d Apendices ]; then cd Apendices; make clean; fi
+	@echo Borrando el fichero .zip con el estado actual
+	@rm -f $(NOMBRE_LATEX).zip
+	@echo Borrando los ficheros intermedios de todo list...
+	@rm -f *.tdo
 	@echo Borrado recursivo de las imágenes...
 	@if [ -d Imagenes/Bitmap ]; then cd Imagenes/Bitmap; make clean; fi
 	@cd Imagenes/Vectorial; make clean
-	@echo Borrando el fichero .zip con el estado actual
-	@rm -f $(NOMBRE_LATEX).zip
-
 
 #
 # Borra todos los ficheros intermedios, las copias de seguridad

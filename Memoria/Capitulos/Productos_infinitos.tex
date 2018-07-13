@@ -67,14 +67,20 @@ Además, decimos que el producto converge cuando el límite existe y no es cero.
 
 \section{Productos de Blaschke}
 
-\todo[inline]{Si $f$ tiene los mismos ceros que $\alpha_n$ pero esta última no tiene ceros, es un poco absurdo no?}
+\todo[inline]{He encontrado otra definición de los productos de Blaschke que puede que nos venga mejor, es lo que viene a continuación.}
+
+    Sea $\{\alpha_n\}$ una sucesión en el disco unidad $\disk$ tal que $\sum_{n=1}^{\infty} (1 - \abs{\alpha_n})$ converge. Sea $m$ el número de $\alpha_n$ iguales a cero. Entonces el producto de Blaschke
+    \begin{equation*}
+        B(z) = \alpha^m \prod_{\abs{\alpha_n} \not = 0} \frac{\alpha_n - z}{1 - \xbar{\alpha_n}z} \dfrac{\abs{\alpha_n}}{\alpha_n}
+    \end{equation*}
+    converge uniformemente en $\disk$. La función $B(z)$ define una función holomorfa en el disco unidad que tiene los mismos ceros que $\alpha_n$. Además $\abs{B(z)} \leq 1$ y $\abs{B(e^{i \theta})} = 1$ en casi todo punto.
 
 \begin{prop}
-    Sea $\{\alpha_n\}$ una sucesión en el disco unidad tal que $\alpha_n \not = 0$ para todo $n$ y $\sum_{n=1}^{\infty} (1 - \abs{\alpha_n})$ converge. Entonces el producto
+    Sea $\{\alpha_n\}$ una sucesión en el disco unidad $\disk$ tal que $\alpha_n \not = 0$ para todo $n$ y $\sum_{n=1}^{\infty} (1 - \abs{\alpha_n})$ converge. Entonces el producto de Blaschke
     \begin{equation*}
-        f(z) = \prod_{n=1}^{\infty} \frac{\alpha_n - z}{1 - \xbar{\alpha_n}z} \dfrac{\abs{\alpha_n}}{\alpha_n}
+        B(z) = \prod_{n=1}^{\infty} \frac{\alpha_n - z}{1 - \xbar{\alpha_n}z} \dfrac{\abs{\alpha_n}}{\alpha_n}
     \end{equation*}
-    converge uniformemente para $\abs{z} \leq r < 1$ y define una función holomorfa en el disco unidad que tiene los mismos ceros que $\alpha_n$. Además $\abs{f(z)} \leq 1$.
+    converge uniformemente en $\disk$. La función $B(z)$ define una función holomorfa en el disco unidad que tiene los mismos ceros que $\alpha_n$. Además $\abs{B(z)} \leq 1$ y $\abs{B(e^{i \theta})} = 1$ en casi todo punto.
 \end{prop}
 
 \begin{proof}
@@ -83,8 +89,7 @@ Además, decimos que el producto converge cuando el límite existe y no es cero.
         b_n (z) = \frac{\alpha_n - z}{1 - \xbar{\alpha_n}z} \dfrac{\abs{\alpha_n}}{\alpha_n}.
     \end{equation*}
 
-    %Lema 1.1 de \citet[chap. 13]{lang}
-    Por el lema \ref{th:convergencia}, sabemos que $\prod_{n=1}^{\infty} b_n$ converge uniformemente si $\sum_{n=1}^{\infty} \abs{1 - b_n}$ converge.
+    Por el Lema \ref{th:convergencia}, sabemos que $\prod_{n=1}^{\infty} b_n$ converge uniformemente en $\disk$ a una función holomorfa que tiene los mismos ceros que $\{\alpha_n\}$ si y solo si $\sum_{n=1}^{\infty} \abs{1 - b_n}$ converge uniformemente en todo subconjunto compacto de $\disk$.
 
     \begin{equation*}
         \begin{split}
@@ -93,20 +98,17 @@ Además, decimos que el producto converge cuando el límite existe y no es cero.
         \end{split}
     \end{equation*}
 
-    Entonces si $\abs{z} \leq r$,
+    Entonces para $\abs{z} \leq r$, se tiene
     \begin{equation*}
-        \sum_{n=1}^{\infty} \abs{1 - b_n(z)} \leq \dfrac{1 + \abs{z}}{1 - \abs{z}} \sum_{n=1}^{\infty} (1 - \abs{\alpha_n}) \leq \dfrac{1 + r}{1 - r} \sum_{n=1}^{\infty} (1 - \abs{\alpha_n}). %Aquí merece detallar por qué convergen uniformemente en el disco de radio r<1.
+        \sum_{n=1}^{\infty} \abs{1 - b_n(z)} \leq \dfrac{1 + \abs{z}}{1 - \abs{z}} \sum_{n=1}^{\infty} (1 - \abs{\alpha_n}) \leq \dfrac{1 + r}{1 - r} \sum_{n=1}^{\infty} (1 - \abs{\alpha_n}),
     \end{equation*}
+    y la serie $\sum_{n=1}^{\infty} \abs{1 - b_n(z)}$ converge absoluta y uniformemente en el disco cerrado de radio $r$. Por lo que $B(z) = \prod_{n=1}^{\infty} b_n$ converge uniformemente en $\disk$. \\
 
-    Lo que prueba que la serie $\sum_{n=1}^{\infty} \abs{1 - b_n(z)}$ converge absoluta y uniformemente en el disco cerrado de radio $r$. Por lo que $f(z) = \prod_{n=1}^{\infty} b_n$ converge uniformemente para $\abs{z} \leq r < 1$. \\
+    Como $b_n(z)$ son funciones holomorfas en $\disk$ y su producto infinito converge uniformemente en los compactos de $\disk$, se tiene que $B(z)$ define una función holomorfa en el disco unidad. \\ %$f$ tiene los mismos ceros que $\alpha_n$ por la definición de producto infinito.
 
-    Además $f$ define una función holomorfa en el disco unidad ya que $b_n$ son funciones holomorfas y su producto infinito converge uniformemente en los compactos. De hecho, $f$ tiene los mismos ceros que $\alpha_n$ por la definición de producto infinito. \\
+    Además, se cumple $\abs{B(z)} \leq 1$ por la caracterización de los automorfismos del disco unidad ya que los términos $\dfrac{\alpha_n - z}{1 - \xbar{\alpha_n}z}$ definen un automorfismo del disco unidad que lleva el disco abierto en el disco abierto y el borde en el borde. \\
 
-    Por último, que $\abs{f(z)} \leq 1$ se satisface viene dado por la caracterización de los automorfismos del disco unidad. Esto es, los términos $\dfrac{\alpha_n - z}{1 - \xbar{\alpha_n}z}$ definen un automorfismo del disco unidad que lleva el disco abierto en el disco abierto y el borde en el borde. \\
-
-    \todo[inline]{Quizá lo siguiente sobra:}
-
-    Sea $B(z) = \prod_{n=1}^{\infty} b_n$ el producto infinito y $B_n(z) = \prod_{k=1}^{n} b_k$ el producto parcial,
+    Así pues, $B(z)$ tiene límites no tangenciales $\abs{B(e^{i\theta})} \leq 1$ en casi todo punto. Para ver que $\abs{B(e^{i \theta})} = 1$ en casi todo punto, tomemos $B_n(z) = \prod_{k=1}^{n} b_k(z)$ el producto parcial. Entonces, $\frac{B}{B_n}$ es otro producto de Blaschke y
     \begin{equation*}
         \abs{\frac{B(0)}{B_n(0)}} \leq \frac{1}{2 \pi} \int_{0}^{2 \pi} \abs{\frac{B(e^{i \theta})}{B_n(e^{i \theta})}} d \theta = \frac{1}{2 \pi}  \int_{0}^{2 \pi} \abs{ B(e^{i \theta})} d \theta.
     \end{equation*}
@@ -115,6 +117,6 @@ Además, decimos que el producto converge cuando el límite existe y no es cero.
     \begin{equation*}
          \frac{1}{2 \pi}  \int_{0}^{2 \pi} \abs{ B(e^{i \theta})} d \theta = 1,
     \end{equation*}
-    y, por consiguiente, $\abs{ B(e^{i \theta})} = 1$ en casi todo punto. Es decir, $\abs{f(z)} = 1$ en casi todo $z \in \partial \disk$.
+    y, por consiguiente, $\abs{ B(e^{i \theta})} = 1$ en casi todo punto
 \end{proof}
 
