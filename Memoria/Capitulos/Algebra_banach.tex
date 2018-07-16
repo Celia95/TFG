@@ -63,6 +63,8 @@ Un resultado importante de análisis funcional que usaremos en nuestro desarroll
 
 \section{El espectro de un álgebra}
 
+\todo[inline]{¿Debería hacer como antes: introducirlo primero para $B$ y luego seguir para $\bholomorphic{\disk}$?}
+
 Recordemos que $\phi : \bholomorphic{\disk} \to \complex$ es un homomorfismo de álgebras si para todos $f, g \in \bholomorphic{\disk}$ y $\alpha, \beta \in \complex$ se cumple:
 \begin{equation}
     \begin{split}
@@ -71,55 +73,69 @@ Recordemos que $\phi : \bholomorphic{\disk} \to \complex$ es un homomorfismo de 
     \end{split}
 \end{equation}
 
-El espectro de $\bholomorphic{\disk}$, denotado por $\fiber = \fiber (\bholomorphic{\disk})$, es el espacio de los homomorfismos $\phi: \bholomorphic{\disk} \to \complex$ no nulos. Observamos que tales homomorfismos verifican que son continuos y $\norm{\phi} = 1$. \\
+El espectro de $\bholomorphic{\disk}$, denotado por $\fiber = \fiber (\bholomorphic{\disk})$, es el espacio de los homomorfismos $\phi: \bholomorphic{\disk} \to \complex$ no nulos. Observamos que tales homomorfismos verifican que son continuos y $\norm{\phi} = 1$ ya que $\phi(1) = 1$. \\
 
-\todo[inline]{Reestructurar estos dos parrafos siguientes:}
+Tal y como hemos construido (/definido) $\fiber$, es un subconjunto del espacio dual $\bholomorphic{\disk}^*$. De hecho, está contenido en la bola unidad de $\bholomorphic{\disk}^*$ que, dotada con la topología débil-*, es un compacto, por lo que $\fiber$ como subconjunto de $\bholomorphic{\disk}^*$ dotado con dicha topología es un espacio Hausdorff compacto. Además, $\fiber$ es cerrado en $\bholomorphic{\disk}^*$ dotado con la topología débil-*. \\
 
-$\fiber$ es un subconjunto del espacio dual $\bholomorphic{\disk}^*$ y, de hecho, está contenido en la bola unidad de $\bholomorphic{\disk}^*$. Además, $\fiber$ es cerrado en la topología débil-* en $B^*$. \\
-
-Como la bola unidad en $\bholomorphic{\disk}^*$ dotada con la topología débil-* es compacto, se sigue que $\fiber$ (como subconjunto de $\bholomorphic{\disk}^*$) dotado con la topología débil-* es un espacio Hausdorff compacto. \\
-
-En este punto queremos asociar a cada elemento de $x$ de $B$ con una función continua sobre $\fiber(B)$. Para ello vamos a definir la siguiente aplicación:
+Llegados a este punto queremos asociar cada elemento $x$ de $B$ con una función continua sobre $\fiber(B)$. Para ello vamos a definir la siguiente aplicación
 \begin{equation*}
     \begin{split}
         \widehat x:  \fiber(B) & \to  \complex \\
-                 \varphi \, \, \, & \mapsto  \varphi (x).
+              \varphi \, \, \, & \mapsto  \varphi (x).
     \end{split}
 \end{equation*}
 
-Cada $\widehat x$ es una función continua en $\fiber (B)$. De hecho, por definición, la topología débil-* es la topología más débil de $\fiber (B)$ que hace que cada $\widehat x$ sea continua. Así pues, tenemos la siguiente representación a la que se le suele denominar \textbf{transformada de Gelfand}
+Si dotamos a $\fiber(B)$ con la topología débil-*, tenemos que cada $\widehat x$ es una función continua en $\fiber(B)$. Más aún, por definición, la topología débil-* es la topología más débil de $\fiber(B)$ que hace que cada $\widehat x$ sea continua. Así pues, tenemos la siguiente representación a la que se le suele denominar \textbf{transformada de Gelfand}
 \begin{equation*}
     x \to \widehat x.
 \end{equation*}
-La imagen de $B$ bajo este homomorfismo es el álgebra $\widehat B = \{\widehat x: \fiber(B) \to  \complex \mid x \in B\}$. \\
 
-En particular, para el álgebra $\bholomorphic{\disk}$ la construcción se describe de la siguiente manera. Así, tenemos la aplicación
+La imagen de $B$ bajo este homomorfismo es el álgebra $\widehat B$ de las funciones continuas sobre $\fiber(B)$ que toman valores complejos. Es decir,
+\begin{equation*}
+    \widehat B = \{\widehat x: \fiber(B) \to  \complex \mid x \in B\}.
+\end{equation*}
+
+\medskip
+
+En particular, para el álgebra $\bholomorphic{\disk}$ la construcción se describe de la siguiente manera. Tenemos la aplicación
 \begin{equation*}
     \begin{split}
         \widehat f:  \fiber & \to  \complex \\
-                \phi \, & \mapsto  \phi (f),
+                    \phi \, & \mapsto  \phi (f),
     \end{split}
 \end{equation*}
-para cada $f \in \bholomorphic{\disk}$, que da lugar a la representación $f \to \widehat f$. Vamos a poder interpretar $\bholomorphic{\disk}$ como el álgebra de las funciones continuas en el espacio compacto de los ideales maximales $\fiber$. Hay que hablar más de la relación de $\fiber$ y los ideales maximales. \\
+para cada $f \in \bholomorphic{\disk}$, donde cada $\widehat f$ es continua sobre el $\fiber$ si dotamos a $\fiber$ con la topología débil-*. Esto da lugar a la representación $f \to \widehat f$. De esta manera, vamos a poder interpretar $\bholomorphic{\disk}$ como el álgebra de las funciones continuas en el espacio compacto $\fiber$. \\
 
-$\widehat f$ es continua sobre el espectro. \\
+Al espacio $\fiber$ se le suele denominar espacio de ideales maximales de $\bholomorphic{\disk}$. Para cada $\phi \in \fiber$, el núcleo de $\phi$ es un ideal maximal del álgebra $\bholomorphic{\disk}$. Recíprocamente, todo ideal maximal en $\bholomorphic{\disk}$ se corresponde con el núcleo de un homomorfismo en $\fiber$. Más adelante estudiaremos la estructura de este espacio. \\
 
-Al espacio $\fiber$ se le suele llamar el espacio de ideales maximales de $\bholomorphic{\disk}$. Para cada $\phi \in \fiber$, el núcleo de $\phi$ es un ideal maximal del álgebra $\bholomorphic{\disk}$. Recíprocamente, todo ideal maximal en $\bholomorphic{\disk}$ se corresponde con el núcleo de un homomorfismo en $\fiber$. Vamos a estudiar la estructura de este espacio. \\
-
-Los únicos homomorfismos complejos evidentes de $\bholomorphic{\disk}$ son las evaluaciones
+\begin{comment}
+Existe una correspondencia uno a uno entre los homomorfismos $\phi: \bholomorphic{\disk} \to \complex$ y los ideales maximales $M$ en el álgebra $\bholomorphic{\disk}$. Esta correspondencia está definida por $M = \ker (\phi)$. Cada ideal maximal $M$ es cerrado, así que cada homomorfismo $\phi$ es continuo:
 \begin{equation*}
-    \delta_z (f) = f(z).
+    \abs{\phi (x)} \leq \norm{x}.
+\end{equation*}
+\end{comment}
+
+\todo[inline]{Hablar más de la relación de $\fiber$ con los ideales maximales.}
+
+En principio, los únicos homomorfismos complejos que se pueden identificar claramente son las evaluaciones punto a punto del disco abierto $\disk$. Si $z \in \disk$,
+\begin{equation*}
+    \begin{split}
+        \delta_z: \bholomorphic{\disk} & \to  \complex \\
+                   f \, \, \, \, \, \, & \mapsto  f (z).
+    \end{split}
 \end{equation*}
 
-\todo[inline]{Hablar más de las evaluaciones. Las evaluaciones en puntos del disco abierto son elementos del espectro.}
+Así pues, las evaluaciones en puntos del disco abierto son elementos del espectro y cumplen $\abs{\delta_z} = 1$ para todo $z \in \disk$. \\
+
+\todo[inline]{Hablar más de las evaluaciones. ¿Qué más hay que decir?}
 
 \section{La proyección del espectro sobre el disco}
 
-Existe una aplicación continua que lleva $\fiber$ en el disco unidad cerrado. Si denotamos por $\id$ la función identidad de $\disk$,
+Existe una proyección natural continua que lleva $\fiber$ en el disco unidad cerrado. Si denotamos por $\id$ la función identidad de $\disk$,
 \begin{equation*}
     \id(z) = z, z \in \disk,
 \end{equation*}
-la proyección que buscamos lleva los homomorfismos $\phi \in \fiber$ en su correspondiente valor en la función $\id$. Así pues, la aplicación que nos interesa es $\widehat \id$. Para evitar confusiones, vamos a introducir una notación alternativa para referirnos a la función $\widehat \id$. Si $\phi \in \fiber$,
+la aplicación que buscamos lleva los homomorfismos $\phi \in \fiber$ en su correspondiente valor en la función $\id$. Así pues, la aplicación que nos interesa es $\widehat \id$. Para evitar confusiones, vamos a introducir una notación alternativa para referirnos a la función $\widehat \id$. Si $\phi \in \fiber$,
 \begin{equation}
     \label{eq:proyeccion}
     \begin{split}
@@ -128,13 +144,11 @@ la proyección que buscamos lleva los homomorfismos $\phi \in \fiber$ en su corr
     \end{split}
 \end{equation}
 
-\todo[inline]{Aquí conviene decir que la función identidad tiene norma 1 y cada $\varphi$ también, por lo que $\abs{\pi(\varphi)}\leq 1$. Es decir, que la imagen de $\pi$ está contenida en el disco unidad cerrado.}
+Nótese que la función identidad tiene norma 1 y cada $\phi \in \fiber$ también, por lo que $\abs{\pi(\phi)} \leq 1$. Es decir, la imagen de $\pi$ está contenida en el disco unidad cerrado. \\
 
 \begin{theorem}
     La aplicación $\pi: \fiber \to \closedisk$ definida por \eqref{eq:proyeccion} es continua. $\pi$ es inyectiva sobre el disco abierto $\disk$ y $\pi^{-1}$ aplica homeomórficamente $\disk$ sobre un abierto de $\fiber$.
 \end{theorem}
-
-\note{En esta prueba llamo $\lambda$ a los puntos del disco y $z$ a la variable de la función $f$.}
 
 \begin{proof}
 $\pi$ es continua por definición. Veamos que $\pi$ lleva $\fiber$ en el disco cerrado. En efecto, ya hemos observado antes que cada punto del disco abierto $\disk$ está en la imagen de $\pi$ puesto que $\pi (\delta_\lambda) = \lambda$. Como $\fiber$ es un conjunto compacto que contiene a $\disk$, y la imagen de un compacto por una aplicación continua es también un compacto, entonces $\pi(\fiber)$ es compacto. Así pues, como $\pi(\fiber)$ es un conjunto compacto que contiene a $\disk$, contiene todo el disco cerrado $\closedisk$. \\
@@ -151,30 +165,33 @@ Si $f(\lambda) = c$, entonces $f(z) = c + g(z)$, con $g(z) = 0$ y
 \end{equation*}
 Por lo tanto, $\phi(f) = f(\lambda)$ para toda $f \in \bholomorphic{\disk}$, es decir, $\phi$ es la evaluación en $\lambda$. Esto prueba que $\pi$ es inyectiva sobre los puntos del disco unidad $\disk$. \\
 
-\todo[inline]{???}
+\todo[inline]{Falta ver que $\pi^{-1}$ aplica homeomórficamente $\disk$ sobre un abierto de $\fiber$: ?}
 
 Si tomamos $\Delta = \pi^{-1} (\disk) = \{\phi_z : z \in \disk\}$, entonces $\pi$ lleva $\Delta$ homeomórficamente en el disco $\disk$ ya que la topología de $\Delta$ es la topología débil definida por las aplicaciones $\widehat f$ y la topología de $\disk$ es la topología débil definida por las aplicaciones $f \in \bholomorphic{\disk}$. \\
 \end{proof}
 
-\todo[inline]{Aquí conviene ligarlo con lo anterior, cuando has visto que la fibra de cada z del disco abierto es la evaluación en z. Y decir que puedes descomponer el espectro como unión disjunta de sus fibras.}
+\begin{definition}
+    \label{def:fibra}
+    Si $\alpha \in \closedisk$, decimos que $\pi^{-1} (\alpha)$ es la fibra de $\fiber$ sobre $\alpha$ y lo denotamos por $\fiber_\alpha$,
+    \begin{equation*}
+        \fiber_\alpha = \pi^{-1} (\alpha) = \{\phi \in \fiber : \phi (\id) = \alpha\}.
+    \end{equation*}
+\end{definition}
 
-Si $\abs{\alpha} = 1$, decimos que $\pi^{-1} (\alpha)$ es la fibra de $\fiber$ sobre $\alpha$ y lo denotamos por $\fiber_\alpha$:
+Si $z \in \disk$, la fibra de $\fiber$ sobre $z$ coincide con la evaluación en $z$, es decir,
 \begin{equation*}
-    \fiber_\alpha = \pi^{-1} (\alpha) = \{\phi \in \fiber : \phi (\id) = \alpha\}.
+    \fiber_z = \{ \delta_z\}.
 \end{equation*}
 
-La fibra $\fiber_\alpha$ es un conjunto cerrado de $\fiber$. Intuitivamente, los elementos de $\fiber_\alpha$ son los homomorfismos complejos de $\fiber$ que se comportan como la ``evaluación en $\alpha$'', es decir, los homomorfismos $\phi \in \bholomorphic{\disk}$ que llevan cada $f \in \bholomorphic{\disk}$ en algo parecido al valor límite $f(z)$ cuando $z$ se aproxima a $\alpha$. Vamos a ver esto con más detalle a continuación. \\
-
-\begin{comment}
-Existe una correspondencia uno a uno entre los homomorfismos $\phi: \bholomorphic{\disk} \to \complex$ y los ideales maximales $M$ en el álgebra $\bholomorphic{\disk}$. Esta correspondencia está definida por $M = \ker (\phi)$. Cada ideal maximal $M$ es cerrado, así que cada homomorfismo $\phi$ es continuo:
-\begin{equation*}
-    \abs{\phi (x)} \leq \norm{x}.
-\end{equation*}
-\end{comment}
+\todo[inline]{La definición anterior hace que podamos descomponer el espectro como unión disjunta de sus fibras. ¿Cómo hacemos esto?}
 
 \todo[inline]{Observemos que la imagen de toda función constante por cualquier elemento del espectro es ella misma. Además, la identidad es una función de $\bholomorphic{\disk}$ de norma 1.}
 
-\todo[inline]{Las fibras sobre los puntos del disco abierto tienen un único elemento, pero que sobre los números del borde del disco la fibra tiene muchos.}
+\todo[inline]{En base a la Definición \ref{def:fibra}, es sencillo ver que las fibras sobre los puntos del disco abierto tienen un único elemento; mientras que sobre los números del borde del disco la fibra tiene muchos.}
+
+La fibra $\fiber_\alpha$ es un conjunto cerrado de $\fiber$. Intuitivamente, los elementos de $\fiber_\alpha$ son los homomorfismos complejos de $\fiber$ que se comportan como la ``evaluación en $\alpha$'', es decir, los homomorfismos $\phi \in \bholomorphic{\disk}$ que llevan cada $f \in \bholomorphic{\disk}$ en algo parecido al valor límite $f(z)$ cuando $z$ se aproxima a $\alpha$. Vamos a ver esto con más detalle a continuación. \\
+
+A partir de esto, es evidente que para cualquier función $f$ que pueda extenderse con continuidad al disco cerrado, la función $\widehat f$ es constante en cada fibra $\fiber_\alpha$ puesto que tal $f$ es el límite uniforme de polinomios en $z$. De hecho, la continuidad de $f$ en cualquier punto de la frontera implica que $\widehat f$ es constante en la fibra $\fiber_\alpha$. \\
 
 \begin{theorem}
     \label{th:result1}
@@ -243,9 +260,26 @@ y las funciones $f_1, \dots, f_n$ están en un ideal propio de $J \subset \bholo
 La afirmación de que $f_1, \dots, f_n$ están en un ideal propio es equivalente a la afirmación de que la función constante $1$ no se puede escribir de la forma $f_1 g_1 + \cdots + f_n g_n = 1$, con $g_1, \dots, g_n \in \bholomorphic{\disk}$, ya que $\phi (1) = 1$ y $\phi (f_1 g_1 + \cdots + f_n g_n) = \phi (f_1) \phi (g_1) + \cdots + \phi (f_n) \phi (g_n) = 0$. \\
 \end{proof}
 
-\begin{definition} Cluster set y cluster value \\
-    \todo[inline]{Introducir la noción de $Cl(f,\alpha)$ y explicitar que el otro contenido también es cierto.}
+\begin{definition}[Cluster set y cluster value]
+    Dados $f \in \bholomorphic{\disk}$ y $\alpha \in \closedisk$, definimos el ``cluster set'' de $f$ en $\alpha$ como
+    \begin{equation*}
+        Cl(f, \alpha) = \{\zeta : \exists \{z_n\} \in \disk, \lim_{n \to \infty} z_n = \alpha, \lim_{n \to \infty} f(z_n) = \zeta \}
+    \end{equation*}
+
+    Así, cada número $\zeta \in Cl(f, \alpha)$ se denomina un ``cluster value'' de $f$ en $\alpha$.
 \end{definition}
+
+\medskip
+
+Si nos restringimos a $z \in \disk$, entonces $Cl(f, z) = \{\delta_z(f)\}$. \\
+
+Teniendo en cuenta esta definición, otro enunciado alternativo al Teorema \ref{th:result1} sería el siguiente: \\
+
+\begin{theorem}
+    Sea $f \in \bholomorphic{\disk}$ y $\alpha \in \partial \disk$. Si $\zeta \in Cl(f, \alpha)$, entonces existe un homomorfismo complejo $\phi$ en la fibra $\fiber_\alpha$ tal que $\phi(f) = \zeta$, es decir, $\zeta \in \widehat f (\fiber_\alpha)$. \\
+\end{theorem}
+
+Por lo tanto, si $\abs{\alpha} = 1$, el contenido $Cl(f, \alpha) \subset \widehat{f} (\fiber_\alpha)$ se cumple. Veamos que también tenemos el recíproco. \\
 
 \begin{prop}
     Para todo $f \in \bholomorphic{\disk}$ y $\alpha$ tal que $\abs{\alpha} = 1$ se cumple que
@@ -283,6 +317,8 @@ La afirmación de que $f_1, \dots, f_n$ están en un ideal propio es equivalente
 \end{definition}
 
 Los productos de Blaschke de los que hemos hablado en el Capítulo tal son un clásico ejemplo de función interna. Además de este tipo de funciones, la función $\exp{\left(\frac{z + 1}{z - 1}\right)}$, que introdujimos en el Ejemplo \ref{ex:exp} es también una función interna. \\
+
+\todo[inline]{Esto quizás es mejor ponerlo después de la definición de cluster set. No sé.}
 
 Sea $f \in \bholomorphic{\disk}$ y sea $\alpha \in \partial \disk$. El ``cluster set'' de $f$ en $\alpha$ viene dado por
 \begin{equation}
