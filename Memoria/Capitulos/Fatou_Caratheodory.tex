@@ -1,23 +1,9 @@
 \chapter{Teorema de Fatou y Teorema de Carathéodory}
-
-\begin{comment}
-    \begin{theorem}[Lema de Schwart]
-        Sea $f: \disk \to \closedisk$ una función $\in \holomorphic{\disk}$ tal que $f(0) = 0$. Entonces:
-        \begin{enumerate}[(i)]
-            \item $\abs{f(z)} \leq \abs{z}$ para todo $z \in \disk$.
-            \item Si para algún $z_0 \not = 0$ tenemos que $\abs{f(z_0)} = \abs{z_0}$, entonces existe $\alpha \in \complex, \abs{\alpha} = 1$ tal que $f(z)=\alpha z$.
-        \end{enumerate}
-    \end{theorem}
-
-    \begin{proof}
-        Sea $f(z) = a_1z + \cdots$ la serie de potencias de $f$. El término constante es $0$ puesto que suponemos que $f(0) = 0$. Entonces $f(z)/z$ es una función holomorfa y
-        \begin{equation*}
-            \abs{\dfrac{f(z)}{z}} < 1/r \text{ para } \abs{z} = r < 1
-        \end{equation*}
-    \end{proof}
-\end{comment}
+\label{cap:fatou}
 
 Para empezar vamos a realizar una pequeña introducción a la integral de Poisson. A continuación probaremos el Teorema de Fatou para límites radiales. Por último hablaremos sobre aplicaciones conformes y demostraremos el Teorema de Carathéodory. \\
+
+\todo[inline]{En este capítulo abordamos varios problemas clásicos relacionados con el comportamiento en la frontera de funciones holomorfas (y armónicas) y la profunda relación existente entre los valores que toma la función en el borde y los que toma en el dominio abierto que limitan, incluso cuando la función no puede extenderse con continuidad al borde. Presentamos la integral de Poisson para construir explícitamente funciones armónicas en el disco a partir de funciones continuas en el borde. Mediante esta técnica, abordamos la existencia de límites radiales en casi todo punto de funciones holomorfas y acotadas en el disco unidad: es el resultado conocido como Teorema de Fatou. La función definida a través de los límites radiales permite presentar un teorema de identidad referido a arcos del borde del disco. El capítulo se completa con varios resultados de naturaleza geométrica, en los que se caracterizan las funciones conformes (que conservan ángulos y orientación) y se prueba que las aplicaciones conformes entre el disco y un dominio de Jordan admiten extensiones a la frontera. El capítulo concluye mostrando cómo la inyectividad en el borde de funciones holomorfas en dominios de Jordan se traduce en inyectividad en todo el dominio.}
 
 \section{La Integral de Poisson}
 
@@ -89,7 +75,7 @@ Para empezar vamos a realizar una pequeña introducción a la integral de Poisso
 
     \eqref{eq:property4} Fijados $r$, $\delta$ y $t$ en las condiciones indicadas se verifica que $\cos t < \cos \delta$, de donde se sigue que $P_r(t) < P_r(\delta)$. \\
 
-    \eqref{eq:property5} De la ecuación \eqref{eq:poisson4}, tenemos que $\lim_{r \to 1^-} (1 - r^2) = 0$ y $\lim_{r \to 1^-} (1 - 2r \cos \delta + r^2) \not = 0$ así que $\lim_{r \to 1^-} P_r() = 0$. \\
+    \eqref{eq:property5} De la ecuación \eqref{eq:poisson4}, tenemos que $\lim_{r \to 1^-} (1 - r^2) = 0$ y $\lim_{r \to 1^-} (1 - 2r \cos \delta + r^2) \not = 0$ así que $\lim_{r \to 1^-} P_r(\delta) = 0$. \\
 \end{proof}
 
 \begin{definition}
@@ -103,7 +89,7 @@ Para empezar vamos a realizar una pequeña introducción a la integral de Poisso
 
 Además si $f$ lleva $\partial \disk$ en los reales, \eqref{eq:poisson2} nos muestra que % extender esto
 \begin{equation*}
-    P[f] = \Re \left[ \dfrac{1}{2} \int_{-\pi}^{\pi} \dfrac{e^{it} + z}{e^{it} - z} f(e^{it}) dt \right].
+    P[f](z) = \Re \left[ \dfrac{1}{2} \int_{-\pi}^{\pi} \dfrac{e^{it} + z}{e^{it} - z} f(e^{it}) dt \right].
 \end{equation*}
 
 También haciendo el cambio de variable $\theta - t = x$ se tiene la igualdad
@@ -169,10 +155,15 @@ El siguiente teorema proporciona una solución al problema de Dirichlet. De hech
     el primer sumando es menor que $\frac{\varepsilon}{3}$. Por otra parte si $\abs{x} \geq \frac{\delta}{2}$ y $\abs{\theta} \leq \frac{\delta}{2}$ entonces $P_r(\abs{x}) \leq P_r(\frac{\delta}{2}) < \frac{\varepsilon}{3M}$ pues $r \in (\rho, 1).$ Como $\abs{f(e^{i (\theta + x)}) - f(e^{i \alpha})} \leq M$, se tiene que el segundo sumando es menos que $\frac{\varepsilon}{3}$, con lo que $\abs{u(re^{i \theta}) - u(e^{i \alpha})} < \varepsilon$. \\
 
     Finalmente, para ver que $u$ es única, supongamos que $v$ es una función continua en $\closedisk$ que es armónica en $\disk$ y $v(e^{i \theta}) = f(e^{i \theta})$ para todo $\theta$. Entonces $u - v$ es armónica en $\disk$ y $(u - v)(z) = 0$ para todo $z \in \partial \disk$. Se sigue del Principio del Módulo Máximo que $u - v \equiv 0$. \\
-    %Let $U \subseteq \complex$ be a bounded domain, and let $f$ be a continuous function on the closed set $\xbar{U}$ that is holomorphic on $U$. Then the maximum value of $\abs{f}$ on $\xbar{U}$ (which always exists) occurs on the boundary $\partial U$. In other words $\max_{\xbar{U}} \abs{f} = \max_{\partial U}\abs{f}$.
+
+    \todo[inline, color=yellow]{No sé exactamente qué es lo que quieres que cite, ¿el principio del módulo máximo quizás? Este enunciado es de Conway Functions of one complex variable 1: \\
+
+        Sea $U \subseteq \complex$ un conjunto acotado, y sea $f$ una función continua en el conjunto cerrado  $\xbar{U}$ que es holomorfa en $U$. Entonces el máximo de $\abs{f}$ en $\xbar{U}$ (que siempre existe) se alcanza en la frontera del conjunto, $\partial U$. En otras palabras, $\max_{\xbar{U}} \abs{f} = \max_{\partial U}\abs{f}$.}
 \end{proof}
 
 \section{El Teorema de Fatou}
+
+\todo[inline]{Como veremos más adelante, funciones holomorfas y acotadas en el disco unidad pueden tener comportamiento irregular en los puntos del borde del disco, no admitiendo una extensión continua. Sin embargo, esta clase de funciones sí tienen, en casi todo punto, límites radiales. Esto, vía el teorema de Fatou, permite definir sobre el borde una función acotada que, a su vez, sirve para recuperar información sobre la función en el interior.}
 
 Para demostrar el Teorema de Fatou nos vamos a basar en unos resultados clásicos del libro \citet[chap. 11]{rudin}. \\
 
@@ -242,9 +233,7 @@ Para demostrar el Teorema de Fatou nos vamos a basar en unos resultados clásico
     Por último, si $f^*$ satisface \eqref{eq:fatou3} y definimos $f$ como \eqref{eq:fatou_proof} para todo $z \in \disk$, entonces, por \eqref{eq:fatou_proof}, $f \in \holomorphic{\disk}$. Además, \eqref{eq:fatou3} implica que la integral de Cauchy \eqref{eq:fatou_proof} es igual a la integral de Poisson \eqref{eq:fatou_poisson}. Por lo tanto, $f$ es acotada, y la representación de $f$ como la integral de Poisson de $f^*$ muestra que \eqref{eq:fatou1} se satisface en casi todo punto por el Teorema \ref{th:fatouaux1}. \\
 \end{proof}
 
-\todo[inline]{Repasar lo que viene a continuación. ¿Incluso aunque $f$ converja a $f^*$?}
-
-Como hemos demostrado, $f$ es la integral de Poisson de $f^*$ por lo que $f^*$ es la solución al problema de Dirichlet de $f$, incluso aunque $f$ converja a $f^*$ en $\partial \disk$ radialmente en casi todo punto. \\
+Como hemos demostrado, $f$ es la integral de Poisson de $f^*$ por lo que $f^*$ es la solución al problema de Dirichlet de $f$.\\
 
 Gracias a la expresión de la fórmula de Cauchy anterior, tenemos un teorema de identidad si nos restringimos a un subarco del disco unidad. \\
 
@@ -264,7 +253,9 @@ Gracias a la expresión de la fórmula de Cauchy anterior, tenemos un teorema de
 
 Como se puede observar de este último resultado, el comportamiento en (un subconjunto de) la frontera determina el comportamiento dentro del disco. \\
 
-\section{Teorema de Carathéodory y aplicaciones conformes}
+\section{Aplicaciones conformes. Teorema de Carathéodory}
+
+\todo[inline]{Analizamos el concepto de función conforme, que está ligado al del función holomorfa en el contexto de las funciones complejas con derivadas parciales continuas. El resultado central es el Teorema de Carathéodory, que permite extender con continuidad a la frontera cualquier función conforme entre el disco y un dominio de Jordan.}
 
 \begin{definition}%{Aplicación conforme}
     Sean $U$ y $V \subset \complex^n$. Se dice que una aplicación $f: U \to V$ es conforme en un punto $u \in U$ si preserva la orientación y los ángulos entre curvas que pasan por $u$. \\
@@ -373,7 +364,7 @@ A continuación, vamos a probar un resultado recíproco a éste que incluye algu
     Como vemos, $u(x,y)$ y $v(x,y)$ satisfacen las ecuaciones de Cauchy-Riemann en $U$. Luego $f(z) = u(x,y) + i v(x,y)$ es holomorfa en $z = x + iy \in U$. Además se tiene que $f(z) \not = 0, z \in U$. En efecto, como $\lambda'_\theta(0) \neq 0$, \eqref{eq:nonulo} garantiza que no pueden anularse a la vez $u_x$ y $u_y$. Por lo tanto, como $\abs{f'(x+iy)}^2 = u_x^2(x,y)+u_y^2(x,y)$, se tiene el resultado. \\
 \end{proof}
 
-% Mirar si merece la pena incluir esto.
+\begin{comment} % Es lo mismo que el anterior del anterior
 \begin{prop}
     Sea $U \subset \complex$. Una aplicación $f: U \to \complex$ es conforme en $U$ si satisface las condiciones de Cauchy-Riemann y $f'(z) \not = 0$ para todo $z \in U$.
 \end{prop}
@@ -403,6 +394,7 @@ A continuación, vamos a probar un resultado recíproco a éste que incluye algu
     \end{equation*}
     por lo que $\frac{d}{dt} f(\gamma (t)) \not = 0$ en $t = 0$ pues $\rho' (t) + i \sigma' (t) = \gamma' (t) \not = 0$. Es decir, la curva $f (\gamma)$ es suave en un entorno de su origen. Por lo tanto, si $\gamma_1$ y $\gamma_2$ son curvas suaves con origen $c$, el ángulo entre $f(\gamma_1)$ y $f(\gamma_2)$ en $f(c)$ está bien definido. \\
 \end{proof}
+\end{comment}
 
 \begin{theorem}[Teorema de Carathéodory]
     \label{th:caratheodory}
@@ -502,42 +494,33 @@ A continuación, vamos a probar un resultado recíproco a éste que incluye algu
     y $\varphi$ es constante en un arco de $\partial \disk$. Se tiene que $\varphi$ es constante, por el principio de reflexión de Schwarz, y esta contradicción prueba que $\varphi(\zeta_1) \not = \varphi(\zeta_2)$. \\
 \end{proof}
 
-\todo[inline]{Revisar: aclarar lo que se está haciendo aquí que es hacer que el disco sea equivalente al dominio de Jordan}
-
-También podemos utilizar el Teorema de Carathéodory para resolver el problema de Dirichlet como hemos hecho empleando el Teorema de Fatou pero esta vez no necesariamente en el disco unidad, sino en un dominio de Jordan cualquiera $\Omega$. Utilizando la notación del teorema anterior, sea $f$ una aplicación en $\Gamma$ tal que $f \circ \varphi$ es integrable en $\partial \disk$, entonces
+En la sección anterior, hemos utilizado el Teorema de Fatou para resolver el problema de Dirichlet en el disco $\disk$. De manera análoga, también vamos a poder hacer uso del Teorema de Carathéodory para resolver el problema de Dirichlet, pero esta vez sin restringirnos necesariamente al disco unidad $\disk$ sino a un dominio de Jordan cualquiera $\Omega$. Para ello vamos a aplicar una transformación conforme $\varphi$ que lleva el disco en el dominio $\Omega$. Así pues, utilizando la notación del teorema anterior, sea $f$ una aplicación en $\Gamma$ tal que $f \circ \varphi$ es integrable en $\partial \disk$, entonces
 \begin{equation*}
-    u(z) = \dfrac{1}{2 \pi} \int_{- \pi}^{\pi} P_r (\theta - t) f \circ \varphi (e^{it}) dt
+    u: z=re^{i \theta} \in \Omega \mapsto u(re^{it}) = \dfrac{1}{2 \pi} \int_{- \pi}^{\pi} P_r (\theta - t) f \circ \varphi (e^{it}) dt
 \end{equation*}
-es armónica en $\Omega$ y por los teoremas \ref{th:caratheodory} y \ref{th:fatouaux1},
+es armónica en $\Omega$. Por los teoremas \ref{th:caratheodory} y \ref{th:fatouaux1},
 \begin{equation}
     \label{eq:caratheodoryaux}
     \lim_{z \to \zeta} u(z) = f(\zeta)
 \end{equation}
 cuando $z \in \Omega$ y la función $f \circ \varphi$ es continua en $\varphi^{-1}(\zeta) \in \partial \disk$. En particular, si $f$ es continua en $\Gamma$, entonces \eqref{eq:caratheodoryaux} se satisface para todo $\zeta \in \Gamma$ y $u(z)$ resuelve el problema de Dirichlet para $f$ en $\Omega$. \\
 
-\todo[inline]{Decir que los dos teoremas son el mismo pero en situaciones diferentes. Quitar los dos primeros apartados dejando solo el último.}
 
-Al final de la demostración del Teorema \ref{th:caratheodory} hemos utilizado el resultado que enunciamos a continuación: \\
+Al final de la demostración del Teorema \ref{th:caratheodory} hemos utilizado un resultado clásico, el Principio de Reflexión de Schwarz, que enunciamos a continuación. \\
 
-\begin{theorem}[Principio de Reflexión de Schwarz] Sea $U^+$ un conjunto abierto conexo del semiplano superior y supongamos que la frontera de $U^+$ contiene un intervalo abierto $I \subset \real$. Sea $U^-$ la reflexión de $U^+$ en el eje real, $U^- = \{z: \xbar{z} \in U^+\}$, y  tomemos $U = U^+ \, \cup \, I \, \cup \, U^-$.
-    \begin{enumerate}[(i)]
-        \item Si $f$ es una función en $U$, holomorfa en $U^+ \, \cup \, U^-$, y continua en $I$, entonces $f$ es holomorfa en $V$.
+\begin{theorem}[Principio de Reflexión de Schwarz]
+    Sea $U^+$ un conjunto abierto conexo del semiplano superior y supongamos que la frontera de $U^+$ contiene un intervalo abierto $I \subset \real$. Sea $U^-$ la reflexión de $U^+$ en el eje real, $U^- = \{z: \xbar{z} \in U^+\}$, y  tomemos $U = U^+ \, \cup \, I \, \cup \, U^-$. \\
 
-        \item Si $f$ es una función en $U^+ \, \cup \, I$, holomorfa en $U^+$ y continua en $I$, y toma valores reales en $I$, entonces $f$ tiene una prolongación analítica única $F$ en $U$ que verifica
-            \begin{equation*}
-                F(z) = \xbar{f(\xbar{z})}.
-            \end{equation*}
-
-        \item Si $f = u + iv$ es una función holomorfa en $U^+$ y $\lim_{n \to \infty} v(z_n) = 0$ para toda sucesión $\{z_n\}\subset U^+$ que converge a un punto de $I$. Entonces $f$ tiene una prolongación analítica única $F$ en $U$ que verifica
-            \begin{align*}
-                F(z) &= f(z) \text{ si } z\in U^+, & F(\xbar{z}) &= \xbar{F(z)} \text{ si } z\in U.
-            \end{align*}
-    \end{enumerate}
+    Si $f = u + iv$ es una función holomorfa en $U^+$ y $\lim_{n \to \infty} v(z_n) = 0$ para toda sucesión $\{z_n\}\subset U^+$ que converge a un punto de $I$. Entonces $f$ tiene una prolongación analítica única $F$ en $U$ que verifica
+    \begin{align*}
+        F(z) &= f(z) \text{ si } z\in U^+, & F(\xbar{z}) &= \xbar{F(z)} \text{ si } z\in U.
+    \end{align*}
 \end{theorem}
 
-El teorema anterior puede aplicarse a situaciones más generales que son biholomorfas a la de dicho teorema. \\
+El teorema anterior puede aplicarse a situaciones más generales cuando el dominio considerado es equivalente a través de una función biholomorfa al abierto del resultado precedente. \\
 
-\begin{theorem}[Principio de Reflexión de Schwarz] Sea $V$ un conjunto abierto de $\complex$ y supongamos que es la unión disjunta $V = V^+ \, \cup \, \gamma \, \cup \, V^-$, donde $V^+$ y $V^-$ son abiertos de $\complex$ y $\gamma$ es una curva. Suponemos que existe un isomorfismo
+\begin{theorem}[Principio de Reflexión de Schwarz]
+    Sea $V$ un conjunto abierto de $\complex$ y supongamos que es la unión disjunta $V = V^+ \, \cup \, \gamma \, \cup \, V^-$, donde $V^+$ y $V^-$ son abiertos de $\complex$ y $\gamma$ es una curva. Suponemos que existe una aplicación biholomorfa entre $V$ y $U$
     \begin{equation*}
         \psi: U \to V
     \end{equation*}
@@ -546,15 +529,9 @@ El teorema anterior puede aplicarse a situaciones más generales que son biholom
         \psi(U^+) &= V^+, & \psi(I) &= \gamma & \psi(U^-) &= V^-.
     \end{align*}
 
-    La notación $U = U^+ \, \cup \, I \, \cup \, U^-$ es la misma que antes.
+    La notación $U = U^+ \, \cup \, I \, \cup \, U^-$ es la misma que antes. \\
 
-    \begin{enumerate}[(i)]
-        \item Si $g$ es una función en $V$, holomorfa en $V^+ \, \cup \, V^-$, y continua en $\gamma$, entonces $g$ es holomorfa en $V$.
-
-        \item Si $g$ es una función holomorfa en $V^+$ que se extiende a una función continua en $V^+ \, \cup \, \gamma$, y toma valores reales en $\gamma$, entonces $g$ tiene una prolongación analítica en $V$.
-
-        \item Si $g = u + iv$ es una función holomorfa en $V^+$ y $\lim_{n \to \infty} v(z_n) = 0$ para toda sucesión $\{z_n\}\subset V^+$ que converge a un punto de $\gamma$. Entonces $g$ tiene una prolongación analítica en $V$.
-    \end{enumerate}
+    Si $g = u + iv$ es una función holomorfa en $V^+$ y $\lim_{n \to \infty} v(z_n) = 0$ para toda sucesión $\{z_n\}\subset V^+$ que converge a un punto de $\gamma$. Entonces $g$ tiene una prolongación analítica en $V$.
 \end{theorem}
 
 
