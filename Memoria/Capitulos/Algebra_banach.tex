@@ -127,7 +127,7 @@ En principio, los únicos homomorfismos complejos que se pueden identificar clar
 
 Así pues, las evaluaciones en puntos del disco abierto son elementos del espectro y cumplen $\abs{\delta_z} = 1$ para todo $z \in \disk$. \\
 
-\todo[inline]{Hablar más de las evaluaciones. ¿Qué más hay que decir?}
+\todo[inline, color=yellow]{Hablar más de las evaluaciones. ¿Qué más hay que decir?}
 
 \section{La proyección del espectro sobre el disco}
 
@@ -152,7 +152,6 @@ Nótese que la función identidad tiene norma 1 y cada $\phi \in \fiber$ tambié
 
 \begin{proof}
 $\pi$ es continua por definición. Veamos que $\pi$ lleva $\fiber$ en el disco cerrado. En efecto, ya hemos observado antes que cada punto del disco abierto $\disk$ está en la imagen de $\pi$ puesto que $\pi (\delta_\lambda) = \lambda$. Como $\fiber$ es un conjunto compacto que contiene a $\disk$, y la imagen de un compacto por una aplicación continua es también un compacto, entonces $\pi(\fiber)$ es compacto. Así pues, como $\pi(\fiber)$ es un conjunto compacto que contiene a $\disk$, contiene todo el disco cerrado $\closedisk$. \\
-% Al ser continua $\pi$, el espectro compacto y el disco abierto está en la imagen de $\pi$, y este es denso en el disco cerrado, la imagen debe ser todo el disco cerrado.
 
 Veamos ahora que $\pi$ es inyectiva sobre el disco. Para ello supongamos que $\abs{\lambda} < 1$ y $\pi (\phi) = \phi (\id) = \lambda$, con $\phi \in \fiber$. Si $f(\lambda) = 0$, entonces $f(z) = (z - \lambda) g(z)$ y
 \begin{equation*}
@@ -165,7 +164,7 @@ Si $f(\lambda) = c$, entonces $f(z) = c + g(z)$, con $g(z) = 0$ y
 \end{equation*}
 Por lo tanto, $\phi(f) = f(\lambda)$ para toda $f \in \bholomorphic{\disk}$, es decir, $\phi$ es la evaluación en $\lambda$. Esto prueba que $\pi$ es inyectiva sobre los puntos del disco unidad $\disk$. \\
 
-\todo[inline]{Falta ver que $\pi^{-1}$ aplica homeomórficamente $\disk$ sobre un abierto de $\fiber$: ?}
+\todo[inline, color=yellow]{Falta ver que $\pi^{-1}$ aplica homeomórficamente $\disk$ sobre un abierto de $\fiber$. Lo encontré en el Hoffman, yo tampoco lo entiendo. ¿Lo quito?}
 
 Si tomamos $\Delta = \pi^{-1} (\disk) = \{\phi_z : z \in \disk\}$, entonces $\pi$ lleva $\Delta$ homeomórficamente en el disco $\disk$ ya que la topología de $\Delta$ es la topología débil definida por las aplicaciones $\widehat f$ y la topología de $\disk$ es la topología débil definida por las aplicaciones $f \in \bholomorphic{\disk}$. \\
 \end{proof}
@@ -183,9 +182,9 @@ Si $z \in \disk$, la fibra de $\fiber$ sobre $z$ coincide con la evaluación en 
     \fiber_z = \{ \delta_z\}.
 \end{equation*}
 
-\todo[inline]{La definición anterior hace que podamos descomponer el espectro como unión disjunta de sus fibras. ¿Cómo hacemos esto?}
+\todo[inline, color=yellow]{La definición anterior hace que podamos descomponer el espectro como unión disjunta de sus fibras. ¿Cómo hacemos esto?}
 
-\todo[inline]{Observemos que la imagen de toda función constante por cualquier elemento del espectro es ella misma. Además, la identidad es una función de $\bholomorphic{\disk}$ de norma 1.}
+\todo[inline, color=yellow]{Observemos que la imagen de toda función constante por cualquier elemento del espectro es ella misma. Además, la identidad es una función de $\bholomorphic{\disk}$ de norma 1.}
 
 \todo[inline]{En base a la Definición \ref{def:fibra}, es sencillo ver que las fibras sobre los puntos del disco abierto tienen un único elemento; mientras que sobre los números del borde del disco la fibra tiene muchos.}
 
@@ -219,6 +218,8 @@ A partir de esto, es evidente que para cualquier función $f$ que pueda extender
 
     Si $\widehat f$ es constante en la fibra $\fiber_\alpha$, entonces el Teorema \ref{th:result1} muestra directamente que $f$ se puede extender con continuidad a $\disk \cup \{ \alpha \}$. \\
 \end{proof}
+
+\section{Estructura topológica de $\fiber$ / Otro título}
 
 % La discusión anterior muestra que $\disk \in \fiber (\bholomorphic{\disk})$. Entonces podemos definir la corona de $\bholomorphic{\disk}$ como $\fiber (\bholomorphic{\disk}) \setminus \disk$.
 
@@ -260,18 +261,27 @@ y las funciones $f_1, \dots, f_n$ están en un ideal propio de $J \subset \bholo
 La afirmación de que $f_1, \dots, f_n$ están en un ideal propio es equivalente a la afirmación de que la función constante $1$ no se puede escribir de la forma $f_1 g_1 + \cdots + f_n g_n = 1$, con $g_1, \dots, g_n \in \bholomorphic{\disk}$, ya que $\phi (1) = 1$ y $\phi (f_1 g_1 + \cdots + f_n g_n) = \phi (f_1) \phi (g_1) + \cdots + \phi (f_n) \phi (g_n) = 0$. \\
 \end{proof}
 
-\begin{definition}[Cluster set y cluster value]
-    Dados $f \in \bholomorphic{\disk}$ y $\alpha \in \closedisk$, definimos el ``cluster set'' de $f$ en $\alpha$ como
+
+\begin{definition}
+    Dados $f \in \bholomorphic{\disk}$ y $\alpha \in \closedisk$, definimos el conjunto de valores adherentes de $f$ en $\alpha$ como
     \begin{equation*}
-        Cl(f, \alpha) = \{\zeta : \exists \{z_n\} \in \disk, \lim_{n \to \infty} z_n = \alpha, \lim_{n \to \infty} f(z_n) = \zeta \}
+        Cl(f, \alpha) = \{\zeta : \exists \{z_n\} \in \disk, \lim_{n \to \infty} z_n = \alpha, \lim_{n \to \infty} f(z_n) = \zeta \}.
     \end{equation*}
 
-    Así, cada número $\zeta \in Cl(f, \alpha)$ se denomina un ``cluster value'' de $f$ en $\alpha$.
+    Esto es, $\zeta \in Cl(f, \alpha)$ si y solo si existe una sucesión $z_n$ en $\disk$ que tiende a $\alpha$ tal que $f(z_n)$ tiende a $\zeta$. A cada número $\zeta \in Cl(f, \alpha)$ se le denomina valor adherente de $f$ en $\alpha$.
 \end{definition}
 
 \medskip
 
-Si nos restringimos a $z \in \disk$, entonces $Cl(f, z) = \{\delta_z(f)\}$. \\
+Si $\alpha \in \partial \disk$, podemos escribir el conjunto de valores adherentes de $f$ en $\alpha$ como
+\begin{equation}
+    Cl(f, \alpha) = \bigcap_{r>0} \xbar{f(\disk \cap D(\alpha, r))}.
+\end{equation}
+
+De la misma manera, si nos restringimos a $z \in \disk$, entonces $Cl(f, z) = \{\delta_z(f)\}$. \\
+
+El conjunto de valores adherentes es un conjunto compacto, no vacío y conexo. Además, contiene un único punto si y solo si $f$ es continua en $\disk \cup \{\alpha\}$. Si $f$ es holomorfa en $\alpha$, y no constante, entonces $Cl(f, \alpha) = \{\delta_\alpha(f)\}$. \\
+
 
 Teniendo en cuenta esta definición, otro enunciado alternativo al Teorema \ref{th:result1} sería el siguiente: \\
 
@@ -310,28 +320,24 @@ Por lo tanto, si $\abs{\alpha} = 1$, el contenido $Cl(f, \alpha) \subset \wideha
     Podemos elegir una sucesión $(i_n)$ tal que se cumplan al mismo tiempo $\lim z_{i_n}  = \alpha$ y $\lim f(z_{i_n}) = \widehat f(\phi)$. Es decir, si tomamos ahora $\{z_{\alpha_n}\}$ una subsucesión de $\{z_\alpha\}$ cumplirá que $\lim_{n \to \infty} z_n = \alpha$ y, además, $\lim_{n \to \infty} f(z_n)= \widehat{f} (\phi)$. Es decir, $\widehat{f} (\phi) \in Cl (f, \alpha)$. \\
 \end{proof}
 
-\todo[inline]{Quizá viene bien extender un poco lo de los productos de Blaschke.}
-
 \begin{definition}
     Se dice que una función $f \in \bholomorphic{\disk}$ es una función interna si $\abs{f(e^{i \theta})} = 1$ en casi todo punto.
 \end{definition}
 
 Los productos de Blaschke de los que hemos hablado en el Capítulo tal son un clásico ejemplo de función interna. Además de este tipo de funciones, la función $\exp{\left(\frac{z + 1}{z - 1}\right)}$, que introdujimos en el Ejemplo \ref{ex:exp} es también una función interna. \\
 
-\todo[inline]{Esto quizás es mejor ponerlo después de la definición de cluster set. No sé.}
-
-Sea $f \in \bholomorphic{\disk}$ y sea $\alpha \in \partial \disk$. El ``cluster set'' de $f$ en $\alpha$ viene dado por
-\begin{equation}
-    Cl(f, \alpha) = \bigcap_{r>0} \xbar{f(\disk \cap D(\alpha, r))}.
-\end{equation}
-
-Esto es, $\zeta \in Cl(f, \alpha)$ si y solo si existe una sucesión $z_n$ en $\disk$ que tiende a $\alpha$ tal que $f(z_n)$ tiende a $\zeta$. El ``cluster set'' es un conjunto compacto, no vacío y conexo. Además, contiene un único punto si y solo si $f$ es continua en $\disk \cap \{\alpha\}$. Si $f$ es holomorfa en $\alpha$, y no constante, entonces $Cl(f, \alpha) = f(\alpha)$. \\
+Observamos que el conjunto de valores de adherencia de una función interna en el disco abierto puede ser, a lo sumo, el disco unidad cerrado, por el teorema de valor máximo. De hecho, esta es la situación general cuando se estudia el conjunto en los puntos singulares. Se tiene el siguiente resultado, cuya demostración puede encontrarse en \citet[chap. 6]{garnett1981bounded}. \\
 
 \begin{theorem}
     Sea $f$ una función interna en el disco abierto $\disk$ y sea $\alpha \in \partial \disk$ una singularidad de $f(z)$. Entonces $Cl(f, \alpha) = \closedisk$.
 \end{theorem}
 
-El ``cluster set'' se comporta bien cuando tratamos con funciones holomorfas, como hemos visto. Sin embargo, vamos a ver a continuación que no es así en el caso de las funciones no holomorfas.
+El Teorema anterior nos muestra que a pesar del Teorema de Fatou, el comportamiento en los puntos de la frontera puede ser impredecible. Por ejemplo, si consideramos un producto de Blaschke cuyos ceros sean densos en $\partial \disk$, entonces el Teorema se cumple para todo $z \in \partial \disk$. Sin embargo, la función tendrá límites radiales en casi todo punto. \\
+
+
+\todo[inline]{Aquí vendría bien citar lo que pasa con la función singular, para la que se puede calcular explícitamente $Cl(f,1)$. Y también hablar de los productos de Blaschke: decir que la sucesión $(\alpha_n)$ tiene puntos límite en el borde del disco, en los que entonces $B$ no va a tener límite y eso da lugar a puntos $w$ donde $Cl(B,w)$ es todo el disco cerrado.}
+
+Así como para funciones internas se tiene la alternativa de que el conjuntos de valores adherentes o bien es un solo punto o bien es todo el disco, tratando con funciones no holomorfas se pueden presentar situaciones intermedias, como puede verse en el siguiente ejemplo. \\
 
 \begin{example}
     Sea $h: \disk \to \disk$ dada por
@@ -340,11 +346,11 @@ El ``cluster set'' se comporta bien cuando tratamos con funciones holomorfas, co
     \end{equation*}
 
     %$h$ es una involución biyectiva de $\disk$ en $\disk$. $h$ tiene una extensión continua a $\closedisk \setminus \{1\}$ (con el valor constantemente 1).
-    Entonces el ``cluster set'' $Cl(h,1)$ de $h$ en $1$ se corresponde con la circunferencia unidad $\partial \disk$.
+    Entonces el conjunto de valores adherentes $Cl(h,1)$ de $h$ en $1$ se corresponde con la circunferencia unidad $\partial \disk$.
 \end{example}
 
 \begin{proof}
-    El ``cluster set'' de $h$ en $1$ viene dado por
+    El conjunto de valores adherentes de $h$ en $1$ viene dado por
     \begin{equation*}
         Cl(h,1) = \bigcap_{n=1}^{\infty} \xbar{h(D_n)},
     \end{equation*}
