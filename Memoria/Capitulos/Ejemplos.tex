@@ -1,13 +1,32 @@
 \chapter{Ejemplos}
 \label{cap:ejemplos}
 
-\todo[inline]{Empezar comentando cómo calcular el radio de convergencia, que los ejemplos son de series con radio de convergencia 1 y que vas a mostrar cómo difieren el comportamiento en la frontera de unos a otros.}
+En esta sección vamos a estudiar el comportamiento de algunas series de potencias en el borde de su disco de convergencia. Para ello primero vamos a recordar algunos conceptos que nos van a ser de utilidad. Sea $f(z)$ una serie de potencias con coeficientes $\{a_n\}_{n=1}^{\infty} \subset \complex$ centrada en $z_0$ dada por
+\begin{equation*}
+    f(z) =  \sum_{n=0}^\infty a_n (z-z_0)^n,
+\end{equation*}
+donde $z \in \complex$. \\
 
-En esta sección vamos a estudiar el comportamiento de algunas series de potencias en el borde de su disco de convergencia.
+\begin{definition}
+    Se llama radio de convergencia de una serie de potencias a
+    \begin{equation*}
+        R = \sup \left\{ \abs{z - z_0} : \sum _{n=0}^{\infty} a_n (z - z_0)^n \text{ converge } \right\} \subset [0, \infty].
+    \end{equation*}
+\end{definition}
+\medskip
+
+Así pues, el radio de convergencia $R$ es un número real no negativo, que puede ser $\infty$ en algunos casos, tal que la serie converge si $\abs{z - z_0} < R$, y diverge si $\abs{z - z_0} > R$. Decimos que la serie converge en su disco de convergencia. \\
+
+En la frontera del disco de convergencia, esto es, cuando $\abs{z - z_0} = r$, el comportamiento de la serie de potencias puede ser complicado, es decir, puede converger para unos valores de $z$ y divergir para otros. \\
+
+Todas las series que vamos a presentar tienen radio de convergencia $1$ y están centradas en el origen. Sin embargo, cada una de ellas muestra una situación diferente relacionada con su comportamiento en la frontera del disco unidad. \\
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %EJEMPLO 1
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+En primer lugar tenemos la serie geométrica, una serie con radio de convergencia $1$, no acotada y que no converge en ningún punto de la frontera de su disco de convergencia. Sin embargo, la serie puede extenderse a una función globalmente analítica en $\complex \setminus{1}$ mediante una cantidad finita de prolongaciones analíticas. \\
+
 
 \begin{example}
     Mostrar que
@@ -78,6 +97,8 @@ Así, decimos que hemos obtenido la prolongación analítica de $\sum_{n=0}^{\in
 %EJEMPLO 2
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+A continuación, presentamos otra serie con radio de convergencia $1$, que converge en todos los puntos del borde salvo en $z = 1$. Además, podemos expresar la suma de esta serie en términos de la serie anterior si $z \not = 1$. \\
+
 \begin{example}
     Mostrar que
     \begin{equation*}
@@ -88,7 +109,7 @@ Así, decimos que hemos obtenido la prolongación analítica de $\sum_{n=0}^{\in
 \end{example}
 
 \begin{proof}
-    En primer lugar, cabe destacar que la serie armónica $\sum_{n=1}^{\infty} \frac{1}{n}$ diverge. Para demostrar que la serie diverge en $z = 1$  y converge en el resto de punto tales que $\abs{z} = 1$ vamos a aplicar el criterio de Dirichlet, que recordamos a continuación. \\
+    En primer lugar, cabe destacar que la serie armónica $\sum_{n=1}^{\infty} \frac{1}{n}$ diverge, por lo que la serie de nuestro ejemplo diverge para $z = 1$. Para demostrar que la serie converge en el resto de punto tales que $\abs{z} = 1$ vamos a aplicar el criterio de Dirichlet, que recordamos a continuación. \\
 
     Sean $\{a_n\} \subset \real$ y $\{b_n\} \subset \complex$ sucesiones tales que:
     \begin{enumerate}
@@ -110,17 +131,19 @@ Así, decimos que hemos obtenido la prolongación analítica de $\sum_{n=0}^{\in
 
     Esto muestra que la condición se satisface para todo $z \not = 1$ en el disco unidad. Por lo tanto, la serie converge para todo $z$ tal que $\abs{z} \leq 1, z \not = 1$ y diverge para $\abs{z} > 1$. \\
 
-    Vamos a ver que la suma de la serie es $\log{\frac{1}{1 - z}}$. En efecto, derivando tenemos que
+    Vamos a ver que la suma de la serie es $\log{\frac{1}{1 - z}}$ cuando $z \not = 1$. En efecto, derivando tenemos que
     \begin{equation*}
         g'(z) = \sum_{n=1}^{\infty} z^{n-1} \Rightarrow z g'(z) = \sum_{n=1}^{\infty} z^n = \frac{z}{1 - z}.
      \end{equation*}
-     Si integramos ahora la expresión de la derecha tenemos que la suma es $\log{\frac{1}{1 - z}}$ puesto que $g(0) = 0$. \\
-     % Puedes  añadir que un argumento análogo permite presentar ejemplos de series con disco de convergencia de radio 1, pero que divergen en una cantidad arbitraria de puntos del borde. Por ejemplo, la serie de término general z^{pn}/n, diverge en las p raíces p-ésimas de la unidad.
+     Si integramos ahora la expresión de la derecha tenemos que la suma es $\log{\frac{1}{1 - z}}$ puesto que $g(0) = 0$. \\ % No estoy segura de que sea $g(0) = 0$ lo que necesitamos aquí.
 \end{proof}
+% Utilizando un argumento análogo, podemos presentar ejemplos de series con disco de convergencia de radio $1$, pero que divergen en una cantidad arbitraria de puntos del borde del disco. Por ejemplo, la serie $\sum_{n=0}^{\infty} \frac{z^{pn}}{n}$, diverge en las $p$ raíces $p$-ésimas de la unidad.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %EJEMPLO 3
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Vamos a estudiar una serie de potencias con radio de convergencia $1$, que se puede sumar en todos los puntos del borde, pero no puede extenderse a una función holomorfa. \\
 
 \begin{example}
     Mostrar que
@@ -141,19 +164,14 @@ Así, decimos que hemos obtenido la prolongación analítica de $\sum_{n=0}^{\in
         f'(z) =  \sum_{n=1}^{\infty} \frac{z^{n-1}}{n} \Rightarrow zf'(z) = \sum_{n=1}^{\infty} \frac{z^{n}}{n} = g(z) = \log{\frac{1}{1 - z}}.
     \end{equation*}
 
-    \begin{comment}
-    \begin{equation*}
-        f''(z) =  \sum_{n=2}^{\infty} \frac{(n - 1)}{n} z^{n-2} =  \sum_{n=2}^{\infty} z^{n-2} - \sum_{n=2}^{\infty} \frac{1}{n} z^{n-2}
-    \end{equation*}
-     \begin{equation*}
-         \sum_{n=2}^{\infty} z^{n-2} = \sum_{n=0}^{\infty} z^{n} = \frac{1}{1 - z}.
-    \end{equation*}
-    \end{comment}
- \end{proof}
+    Así pues, la derivada de $f(z)$ es igual a $\frac{g(z)}{z}$, siendo $g$ la función del ejemplo anterior. \\
+\end{proof}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %EJEMPLO 4
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+A continuación, presentamos otro ejemplo de serie de potencias con radio de convergencia $1$. En este caso, la serie tiene singularidades en todos los puntos del borde del disco. \\
 
 \begin{example}
     Mostrar que la serie lagunar,
@@ -171,7 +189,7 @@ Así, decimos que hemos obtenido la prolongación analítica de $\sum_{n=0}^{\in
     \end{equation*}
     y aplicando inducción tenemos que
     \begin{equation*}
-        h(z^{2^k}) = h(z^{2^{k-1}}) - z^{2^{k-1}}
+        h(z^{2^k}) = h(z^{2^{k-1}}) - z^{2^{k-1}}.
     \end{equation*}
 
     Así,
@@ -179,7 +197,7 @@ Así, decimos que hemos obtenido la prolongación analítica de $\sum_{n=0}^{\in
         h(z) = z + h(z^2) = z + z^2 + h(z^4) = \cdots = z + z^2 + \cdots + z^{2^{k-1}} + h(z^{2^k}).
     \end{equation*}
 
-    Si $m, n \in \naturals$ y $r \in (0,1)$ y llamamos $r$ a $e^{2 \pi i \frac{m}{2^n}}$, tenemos que
+    Por lo tanto, si $m, n \in \naturals$ y $r \in (0,1)$ y tomamos $r$ como $e^{2 \pi i \frac{m}{2^n}}$, tenemos que
     \begin{equation*}
         h(r^{2^n}) = \sum_{k=0}^{\infty} (r^{2^n})^{2^k} = \sum_{k=0}^{\infty} r^{2^n \cdot 2^k} = \sum_{k=0}^{\infty} r^{2^{(n+k)}} =  \sum_{k=n}^{\infty} r^{2^k}.
     \end{equation*}
@@ -189,11 +207,16 @@ Así, decimos que hemos obtenido la prolongación analítica de $\sum_{n=0}^{\in
         \sum_{k=n}^{\infty} r^{2^k} \geq \sum_{k=n}^{N} r^{2^k} > (N + 1) r^{2^k} \to N + 1,
     \end{equation*}
 
-    entonces $\lim_{r \to 1} \abs{h(re^{2 \pi i \frac{m}{2^n}})} = \infty \, \, \forall m, n$. \\
+    entonces $\lim_{r \to 1} \abs{h(re^{2 \pi i \frac{m}{2^n}})} = \infty$ para todos $m, n \in \naturals$. \\
 
     Puesto que $\{e^{2 \pi i \frac{m}{2^n}} : m, n \in \naturals\}$ es denso en $\partial \disk$, todos los puntos del borde del disco unidad son singulares. \\
 \end{proof}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%EJEMPLO 5
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Por último, tenemos una función holomorfa y acotada en el disco unidad, con un punto singular en $z = 1$. Por lo tanto, su serie de potencias centrada en $0$ tiene radio de convergencia $1$ y no puede sumarse en dicho punto. \\
 
 \begin{example}
     \label{ex:exp}
@@ -229,5 +252,5 @@ Así, decimos que hemos obtenido la prolongación analítica de $\sum_{n=0}^{\in
          e^{g(z_n)} = e^{w_n} \to e^{-1} \not = 0.
      \end{equation*}
 
-     Estudiaremos este ejemplo con más detalle en el Capítulo \ref{cap:banach}, centrándonos de nuevo en el comportamiento de la función en el punto singular $z = 1$.
+     Estudiaremos este ejemplo con más detalle en el Capítulo \ref{cap:banach}, centrándonos de nuevo en el comportamiento de la función en el punto singular $z = 1$. \\
  \end{proof}
