@@ -1,0 +1,296 @@
+\chapter{Derivada angular}
+\label{cap:angular}
+
+\todo[inline, color=yellow]{Ser menos literal.}
+
+\section{Teorema de Julia-Carathéodory}
+
+\begin{definition}
+    Un sector de $\disk$ en un punto $w \in \partial \disk$ es la región entre dos líneas rectas en $\disk$ que parten de $w$ y son simétricas con respecto  al radio que une $w$ con $0$.
+\end{definition}
+
+Así, si $f$ es una función definida en $\disk$ y $w \in \partial \disk$, entonces
+    \begin{equation}
+        \angle \lim_{z \to w} f(z) = L
+    \end{equation}
+    significa que $f(z) \to L$ cuando $z \to w$ a través de cualquier sector de $w$. Cuando esto ocurre, decimos que $L$ es el límite radial de $f$ en $w$. \\
+
+\begin{definition}
+    Decimos que una función $f$ holomorfa del disco $\disk$ en sí mismo tiene derivada angular en $w \in \partial \disk$ si para algún $\eta \in \partial \disk$, el límite
+    \begin{equation*}
+        \angle \lim_{z \to w} \frac{\eta - f(z)}{w - z}
+    \end{equation*}
+    existe. Se dice que dicho límite es la derivada angular de $f$ en $w$ y lo denotamos por $f'(w)$.
+\end{definition}
+
+Basándonos en estas nociones previas, la existencia de derivada angular de $f$ en $w$ implica que $f$ tiene límite radial $\eta$ en $w$. De hecho, también se da la posibilidad de que la derivada de $f$ tenga límite radial en $w$. \\
+
+\todo[inline]{Citarlo quizás después de los ejemplos. \\
+Enunciamos sin demostración el teorema de Julia-Carathéodory. Obsérvese que mientras en el ejemplo X pasa tal cosa, en el ejemplo Y pasa no sé-qué, pues se trata de funciones donde el cociente (I) está o no acotado. Esto lleva asociado que exista o no la derivada angular de la función en el límite angular de la función.
+}
+
+\begin{theorem}[de Julia-Carathéodory]
+    Sea $f$ es una función holomorfa del disco $\disk$ en sí mismo y sea $w \in \partial \disk$. Entonces las siguientes afirmaciones son equivalentes:
+     {
+    \leqnomode
+    \setlength{\jot}{10pt}
+    \setlength{\mathindent}{20pt}
+    \setcounter{align}{0}
+    \begin{align}
+        & \liminf_{z \to w} \frac{1 - \abs{f(z)}}{1 - \abs{z}} = \delta < \infty;
+        \alignno \label{eq:juliacar1} \\
+        & \lim_{z \to w} \frac{\eta - f(z)}{w - z} \text{ existe para algún } \eta \in \partial \disk;
+        \alignno \label{eq:juliacar2} \\
+        & \angle \lim_{z \to w} f'(z) \text{ existe y } \angle \lim_{z \to w} f(z) = \eta \in \partial \disk.
+        \alignno \label{eq:juliacar3}
+    \end{align}
+    }
+\end{theorem}
+
+\section{Lema de Schwarz-Pick}
+
+En esta sección vamos a estudiar un resultado que surge a partir del Lema de Schwarz cuando se le aplica un cambio conforme de variable. A continuación enunciamos el Lema de Schwarz, cuya demostración, bien conocida, omitimos. \\
+
+\begin{theorem}[Lema de Schwarz]
+    Sea $f: \disk \to \closedisk$ una función holomorfa en el disco $\disk$ tal que $f(0) = 0$. Entonces:
+    \begin{enumerate}[(i)]
+        \item $\abs{f(z)} \leq \abs{z}$ para todo $z \in \disk$.
+        \item Además, si para algún $z \not = 0$ se verifica que $\abs{f(z)} = \abs{z}$ o $\abs{f'(0)} = 1$, entonces existe $\lambda \in \complex, \abs{\lambda} = 1$ tal que $f(z)=\lambda z$.
+    \end{enumerate}
+\end{theorem}
+
+La herramienta clave para deducir el Lema de Schwarz-Pick a partir del Lema de Schwarz es la familia de automorfismos $\{\alpha_p: p\in \disk\}$ dada por
+\begin{equation*}
+    \alpha_p (z) = \frac{p-z}{1 - \bar{p}z}
+\end{equation*}
+para todo $z \in \disk$. Todo automorfismo $\alpha_p$ intercambia el origen con $p$. Por tanto, si $p, q \in \disk$, la composición de $\alpha_p$ y $\alpha_q$ permite aplicar $p$ sobre $q$. En particular, esto asegura que el grupo de automorfismos del disco actúa transitivamente sobre $\disk$. \\
+
+\todo[inline]{Pequeña intro.}
+
+\begin{theorem}[Lema de Schwarz-Pick]
+    Si $f$ es holomorfa del disco $\disk$ en sí mismo, entonces para cualquier par de puntos $z, w \in \disk$, se tiene que
+    \begin{equation*}
+        \abs{\frac{f(z) - f(w)}{1 - \xbar{f(w)}f(z)}} \leq \abs{\frac{z-w}{1 - \xbar{w}z}}.
+    \end{equation*}
+
+    Además, se verifica la igualdad para algún par de puntos si y solo si se da la igualdad para todos los pares. Esto ocurre si y solo si $f$ es un automorfismo del disco unidad.
+\end{theorem}
+
+\begin{proof}
+    Meter la prueba. \\
+\end{proof}
+
+Observamos que si $f(0) = 0$, para $w = 0$ se obtiene el Lema de Schwarz. \\
+
+\todo[inline]{Introducir la distancia pseudo-hiperbólica.}
+
+\begin{definition}
+    La distancia pseudo-hiperbólica entre dos puntos $p, q \in \disk$ viene dada por la siguiente expresión:
+    \begin{equation*}
+        d(p,q) = \abs{\alpha_p(q)} = \abs{\frac{p-q}{1 - \xbar{p} q}}.
+    \end{equation*}
+\end{definition}
+
+Esta distancia es en realidad una métrica en $\disk$ que induce la topología euclídea usual. \\
+
+
+%Dada la distancia pseudo-hiperbólica podemos llevar a cabo una generalización del Lema de Schwarz. \\
+
+\begin{figure}[h]{}
+    \begin{minipage}[h]{0.5\textwidth}
+        \centering
+        \begin{tikzpicture}[scale=0.5]
+            \draw (0, 0) circle (2cm);
+            \draw (0, 0) circle (3cm);
+            \draw (0, 0) circle (4cm);
+            \draw (0, 0) circle (5cm);
+            \filldraw[black] (0, 0) circle (2pt) node[below] {$O$};
+        \end{tikzpicture}
+        \label{fig:circulos1}
+    \end{minipage} \hfill
+     \begin{minipage}[h]{0.5\textwidth}
+        \centering
+        \begin{tikzpicture}[scale=0.5]
+            \draw (0, 0) circle (5cm);
+            \draw (2.1,3.24) circle (0.6905070600652824cm);
+            \draw (1.86,2.92) circle (1.289961239727768cm);
+            \draw (1.38,2.38) circle (2.121508896988179cm);
+            \filldraw[black] (2.1,3.24) circle (2.5pt) node[right] {$p$};
+        \end{tikzpicture}
+        \label{fig:circulos2}
+    \end{minipage}
+    \caption{Imagen de discos concéntricos por el automorfismo $\alpha_p$.}
+    \label{fig:automorfismo}
+\end{figure}
+
+
+La figura \ref{fig:automorfismo} muestra la imagen de discos concéntricos $D(0,r)$ mediante la función $\alpha_p$. Podemos observar que se trata de discos en $\disk$ que no tienen a $p$ como centro, salvo cuando aplicamos el único automorfismo que, salvo giros, conserva el centro, es decir, $\alpha_0$. \\
+
+\todo[inline]{Cuestión: ¿digo no euclídeo o digo pseudo-hiperbólico?}
+
+Esta nueva forma de concebir el Lema de Schwarz afirma que cualquier función holomorfa del disco $\disk$ en sí mismo que no sea un automorfismo, decrece estrictamente la distancia pseudo-hiperbólica. Para poder realizar una interpretación geométrica vamos a tener que estudiar las bolas asociadas con la distancia pseudo-hiperbólica. \\
+
+Si denotamos por $\Delta(p,r)$ el disco no euclídeo dado por $\Delta(p,r) = \alpha_p(D(0,r))$, al ser $\alpha_p$ autoinversa se tiene que
+\begin{equation*}
+    \Delta(p,r) = \{z \in \disk: \abs{\frac{p-z}{1 - \xbar{p}z}} < r\} = \{z \in \disk: \abs{\alpha_p(z)} < 1\}.
+\end{equation*}
+
+Con esta noción, el Lema de Schwarz-Pick se puede formular en los mismos términos geométricos en que interpretamos el Lema de Schwarz, referido a los discos no euclídeos $\Delta(p,r)$. \\
+
+\begin{theorem}[Lema de Schwarz-Pick]
+    Toda función holomorfa $f$ del disco $\disk$ en sí mismo lleva $\Delta(p,r)$ en $\Delta(f(p),r)$.
+\end{theorem}
+
+Observamos que si $p = 0$, tenemos que $f(D(0,r)) \subset D(0,r)$, que coincide con la interpretación geométrica del Lema de Schwarz. \\
+
+\begin{comment}
+    Observamos que cuando $f$ es un automorfismo, aplicando a $f^{-1}$ y $f$ sucesivamente el Lema de Schwarz-Pick, se obtiene que para todos $z, w \in \disk$
+    \begin{equation*}
+        \abs{\frac{z-w}{1 - \xbar{w}z}} \leq \abs{\frac{f(z) - f(w)}{1 - \xbar{f(w)}f(z)}} \leq \abs{\frac{z-w}{1 - \xbar{w}z}}.
+    \end{equation*}
+
+    La igualdad anterior entre los dos cocientes induce a definir una métrica en $\disk$ mediante la siguiente expresión
+    \begin{equation*}
+        d(z,w) = \abs{\frac{z-w}{1 - \xbar{w}z}}
+    \end{equation*}
+    para todos $z, w \in \disk$. \\
+
+    Todo automorfismo del disco es una isometría para la métrica $d$. \\
+\end{comment}
+
+\section{Teorema de Julia}
+
+Con el Teorema de Julia se resuelve el equivalente al Lema de Schwarz-Pick para discos que no son interiores a $\disk$, sino tangentes en su borde. El punto de vista geométrico que deseamos destacar del Teorema de Julia nos conduce a describir estos discos tangentes en un punto $w$ del borde de $\disk$ a través de discos no euclídeos que van aproximándose a la frontera. La pregunta natural en este ámbito indaga sobre la relación que deben guardar los centros $p_n$ y los radios $r_n$ para que la sucesión de discos $\{\Delta(p_n, r_n)\}$ converja en el sentido adecuado a un disco tangente. Observamos que cuanto más próximo esté $r_n$ al valor $1$, el disco $\Delta(p_n, r_n)$ es mayor, y el cociente entre las sucesiones $1 - \abs{p_n}$ y $1 - r_n$ determinará el tamaño del disco límite. Observando que
+\begin{equation*}
+    \abs{\frac{z-p}{1 - \xbar{p}z}} < r \Leftrightarrow 1 - r^2 > 1 -  \abs{\frac{z-p}{1 - \xbar{p}z}}^2 = \frac{(1-\abs{p}^2)(1-\abs{z}^2)}{\abs{1-\xbar{p}z}^2}
+\end{equation*}
+podemos describir
+\begin{equation*}
+\Delta(p,r) = \{z \in \disk : \abs{1-\xbar{p}z}^2 < \frac{1-\abs{p}^2}{1-r^2} (1-\abs{z}^2)\}.
+\end{equation*}
+
+Cuando $\lim_{n \to \infty} p_n = w$ y $\lim_{n \to \infty} \frac{1-\abs{p_n}^2}{1-r_n^2} = \lambda$, los dos lados de la desigualdad que define $\Delta(p_n, r_n)$ tienden, respectivamente, a $\abs{1 - \xbar{z}w}^2$ y $\lambda(1 - \abs{z}^2)$. Todo ello nos conduce a la siguiente definición. \\
+
+\begin{definition}
+    Llamaremos horodisco en el punto $w$ y radio $\lambda$ al conjunto
+    \begin{equation*}
+        H(w,\lambda) = \{z \in \disk : \abs{1 - \xbar{z} w}^2 < \lambda(1 - \abs{z}^2)\}.
+    \end{equation*}
+\end{definition}
+
+Es fácil comprobar que este horodisco coincide con el disco euclídeo $D(\frac{w}{1+\lambda}, \frac{\lambda}{1+\lambda})$. En particular, $H(w, \lambda)$ es tangente a la frontera del disco en el punto $w$. Un disco así aumenta de tamaño con $\lambda$ y ocupa el disco unidad cuando $\lambda \to \infty$. La siguiente figura muestra la evolución de $\Delta(p,r)$ cuando $p$ tiende a un punto de la frontera. \\
+
+\begin{figure}[h]{}
+    \begin{minipage}[h]{0.32\textwidth}
+        \centering
+        \begin{tikzpicture}[scale=0.5]
+            \draw (0, 0) circle (5cm);
+            \draw[fill=lavander] (0, 0) circle (3.6cm);
+            \filldraw[black] (0, 0) circle (2.0pt) node[below] {$O$};
+        \end{tikzpicture}
+        \label{fig:noeuclideo1}
+        %\caption{$\Delta(0, r)$}
+    \end{minipage} \hfill
+    \begin{minipage}[h]{0.32\textwidth}
+        \begin{tikzpicture}[scale=0.5]
+            \draw (0, 0) circle (5cm);
+            \draw[fill=lavander] (0.84,3.24) circle (1.1407015385279355cm);
+            \filldraw[black] (0.8, 3.74) circle (2.5pt);
+            \draw[color=black] (0.94, 4.11);
+        \end{tikzpicture}
+        \label{fig:noeuclideo2}
+        %\caption{$\Delta(p_n, r_n)$}
+    \end{minipage} \hfill
+    \begin{minipage}[h]{0.32\textwidth}
+        \begin{tikzpicture}[scale=0.5]
+            \draw (0, 0) circle (5cm);
+            \draw[fill=lavander] (2.299024850013829,3.0883087788941905) circle (1.1500204535309522cm);
+            \filldraw[black] (3, 4) circle (2.5pt);
+        \end{tikzpicture}
+        \label{fig:noeuclideo3}
+        %\caption{$H(w, \lambda)$}
+    \end{minipage}
+    \caption{Discos no euclídeos: $\Delta(0, r)$, $\Delta(p_n, r_n)$ y $H(w, \lambda)$.}
+    \label{fig:aut}
+\end{figure}
+
+El Lema que presentamos a continuación es la herramienta que se precisa para obtener el Teorema de Julia.
+
+\begin{lemma}[de convergencia de discos]
+    Sean $w \in \partial \disk$, $\{p_n\} \in \disk$ y  $\{r_n\} \in (0,1)$ tales que  $\lim_{n \to \infty} p_n = w$ y $\lim_{n \to \infty} \frac{1-\abs{p_n}^2}{1-{r_n}^2} = \lambda$. Entonces,
+    \begin{equation*}
+        H(w, \lambda) = \{z \in \disk : z \in \Delta(p_n, r_n) \text{ para infinitos } n \in \naturals \} \subset \xbar{H(w, \lambda)}.
+    \end{equation*}
+\end{lemma}
+
+\todo[inline]{Tipos de convergencia: radial, angular y no tangencial}
+
+\begin{theorem}[de Julia]
+    \label{th:julia}
+    Si $f$ es una función holomorfa del disco $\disk$ en sí mismo no constante, y existen $w, \mu \in \partial \disk$ y una sucesión $\{p_n\} \in \disk$ que verifican
+    {
+    \leqnomode
+    \setlength{\jot}{10pt}
+    \setlength{\mathindent}{20pt}
+    \setcounter{align}{0}
+    \renewcommand{\thealign}{\alph{align}}
+    \begin{align}
+        & \lim_{n \to \infty} p_n = w;
+        \alignno \label{eq:condjulia1} \\
+        & \lim_{n \to \infty} f(p_n) = \mu;
+        \alignno \label{eq:condjulia2} \\
+        & \lim_{n \to \infty} \frac{1-\abs{f(p_n)}}{1-\abs{p_n}} = \delta < \infty.
+        \alignno \label{eq:condjulia3}
+    \end{align}
+    }
+    Entonces se cumple que
+    {
+    \leqnomode
+    \setlength{\jot}{10pt}
+    \setlength{\mathindent}{20pt}
+    \setcounter{align}{0}
+    \begin{align}
+        & \delta > 0;
+        \alignno \label{eq:julia1} \\
+        & f(H(w, \lambda)) \subset H(\mu, \lambda \delta), \text{ para todo } \lambda > 0;
+        \alignno \label{eq:julia2} \\
+        & \angle \lim_{z \to w} f(z) = \mu.
+        \alignno \label{eq:julia3}
+    \end{align}
+    }
+\end{theorem}
+
+
+\begin{proof}
+    \eqref{eq:julia1} Cuando $f(0) = 0$, el Lema de Schwarz prueba que $\abs{f(z)} \leq \abs{z}$ y así $\frac{1-\abs{f(p_n)}}{1-\abs{p_n}} \geq 1$, de donde $\delta \geq 1$. En el caso general, puesto que $d(f(p), f(0)) \leq d(p,0) = \abs{p}$, se deduce fácilmente que
+    \begin{equation}
+        \frac{\abs{1-\xbar{f(p)} f(0)}^2}{1-\abs{f(0)}^2} \leq \frac{1 - \abs{f(p)}^2}{1 - \abs{p}^2}.
+    \end{equation}
+
+    Por la desigualdad triangular, tenemos
+    \begin{equation}
+        \frac{1 - \abs{f(0)}}{1 + \abs{f(0)}} \leq \frac{\abs{1-\xbar{f(p)} f(0)}^2}{1-\abs{f(0)}^2}
+    \end{equation}
+
+    Combinando las dos desigualdades y particularizando en $p_n$ se tiene
+    \begin{equation*}
+        \frac{1 - \abs{f(0)}}{1 + \abs{f(0)}} \leq \frac{1 - \abs{f(p_n)}^2}{1 - \abs{p_n}^2},
+    \end{equation*}
+    de donde se deduce que $\delta \geq \frac{1 - \abs{f(0)}}{1 + \abs{f(0)}} > 0$. \\
+
+    \eqref{eq:julia2} La demostración se basa en el Lema de convergencia de discos. Para $\lambda > 0$, tomamos $r_n = 1 - \frac{1 - \abs{p_n}}{\lambda}$ (podemos suponer que $1 - \abs{p_n} < \lambda$, excluyendo una cantidad finita de términos de $\{p_n\}$). La sucesión $\{\frac{1 - \abs{p_n}}{1 - r_n}\}$ es constante con límite $\lambda$. Por la condición \eqref{eq:condjulia3}, tenemos que $\lim_{n \to \infty} \frac{1-\abs{f(p_n)}}{1-r_n} = \lambda \delta$. El lema asegura que si $z \in f(H(w, \lambda))$, entonces $z \in f(\Delta(p_n, r_n))$ para infinitos $n \in \naturals$ y, por el Lema de Schwarz-Pick, $z \in \Delta(f(p_n), r_n)$ para infinitos $n \in \naturals$. De nuevo el Lema de convergencia garantiza que $z \in \xbar{H(\mu, \lambda \delta)}$. Como $f$ no es constante, $f$ es abierta y $f(H(w, \lambda)) \subset H(\mu, \lambda \delta)$. \\
+
+    \eqref{eq:julia3} Finalmente, debemos probar que todo entorno usual de $\mu$ contiene la imagen por $f$ de un entorno angular de $w$. Fijados un sector $S$ con vértice en $w$ y $\varepsilon > 0$, tomamos $\lambda > 0$ tal que $H(\mu, \lambda \delta) \subset D(\mu, \varepsilon)$. Existe $\rho > 0$ tal que $S \cap D(w, \rho) \subset H(\mu, \lambda)$. Por la parte \eqref{eq:julia2}, se tiene que $f(H(w, \lambda)) \subset H(\mu, \lambda \delta)$, lo que completa la prueba. \\
+\end{proof}
+
+\todo[inline]{Unos ejemplos.}
+
+\todo[inline]{Introducción}
+
+\begin{theorem}[de Wolff]
+    Si $f$ no posee puntos fijos, existe un único $w \in \partial \disk$ tal que
+    \begin{enumerate}[a)]
+        \item $\lim_{r \to 1} f(rw) = w$ ($w$ es un punto fijo en el borde).
+        \item Para todo horodisco $H(w, \lambda)$ se tiene $f(H(w, \lambda)) \subset  H(w, \lambda)$.
+    \end{enumerate}
+\end{theorem}
