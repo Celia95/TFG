@@ -1,15 +1,18 @@
 \chapter{Productos infinitos. Productos de Blaschke}
 
 \section{Productos infinitos}
-\todo[inline, color=yellow]{¿Su producto infinito se define como el límite de los productos parciales $u_1 u_2 \cdots u_N$ o  $u_{n_0} u_{n_0+1} \cdots u_N$?}
+
+\todo[inline]{Introducción.}
 
 \begin{definition}
-    Sea $\{u_n\}$ una sucesión de números complejos que puede anularse en una cantidad finita de elementos hasta un cierto $n_0 \in \naturals$, a partir del cual todos los elementos serán no nulos. Su producto infinito se define como el límite de los productos parciales $u_1 u_2 \cdots u_N$ cuando $N$ tiende a infinito:
-\begin{equation*}
-    \prod_{n=1}^{\infty} u_n = \lim_{N \to \infty} \prod_{n=1}^{N} u_n.
-\end{equation*}
-
-Además, decimos que el producto converge cuando el límite existe y no es cero. En otro caso, se dice que el producto diverge. \\
+    Sea $\{u_n\}$ una sucesión de números complejos tal que $u_n \neq 0$ para todo $n \geq n_0$. Se dice que el producto infinito $\prod_{n=1}^{\infty} u_n$ es convergente cuando el límite
+    \begin{equation*}
+        \lim_{N \to \infty} \prod_{n=n_0}^{N} u_n
+    \end{equation*}
+    existe y es distinto de cero. En este caso, se define el producto infinito como
+    \begin{equation*}
+        \prod_{n=1}^{\infty} u_n = \lim_{N \to \infty} \prod_{n=1}^{N} u_n. \\
+    \end{equation*}
 \end{definition}
 
 \todo[inline]{Añadir resultados de convergencia y convergencia absoluta en productos infinitos}
@@ -69,12 +72,14 @@ Los dos Lemas anteriores nos permiten relacionar la convergencia de un producto 
 
 \section{Productos de Blaschke}
 
+\todo[inline]{Se está utilizando que la topología de la convergencia uniforme sobre compactos es la apropiada, ya que los límites en ella de elementos de H(D) existen y son otra vez funciones holomorfas.}
+
 \begin{prop}
     Sea $\{\alpha_n\}$ una sucesión en el disco unidad $\disk$ tal que $\alpha_n \not = 0$ para todo $n$ y $\sum_{n=1}^{\infty} (1 - \abs{\alpha_n})$ converge. Entonces el producto de Blaschke
     \begin{equation*}
         B(z) = \prod_{n=1}^{\infty} \frac{\alpha_n - z}{1 - \xbar{\alpha_n}z} \dfrac{\abs{\alpha_n}}{\alpha_n}
     \end{equation*}
-    converge uniformemente en $\disk$. La función $B(z)$ define una función holomorfa en el disco unidad que tiene los mismos ceros que $\alpha_n$. Además $\abs{B(z)} \leq 1$ y $\abs{B(e^{i \theta})} = 1$ en casi todo punto.
+    converge uniformemente sobre los compactos de $\disk$. La función $B(z)$ define una función holomorfa en el disco unidad que tiene los mismos ceros que $\alpha_n$. Además $\abs{B(z)} \leq 1$ y $\abs{B(e^{i \theta})} = 1$ en casi todo punto.
 \end{prop}
 
 \begin{proof}
@@ -83,7 +88,7 @@ Los dos Lemas anteriores nos permiten relacionar la convergencia de un producto 
         b_n (z) = \frac{\alpha_n - z}{1 - \xbar{\alpha_n}z} \dfrac{\abs{\alpha_n}}{\alpha_n}.
     \end{equation*}
 
-    Por el Lema \ref{th:convergencia}, sabemos que $\prod_{n=1}^{\infty} b_n$ converge uniformemente en $\disk$ a una función holomorfa que tiene los mismos ceros que $\{\alpha_n\}$ si y solo si $\sum_{n=1}^{\infty} \abs{1 - b_n}$ converge uniformemente en todo subconjunto compacto de $\disk$. Para $\abs{\alpha_n} < 1$ y $\abs{z} \leq r < 1$, se tiene
+    Por el Lema \ref{th:convergencia}, sabemos que $\prod_{n=1}^{\infty} b_n$ converge uniformemente sobre los compactos de $\disk$ a una función holomorfa que tiene los mismos ceros que $\{\alpha_n\}$ si y solo si $\sum_{n=1}^{\infty} \abs{1 - b_n}$ converge uniformemente sobre los compactos de $\disk$. Para $\abs{\alpha_n} < 1$ y $\abs{z} \leq r < 1$, se tiene
 
     \begin{equation*}
         \begin{split}
@@ -97,7 +102,7 @@ Los dos Lemas anteriores nos permiten relacionar la convergencia de un producto 
     \begin{equation*}
         \sum_{n=1}^{\infty} \abs{1 - b_n(z)} \leq \dfrac{1 + r}{1 - r} \sum_{n=1}^{\infty} (1 - \abs{\alpha_n}),
     \end{equation*}
-    y la serie $\sum_{n=1}^{\infty} \abs{1 - b_n(z)}$ converge absoluta y uniformemente en el disco cerrado de radio $r$. Por lo que $B(z) = \prod_{n=1}^{\infty} b_n$ converge uniformemente en $\disk$. \\
+    y la serie $\sum_{n=1}^{\infty} \abs{1 - b_n(z)}$ converge absoluta y uniformemente en el disco cerrado de radio $r$. Por lo que $B(z) = \prod_{n=1}^{\infty} b_n$ converge uniformemente sobre los compactos de $\disk$. \\
 
     Como $b_n(z)$ son funciones holomorfas en $\disk$ y su producto infinito converge uniformemente en los compactos de $\disk$, se tiene que $B(z)$ define una función holomorfa en el disco unidad. \\ %$f$ tiene los mismos ceros que $\alpha_n$ por la definición de producto infinito.
 
@@ -115,12 +120,12 @@ Los dos Lemas anteriores nos permiten relacionar la convergencia de un producto 
     y, por consiguiente, $\abs{ B(e^{i \theta})} = 1$ en casi todo punto
 \end{proof}
 
-Podemos enunciar un resultado similar al anterior si permitimos que $\alpha_n$ se anule $m$ veces, lo que significa que $B$ se anulará en los mismos puntos que $\alpha_n$. Haciendo uso de la Proposición anterior, lo que atañe a la convergencia y los límites radiales inmediato y no precisa demostración. \\
+Podemos enunciar un resultado similar al anterior si permitimos que $\alpha_n$ se anule $m$ veces, lo que significa que $B$ se anulará en los mismos puntos que $\alpha_n$. Haciendo uso de la Proposición anterior, lo que atañe a la convergencia y los límites radiales es inmediato y no precisa demostración. \\
 
 \begin{corollary}
     Sea $\{\alpha_n\}$ una sucesión en el disco unidad $\disk$ tal que $\sum_{n=1}^{\infty} (1 - \abs{\alpha_n})$ converge. Sea $m$ el número de $\alpha_n$ iguales a cero. Entonces el producto de Blaschke
 \begin{equation*}
     B(z) = z^m \prod_{\abs{\alpha_n} \not = 0} \frac{\alpha_n - z}{1 - \xbar{\alpha_n}z} \dfrac{\abs{\alpha_n}}{\alpha_n}
 \end{equation*}
-converge uniformemente en $\disk$. La función $B(z)$ define una función holomorfa en el disco unidad que tiene los mismos ceros que $\alpha_n$. Además $\abs{B(z)} \leq 1$ y $\abs{B(e^{i \theta})} = 1$ en casi todo punto.
+converge uniformemente sobre los compactos de $\disk$. La función $B(z)$ define una función holomorfa en el disco unidad que tiene los mismos ceros que $\alpha_n$. Además $\abs{B(z)} \leq 1$ y $\abs{B(e^{i \theta})} = 1$ en casi todo punto.
 \end{corollary}
