@@ -86,7 +86,8 @@
 
 % Primer subtítulo de la segunda portada
 \def\textoPrimerSubtituloPortadaVal{%
-\textit{Memoria que presenta para optar al título de Graduada en Ingeniería Informática y Matemáticas}  \\ [0.3em]%
+\textit{Memoria que presenta para optar al título de\\
+Graduada en Ingeniería Informática y Matemáticas:} \\ [0.5em]%
 \textbf{\autorPortadaVal}%
 }
 \newcommand{\textoPrimerSubtituloPortada}[1]{
@@ -95,7 +96,7 @@
 
 % Segundo subtítulo de la segunda portada
 \def\textoSegundoSubtituloPortadaVal{%
-\textit{Dirigido por la Doctora}  \\ [0.3em]
+\textit{Dirigido por:} \\ [0.5em]
 \textbf{\directorPortadaVal}
 }
 \newcommand{\textoSegundoSubtituloPortada}[1]{
@@ -284,7 +285,6 @@
 
 % Comienza el tex...
 \begin{huge}
-\mbox{ }
 \vfill
 
 % Cuidado: Ajustarlo si el título cambia...
@@ -293,9 +293,9 @@
 \textbf{Arquitectura y metodología para el}}
 \begin{center}
 \rule{\longTitulo}{.5mm}\\
-\vskip 1cm
-\textbf{\tituloPortadaVal}
 \vskip 0.7cm
+\textbf{\tituloPortadaVal}
+\vskip 0.3cm
 \rule{\longTitulo}{.5mm}\\
 \end{center}
 \end{huge}
@@ -309,7 +309,7 @@
 \vfill
 
 \begin{center}
-  {\Large \textbf{\tipoDocumentoVal}}
+  {\large \textbf{\tipoDocumentoVal}}
 \end{center}
 
 \vfill
@@ -317,7 +317,13 @@
 \begin{large}
 
 \begin{center}
-\textbf{\autorPortadaVal}\\[0.3cm]
+\textit{Realizado por:}\\[0.5em]
+\textbf{\autorPortadaVal}\\[0.5cm]
+
+\textit{Dirigido por:}\\[0.5em]
+\textbf{\directorPortadaVal}\\[0.5cm]
+
+\vfill
 
 \textbf{\institucionVal}\\[1em]
 \textbf{\fechaPublicacionVal}
