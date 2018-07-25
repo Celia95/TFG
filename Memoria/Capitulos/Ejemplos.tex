@@ -1,5 +1,9 @@
-\chapter{Ejemplos}
-\label{cap:ejemplos}
+\chapter{NOMBRE}
+
+\todo[inline]{Introducción}
+
+\section{Ejemplos}
+\label{sec:ejemplos}
 
 En esta sección vamos a estudiar el comportamiento de algunas series de potencias en el borde de su disco de convergencia. Para ello primero vamos a recordar algunos conceptos que nos van a ser de utilidad. Sea $f(z)$ una serie de potencias con coeficientes $\{a_n\}_{n=1}^{\infty} \subset \complex$ centrada en $z_0$ dada por
 \begin{equation*}
@@ -254,3 +258,134 @@ Por último, tenemos una función holomorfa y acotada en el disco unidad, con un
 
      Estudiaremos este ejemplo con más detalle en el Capítulo \ref{cap:banach}, centrándonos de nuevo en el comportamiento de la función en el punto singular $z = 1$. \\
  \end{proof}
+
+\section{Productos infinitos}
+
+\todo[inline]{Introducción.}
+
+\begin{definition}
+    Sea $\{u_n\}$ una sucesión de números complejos tal que $u_n \neq 0$ para todo $n \geq n_0$. Se dice que el producto infinito $\prod_{n=1}^{\infty} u_n$ es convergente cuando el límite
+    \begin{equation*}
+        \lim_{N \to \infty} \prod_{n=n_0}^{N} u_n
+    \end{equation*}
+    existe y es distinto de cero. En este caso, se define el producto infinito como
+    \begin{equation*}
+        \prod_{n=1}^{\infty} u_n = \lim_{N \to \infty} \prod_{n=1}^{N} u_n. \\
+    \end{equation*}
+\end{definition}
+
+\todo[inline]{Añadir resultados de convergencia y convergencia absoluta en productos infinitos}
+
+\begin{prop}
+    Sea $\{u_n\}$ una sucesión de números complejos no nulos. Si $\lim u_n =1$ y la serie
+    \begin{equation*}
+        \sum_{n=1}^{\infty} \log u_n
+    \end{equation*}
+    converge absolutamente, es decir, $ \sum_{n=1}^{\infty} \abs{\log u_n}$ converge, entonces el producto infinito
+    \begin{equation*}
+        \prod_{n=1}^{\infty} u_n
+    \end{equation*}
+    converge absolutamente.
+\end{prop}
+
+\begin{proof}
+    Si $n$ es suficientemente grande, entonces $u_n$ puede escribirse como $u_n = 1 - \alpha_n$, donde $\abs{\alpha_n} < 1$, y entonces podemos definir $\log{u_n}$ como $\log{(1 - \alpha_n)}$. Por hipótesis, se sigue que la serie
+    \begin{equation*}
+        \sum_{n=1}^{\infty} \log u_n = \sum_{n=1}^{\infty} \log{(1 - \alpha_n)}
+    \end{equation*}
+    converge. Así que las sumas parciales
+    \begin{equation*}
+        \sum_{n=1}^{N} \log u_n
+    \end{equation*}
+    tienen límite. Como la función exponencial es continua, podemos exponenciar las sumas parciales y vemos que
+    \begin{equation*}
+        \prod_{n=1}^{\infty} u_n = \lim_{N \to \infty} \prod_{n=1}^{N} u_n
+    \end{equation*}
+    existe.
+\end{proof}
+
+\begin{lemma}
+    \label{th:convergencia}
+    Sea $\{\alpha_n\}$ una sucesión de números complejos tales que $\alpha_n \not = 1$ para todo $n$. Supongamos que
+    \begin{equation*}
+        \sum_{n=1}^{\infty} \abs{\alpha_n}
+    \end{equation*}
+    converge. Entonces
+    \begin{equation*}
+        \prod_{n=1}^{\infty} (1 - \alpha_n)
+    \end{equation*}
+    converge absolutamente.
+\end{lemma}
+
+\begin{proof}
+    Para una cantidad finita $n$, tenemos que $\abs{\alpha_n} < \frac{1}{2}$, así que $\log{(1 - \alpha_n)}$ está definido por la serie usual, y para alguna constante $C$, tenemos
+    \begin{equation*}
+        \abs{\log{(1 - \alpha_n)}} \leq C \abs{\alpha_n}.
+    \end{equation*}
+    Por tanto, el producto converge absolutamente por definición y utilizando la hipótesis de que $\sum_{n=1}^{\infty} \abs{\alpha_n}$ converge.
+\end{proof}
+
+Los dos Lemas anteriores nos permiten relacionar la convergencia de un producto infinito con la convergencia de las series de potencias, lo cual nos va a ser de gran ayuda ya que estas últimas son mucho más fáciles de manejar. \\
+
+\todo[inline]{Añadir comentario sobre la equivalencia de las tres situaciones.}
+
+\section{Productos de Blaschke}
+
+\todo[inline]{Se está utilizando que la topología de la convergencia uniforme sobre compactos es la apropiada, ya que los límites en ella de elementos de H(D) existen y son otra vez funciones holomorfas.}
+
+\begin{prop}
+    Sea $\{\alpha_n\}$ una sucesión en el disco unidad $\disk$ tal que $\alpha_n \not = 0$ para todo $n$ y $\sum_{n=1}^{\infty} (1 - \abs{\alpha_n})$ converge. Entonces el producto de Blaschke
+    \begin{equation*}
+        B(z) = \prod_{n=1}^{\infty} \frac{\alpha_n - z}{1 - \xbar{\alpha_n}z} \dfrac{\abs{\alpha_n}}{\alpha_n}
+    \end{equation*}
+    converge uniformemente sobre los compactos de $\disk$. La función $B(z)$ define una función holomorfa en el disco unidad que tiene los mismos ceros que $\alpha_n$. Además $\abs{B(z)} \leq 1$ y $\abs{B(e^{i \theta})} = 1$ en casi todo punto.
+\end{prop}
+
+\begin{proof}
+    Sea
+    \begin{equation*}
+        b_n (z) = \frac{\alpha_n - z}{1 - \xbar{\alpha_n}z} \dfrac{\abs{\alpha_n}}{\alpha_n}.
+    \end{equation*}
+
+    Por el Lema \ref{th:convergencia}, sabemos que $\prod_{n=1}^{\infty} b_n$ converge uniformemente sobre los compactos de $\disk$ a una función holomorfa que tiene los mismos ceros que $\{\alpha_n\}$ si y solo si $\sum_{n=1}^{\infty} \abs{1 - b_n}$ converge uniformemente sobre los compactos de $\disk$. Para $\abs{\alpha_n} < 1$ y $\abs{z} \leq r < 1$, se tiene
+
+    \begin{equation*}
+        \begin{split}
+            \abs{1 - b_n(z)} & = \abs{1 + \dfrac{z - \alpha_n}{1 - \xbar{\alpha_n}z} \dfrac{\abs{\alpha_n}}{\alpha_n}} = \abs{\dfrac{(1 - \xbar{\alpha_n}z) \alpha_n + (z - \alpha_n) \abs{\alpha_n}}{(1 - \xbar{\alpha_n}z) \alpha_n}} = \\
+                             & = \abs{ \dfrac{\alpha_n + z \abs{\alpha_n}}{\alpha_n (1 - \xbar{\alpha_n}z)}} (1 - \abs{\alpha_n}) \leq \dfrac{1 + r}{1 - r} (1 - \abs{\alpha_n}).
+        \end{split}
+    \end{equation*}
+    pues si $\abs{\alpha_n} < 1$ y $\abs{z} \leq r$ se verifican $\abs{\alpha_n + z \abs{\alpha_n}} \leq 1+r$, y $\abs{1- \xbar{\alpha_n}z} \geq 1-\abs{\xbar{\alpha_n}}\abs{z} \geq 1-r$. \\
+
+    Entonces para $\abs{z} \leq r < 1$, se tiene
+    \begin{equation*}
+        \sum_{n=1}^{\infty} \abs{1 - b_n(z)} \leq \dfrac{1 + r}{1 - r} \sum_{n=1}^{\infty} (1 - \abs{\alpha_n}),
+    \end{equation*}
+    y la serie $\sum_{n=1}^{\infty} \abs{1 - b_n(z)}$ converge absoluta y uniformemente en el disco cerrado de radio $r$. Por lo que $B(z) = \prod_{n=1}^{\infty} b_n$ converge uniformemente sobre los compactos de $\disk$. \\
+
+    Como $b_n(z)$ son funciones holomorfas en $\disk$ y su producto infinito converge uniformemente en los compactos de $\disk$, se tiene que $B(z)$ define una función holomorfa en el disco unidad. \\ %$f$ tiene los mismos ceros que $\alpha_n$ por la definición de producto infinito.
+
+    Además, se cumple $\abs{B(z)} \leq 1$ por la caracterización de los automorfismos del disco unidad ya que los términos $\dfrac{\alpha_n - z}{1 - \xbar{\alpha_n}z}$ definen un automorfismo del disco unidad que lleva el disco abierto en el disco abierto y el borde en el borde. \\
+
+    Así pues, aplicando el Teorema de Fatou, $B(z)$ tiene límites radiales $\abs{B(e^{i\theta})} \leq 1$ en casi todo punto. Para ver que $\abs{B(e^{i \theta})} = 1$ en casi todo punto, tomemos $B_n(z) = \prod_{k=1}^{n} b_k(z)$ el producto parcial. Entonces, $\frac{B}{B_n}$ es otro producto de Blaschke y
+    \begin{equation*}
+        \abs{\frac{B(0)}{B_n(0)}} \leq \frac{1}{2 \pi} \int_{0}^{2 \pi} \abs{\frac{B(e^{i \theta})}{B_n(e^{i \theta})}} d \theta = \frac{1}{2 \pi}  \int_{0}^{2 \pi} \abs{ B(e^{i \theta})} d \theta.
+    \end{equation*}
+
+    Tomando $n \to \infty$, obtenemos
+    \begin{equation*}
+         \frac{1}{2 \pi}  \int_{0}^{2 \pi} \abs{ B(e^{i \theta})} d \theta = 1,
+    \end{equation*}
+    y, por consiguiente, $\abs{ B(e^{i \theta})} = 1$ en casi todo punto
+\end{proof}
+
+Podemos enunciar un resultado similar al anterior si permitimos que $\alpha_n$ se anule $m$ veces, lo que significa que $B$ se anulará en los mismos puntos que $\alpha_n$. Haciendo uso de la Proposición anterior, lo que atañe a la convergencia y los límites radiales es inmediato y no precisa demostración. \\
+
+\begin{corollary}
+    Sea $\{\alpha_n\}$ una sucesión en el disco unidad $\disk$ tal que $\sum_{n=1}^{\infty} (1 - \abs{\alpha_n})$ converge. Sea $m$ el número de $\alpha_n$ iguales a cero. Entonces el producto de Blaschke
+\begin{equation*}
+    B(z) = z^m \prod_{\abs{\alpha_n} \not = 0} \frac{\alpha_n - z}{1 - \xbar{\alpha_n}z} \dfrac{\abs{\alpha_n}}{\alpha_n}
+\end{equation*}
+converge uniformemente sobre los compactos de $\disk$. La función $B(z)$ define una función holomorfa en el disco unidad que tiene los mismos ceros que $\alpha_n$. Además $\abs{B(z)} \leq 1$ y $\abs{B(e^{i \theta})} = 1$ en casi todo punto.
+\end{corollary}
+
