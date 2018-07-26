@@ -1,20 +1,22 @@
 \chapter{Teorema de Fatou y Teorema de Carathéodory}
 \label{cap:fatou}
 
-Para empezar vamos a realizar una pequeña introducción a la integral de Poisson. A continuación probaremos el Teorema de Fatou para límites radiales. Por último hablaremos sobre aplicaciones conformes y demostraremos el Teorema de Carathéodory. \\
+En este capítulo vamos a abordar varios problemas clásicos relacionados con el comportamiento en la frontera de funciones holomorfas (y armónicas) y la profunda relación existente entre los valores que toma la función en el borde y los que toma en el dominio abierto que limitan, incluso cuando la función no puede extenderse con continuidad al borde. \\
 
-\todo[inline]{En este capítulo abordamos varios problemas clásicos relacionados con el comportamiento en la frontera de funciones holomorfas (y armónicas) y la profunda relación existente entre los valores que toma la función en el borde y los que toma en el dominio abierto que limitan, incluso cuando la función no puede extenderse con continuidad al borde. Presentamos la integral de Poisson para construir explícitamente funciones armónicas en el disco a partir de funciones continuas en el borde. Mediante esta técnica, abordamos la existencia de límites radiales en casi todo punto de funciones holomorfas y acotadas en el disco unidad: es el resultado conocido como Teorema de Fatou. La función definida a través de los límites radiales permite presentar un teorema de identidad referido a arcos del borde del disco. El capítulo se completa con varios resultados de naturaleza geométrica, en los que se caracterizan las funciones conformes (que conservan ángulos y orientación) y se prueba que las aplicaciones conformes entre el disco y un dominio de Jordan admiten extensiones a la frontera. El capítulo concluye mostrando cómo la inyectividad en el borde de funciones holomorfas en dominios de Jordan se traduce en inyectividad en todo el dominio.}
+Vamos a presentar la integral de Poisson para construir explícitamente funciones armónicas en el disco unidad a partir de funciones continuas en el borde. Mediante esta técnica, afrontaremos la existencia de límites radiales en casi todo punto de funciones holomorfas y acotadas en el disco unidad: es el resultado conocido como Teorema de Fatou. Además, la función definida a través de los límites radiales permite presentar un teorema de identidad referido a arcos del borde del disco. \\
+
+El capítulo se completa con varios resultados de naturaleza geométrica, en los que se caracterizan las funciones conformes (que conservan ángulos y orientación) y se prueba que las aplicaciones conformes entre el disco y un dominio de Jordan admiten extensiones a la frontera, resultado conocido como Teorema de Carathéodory. El capítulo concluye mostrando cómo la inyectividad en el borde de funciones holomorfas en dominios de Jordan se traduce en inyectividad en todo el dominio. \\
 
 \section{La Integral de Poisson}
 
-\begin{definition}
+\begin{definition}[Núcleo de Poisson]
     Se llama núcleo de Poisson a la función $P$ definida por
     \begin{equation}
         \label{eq:poisson1}
         P:(r,t) \in [0,1)\times \real \mapsto P_r(t) = \sum_{n=-\infty}^{\infty} r^{\abs{n}}e^{int}.
     \end{equation}
 
-    Podemos considerar el núcleo de Poisson como una función de dos variables $r$ y $t$ o como una familia de funciones de $t$ que dependen de $r$. \\
+    Podemos considerar el núcleo de Poisson como una función de dos variables $r$ y $t$, o como una familia de funciones de $t$ que dependen de $r$. \\
 
     Dado $z = re^{i \theta}$, con $r \in [0,1)$ y $\theta \in \real$ se tiene que
     \begin{equation}
@@ -42,12 +44,12 @@ Para empezar vamos a realizar una pequeña introducción a la integral de Poisso
 \end{definition}
 \medskip
 
-\begin{prop}{El núcleo de Poisson satisface las siguientes propiedades:}
+\begin{prop} El núcleo de Poisson satisface las siguientes propiedades:
     \label{th:properties}
     {
     \leqnomode
     \setlength{\jot}{15pt}
-    \setlength{\mathindent}{30pt}
+    \setlength{\mathindent}{25pt}
     \begin{align}
         & \dfrac{1}{2 \pi} \int_{- \pi}^{\pi} P_r (t) dt = 1;
         \alignno \label{eq:property1} \\
@@ -78,7 +80,7 @@ Para empezar vamos a realizar una pequeña introducción a la integral de Poisso
     \eqref{eq:property5} De la ecuación \eqref{eq:poisson4}, tenemos que $\lim_{r \to 1^-} (1 - r^2) = 0$ y $\lim_{r \to 1^-} (1 - 2r \cos \delta + r^2) \not = 0$ así que $\lim_{r \to 1^-} P_r(\delta) = 0$. \\
 \end{proof}
 
-\begin{definition}
+\begin{definition}[Integral de Poisson]
     Se llama integral de Poisson de una función $f \in L^1(\partial \disk)$ a la función $F$ dada por
     \begin{equation*}
         F: z=re^{i \theta} \in \disk \mapsto F(re^{i \theta}) = \dfrac{1}{2 \pi} \int_{- \pi}^{\pi} P_r (\theta - t) f(e^{it}) dt.
@@ -86,15 +88,16 @@ Para empezar vamos a realizar una pequeña introducción a la integral de Poisso
 
     Algunas veces nos convendrá referirnos a ella como $F = P[f]$.
 \end{definition}
+\medskip
 
-Además si $f$ lleva $\partial \disk$ en los reales, \eqref{eq:poisson2} nos muestra que % extender esto
+Observamos que si $f$ lleva la frontera del disco $\partial \disk$ en los reales, \eqref{eq:poisson2} nos muestra que % extender esto
 \begin{equation*}
     P[f](z) = \Re \left[ \dfrac{1}{2} \int_{-\pi}^{\pi} \dfrac{e^{it} + z}{e^{it} - z} f(e^{it}) dt \right].
 \end{equation*}
 
 También haciendo el cambio de variable $\theta - t = x$ se tiene la igualdad
 \begin{equation*}
-    F(re^{i \theta}) = \dfrac{1}{2 \pi} \int_{- \pi}^{\pi} P_r (\theta - t) f(e^{it}) dt = \dfrac{1}{2 \pi} \int_{- \pi}^{\pi} P_r (x) f(e^{i(\theta + x)}) dx.
+    P[f](re^{i \theta}) = \dfrac{1}{2 \pi} \int_{- \pi}^{\pi} P_r (\theta - t) f(e^{it}) dt = \dfrac{1}{2 \pi} \int_{- \pi}^{\pi} P_r (x) f(e^{i(\theta + x)}) dx.
 \end{equation*}
 
 El siguiente teorema proporciona una solución al problema de Dirichlet. De hecho esta solución es única y coincide precisamente con la integral de Poisson de $f$. \\
@@ -155,17 +158,29 @@ El siguiente teorema proporciona una solución al problema de Dirichlet. De hech
     el primer sumando es menor que $\frac{\varepsilon}{3}$. Por otra parte si $\abs{x} \geq \frac{\delta}{2}$ y $\abs{\theta} \leq \frac{\delta}{2}$ entonces $P_r(\abs{x}) \leq P_r(\frac{\delta}{2}) < \frac{\varepsilon}{3M}$ pues $r \in (\rho, 1).$ Como $\abs{f(e^{i (\theta + x)}) - f(e^{i \alpha})} \leq M$, se tiene que el segundo sumando es menos que $\frac{\varepsilon}{3}$, con lo que $\abs{u(re^{i \theta}) - u(e^{i \alpha})} < \varepsilon$. \\
 
     Finalmente, para ver que $u$ es única, supongamos que $v$ es una función continua en $\closedisk$ que es armónica en $\disk$ y $v(e^{i \theta}) = f(e^{i \theta})$ para todo $\theta$. Entonces $u - v$ es armónica en $\disk$ y $(u - v)(z) = 0$ para todo $z \in \partial \disk$. Se sigue del Principio del Módulo Máximo que $u - v \equiv 0$. \\
-
-    \todo[inline, color=yellow]{No sé exactamente qué es lo que quieres que cite, ¿el principio del módulo máximo quizás? Este enunciado es de Conway Functions of one complex variable 1: \\
-
-        Sea $U \subseteq \complex$ un conjunto acotado, y sea $f$ una función continua en el conjunto cerrado  $\xbar{U}$ que es holomorfa en $U$. Entonces el máximo de $\abs{f}$ en $\xbar{U}$ (que siempre existe) se alcanza en la frontera del conjunto, $\partial U$. En otras palabras, $\max_{\xbar{U}} \abs{f} = \max_{\partial U}\abs{f}$.}
 \end{proof}
+
+El Principio del Módulo Máximo para funciones armónicas nos asegura que dichas funciones no pueden alcanzar el máximo en un punto interior del dominio, sino que ha de alcanzarse en la frontera. \\
+
+\begin{theorem}[Principio del Módulo Máximo]
+    Sea $U \subseteq \complex$ un conjunto acotado, y sea $f: \xbar{U} \to \real$ una función continua que es armónica en $U$. Entonces el máximo de $\abs{f}$ en $\xbar{U}$ se alcanza en la frontera del conjunto, $\partial U$. En otras palabras,
+    \begin{equation*}
+        \max_{\bar{U}} \abs{f} = \max_{\partial U}\abs{f}.
+    \end{equation*}
+\end{theorem}
+
+En particular, el resultado que hemos utilizado para finalizar la demostración es un caso especial del Teorema anterior cuya demostración se puede encontrar en \citet[chap. 10]{conway1}. \\
+
+\begin{corollary}
+    Sea $U \subseteq \complex$ un conjunto acotado, y sea $f: \xbar{U} \to \real$ una función continua que es armónica en $U$. Si $f(z) = 0$ para todo $z \in \partial U$ entonces $f(z) = 0$ para todo $z \in U$.
+\end{corollary}
+
 
 \section{El Teorema de Fatou}
 
-\todo[inline]{Como veremos más adelante, funciones holomorfas y acotadas en el disco unidad pueden tener comportamiento irregular en los puntos del borde del disco, no admitiendo una extensión continua. Sin embargo, esta clase de funciones sí tienen, en casi todo punto, límites radiales. Esto, vía el teorema de Fatou, permite definir sobre el borde una función acotada que, a su vez, sirve para recuperar información sobre la función en el interior.}
+Como veremos más adelante, las funciones holomorfas y acotadas en el disco unidad pueden tener un comportamiento irregular en los puntos del borde del disco, sin admitir una extensión continua. Sin embargo, esta clase de funciones sí tienen límites radiales en casi todo punto. Gracias al Teorema de Fatou, la existencia de límites radiales permite definir sobre el borde una función acotada que, a su vez, sirve para recuperar información sobre la función en el interior. \\
 
-Para demostrar el Teorema de Fatou nos vamos a basar en unos resultados clásicos del libro \citet[chap. 11]{rudin}. \\
+Para demostrar el Teorema de Fatou haremos uso de un resultado clásico, que puede consultarse en \citet[chap. 11]{rudin}. \\
 
 \begin{theorem} % Corolario del Teorema 11.10 % Es necesario o basta con el anterior?
     \label{th:fatouaux1}
@@ -175,6 +190,8 @@ Para demostrar el Teorema de Fatou nos vamos a basar en unos resultados clásico
     \end{equation*}
 \end{theorem}
 \medskip
+
+En lo sucesivo, nos centraremos en el estudio de las funciones holomorfas y acotadas en el disco unidad. El conjunto de todas estas funciones es un espacio vectorial, que notaremos por $\bholomorphic{\disk}$. \\
 
 \begin{theorem}[Teorema de Fatou]
     Para toda función $f \in \bholomorphic{\disk}$, existe una función $f^* \in L^{\infty} (\partial \disk)$ definida por
@@ -200,8 +217,7 @@ Para demostrar el Teorema de Fatou nos vamos a basar en unos resultados clásico
 \end{theorem}
 
 \begin{proof}
-    La existencia de $f^*$ se sigue de los teoremas \ref{th:fatouaux1} y \ref{th:fatouaux2}. % No estoy segura de esta frase.
-    Además, por \eqref{eq:fatou1}, tenemos que $\norminf{f^*} \leq \norminf{f}$. \\
+    La existencia de $f^*$ se sigue del Teoremas \ref{th:fatouaux1} y de la versión para elementos de $L^\infty$ del Teorema \ref{th:fatouaux2}. Además, por \eqref{eq:fatou1}, tenemos que $\norminf{f^*} \leq \norminf{f}$. \\ % No estoy segura de la primera frase.
 
     Si $z \in U$ y $\abs{z} < r < 1$, tomemos $\gamma_r(t) = r e^{it}, 0 \leq t \leq 2\pi$. Entonces,
     \begin{equation*}
@@ -255,11 +271,12 @@ Como se puede observar de este último resultado, el comportamiento en (un subco
 
 \section{Aplicaciones conformes. Teorema de Carathéodory}
 
-\todo[inline]{Analizamos el concepto de función conforme, que está ligado al del función holomorfa en el contexto de las funciones complejas con derivadas parciales continuas. El resultado central es el Teorema de Carathéodory, que permite extender con continuidad a la frontera cualquier función conforme entre el disco y un dominio de Jordan.}
+En esta sección, vamos a estudiar el concepto de función conforme, que está ligado al de función holomorfa en el contexto de las funciones complejas con derivadas parciales continuas. El resultado principal es el Teorema de Carathéodory, que permite extender con continuidad a la frontera cualquier función conforme entre el disco y un dominio de Jordan. \\
 
-\begin{definition}%{Aplicación conforme}
-    Sean $U$ y $V \subset \complex^n$. Se dice que una aplicación $f: U \to V$ es conforme en un punto $u \in U$ si preserva la orientación y los ángulos entre curvas que pasan por $u$. \\
+\begin{definition}[Aplicación conforme]
+    Sean $U$ y $V \subset \complex^n$. Se dice que una aplicación $f: U \to V$ es conforme en un punto $u \in U$ si preserva la orientación y los ángulos entre curvas que pasan por $u$.
 \end{definition}
+\medskip
 
 \begin{prop}
     Sea $U \subset \complex$. Una aplicación $f: U \to \complex$ es conforme en $U$ si $f \in \holomorphic{U}$ y $f'(z) \not = 0$ para todo $z \in U$.
@@ -434,7 +451,7 @@ A continuación, vamos a probar un resultado recíproco a éste que incluye algu
                 \node at (0.7,0.8) {$\gamma_{\delta_n}$};
             \end{tikzpicture}
             \label{fig:circle}
-        \end{minipage}
+        \end{minipage} \hfill
         \begin{minipage}[h]{0.5\textwidth}
             \centering
             \begin{tikzpicture}[thick,scale=0.6, use Hobby shortcut,closed=true]
