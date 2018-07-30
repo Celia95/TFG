@@ -1,0 +1,245 @@
+\documentclass[spanish, a4paper, 12pt, final, slideColor, nototal, colorBG, pdf, noaccumulate, darkblue]{beamer}
+\usepackage[spanish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{latexsym}
+\usepackage{soul}
+\usepackage{import}
+\usepackage{multicol}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{caption}
+\usepackage{listings}
+\captionsetup{font=scriptsize,labelfont=scriptsize}
+\DeclareGraphicsExtensions{.pdf,.png,.jpg}
+
+% Mathematics
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{anysize}
+\usepackage{float}
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{verbatim}
+\usepackage{mathtools}
+\usefonttheme[onlymath]{serif}
+
+\providecommand{\abs}[1]{\left\lvert#1\right\rvert}
+\providecommand{\norm}[1]{\left\lVert#1\right\rVert}
+\providecommand{\norminf}[1]{\norm{#1}_{\infty}}
+\providecommand{\holomorphic}[1]{\mathcal{H}(#1)}
+\providecommand{\bholomorphic}[1]{\mathcal{H}^{\infty}(#1)}
+\newcommand{\rpm}{\raisebox{.2ex}{$\scriptstyle\pm$}}
+
+\newcommand*\xbar[1]{%
+   \hbox{%
+     \vbox{%
+       \hrule height 0.5pt % The actual bar
+       \kern0.2ex%         % Distance between bar and symbol
+       \hbox{%
+         \kern-0.1em%      % Shortening on the left side
+         \ensuremath{#1}%
+         \kern-0.1em%      % Shortening on the right side
+       }%
+     }%
+   }%
+}
+
+\newcommand{\complex}{\mathbb{C}}
+\newcommand{\real}{\mathbb{R}}
+\newcommand{\integer}{\mathbb{Z}}
+\newcommand{\naturals}{\mathbb{N}}
+\newcommand{\disk}{\mathbb{D}}
+\newcommand{\closedisk}{\overline{\disk}}
+\newcommand{\diam}{\operatorname{diam}}
+\renewcommand{\Re}{\operatorname{Re}}
+\renewcommand{\Im}{\operatorname{Im}}
+\newcommand{\id}{\operatorname{id}}
+\newcommand{\fiber}{\mathfrak{M}}
+
+\makeatletter
+\newcommand{\leqnomode}{\tagsleft@true}
+\newcommand{\reqnomode}{\tagsleft@false}
+\makeatother
+
+\newtagform{Alph}[\renewcommand{\theequation}{\Alph{equation}}]()
+\newtagform{alph}[\renewcommand{\theequation}{\alph{equation}}]()
+\newtagform{Roman}[\renewcommand{\theequation}{\roman{equation}}]()
+\newtagform{roman}[\renewcommand{\theequation}{\roman{equation}}]()
+\newtagform{scroman}[\renewcommand{\theequation}{\scshape\roman{equation}}][]
+
+\newcounter{align}[equation]
+\renewcommand{\thealign}{\roman{align}}
+\newcommand{\alignno}{\refstepcounter{align}\tag{\thealign}}
+\expandafter\let\expandafter\oldalignstar\csname align*\endcsname
+\expandafter\def\csname align*\endcsname{\refstepcounter{equation}\oldalignstar}
+
+\usetheme{Madrid}
+
+\title{Problemas geométricos que arrancan de la teoría clásica de funciones}
+\author{Celia de Frutos Palacios \thanks{\url{https://github.com/Celia95/TFG}}}
+\subtitle{}
+\institute[UCM]{}
+
+\logo{\includegraphics[height=0.7cm]{Imagenes/Vectorial/escudoUCM.png}}
+
+\date{\today}
+
+\begin{document}
+\maketitle
+
+\AtBeginSection[] % To put de table of contents at the beggining of each section
+{
+  \begin{frame}
+    \frametitle{Índice}
+    \tableofcontents[currentsection]
+  \end{frame}
+}
+
+%\begin{frame}
+%    \frametitle{Índice}
+%    \tableofcontents
+%\end{frame}
+
+\section{Teorema de Fatou. Teorema de Carathéodory}
+
+\begin{frame}
+\frametitle{Sample frame title}
+This is a text in second frame.
+For the sake of showing an example.
+
+\begin{itemize}
+    \item<1-> Text visible on slide 1
+    \item<2-> Text visible on slide 2
+    \item<3> Text visible on slide 3
+    \item<4-> Text visible on slide 4
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}
+In this slide \pause
+
+the text will be partially visible \pause
+
+And finally everything will be there
+\end{frame}
+
+
+\begin{frame}
+    \frametitle{Sample frame title}
+
+    In this slide, some important text will be \alert{highlighted} beause it's important. Please, don't abuse it.
+
+    \begin{block}{Remark}
+        Sample text
+    \end{block}
+
+    \begin{alertblock}{Important theorem}
+        Sample text in red box
+    \end{alertblock}
+
+    \begin{examples}
+        Sample text in green box. "Examples" is fixed as block title.
+    \end{examples}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Problema de Dirichlet}
+    \begin{block}{}
+
+    \end{block}
+\end{frame}
+
+
+\begin{frame}
+    \frametitle{Integral de Poisson}
+    Integral de Poisson de una función $f \in L^1(\partial \disk)$:
+    \begin{equation*}
+        F = P[f]: z=re^{i \theta} \in \disk \mapsto F(re^{i \theta}) = \dfrac{1}{2 \pi} \int_{- \pi}^{\pi} P_r (\theta - t) f(e^{it}) dt.
+    \end{equation*}
+
+    La integral de Poisson proporciona una solución afirmativa al problema de Dirichlet.
+
+    \begin{equation*}
+        u : z = re^{i \theta} \in \closedisk \mapsto u(re^{i \theta}) =
+        \begin{cases}
+            f(e^{i\theta}) & \text{si } r=1 \\
+            F(re^{i\theta}) & \text{si } 0 \leq r<1
+        \end{cases}
+    \end{equation*}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Teorema de Fatou}
+    \begin{block}{Teorema de Fatou}
+         Para toda función $f \in \bholomorphic{\disk}$, existe una función $f^* \in L^{\infty} (\partial \disk)$ definida por
+    \begin{equation}
+        f^*(e^{it}) = \lim_{r \to 1} f(re^{it})
+    \end{equation}
+    en casi todo punto.
+
+    Se tiene la igualdad $\norminf{f} = \norminf{f^*}$. Para todo $z \in \disk$, la fórmula integral de Cauchy
+    \begin{equation}
+        f(z) = \dfrac{1}{2 \pi i} \int_{\gamma} \dfrac{f^*(\xi)}{\xi - z} d\xi
+    \end{equation}
+
+    se satisface, donde $\gamma$ es el círculo unidad positivamente orientado: $\gamma(t) = e^{it}, 0 \leq t \leq 2 \pi$.
+
+    Las funciones $f^* \in L^{\infty}(\partial \disk)$ que se obtienen mediante este procedimiento son precisamente aquellas que cumplen la siguiente relación
+    \begin{equation}
+        \dfrac{1}{2 \pi i} \int_{-\pi}^{\pi} f^*(e^{it})e^{-int} dt = 0, n = -1,-2, \dots
+    \end{equation}
+    \end{block}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Teorema de Carathéodory}
+    \begin{block}{Teorema de Carathéodory}
+        Sea $\varphi$ una aplicación conforme del disco unidad $\disk$ en un dominio de Jordan $\Omega$. Entonces $\varphi$ tiene una extensión continua al disco cerrado $\closedisk$, y la extensión es inyectiva de $\closedisk$ en $\xbar{\Omega}$.
+    \end{block}
+\end{frame}
+
+\section{Series de potencias. Productos infinitos}
+
+\section{$\bholomorphic{\disk}$ como álgebra de Banach}
+
+\section{Transformaciones en el disco}
+
+
+\begin{frame}
+    \frametitle{Teorema de Julia}
+    \begin{block}{Teorema de Julia}
+        Si $f$ es una función holomorfa del disco $\disk$ en sí mismo no constante, y existen $w, \mu \in \partial \disk$ y una sucesión $\{p_n\} \in \disk$ que verifican
+    {
+    \leqnomode
+    \setcounter{align}{0}
+    \renewcommand{\thealign}{\alph{align}}
+    \begin{align}
+        & \lim_{n \to \infty} p_n = w;
+        \alignno \\
+        & \lim_{n \to \infty} f(p_n) = \mu;
+        \alignno \\
+        & \lim_{n \to \infty} \frac{1-\abs{f(p_n)}}{1-\abs{p_n}} = \delta < \infty.
+        \alignno
+    \end{align}
+    }
+    Entonces se cumple que
+    {
+    \leqnomode
+    \setcounter{align}{0}
+    \begin{align}
+        & \delta > 0;
+        \alignno \\
+        & f(H(w, \lambda)) \subseteq H(\mu, \lambda \delta), \text{ para todo } \lambda > 0;
+        \alignno \\
+        & \angle \lim_{z \to w} f(z) = \mu.
+        \alignno
+    \end{align}
+    }
+
+    Además, si se da la igualdad en \eqref{eq:julia2} para algún $\lambda > 0$, entonces $f$ es un automorfismo del disco.
+    \end{block}
+\end{frame}
+
+\end{document}
+
