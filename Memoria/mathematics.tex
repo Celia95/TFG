@@ -8,6 +8,7 @@
 \usepackage{verbatim}
 \usepackage{mathtools}
 \usepackage{enumerate}
+\usepackage{geometry}
 \usepackage{xcolor}
 \usepackage{tikz}
 \usetikzlibrary{babel, hobby, calc}
@@ -18,6 +19,25 @@
 
 \definecolor{lila}{RGB}{153, 134, 244}
 \definecolor{lavander}{RGB}{230, 225, 250}
+
+% Margins
+\geometry
+{
+	top=1.69in,
+	bottom=1.56in,
+	left=1.56in,
+	right=1.04in
+}
+
+%\geometry
+%{
+%	top=1.3in,
+%	bottom=1.2in,
+%	left=1.2in,
+%	right=0.8in
+%}
+
+
 
 %Theorem styles
 
@@ -144,4 +164,3 @@
 \newcommand{\alignno}{\refstepcounter{align}\tag{\thealign}}
 \expandafter\let\expandafter\oldalignstar\csname align*\endcsname
 \expandafter\def\csname align*\endcsname{\refstepcounter{equation}\oldalignstar}
-
