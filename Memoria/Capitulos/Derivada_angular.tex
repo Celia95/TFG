@@ -25,7 +25,13 @@ Así, si $f$ es una función definida en $\disk$ y $w \in \partial \disk$, enton
 
 Basándonos en estas nociones previas, la existencia de derivada angular de $f$ en $w$ implica que $f$ tiene límite radial $\eta$ en $w$. De hecho, también se da la posibilidad de que la derivada de $f$ tenga límite radial en $w$. \\
 
-\todo[inline]{Conway, vol II, prueba en el Corolario 5.5. del capítulo 13 que toda $f \in \bholomorphic{\disk}$ tiene límite angular en casi todo punto, que es un refinamiento del teorema de Fatou.}
+Enunciamos a continuación un resultado del libro \citet[capítulo 13]{conway2} que nos va a permitir hacer un refinamiento del Teorema de Fatou introducido en el Capítulo \ref{cap:fatou}. \\ % Corolario 5.5
+
+\begin{corollary}
+    Si $f \in \bholomorphic{\disk}$ tiene límite radial $\zeta$ en $w \in \partial \disk$, entonces $f$ tiene derivada angular $\zeta$ en $w$. % límite no tangencial
+\end{corollary}
+
+Por el Teorema de Fatou sabemos que toda función $f \in \bholomorphic{\disk}$ tiene límite radial en casi todo punto del borde del disco, entonces también tendrá límite angular en casi todo punto del borde. \\
 
 \section{Lema de Schwarz-Pick}
 
@@ -82,23 +88,23 @@ Esta distancia es en realidad una métrica en $\disk$ que induce la topología e
 \begin{figure}[h]{}
     \begin{minipage}[h]{0.5\textwidth}
         \centering
-        \begin{tikzpicture}[scale=0.5]
+        \begin{tikzpicture}[scale=0.35]
             \draw (0, 0) circle (2cm);
             \draw (0, 0) circle (3cm);
             \draw (0, 0) circle (4cm);
             \draw (0, 0) circle (5cm);
-            \filldraw[black] (0, 0) circle (2pt) node[below] {$O$};
+            \filldraw[black] (0, 0) circle (2pt) node[below, font=\footnotesize] {$O$};
         \end{tikzpicture}
         \label{fig:circulos1}
     \end{minipage} \hfill
      \begin{minipage}[h]{0.5\textwidth}
         \centering
-        \begin{tikzpicture}[scale=0.5]
+        \begin{tikzpicture}[scale=0.35]
             \draw (0, 0) circle (5cm);
             \draw (2.1,3.24) circle (0.6905070600652824cm);
             \draw (1.86,2.92) circle (1.289961239727768cm);
             \draw (1.38,2.38) circle (2.121508896988179cm);
-            \filldraw[black] (2.1,3.24) circle (2.5pt) node[right] {$p$};
+            \filldraw[black] (2.1, 3.24) circle (2.5pt) node[left, font=\footnotesize] {$p$};
         \end{tikzpicture}
         \label{fig:circulos2}
     \end{minipage}
@@ -146,18 +152,18 @@ Cuando $\lim_{n \to \infty} p_n = w$ y $\lim_{n \to \infty} \frac{1-\abs{p_n}^2}
 Es fácil comprobar que este horodisco coincide con el disco euclídeo $D(\frac{w}{1+\lambda}, \frac{\lambda}{1+\lambda})$. En particular, $H(w, \lambda)$ es tangente a la frontera del disco en el punto $w$. Un disco así aumenta de tamaño con $\lambda$ y ocupa el disco unidad cuando $\lambda \to \infty$. La figura \ref{fig:noeuclideos} muestra la evolución de $\Delta(p,r)$ cuando $p$ tiende a un punto $w$ de la frontera del disco. \\
 
 \begin{figure}[h]{}
-    \begin{minipage}[h]{0.32\textwidth}
+    \begin{minipage}[h]{0.35\textwidth}
         \centering
-        \begin{tikzpicture}[scale=0.5]
+        \begin{tikzpicture}[scale=0.35]
             \draw (0, 0) circle (5cm);
             \draw[fill=lavander] (0, 0) circle (3.6cm);
-            \filldraw[black] (0, 0) circle (2.0pt) node[below] {$O$};
+            \filldraw[black] (0, 0) circle (2.0pt) node[below, font=\footnotesize] {$O$};
         \end{tikzpicture}
         \label{fig:noeuclideo1}
         %\caption{$\Delta(0, r)$}
     \end{minipage} \hfill
-    \begin{minipage}[h]{0.32\textwidth}
-        \begin{tikzpicture}[scale=0.5]
+    \begin{minipage}[h]{0.3\textwidth}
+        \begin{tikzpicture}[scale=0.35]
             \draw (0, 0) circle (5cm);
             \draw[fill=lavander] (0.84,3.24) circle (1.1407015385279355cm);
             \filldraw[black] (0.8, 3.74) circle (2.5pt);
@@ -166,8 +172,8 @@ Es fácil comprobar que este horodisco coincide con el disco euclídeo $D(\frac{
         \label{fig:noeuclideo2}
         %\caption{$\Delta(p_n, r_n)$}
     \end{minipage} \hfill
-    \begin{minipage}[h]{0.32\textwidth}
-        \begin{tikzpicture}[scale=0.5]
+    \begin{minipage}[h]{0.3\textwidth}
+        \begin{tikzpicture}[scale=0.35]
             \draw (0, 0) circle (5cm);
             \draw[fill=lavander] (2.299024850013829,3.0883087788941905) circle (1.1500204535309522cm);
             \filldraw[black] (3, 4) circle (2.5pt);
@@ -260,18 +266,94 @@ En este punto podemos hacer uso del Lema de Convergencia de Discos para obtener 
 
     Por la hipótesis \eqref{eq:condjulia3}, tenemos que
     \begin{equation*}
-        \lim_{n \to \infty} \frac{1-\abs{f(p_n)}}{1-r_n} = \lambda \delta,
+        \lim_{n \to \infty} \frac{1-\abs{f(p_n)}}{1-r_n} = \lambda \lim_{n \to \infty} \frac{1-\abs{f(p_n)}}{1-\abs{p_n}} = \lambda \delta,
     \end{equation*}
-    El lema asegura que si $z \in f(H(w, \lambda))$, entonces $z \in f(\Delta(p_n, r_n))$ para infinitos $n \in \naturals$ y, por el Lema de Schwarz-Pick, $z \in \Delta(f(p_n), r_n)$ para infinitos $n \in \naturals$. De nuevo el Lema de convergencia garantiza que $z \in \xbar{H(\mu, \lambda \delta)}$. Como $f$ no es constante, $f$ es abierta y $f(H(w, \lambda)) \subset H(\mu, \lambda \delta)$. \\
+    y los discos $\Delta(f(p_n), r_n)$ también están bajo las hipótesis del Lema de Convergencia de Discos, para todo $n$. \\
 
-    \eqref{eq:julia3} Finalmente, debemos probar que todo entorno usual de $\mu$ contiene la imagen por $f$ de un entorno angular de $w$. Fijados un sector $S$ con vértice en $w$ y $\varepsilon > 0$, tomamos $\lambda > 0$ tal que $H(\mu, \lambda \delta) \subset D(\mu, \varepsilon)$. Existe $\rho > 0$ tal que $S \cap D(w, \rho) \subset H(\mu, \lambda)$. Por la parte \eqref{eq:julia2}, se tiene que $f(H(w, \lambda)) \subset H(\mu, \lambda \delta)$, lo que completa la prueba. \\
+    El lema asegura que si $z \in f(H(w, \lambda))$, entonces $z \in f(\Delta(p_n, r_n))$ para infinitos $n \in \naturals$ y, por el Lema de Schwarz-Pick, $z \in \Delta(f(p_n), r_n)$ para infinitos $n \in \naturals$. De nuevo el Lema de Convergencia de Discos garantiza que $z \in \xbar{H(\mu, \lambda \delta)}$. Como $f$ no es constante, $f$ es abierta así que se tiene $f(H(w, \lambda)) \subset H(\mu, \lambda \delta)$. \\
+
+    \eqref{eq:julia3} Finalmente, debemos probar que todo entorno usual de $\mu$ contiene la imagen por $f$ de un entorno angular de $w$. Supongamos que tenemos un sector $S$ con vértice en $w$. Dado $\varepsilon > 0$, tomamos $\lambda > 0$ tal que $H(\mu, \lambda \delta) \subset D(\mu, \varepsilon)$. Podemos elegir $\rho > 0$ tal que $S \cap D(w, \rho) \subset H(\mu, \lambda)$. Por la parte \eqref{eq:julia2}, se tiene que $f(H(w, \lambda)) \subset H(\mu, \lambda \delta)$, lo que completa la prueba. \\
 \end{proof}
 
-\todo[inline, color=yellow]{Unos ejemplos.}
+Veamos con un par de ejemplos qué tipo de condición impone \eqref{eq:condjulia3} sobre el modo en que la imagen de $f$ se acerca al borde del disco. Vamos a observar que en el ejemplo \ref{ex:jul1} pasa tal cosa, mientras que en el ejemplo \ref{ex:jul2} pasa no sé-qué. Esto es debido a que en el segundo caso se trata de funciones donde el cociente \eqref{eq:condjulia3} no está acotado. Esto lleva asociado que exista o no la derivada angular de la función en el límite angular de la función. \\
 
-\todo[inline]{Obsérvese que mientras en el ejemplo X pasa tal cosa, en el ejemplo Y pasa no sé-qué, pues se trata de funciones donde el cociente (I) está no acotado. Esto lleva asociado que exista o no la derivada angular de la función en el límite angular de la función.}
+\begin{example}
+    \label{ex:jul1}
+    La función
+    \begin{equation*}
+        f(z) = \frac{1 + z}{2}
+    \end{equation*}
+    tiene cocientes tipo \eqref{eq:condjulia3} acotados para toda sucesión $\{p_n\}$ que converja a $1$. De hecho, si cada $p_n > 0$ los cocientes valen exactamente $\frac{1}{2}$, que es la derivada angular de $f$ en el punto $1$. \\
+\end{example}
 
-En $1929$, Carathéodory, probó que bajo las hipótesis del Teorema de Julia, la derivada también admite límite radial en dicho punto del borde. A continuación enunciamos sin demostración el teorema de Julia-Carathéodory.  \\
+\begin{example}
+    \label{ex:jul2}
+    Tomemos la siguiente función
+    \begin{equation*}
+        g = \sigma^{-1} \circ \phi_a \circ \sigma,
+    \end{equation*}
+    donde $\sigma$ es la transformación de Möbius $\sigma(z) = \frac{1+z}{1-z}$ (que lleva $1$, $i$ y $-1$ en $\infty$, $i$ y $0$, respectivamente, y aplica el disco unidad en el semiplano $\{z \in \complex : \Re z > 0\}$) y $\phi_a(z) = z^a, a \in (0,1)$. \\
+
+    La función $g$ tiene límite $1$ en el punto $1$ y es tal que su imagen se aparta del borde de $\disk$ cerca del punto $1$, es decir, los cocientes de \ref{eq:condjulia3} no están acotados. \\
+
+    La figura \ref{fig:ejemplo} muestra cómo se transforma el disco mediante la aplicación $g$. Dado que tanto $\sigma$ como $\sigma^{-1}$ son transformaciones conformes y, como hemos estudiado anteriormente, transforman circunferencias y rectas en circunferencias y rectas, la imagen de $g$ debe ser la región limitada por los arcos de circunferencia $\gamma_1$ y $\gamma_2$, que forman con el eje real un ángulo de $\frac{a \pi}{2}$ y $\frac{-a \pi}{2}$, respectivamente. \\
+
+    \begin{figure}[h]{}
+        \centering
+        \begin{tikzpicture}[scale=1.2]
+            \draw[fill=cccccc,fill opacity=0.35] (0,0) circle (1cm);
+            \filldraw (-1, 0) circle (1pt);
+
+            \draw[->] (1.5, 0) -- (2.5, 0) node[midway, above, font=\footnotesize]{$\sigma$};
+
+            \draw (3, -1) -- (3, 1);
+            \fill[color=cccccc,fill=cccccc,fill opacity=0.35] (4.25, 1) -- (3, 1) -- (3, -1) -- (4.25, -1) -- cycle;
+            \filldraw (3, 0) circle (1pt); 1.25
+
+            \draw[->] (3.625, -1.5) -- (3.625, -2.5) node[midway, right, font=\footnotesize]{$\phi_a$};
+
+            \draw (3, -2.75) -- (3, -5.25);
+            \draw (4.25, -2.75) -- (3, -4);
+            \draw (3, -4) -- (4.25, -5.25);
+            \fill[color=cccccc,fill=cccccc,fill opacity=0.35] (4.25, -2.75) -- (3, -4) -- (4.25, -5.25) -- cycle;
+            \filldraw (3, -4) circle (1pt);
+
+            \draw[->] (0, -1.5) -- (0, -2.5) node[midway, left, font=\footnotesize]{$\sigma^{-1}\circ \phi_a \circ \sigma$};
+
+            \draw (0, -4) circle (1cm);
+            \draw [shift={(0, -5.05)}, fill=cccccc, fill opacity=0.35]  plot[domain=0.8097835725701668:2.3318090810196264,variable=\t]({1.45*cos(\t r)},{1.45*sin(\t r)});
+            \draw [shift={(0, -2.95)}, fill=cccccc, fill opacity=0.35]  plot[domain=3.95137622615996:5.4734017346094195,variable=\t]({1.45*cos(\t r)},{1.45*sin(\t r)});
+            \node[font=\footnotesize] at (0, -3.4) {$\gamma_1$};
+            \node[font=\footnotesize] at (0, -4.6) {$\gamma_2$};
+            \filldraw (-1, -4) circle (1pt);
+
+            \draw[<-] (1.5, -4) -- (2.5, -4) node[midway, above, font=\footnotesize]{$\sigma^{-1}$};
+        \end{tikzpicture}
+        \caption{Ejemplo}
+        \label{fig:ejemplo}
+    \end{figure}
+
+    La tabla \ref{tab:ejemplo} muestra, a su vez, los valores de los cocientes de tipo \eqref{eq:condjulia3} para la sucesión $p_n = 1 - \frac{1}{n}$ con $n = 10^2, 10^3, 10^6, 10^9$ y $10^{12}$ y distintos valores de $a$. En todos los casos, la sucesión $\{p_n\}$ verifica que $\lim_{n \to \infty} \frac{1-\abs{f(p_n)}}{1-\abs{p_n}} = \infty$ pero alcanza valores mayores más rápidamente a medida que $a$ sea menor y, por lo tanto, la imagen se aparta más del borde de $\disk$. \\
+
+    \newcolumntype{g}{>{\columncolor{Gray}}c}
+    \begin{table}[htpb]
+        %\renewcommand*{\arraystretch}{1.5}
+        \centering
+        \begin{tabular}{|g|c|c|c|c|c|}
+            \hline
+            \rowcolor{Gray}
+            $a$    & $n=100$   & $n=1000$  & $n=10^6$  & $n=10^9$       & $n=10^{12}$       \\ \hline
+            $0,1$  & $7,40879$ & $637,231$ & $37973,6$ & $2,1\cdot10^8$ & $1,1\cdot10^{11}$ \\ \hline
+            $0,5$  & $13,1774$ & $43,7325$ & $1413,21$ & $44720,3$      & $1414212$         \\ \hline
+            $0,9$  & $1,67686$ & $2,13522$ & $4,26679$ & $8,51339$      & $16,9864$         \\ \hline
+            $0,99$ & $1,04375$ & $1,07785$ & $1,15613$ & $1,23882$      & $1,32738$         \\ \hline
+        \end{tabular}
+        \caption{Ejemplo}
+        \label{tab:ejemplo}
+    \end{table}
+\end{example}
+
+En $1929$, Carathéodory, probó que bajo las hipótesis del Teorema de Julia, la derivada también admite límite radial en dicho punto del borde. A continuación enunciamos sin demostración el teorema de Julia-Carathéodory. \\
 
 \begin{theorem}[de Julia-Carathéodory]
     Sea $f$ es una función holomorfa del disco $\disk$ en sí mismo y sea $w \in \partial \disk$. Entonces las siguientes afirmaciones son equivalentes:

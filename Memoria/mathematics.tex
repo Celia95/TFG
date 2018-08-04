@@ -5,11 +5,13 @@
 \usepackage{float}
 \usepackage{amsthm}
 \usepackage{amsmath}
+%\usepackage{etoolbox}
 \usepackage{verbatim}
 \usepackage{mathtools}
 \usepackage{enumerate}
 \usepackage{geometry}
-\usepackage{xcolor}
+\usepackage[table]{xcolor}
+\usepackage{multirow}
 \usepackage{tikz}
 \usetikzlibrary{babel, hobby, calc}
 % \usepackage[disable]{todonotes} % notes not showed
@@ -19,6 +21,7 @@
 
 \definecolor{lila}{RGB}{153, 134, 244}
 \definecolor{lavander}{RGB}{230, 225, 250}
+\definecolor{Gray}{gray}{0.9}
 
 % Margins
 \geometry
@@ -68,6 +71,7 @@
 \theoremstyle{definition}
 \newtheorem{definition}[theorem]{Definición}
 \newtheorem{example}[theorem]{Ejemplo}
+%\AtEndEnvironment{example}{\null\hfill\qedsymbol}
 \newtheorem{conj}[theorem]{Conjetura}
 
 \theoremstyle{remark}
