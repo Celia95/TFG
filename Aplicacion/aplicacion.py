@@ -1,8 +1,6 @@
 import math
 import cmath
-import matplotlib as mpl
 import matplotlib.pyplot as plt
-import numpy as np
 import colorsys
 
 
@@ -13,13 +11,33 @@ def brightness(x):
         return 1 - 8 / ((x + 3) ** 2)
 
 
-def complex_color(z): # esta mal.
+def complex_color(z):
     if z == 0:
-        color = colorsys.hsv_to_rgb(0, 1, 0)
+        rgb = colorsys.hsv_to_rgb(0, 1, 0)
     else:
-        b = brightness(abs(z))
-        color = colorsys.hsv_to_rgb(cmath.phase(z) / (2 * cmath.pi), (1 - b ** 4) ** 0.25, b)
-    return color
+        v = brightness(abs(z))
+        h = cmath.phase(z) / (2 * cmath.pi)
+        s = (1 - v ** 4) ** 0.25
+        rgb = colorsys.hsv_to_rgb(cycle(h), truncate(s), truncate(v))
+    return rgb
+
+
+def truncate(x):
+    if x < 0:
+        return 0
+    elif x < 1:
+        return x
+    else:
+        return 1
+
+
+def cycle(x):
+    if x < 0:
+        return cycle(x + 1)
+    elif x < 1:
+        return x
+    else:
+        return cycle(x - 1)
 
 
 def f1(t):
@@ -30,7 +48,7 @@ def f1(t):
 
 
 def f(t):
-    return t
+    return -20
 
 
 def integral(f, a, limit):
@@ -56,7 +74,7 @@ def poisson(f):
     deltatheta = delta(r, step_distance)
     x = []
     y = []
-    color1 = []
+    rgb = []
     while r <= 1.01:
         while theta < (2 * cmath.pi):
             a = r * cmath.e ** (theta * 1j)
@@ -67,22 +85,22 @@ def poisson(f):
                 fa = f(theta)
             x.append(a.real)
             y.append(a.imag)
-            color1.append(complex_color(fa))
+            rgb.append(complex_color(a))
             theta = theta + deltatheta
         r = r + step_distance
         theta = 0
         deltatheta = delta(r, step_distance)
     # plot result
-    draw(x, y, color1)
+    draw(x, y, rgb)
 
 
-def draw(x, y, color1):
+def draw(x, y, rgb):
     fig = plt.figure()
     ax = fig.add_subplot(1, 1, 1)
 
-    # Move left y-axis and bottim x-axis to centre, passing through (0,0)
-    ax.spines['left'].set_position('center')
-    ax.spines['bottom'].set_position('center')
+    #Move left y-axis and bottim x-axis to centre, passing through (0,0)
+    #ax.spines['left'].set_position('center')
+    #ax.spines['bottom'].set_position('center')
 
     # Eliminate upper and right axes
     ax.spines['right'].set_color('none')
@@ -92,16 +110,16 @@ def draw(x, y, color1):
     ax.xaxis.set_ticks_position('bottom')
     ax.yaxis.set_ticks_position('left')
 
-    ax.grid(True)
+    #ax.grid(True)
     ax.axis('equal')
 
     # Modify axis
     # plt.xticks([-1, -0.5, 0, +0.5, +1])
     # plt.yticks([-1, -0.5, 0, +0.5, +1])
-    plt.axis([-2, 2, -2, 2])
+    #plt.axis([-2, 2, -2, 2])
 
     plt.title('Prueba')
-    plt.scatter(x, y, c=color1, s=1)
+    plt.scatter(x, y, c=rgb, s=1)
     plt.savefig("disco.png", dpi=700)
     plt.show()
 
