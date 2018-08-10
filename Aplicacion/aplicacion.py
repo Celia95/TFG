@@ -78,19 +78,23 @@ def poisson(f):
     while r <= 1.01:
         while theta < (2 * cmath.pi):
             a = r * cmath.e ** (theta * 1j)
-            if r < 1:
-                integ = trapezoidal_rule(f, a, -cmath.pi, cmath.pi)
-                fa = integ / (2 * cmath.pi)
-            else:
-                fa = f(theta)
-            x.append(a.real)
-            y.append(a.imag)
-            rgb.append(complex_color(a))
-            theta = theta + deltatheta
+            try:
+                if r < 1:
+                    integ = trapezoidal_rule(f, a, -cmath.pi, cmath.pi)
+                    fa = integ / (2 * cmath.pi)
+                else:
+                    fa = f(theta)
+                rgb.append(complex_color(fa))
+                x.append(a.real)
+                y.append(a.imag)
+            except (ArithmeticError, ValueError):
+                pass
+            finally:
+                theta = theta + deltatheta
+
         r = r + step_distance
         theta = 0
         deltatheta = delta(r, step_distance)
-    # plot result
     draw(x, y, rgb)
 
 
