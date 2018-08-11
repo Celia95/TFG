@@ -1,5 +1,6 @@
 import math
 import cmath
+import time
 import matplotlib.pyplot as plt
 import colorsys
 
@@ -18,7 +19,7 @@ def complex_color(z):
         v = brightness(abs(z))
         h = cmath.phase(z) / (2 * cmath.pi)
         s = (1 - v ** 4) ** 0.25
-        rgb = colorsys.hsv_to_rgb(cycle(h), truncate(s), truncate(v))
+        rgb = colorsys.hsv_to_rgb(decimal_part(h), truncate(s), truncate(v))
     return rgb
 
 
@@ -31,29 +32,11 @@ def truncate(x):
         return 1
 
 
-def cycle(x):
-    if x < 0:
-        return cycle(x + 1)
-    elif x < 1:
-        return x
-    else:
-        return cycle(x - 1)
-
-
-def f2(t):
-    if -cmath.pi < t < 0:
-        return 0
-    else:
-        return 100
-
-
-def f(t):
-    return 1/(1 + t**2)
+def decimal_part(x):
+    return x - math.floor(x)
 
 
 def poisson_kernel(theta, r, t):
-    #a = r * cmath.e ** (theta * 1j)
-    #return ((cmath.e ** (1j * t) + a) / (cmath.e ** (1j * t) - a)).real
     return (1 - r ** 2) / (1 - 2 * r * cmath.cos(theta - t) + r ** 2)
 
 
@@ -66,7 +49,7 @@ def trapezoidal_rule(f, limit_inf, limit_sup, n, r, theta):
     sum = 0
     for i in range(0, n + 1):
         aux = poisson_integral(f, r, theta, limit_inf + i * h)
-        #aux = f(limit_inf + i * h)
+        #  aux = f(limit_inf + i * h)
         if (i == 0) or (i == n):
             sum = sum + aux
         else:
@@ -77,7 +60,7 @@ def trapezoidal_rule(f, limit_inf, limit_sup, n, r, theta):
 def evaluate(f, b, r, theta):
     if b:  # poisson integral
         if r < 1:
-            return trapezoidal_rule(f, -cmath.pi, cmath.pi, 400, r, theta) / (2 * math.pi)
+            return trapezoidal_rule(f, -cmath.pi, cmath.pi, 300, r, theta) / (2 * math.pi)
         else:
             return f(theta)
     else:  # function
@@ -95,17 +78,17 @@ def delta(r, step_distance):
 
 def poisson(f, b):
     r = 0
-    theta = 0
+    theta = -cmath.pi
     step_distance = 0.01
     deltatheta = delta(r, step_distance)
     x = []
     y = []
     rgb = []
     while r <= 1.01:
-        while theta < (2 * cmath.pi):
+        while theta < (cmath.pi):
             a = r * cmath.e ** (theta * 1j)
             try:
-                fa = evaluate(f, b, r, theta - cmath.pi)
+                fa = evaluate(f, b, r, theta)
                 rgb.append(complex_color(fa))
                 x.append(a.real)
                 y.append(a.imag)
@@ -115,7 +98,7 @@ def poisson(f, b):
                 theta = theta + deltatheta
 
         r = r + step_distance
-        theta = 0
+        theta = -cmath.pi
         deltatheta = delta(r, step_distance)
     plot(x, y, rgb)
 
@@ -144,14 +127,16 @@ def plot(x, y, rgb):
     # plt.yticks([-1, -0.5, 0, +0.5, +1])
     #plt.axis([-2, 2, -2, 2])
 
-    plt.title('f(t) = 1/(1 + t^2)')
+    plt.title('f(t) = cos^2(t)-sen^2(t)')
     plt.scatter(x, y, c=rgb, s=1)
     plt.savefig("disco.png", dpi=1000)
-    plt.show()
+    #plt.show()
 
 
 def main():
-    poisson(f, 1)
+    start_time = time.time()
+    poisson(lambda t: cmath.cos(t) ** 2 - cmath.sin(t) ** 2, 1)
+    print("--- %s seconds ---" % (time.time() - start_time))
 
 
 if __name__ == '__main__':
