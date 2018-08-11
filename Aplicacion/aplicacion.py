@@ -76,15 +76,16 @@ def delta(r, step_distance):
         return (2 * cmath.pi) / steps
 
 
-def poisson(f, b):
+def poisson(f, b): # r=1 - 0.01
     r = 0
+    radio=5
     theta = -cmath.pi
-    step_distance = 0.01
+    step_distance = 0.01 * radio
     deltatheta = delta(r, step_distance)
     x = []
     y = []
     rgb = []
-    while r <= 1.01:
+    while r <= radio + step_distance:
         while theta < (cmath.pi):
             a = r * cmath.e ** (theta * 1j)
             try:
@@ -135,7 +136,7 @@ def plot(x, y, rgb):
 
 def main():
     start_time = time.time()
-    poisson(lambda t: cmath.cos(t) ** 2 - cmath.sin(t) ** 2, 1)
+    poisson(lambda t: cmath.e ** t, 0)
     print("--- %s seconds ---" % (time.time() - start_time))
 
 

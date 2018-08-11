@@ -9,8 +9,8 @@ class Plotter:
     def __init__(self, abstract_function):
         self.__abstract_function = abstract_function
 
-    def plot(self, file_name="disco.png", show=True, radio=1): #TODO: calcular step_distance a partir del radio
-        step_distance = 0.01
+    def plot(self, file_name="disco.png", show=True, radio=1):
+        step_distance = 0.01 * radio
         x = []
         y = []
         rgb = []
