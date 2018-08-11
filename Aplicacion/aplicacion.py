@@ -40,23 +40,49 @@ def cycle(x):
         return cycle(x - 1)
 
 
-def f1(t):
-    if cmath.pi/2 < t < 3 * cmath.pi/2:
+def f2(t):
+    if -cmath.pi < t < 0:
         return 0
     else:
         return 100
 
 
 def f(t):
-    return -20
+    return 1/(1 + t**2)
 
 
-def integral(f, a, limit):
-    return f(limit) * ((cmath.e ** (1j * limit) + a) / (cmath.e ** (1j * limit) - a))
+def poisson_kernel(theta, r, t):
+    #a = r * cmath.e ** (theta * 1j)
+    #return ((cmath.e ** (1j * t) + a) / (cmath.e ** (1j * t) - a)).real
+    return (1 - r ** 2) / (1 - 2 * r * cmath.cos(theta - t) + r ** 2)
 
 
-def trapezoidal_rule(f, a, limit_inf, limit_sup):
-    return (limit_sup - limit_inf) * (integral(f, a, limit_inf) + integral(f, a, limit_sup)) / 2
+def poisson_integral(f, r, theta, t):
+    return f(t) * poisson_kernel(theta, r, t)
+
+
+def trapezoidal_rule(f, limit_inf, limit_sup, n, r, theta):
+    h = (limit_sup - limit_inf) / n
+    sum = 0
+    for i in range(0, n + 1):
+        aux = poisson_integral(f, r, theta, limit_inf + i * h)
+        #aux = f(limit_inf + i * h)
+        if (i == 0) or (i == n):
+            sum = sum + aux
+        else:
+            sum = sum + 2 * aux
+    return sum * h / 2
+
+
+def evaluate(f, b, r, theta):
+    if b:  # poisson integral
+        if r < 1:
+            return trapezoidal_rule(f, -cmath.pi, cmath.pi, 400, r, theta) / (2 * math.pi)
+        else:
+            return f(theta)
+    else:  # function
+        a = r * cmath.e ** (theta * 1j)
+        return f(a)
 
 
 def delta(r, step_distance):
@@ -67,7 +93,7 @@ def delta(r, step_distance):
         return (2 * cmath.pi) / steps
 
 
-def poisson(f):
+def poisson(f, b):
     r = 0
     theta = 0
     step_distance = 0.01
@@ -79,11 +105,7 @@ def poisson(f):
         while theta < (2 * cmath.pi):
             a = r * cmath.e ** (theta * 1j)
             try:
-                if r < 1:
-                    integ = trapezoidal_rule(f, a, -cmath.pi, cmath.pi)
-                    fa = integ / (2 * cmath.pi)
-                else:
-                    fa = f(theta)
+                fa = evaluate(f, b, r, theta - cmath.pi)
                 rgb.append(complex_color(fa))
                 x.append(a.real)
                 y.append(a.imag)
@@ -95,10 +117,10 @@ def poisson(f):
         r = r + step_distance
         theta = 0
         deltatheta = delta(r, step_distance)
-    draw(x, y, rgb)
+    plot(x, y, rgb)
 
 
-def draw(x, y, rgb):
+def plot(x, y, rgb):
     fig = plt.figure()
     ax = fig.add_subplot(1, 1, 1)
 
@@ -122,14 +144,14 @@ def draw(x, y, rgb):
     # plt.yticks([-1, -0.5, 0, +0.5, +1])
     #plt.axis([-2, 2, -2, 2])
 
-    plt.title('Prueba')
+    plt.title('f(t) = 1/(1 + t^2)')
     plt.scatter(x, y, c=rgb, s=1)
-    plt.savefig("disco.png", dpi=700)
+    plt.savefig("disco.png", dpi=1000)
     plt.show()
 
 
 def main():
-    poisson(f)
+    poisson(f, 1)
 
 
 if __name__ == '__main__':
