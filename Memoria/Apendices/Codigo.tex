@@ -1,0 +1,58 @@
+\chapter{Código de las aplicaciones informáticas}
+
+\definecolor{Numbers}{rgb}{0.5,0.5,0.5}
+\definecolor{Keywords}{rgb}{0,0,1}
+\definecolor{Emph}{rgb}{0.58,0,0.82}
+\definecolor{Strings}{rgb}{0,0.6,0}
+\definecolor{Comments}{rgb}{0.6,0.6,0.6}
+\definecolor{Background}{rgb}{0.98,0.98,0.98}
+
+\lstset{
+breaklines=true,
+numbers=left,
+numberstyle=\tiny\color{Numbers},
+numbersep=5pt,
+rulecolor=\color{black},
+stepnumber=1,
+xleftmargin=1em,
+framextopmargin=2em,
+framexbottommargin=2em,
+showspaces=false,
+showtabs=false,
+showstringspaces=false,
+frame=l,
+tabsize=2,
+% Basic
+basicstyle=\ttfamily\setstretch{1},
+backgroundcolor=\color{Background},
+% Comments
+commentstyle=\color{darkgray}\slshape,
+% Strings
+stringstyle=\color{Strings},
+morecomment=[s][\color{Strings}]{"""}{"""},
+morecomment=[s][\color{Strings}]{'''}{'''},
+% keywords
+keywordstyle={\color{Keywords}\bfseries},
+morekeywords={import,from,class,def,for,while,if,is,in,elif,else,not,and,or,print,break,continue,return,True,False,None,access,as,del,except,exec,finally,global,lambda,pass,print,raise,try,assert},
+emph={__init__, self, @staticmethod},
+emphstyle=\color{Emph},
+% language
+language=python
+%
+}
+
+\section{plotter.py}
+
+\lstinputlisting[language=Python]{../Aplicacion/plotter.py}
+
+\section{function.py}
+
+\lstinputlisting[language=Python]{../Aplicacion/function.py}
+
+\section{main.py}
+
+\lstinputlisting[language=Python]{../Aplicacion/main.py}
+
+\section{misc.py}
+
+\lstinputlisting[language=Python]{../Aplicacion/misc.py}

@@ -25,7 +25,6 @@ class Plotter:
                     y.append(a.imag)
                 except (ArithmeticError, ValueError):
                     pass
-
         self.__plot(x, y, rgb, self.__abstract_function.label, file_name, show)
 
     @staticmethod
@@ -46,13 +45,13 @@ class Plotter:
     @staticmethod
     def __complex_color(z):
         if z == 0:
-            rgb = colorsys.hsv_to_rgb(0, 1, 0)
+            return colorsys.hsv_to_rgb(0, 1, 0)
         else:
-            v = Plotter.__brightness(abs(z))
-            h = cmath.phase(z) / (2 * cmath.pi)
-            s = (1 - v ** 4) ** 0.25
-            rgb = colorsys.hsv_to_rgb(Plotter.__decimal_part(h), Plotter.__truncate(s), Plotter.__truncate(v))
-        return rgb
+            b = Plotter.__brightness(abs(z))
+            h = Plotter.__decimal_part(cmath.phase(z) / (2 * cmath.pi))
+            s = Plotter.__truncate((1 - b ** 4) ** 0.25)
+            v = Plotter.__truncate(b)
+            return colorsys.hsv_to_rgb(h, s, v)
 
     @staticmethod
     def __truncate(x):
@@ -72,10 +71,6 @@ class Plotter:
         fig = plt.figure()
         ax = fig.add_subplot(1, 1, 1)
 
-        # Move left y-axis and bottim x-axis to centre, passing through (0,0)
-        # ax.spines['left'].set_position('center')
-        # ax.spines['bottom'].set_position('center')
-
         # Eliminate upper and right axes
         ax.spines['right'].set_color('none')
         ax.spines['top'].set_color('none')
@@ -84,13 +79,7 @@ class Plotter:
         ax.xaxis.set_ticks_position('bottom')
         ax.yaxis.set_ticks_position('left')
 
-        # ax.grid(True)
         ax.axis('equal')
-
-        # Modify axis
-        # plt.xticks([-1, -0.5, 0, +0.5, +1])
-        # plt.yticks([-1, -0.5, 0, +0.5, +1])
-        # plt.axis([-2, 2, -2, 2])
 
         plt.title(label)
         plt.scatter(x, y, c=rgb, s=1)

@@ -21,7 +21,7 @@ start_time = time.time()
 #plotter.plot('cos^2(t)-sen^2(t).png', show=False)
 
 plotter = Plotter(BoundaryFunction(lambda t: cmath.cos(t) ** 2 - cmath.sin(t) ** 2 + (2 * cmath.cos(t) * cmath.sin(t)) * 1j, 'f(t) = cos^2(t)-sen^2(t)+[2 cos(t) sen(t)]i'))
-plotter.plot('cos^2(t)-sen^2(t)+[2 cos(t) sen(t)]i.png', show=False)
+plotter.plot('cos^2(t)-sen^2(t)+[2 cos(t) sen(t)]i.png', show=True)
 
 #plotter = Plotter(BoundaryFunction(lambda t: cmath.cos(3 * t + 1j) + cmath.sin(3 * t + 1j), 'f(t) = cos(3t + i) + sen(3t + i)'))
 #plotter.plot('cos(3t + i) + sen(3t + i).png', show=False)
@@ -52,8 +52,8 @@ plotter.plot('cos^2(t)-sen^2(t)+[2 cos(t) sen(t)]i.png', show=False)
 #plotter = Plotter(ComplexFunction(lambda t: cmath.tan(t), 'f(z) = tan(z)'))
 #plotter.plot('tan(z).png', show=False, radio=4)
 
-#plotter = Plotter(ComplexFunction(lambda t: cmath.sqrt(t), 'f(z) = √z'))
-#plotter.plot('√z.png', show=False, radio=4)
+#plotter = Plotter(ComplexFunction(lambda t: cmath.sqrt(t), 'f(z) = sqrt(z)'))
+#plotter.plot('sqrt(z).png', show=False, radio=4)
 
 #plotter = Plotter(ComplexFunction(lambda t: cmath.log(t), 'f(z) = log(z)'))
 #plotter.plot('log(z).png', show=False, radio=4)
