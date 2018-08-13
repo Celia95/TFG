@@ -5,6 +5,10 @@
 *.swp
 *TeXiS-Manual-1.0.pdf
 
+## Python files
+.idea
+__pycache__
+
 ## Core latex/pdflatex auxiliary files:
 *.aux
 *.lof
