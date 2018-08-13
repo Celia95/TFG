@@ -86,3 +86,4 @@ class Plotter:
         plt.savefig(file_name, dpi=1000)
         if show:
             plt.show()
+
