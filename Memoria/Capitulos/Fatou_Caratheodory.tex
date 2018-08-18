@@ -92,7 +92,7 @@ El capítulo se completa con varios resultados de naturaleza geométrica, en los
 
 Observamos que si $f$ lleva la frontera del disco $\partial \disk$ en los reales, \eqref{eq:poisson2} nos muestra que % extender esto
 \begin{equation*}
-    P[f](z) = \Re \left[ \dfrac{1}{2} \int_{-\pi}^{\pi} \dfrac{e^{it} + z}{e^{it} - z} f(e^{it}) dt \right].
+    P[f](z) = \Re \left[ \dfrac{1}{2 \pi} \int_{-\pi}^{\pi} \dfrac{e^{it} + z}{e^{it} - z} f(e^{it}) dt \right].
 \end{equation*}
 
 También haciendo el cambio de variable $\theta - t = x$ se tiene la igualdad
@@ -169,7 +169,7 @@ El Principio del Módulo Máximo para funciones armónicas nos asegura que dicha
     \end{equation*}
 \end{theorem}
 
-En particular, el resultado que hemos utilizado para finalizar la demostración es un caso especial del Teorema anterior cuya demostración se puede encontrar en \citet[chap. 10]{conway1}. \\
+En particular, el resultado que hemos utilizado para finalizar la demostración es un caso especial del Teorema anterior cuya demostración se puede encontrar en \citet[capítulo 10]{conway1}. \\
 
 \begin{corollary}
     Sea $U \subseteq \complex$ un conjunto acotado, y sea $f: \xbar{U} \to \real$ una función continua que es armónica en $U$. Si $f(z) = 0$ para todo $z \in \partial U$ entonces $f(z) = 0$ para todo $z \in U$.
@@ -180,7 +180,7 @@ En particular, el resultado que hemos utilizado para finalizar la demostración 
 
 Como veremos más adelante, las funciones holomorfas y acotadas en el disco unidad pueden tener un comportamiento irregular en los puntos del borde del disco, sin admitir una extensión continua. Sin embargo, esta clase de funciones sí tienen límites radiales en casi todo punto. Gracias al Teorema de Fatou, la existencia de límites radiales permite definir sobre el borde una función acotada que, a su vez, sirve para recuperar información sobre la función en el interior. \\
 
-Para demostrar el Teorema de Fatou haremos uso de un resultado clásico, que puede consultarse en \citet[chap. 11]{rudin}. \\
+Para demostrar el Teorema de Fatou haremos uso de un resultado clásico, que puede consultarse en \citet[capítulo 11]{rudin}. \\
 
 \begin{theorem} % Corolario del Teorema 11.10 % Es necesario o basta con el anterior?
     \label{th:fatouaux1}
@@ -444,29 +444,29 @@ A continuación, vamos a probar un resultado recíproco a éste que incluye algu
         \begin{minipage}[h]{0.5\textwidth}
             \centering
             \begin{tikzpicture}[thick]
-                \filldraw[black] (1.35,1.48) circle (1pt) node[above right=1pt,fill=white]{$\zeta$};
+                \filldraw (1.35,1.48) circle (1pt) node[above right=1pt,font=\small]{$\zeta$};
                 \draw (0,0) circle (2cm);
-                %\draw [thick,domain=152:303] plot ({1.35 + cos(\x)}, {1.48 + sin(\x)});
+                %\draw [thick, domain=152:303] plot ({1.35 + cos(\x)}, {1.48 + sin(\x)});
                 \centerarc[thick](1.35,1.48)(148:307:0.7);
-                \node at (0.7,0.8) {$\gamma_{\delta_n}$};
+            \node[font=\small] at (0.7,0.8) {$\gamma_{\delta_n}$};
             \end{tikzpicture}
             \label{fig:circle}
         \end{minipage} \hfill
         \begin{minipage}[h]{0.5\textwidth}
             \centering
             \begin{tikzpicture}[thick,scale=0.6, use Hobby shortcut,closed=true]
-                \filldraw[black] (5.5,6) circle (2pt) node[above = 1pt,fill=white]{$\alpha_n$};
-                \filldraw[black] (8,4.5) circle (2pt) node[right = 1pt,fill=white]{$\beta_n$};
-                \node[above] at (7.5,5.7) {$\sigma_n$};
-                \node[below = 5pt] at (6.5,5.7) {$U_n$};
-                \node[below = 5pt] at (6,4.3) {$\varphi(\gamma_{\delta_n})$};
+                \filldraw (5.5,6) circle (2pt) node[above = 1pt,font=\small]{$\alpha_n$};
+                \filldraw (8,4.5) circle (2pt) node[right = 1pt,font=\small]{$\beta_n$};
+                \node[above, font=\small] at (7.5,5.7) {$\sigma_n$};
+                \node[below = 5pt, font=\small] at (6.5,5.7) {$U_n$};
+                \node[below = 5pt, font=\small] at (6,4.3) {$\varphi(\gamma_{\delta_n})$};
                 \draw (1, 0.2) .. (2, 0) .. (3, 1) .. (4, 2.1) .. (5, 2.3) .. (6, 2.4) .. (7, 2.7) .. (7.5, 3) .. (8, 4.5) .. (7, 5.7) .. (5.5, 6) .. (4, 5.7) .. (3, 4.8) .. (2, 4.3) .. (1, 4.2) .. (0.5, 4) .. (0, 2);
                 \draw (5.5, 6) .. (5.7, 5.5) .. (5.5, 4) .. (6, 4) .. (7, 3.9) .. (7.5, 4.3).. (8, 4.5);
             \end{tikzpicture}
             \label{fig:jordandomain}
-      \end{minipage}
-      \caption{Las curvas $\gamma_{\delta_n}$ y $\varphi(\gamma_{\delta_n})$.}
-      \label{fig:caratheodory}
+        \end{minipage}
+        \caption{Las curvas $\gamma_{\delta_n}$ y $\varphi(\gamma_{\delta_n})$.}
+        \label{fig:caratheodory}
     \end{figure}
 
 
@@ -568,4 +568,3 @@ El resultado que presentamos a continuación es un recíproco parcial del teorem
 
     Esto prueba que $f(z) = w_0$ tiene una sola solución si $w_0$ está dentro de $\Gamma'$, que $f(z)$ es holomorfa e inyectiva en $\Omega$ y lleva $\Omega$ en $\Omega'$ (el interior de $\Gamma'$) y que la dirección positiva de $\Gamma'$ se corresponde con la dirección positiva de $\Gamma$.
 \end{proof}
-

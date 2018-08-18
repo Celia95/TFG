@@ -41,8 +41,6 @@ Además, el dibujo también muestra que el polinomio es de grado $8$. Para $z$ d
     \label{fig:z^8-2z^7+2z^6-4z^5+2z^4-2z^3-5z^2+4z-4}
 \end{figure}
 
-\todo[inline]{Hago como Víctor e incluyo ejemplos de funciones elementales o no?}
-
 %Este esquema de asignación de colores puede representarse fácilmente siguiendo el modelo de color HVS (del inglés, \textit{Hue, Saturation, Value} - Tono, Saturación, Valor).
 
 Introducimos un modelo de color gracias al cual vamos a poder representar fácilmente funciones complejas siguiendo el esquema de asignación de colores explicado anteriormente. Dicho modelo se conoce como HVS (del inglés, \textit{Hue, Saturation, Value} - Tono, Saturación, Valor). \\
@@ -154,9 +152,7 @@ De esta manera podremos representar cualquier color en Python como combinación 
 
 A lo largo del trabajo nos vamos a centrar en el comportamiento de funciones en el borde del disco unidad. Por ello, la representación de funciones se realiza en discos centrados en $0$ de radio arbitrario, siendo $1$ el valor por defecto. La idea es tomar un mallado circular y evaluar la función en cada punto. \\
 
-La aplicación que se ha desarrollado tiene dos funcionalidades diferentes. En primer lugar, permite representar funciones complejas en un disco de radio determinado, como ya se ha mostrado en las figuras \ref{fig:z} y \ref{fig:z^8-2z^7+2z^6-4z^5+2z^4-2z^3-5z^2+4z-4}, cuyos dibujos han sido obtenidos al ejecutar el programa realizado. \\
-
-\todo[inline]{¿Hay diferencia si las funciones que tienen valores en los complejos o en los reales? ¿Sigue habiendo solución al Problema de Dirichlet? Lo digo por el Teorema 2.1.4}
+La aplicación que se ha desarrollado tiene tres funcionalidades diferentes. En primer lugar, permite representar funciones complejas en un disco de radio determinado, como ya se ha mostrado en las figuras \ref{fig:z} y \ref{fig:z^8-2z^7+2z^6-4z^5+2z^4-2z^3-5z^2+4z-4}, cuyos dibujos han sido obtenidos al ejecutar el programa realizado. \\
 
 Por otra parte, también se puede resolver el problema de Dirichlet para el disco haciendo uso de la integral de Poisson. Dada una función $f$ continua definida en el borde del disco, la solución dada por la integral de Poisson será una función continua en el disco cerrado y armónica en el disco abierto. \\
 
@@ -164,7 +160,7 @@ La función $f$ que recibe el programa parametriza el borde del disco en funció
 
 Podemos utilizar la representación de funciones que se ha desarrollado para comprobar que la integral de Poisson se comporta como se espera cuando la parametrización dada se corresponde, en el borde, con la función que se va a dibujar. A continuación se pueden observar algunos ejemplos. \\
 
-\begin{figure}[H]
+\begin{figure}[h]
     \centering
     \includegraphics[width=0.49\textwidth]{../Aplicacion/e^(8z).png}
     \hfill
@@ -173,7 +169,7 @@ Podemos utilizar la representación de funciones que se ha desarrollado para com
     \label{fig:comparacion1}
 \end{figure}
 
-\begin{figure}[H]
+\begin{figure}[h]
     \centering
     \includegraphics[width=0.49\textwidth]{../Aplicacion/3z.png}
     \hfill
@@ -183,7 +179,7 @@ Podemos utilizar la representación de funciones que se ha desarrollado para com
 \end{figure}
 
 
-\begin{figure}[H]
+\begin{figure}[h]
     \centering
     \includegraphics[width=0.49\textwidth]{../Aplicacion/z^2(2).png}
     \hfill
@@ -193,7 +189,7 @@ Podemos utilizar la representación de funciones que se ha desarrollado para com
 \end{figure}
 
 
-\begin{figure}[H]
+\begin{figure}[h]
     \centering
     \includegraphics[width=0.49\textwidth]{../Aplicacion/z^2(3).png}
     \hfill
@@ -202,9 +198,11 @@ Podemos utilizar la representación de funciones que se ha desarrollado para com
     \label{fig:comparacion4}
 \end{figure}
 
-Como hemos comentado previamente, $f$ ha de ser continua para que se pueda extender con continuidad al disco cerrado. Pero, ¿qué pasa cuando no lo es? El resultado será una función con parte real e imaginaria armónicas en el interior (no necesariamente una conjugada de la otra) pero que no se puede prolongar con continuidad a la frontera, como es lógico. \\ % Es continua en el interior la función resultante? Si es L^\infty supuestamente sí
+Esta misma comprobación se puede llevar a cabo mediante la última funcionalidad de la aplicación que permite representar la diferencia de funciones. Por lo tanto, si el cálculo de la integral de Poisson fuera perfecto, el dibujo resultante sería negro en su totalidad. \\
 
-\begin{figure}[H]
+Como hemos comentado previamente, $f$ ha de ser continua para que se pueda extender con continuidad al disco cerrado. Pero, ¿qué pasa cuando no lo es? El resultado será una función con parte real e imaginaria armónicas en el interior (no necesariamente una conjugada de la otra) pero que no se puede prolongar con continuidad a la frontera, como es lógico. Además, si $f$ es continua a trozos, la función que se obtiene a partir de ella es armónica y continua en los puntos del borde donde lo sea $f$. \\
+
+\begin{figure}[h]
     \centering
     \includegraphics[width=0.49\textwidth]{../Aplicacion/atrozos.png}
     \hfil
