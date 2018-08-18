@@ -275,7 +275,7 @@ En este punto podemos hacer uso del Lema de Convergencia de Discos para obtener 
     \eqref{eq:julia3} Finalmente, debemos probar que todo entorno usual de $\mu$ contiene la imagen por $f$ de un entorno angular de $w$. Supongamos que tenemos un sector $S$ con vértice en $w$. Dado $\varepsilon > 0$, tomamos $\lambda > 0$ tal que $H(\mu, \lambda \delta) \subset D(\mu, \varepsilon)$. Podemos elegir $\rho > 0$ tal que $S \cap D(w, \rho) \subset H(\mu, \lambda)$. Por la parte \eqref{eq:julia2}, se tiene que $f(H(w, \lambda)) \subset H(\mu, \lambda \delta)$, lo que completa la prueba. \\
 \end{proof}
 
-Veamos con un par de ejemplos qué tipo de condición impone \eqref{eq:condjulia3} sobre el modo en que la imagen de $f$ se acerca al borde del disco. Vamos a observar que en el ejemplo \ref{ex:jul1} pasa tal cosa, mientras que en el ejemplo \ref{ex:jul2} pasa no sé-qué. Esto es debido a que en el segundo caso se trata de funciones donde el cociente \eqref{eq:condjulia3} no está acotado. Esto lleva asociado que exista o no la derivada angular de la función en el límite angular de la función. \\
+Veamos con un par de ejemplos qué tipo de condición impone \eqref{eq:condjulia3} sobre el modo en que la imagen de $f$ se acerca al borde del disco. Vamos a observar que en el ejemplo \ref{ex:jul1} los cocientes valen siempre lo mismo, mientras que en el ejemplo \ref{ex:jul2} la imagen se aparta del borde cerca del punto $1$. Esto es debido a que en el segundo caso se trata de funciones donde el cociente \eqref{eq:condjulia3} no está acotado. Esto lleva asociado que exista o no la derivada angular de la función en el límite angular de la función. \\
 
 \begin{example}
     \label{ex:jul1}
@@ -329,7 +329,7 @@ Veamos con un par de ejemplos qué tipo de condición impone \eqref{eq:condjulia
 
             \draw[<-] (1.5, -4) -- (2.5, -4) node[midway, above, font=\footnotesize]{$\sigma^{-1}$};
         \end{tikzpicture}
-        \caption{Ejemplo}
+        \caption{Transformación del disco mediante la función $g$.}
         \label{fig:ejemplo}
     \end{figure}
 
@@ -348,7 +348,7 @@ Veamos con un par de ejemplos qué tipo de condición impone \eqref{eq:condjulia
             $0,9$  & $1,67686$ & $2,13522$ & $4,26679$ & $8,51339$      & $16,9864$         \\ \hline
             $0,99$ & $1,04375$ & $1,07785$ & $1,15613$ & $1,23882$      & $1,32738$         \\ \hline
         \end{tabular}
-        \caption{Ejemplo}
+        \caption{Valores de los cocientes de tipo \eqref{eq:condjulia3} para la sucesión $p_n = 1 - \frac{1}{n}$.}
         \label{tab:ejemplo}
     \end{table}
 \end{example}

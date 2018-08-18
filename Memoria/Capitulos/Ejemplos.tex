@@ -1,8 +1,8 @@
-\chapter{NOMBRE}
+\chapter{Series de potencias. Productos infinitos}
 
 \todo[inline]{Introducción}
 
-\section{Ejemplos}
+\section{Ejemplos de series de potencias}
 \label{sec:ejemplos}
 
 En esta sección vamos a estudiar el comportamiento de algunas series de potencias en el borde de su disco de convergencia. Para ello primero vamos a recordar algunos conceptos que nos van a ser de utilidad. Sea $f(z)$ una serie de potencias con coeficientes $\{a_n\}_{n=1}^{\infty} \subset \complex$ centrada en $z_0$ dada por
@@ -19,7 +19,7 @@ donde $z \in \complex$. \\
 \end{definition}
 \medskip
 
-Así pues, el radio de convergencia $R$ es un número real no negativo, que puede ser $\infty$ en algunos casos, tal que la serie converge si $\abs{z - z_0} < R$, y diverge si $\abs{z - z_0} > R$. Decimos que la serie converge en su disco de convergencia. \\
+Así pues, cuando el radio de convergencia cumple que $0 < R < \infty$, $R$ es el único número real tal que la serie converge si $\abs{z - z_0} < R$, y diverge si $\abs{z - z_0} > R$. Por ello, decimos que $D(z_0,r)$ es el disco de convergencia de la serie. \\
 
 En la frontera del disco de convergencia, esto es, cuando $\abs{z - z_0} = r$, el comportamiento de la serie de potencias puede ser complicado, es decir, puede converger para unos valores de $z$ y divergir para otros. \\
 
@@ -77,23 +77,32 @@ Así, decimos que hemos obtenido la prolongación analítica de $\sum_{n=0}^{\in
 
 \begin{figure}[h]{}
     \centering
-    \begin{tikzpicture}[use Hobby shortcut]
+    \begin{tikzpicture}[scale=0.8, use Hobby shortcut]
         \draw (4, 1) circle (3.1622776601683795cm);
         \draw (0, 0) circle (1cm);
         \draw (0.8377223398316204 ,1) circle (1.01308145723319cm);
         \draw (0.19918404494511877, 0.5989105159617241) circle (1cm);
 
-        \filldraw[black] (0, 0) circle (1pt) node[below, text=black] {\small $z_0 = 0$};
-        \filldraw[black] (0.19918404494511877, 0.5989105159617241) circle (1pt) node[below right=-0.1, text=black] {\small $z_1$};
-        \filldraw[black] (0.8377223398316204, 1) circle (1pt) node[below right=-0.15, text=black] {\small $z_2$};
-        \filldraw[black] (4, 1) circle (1pt) node[below, text=black] {\small $z_m = a$};
-        \filldraw[black] (1, 0) circle (1pt) node[below, text=black] {\small $1$};
+        \filldraw (0, 0) circle (1pt) node[below, font=\scriptsize]{$z_0 = 0$};
+        \filldraw (0.19918404494511877, 0.5989105159617241) circle (1pt) node[below right=-0.1, font=\scriptsize]{$z_1$};
+        \filldraw (0.8377223398316204, 1) circle (1pt) node[below right=-0.15, font=\scriptsize]{$z_2$};
+        \filldraw (4, 1) circle (1pt) node[below, font=\scriptsize]{$z_m = a$};
+        \filldraw (1, 0) circle (1pt) node[below, font=\scriptsize]{$1$};
 
         \draw (0, 0) .. (0.19918404494511877, 0.5989105159617241) .. (0.8377223398316204, 1) .. (4, 1);
-        \node[above] at (2.5, 1.2) {$\gamma$};
+        \node[above, font=\footnotesize] at (2.5, 1.2) {$\gamma$};
     \end{tikzpicture}
     \caption{Prolongaciones analíticas.}
     \label{fig:prolongacion}
+\end{figure}
+
+Podemos hacer uso de la aplicación que se ha desarrollado como complemento para visualizar con mayor claridad el comportamiento de esta función en el disco unidad. La figura \ref{fig:ejemplo1} muestra la función globalmente analítica $\frac{1}{1-z}$ en $\partial \disk \setminus \{1\}$. \\
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.7\textwidth]{../Aplicacion/1:(1-z).png}
+    \caption{Representación de la función $\frac{1}{1-z}$ en el disco unidad.}
+    \label{fig:ejemplo1}
 \end{figure}
 \end{proof}
 
@@ -140,6 +149,18 @@ A continuación, presentamos otra serie con radio de convergencia $1$, que conve
         g'(z) = \sum_{n=1}^{\infty} z^{n-1} \Rightarrow z g'(z) = \sum_{n=1}^{\infty} z^n = \frac{z}{1 - z}.
      \end{equation*}
      Si integramos ahora la expresión de la derecha tenemos que la suma es $\log{\frac{1}{1 - z}}$ puesto que $g(0) = 0$. \\ % No estoy segura de que sea $g(0) = 0$ lo que necesitamos aquí.
+
+    De nuevo, haciendo uso de la aplicación, hemos generado la figura  \ref{fig:ejemplo2} que muestra la función $\log{\frac{1}{1 - z}}$ en $\partial \disk$. \\
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.7\textwidth]{../Aplicacion/log(1:(1-z)).png}
+    \caption{Representación de la función $\log{\frac{1}{1 - z}}$ en el disco unidad.}
+    \label{fig:ejemplo2}
+\end{figure}
+
+
+
 \end{proof}
 % Utilizando un argumento análogo, podemos presentar ejemplos de series con disco de convergencia de radio $1$, pero que divergen en una cantidad arbitraria de puntos del borde del disco. Por ejemplo, la serie $\sum_{n=0}^{\infty} \frac{z^{pn}}{n}$, diverge en las $p$ raíces $p$-ésimas de la unidad.
 
@@ -211,7 +232,7 @@ A continuación, presentamos otro ejemplo de serie de potencias con radio de con
         \sum_{k=n}^{\infty} r^{2^k} \geq \sum_{k=n}^{N} r^{2^k} > (N + 1) r^{2^k} \to N + 1,
     \end{equation*}
 
-    entonces $\lim_{r \to 1} \abs{h(re^{2 \pi i \frac{m}{2^n}})} = \infty$ para todos $m, n \in \naturals$. \\
+    entonces $\lim_{r\to 1} \abs{h(re^{2 \pi i \frac{m}{2^n}})} = \infty$ para todos $m, n \in \naturals$. \\
 
     Puesto que $\{e^{2 \pi i \frac{m}{2^n}} : m, n \in \naturals\}$ es denso en $\partial \disk$, todos los puntos del borde del disco unidad son singulares. \\
 \end{proof}
@@ -226,42 +247,50 @@ Por último, tenemos una función holomorfa y acotada en el disco unidad, con un
     \label{ex:exp}
     Mostrar que la función
     \begin{equation*}
-        f(z) = \exp{\left(\frac{z + 1}{z - 1}\right)}, \, z \in \disk
+        S(z) = \exp{\left(\frac{z + 1}{z - 1}\right)}, \, z \in \disk
     \end{equation*}
-    es holomorfa, $\abs{f(z)} < 1$ para todo $z \in \disk$, y $f(t) \to 0$ cuando $t \to 1^-$. % Lo que ocurre es que se puede extender al disco cerrado menos el 1 y |f(w)|=1 si |w|=1 y w\neq 1.
+    es holomorfa, $\abs{S(z)} < 1$ para todo $z \in \disk$, y $S(t)\to 0$ cuando $t \to 1^-$, pero no existe el límite de $S$ en $1$.
 \end{example}
 
 \begin{proof}
-    La función $f$ es holomorfa ya que es la composición de funciones holomorfas. Obsérvese que el único punto singular es $z = 1$ y $f$ y todas sus derivadas tienen límite radial 0 en $e^{i \theta} = 1$ . \\
+    La función $S$ es holomorfa en el disco unidad ya que es la composición de funciones holomorfas. Obsérvese que el único punto singular es $z = 1$. Su desarrollo en serie de potencias en torno al $0$ tiene, por tanto, radio de convergencia $1$. Además, tanto $S$ como todas su derivadas tienen límite radial 0 en $e^{i \theta} = 1$ . \\
 
-    La función $g(z) = \frac{z + 1}{z - 1}$ lleva el disco en el semiplano izquierdo $H = \{w: \Re (w) < 0\}$, así que $z = 1$ se corresponde con $\infty$ y $\partial \disk \setminus \{1\}$ se corresponde con el eje imaginario. Así pues, la exponencial $e^{g(z)}$ es holomorfa en $\partial \disk \setminus \{1\}$ y lleva $H$ en $\disk$:
-    \begin{equation*}
-        \abs{e^z} = \abs{e^{x+iy}} = \abs{e^{x}(\cos y + i\sen y)} = e^{x} < 1.
-    \end{equation*}
+    Consideramos la transformación de Möbius $T(z) = \frac{z + 1}{z - 1}$ definida en el disco unidad. La imagen del disco por $T$ es el semiplano izquierdo $H = \{w: \Re (w) < 0\}$. Por lo que la exponencial $e^{T(z)}$ aplica el disco $\disk$ en sí mismo. Además, es holomorfa en $\closedisk \setminus \{1\}$, puede extenderse con continuidad a $\closedisk \setminus \{1\}$ y la extensión, en módulo, está acotada por $1$. \\
+    %\begin{equation*}
+    %    \abs{e^z} = \abs{e^{x+iy}} = \abs{e^{x}(\cos y + i\sen y)} = e^{x} < 1.
+    %\end{equation*}
 
-    La aplicación $g$ es una transformación de Möbius, y dichas transformaciones tienen la propiedad de que llevan circunferencias y rectas en circunferencias y rectas. Como la función lleva $-1$ a $0$, $i$ a $-i$ y $-i$ a $i$, la imagen del círculo $\abs{z}=1$, ha de ser una recta. \\
-
-    Si tomamos una sucesión $\{t_n\}$ en el intervalo $(-1,1)$ que converge a $1$ cuando $n$ tiende a $\infty$, se tiene que $g(t_n)  = \frac{t + 1}{t - 1}$ tiende a $- \infty$ cuando $t$ tiende a $1^-$. Por lo tanto,
+    Veamos a continuación que no podemos extender la función $S$ con continuidad al punto $1$. Tomemos una sucesión $\{t_n\}$ en el intervalo $(-1,1)$ que converge a $1$ cuando $n$ tiende a $\infty$. Se tiene que $T(t_n)  = \frac{t + 1}{t - 1}$ tiende a $- \infty$ cuando $t$ tiende a $1^-$. Por lo tanto,
     \begin{equation*}
         \frac{t + 1}{t - 1} \xrightarrow[t \to 1^-]{}  - \infty \Rightarrow \exp \left(  \frac{t + 1}{t - 1} \right) \xrightarrow[t \to 1^-]{} 0.
     \end{equation*}
 
-    Sin embargo, la función $f$ no tiene límite en $1$. Por ejemplo, si tomamos la sucesión $\{z_n\}$ definida por $z_n = g(w_n)$, siendo $\{w_n\}$ la sucesión de término general $-1 + 2n \pi i$. Entonces,
+    Sin embargo, la función $S$ no tiene límite en $1$. Por ejemplo, si tomamos la sucesión $\{z_n\}$ definida por $z_n = T(w_n)$, siendo $\{w_n\}$ la sucesión de término general $-1 + 2n \pi i$. Entonces,
      \begin{equation*}
          z_n = \frac{2n \pi i}{-2 + 2n \pi i} = \frac{n \pi i}{n \pi i - 1} =  \frac{(n \pi i + 1) n \pi i}{- n^2 \pi^2 - 1} = \frac{-n^2 \pi^2 + i n \pi}{-n^2 \pi^2 - 1}.
      \end{equation*}
 
-     Como $g = g^{-1}$ tenemos
+     Como $T = T^{-1}$ tenemos
      \begin{equation*}
-         e^{g(z_n)} = e^{w_n} \to e^{-1} \not = 0.
+         e^{T(z_n)} = e^{w_n} \to e^{-1} \not = 0.
      \end{equation*}
 
+     Gracias a la figura \ref{fig:ejemplo5} se puede observar el comportamiento de la función en el disco. Más concretamente, la singularidad en el punto $z=1$. \\
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.7\textwidth]{../Aplicacion/e^((z+1):(z-1)).png}
+    \caption{Representación de la función $\exp{\left(\frac{z + 1}{z - 1}\right)}$ en el disco unidad.}
+    \label{fig:ejemplo5}
+\end{figure}
+
      Estudiaremos este ejemplo con más detalle en el Capítulo \ref{cap:banach}, centrándonos de nuevo en el comportamiento de la función en el punto singular $z = 1$. \\
- \end{proof}
+
+\end{proof}
 
 \section{Productos infinitos}
 
-\todo[inline]{Introducción.}
+Introducimos la noción de producto infinito convergente, relacionándola con la convergencia de una serie numérica. Esta construcción puede extenderse a productos infinitos de funciones (holomorfas), lo que da lugar a nuevas familias de funciones holomorfas complejas cuando se obtienen como límite uniforme sobre compactos de productos apropiados. \\
 
 \begin{definition}
     Sea $\{u_n\}$ una sucesión de números complejos tal que $u_n \neq 0$ para todo $n \geq n_0$. Se dice que el producto infinito $\prod_{n=1}^{\infty} u_n$ es convergente cuando el límite
@@ -274,7 +303,9 @@ Por último, tenemos una función holomorfa y acotada en el disco unidad, con un
     \end{equation*}
 \end{definition}
 
-\todo[inline]{Añadir resultados de convergencia y convergencia absoluta en productos infinitos}
+\medskip
+
+Los siguientes dos resultados nos van a permitir relacionar la convergencia de un producto infinito con la convergencia de las series de potencias, lo cual nos va a ser de gran ayuda ya que estas últimas son mucho más fáciles de manejar. \\
 
 \begin{prop}
     Sea $\{u_n\}$ una sucesión de números complejos no nulos. Si $\lim u_n =1$ y la serie
@@ -297,14 +328,14 @@ Por último, tenemos una función holomorfa y acotada en el disco unidad, con un
     \begin{equation*}
         \sum_{n=1}^{N} \log u_n
     \end{equation*}
-    tienen límite. Como la función exponencial es continua, podemos exponenciar las sumas parciales y vemos que
+    tienen límite y es finito. Como la función exponencial es continua, podemos exponenciar las sumas parciales y vemos que
     \begin{equation*}
         \prod_{n=1}^{\infty} u_n = \lim_{N \to \infty} \prod_{n=1}^{N} u_n
     \end{equation*}
-    existe.
+    existe. \\
 \end{proof}
 
-\begin{lemma}
+\begin{prop}
     \label{th:convergencia}
     Sea $\{\alpha_n\}$ una sucesión de números complejos tales que $\alpha_n \not = 1$ para todo $n$. Supongamos que
     \begin{equation*}
@@ -315,31 +346,37 @@ Por último, tenemos una función holomorfa y acotada en el disco unidad, con un
         \prod_{n=1}^{\infty} (1 - \alpha_n)
     \end{equation*}
     converge absolutamente.
-\end{lemma}
+\end{prop}
 
 \begin{proof}
     Para una cantidad finita $n$, tenemos que $\abs{\alpha_n} < \frac{1}{2}$, así que $\log{(1 - \alpha_n)}$ está definido por la serie usual, y para alguna constante $C$, tenemos
     \begin{equation*}
         \abs{\log{(1 - \alpha_n)}} \leq C \abs{\alpha_n}.
     \end{equation*}
-    Por tanto, el producto converge absolutamente por definición y utilizando la hipótesis de que $\sum_{n=1}^{\infty} \abs{\alpha_n}$ converge.
+    Por tanto, el producto converge absolutamente por definición y utilizando la hipótesis de que $\sum_{n=1}^{\infty} \abs{\alpha_n}$ converge. \\
 \end{proof}
 
-Los dos Lemas anteriores nos permiten relacionar la convergencia de un producto infinito con la convergencia de las series de potencias, lo cual nos va a ser de gran ayuda ya que estas últimas son mucho más fáciles de manejar. \\
+Una vez que disponemos de las herramientas apropiadas para el estudio de los productos numéricos en términos de las series asociadas, se puede analizar la convergencia (absoluta y uniforme) de productos infinitos de funciones en términos de la convergencia (absoluta y uniforme) de las series correspondientes. En la siguiente sección utilizaremos este resultado para introducir los productos de Blaschke. \\
 
-\todo[inline]{Añadir comentario sobre la equivalencia de las tres situaciones.}
+La demostración del resultado que presentamos a continuación es análoga a las de los precedentes. \\
+
+\begin{theorem}
+    Si $\{u_n\}$ es una sucesión de funciones complejas acotadas en un conjunto $A$ tales que $\sum \abs{1-u_n(z)}$ converge uniformemente en  $A$, entonces el producto $f(z) = \prod u_n(z)$ converge uniformemente en A y cumple que $f(z_0) = 0$ si y solo si existe $n_0$ tal que $u_{n_0}(z_0) = 0$.
+\end{theorem}
 
 \section{Productos de Blaschke}
 
-\todo[inline]{Se está utilizando que la topología de la convergencia uniforme sobre compactos es la apropiada, ya que los límites en ella de elementos de H(D) existen y son otra vez funciones holomorfas.}
+Tras los ejemplos de funciones holomorfas en el disco unidad que presentamos en la primera sección, definidas mediante su serie de potencias centrada en 0 o a través de su expresión analítica explícita, utilizamos la noción de producto infinito de funciones para presentar una clase especial de funciones holomorfas y acotadas en el disco. Se trata de los productos de Blaschke, que se obtienen a través de un producto infinito de automorfismos del disco unidad. Cada uno de ellos está ligado a un valor $\alpha$ en el disco, el único punto donde el automorfismo se anula, y la convergencia del producto infinito se describe dada en términos de los distintos valores $\alpha_n$. En concreto, la sucesión $\{\alpha_n\}$ debe aproximarse rápidamente al borde del disco, como muestra el resultado que se presenta a continuación. \\
 
-\begin{prop}
+\todo[inline]{Se está utilizando que la topología de la convergencia uniforme sobre compactos es la apropiada, ya que los límites en ella de elementos de $\bholomorphic{\disk}$ existen y son otra vez funciones holomorfas.}
+
+\begin{theorem}
     Sea $\{\alpha_n\}$ una sucesión en el disco unidad $\disk$ tal que $\alpha_n \not = 0$ para todo $n$ y $\sum_{n=1}^{\infty} (1 - \abs{\alpha_n})$ converge. Entonces el producto de Blaschke
     \begin{equation*}
         B(z) = \prod_{n=1}^{\infty} \frac{\alpha_n - z}{1 - \xbar{\alpha_n}z} \dfrac{\abs{\alpha_n}}{\alpha_n}
     \end{equation*}
     converge uniformemente sobre los compactos de $\disk$. La función $B(z)$ define una función holomorfa en el disco unidad que tiene los mismos ceros que $\alpha_n$. Además $\abs{B(z)} \leq 1$ y $\abs{B(e^{i \theta})} = 1$ en casi todo punto.
-\end{prop}
+\end{theorem}
 
 \begin{proof}
     Sea
@@ -376,8 +413,12 @@ Los dos Lemas anteriores nos permiten relacionar la convergencia de un producto 
     \begin{equation*}
          \frac{1}{2 \pi}  \int_{0}^{2 \pi} \abs{ B(e^{i \theta})} d \theta = 1,
     \end{equation*}
-    y, por consiguiente, $\abs{ B(e^{i \theta})} = 1$ en casi todo punto
+    y, por consiguiente, $\abs{ B(e^{i \theta})} = 1$ en casi todo punto. \\
 \end{proof}
+
+\begin{obs}
+     Cada $b_n(0)$ es positivo y por lo tanto también lo es $B(0)$. \\
+\end{obs}
 
 Podemos enunciar un resultado similar al anterior si permitimos que $\alpha_n$ se anule $m$ veces, lo que significa que $B$ se anulará en los mismos puntos que $\alpha_n$. Haciendo uso de la Proposición anterior, lo que atañe a la convergencia y los límites radiales es inmediato y no precisa demostración. \\
 
@@ -386,6 +427,15 @@ Podemos enunciar un resultado similar al anterior si permitimos que $\alpha_n$ s
 \begin{equation*}
     B(z) = z^m \prod_{\abs{\alpha_n} \not = 0} \frac{\alpha_n - z}{1 - \xbar{\alpha_n}z} \dfrac{\abs{\alpha_n}}{\alpha_n}
 \end{equation*}
-converge uniformemente sobre los compactos de $\disk$. La función $B(z)$ define una función holomorfa en el disco unidad que tiene los mismos ceros que $\alpha_n$. Además $\abs{B(z)} \leq 1$ y $\abs{B(e^{i \theta})} = 1$ en casi todo punto.
+converge uniformemente sobre los compactos de $\disk$. La función $B(z)$ define una función holomorfa en el disco unidad que tiene los mismos ceros que $\alpha_n$. Además $\abs{B(z)} \leq 1$ y $\abs{B(e^{i \theta})} = 1$ en casi todo punto. \\
+\end{corollary}
+
+Después de la discusión anterior podemos dar una formulación general de los productos de Blaschke. \\
+
+\begin{corollary}
+    Sea $\{\alpha_n\}$ una sucesión en el disco unidad $\disk$ tal que $\sum_{n=1}^{\infty} (1 - \abs{\alpha_n})$ converge. Sea $m \geq 0$ el número de $\alpha_n$ iguales a cero, y $t \in \real$. La expresión general de un producto de Blaschke es
+    \begin{equation*}
+        B(z) = e^{it}z^m \prod_{\abs{\alpha_n} \not = 0} \frac{\alpha_n - z}{1 - \xbar{\alpha_n}z} \dfrac{\abs{\alpha_n}}{\alpha_n}.
+    \end{equation*}
 \end{corollary}
 

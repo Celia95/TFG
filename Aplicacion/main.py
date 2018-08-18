@@ -43,8 +43,8 @@ start_time = time.time()
 #plotter = Plotter(BoundaryFunction(lambda t: 3 * cmath.cos(t) + 3j * cmath.sin(t)))
 #plotter.plot('3cos(t)+3isen(t).png', show=False)
 
-#plotter = Plotter(BoundaryFunction(lambda t: cmath.cos(t) ** 2 - cmath.sin(t) ** 2))
-#plotter.plot('cos^2(t)-sen^2(t).png', show=False)
+plotter = Plotter(BoundaryFunction(lambda t: cmath.cos(t) ** 2 - cmath.sin(t) ** 2))
+plotter.plot('cos^2(t)-sen^2(t).png', show=False)
 
 #plotter = Plotter(BoundaryFunction(lambda t: cmath.cos(t) ** 2 - cmath.sin(t) ** 2 + (2 * cmath.cos(t) * cmath.sin(t)) * 1j))
 #plotter.plot('cos^2(t)-sen^2(t)+(2cos(t)sen(t))i.png', show=False)
@@ -106,7 +106,7 @@ start_time = time.time()
 #plotter.plot('e^(-z^2).png', show=False, radio=5)
 
 #plotter = Plotter(ComplexFunction(lambda t: cmath.e ** ((t + 1) / (t - 1))))
-#plotter.plot('e^((z+1)/(z-1)).png', show=False, radio=2)
+#plotter.plot('e^((z+1):(z-1)).png', show=False, radio=1)
 
 #plotter = Plotter(ComplexFunction(lambda t: cmath.e ** cmath.sin(t)))
 #plotter.plot('e^(sen(z)).png', show=False, radio=5)

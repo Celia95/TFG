@@ -168,13 +168,11 @@ Si $f(\lambda) = c$, entonces $f(z) = c + g(z)$, con $g(z) = 0$ y
 \begin{equation*}
     \phi(f) = \phi(c) + \phi(g) = c + 0 = c.
 \end{equation*}
-Por lo tanto, $\phi(f) = f(\lambda)$ para toda $f \in \bholomorphic{\disk}$, es decir, $\phi$ es la evaluación en $\lambda$. Esto prueba que $\pi$ es inyectiva sobre los puntos del disco unidad $\disk$. \\
-
-\todo[inline, color=yellow]{Mirar esto con cuidado. Creo que $\Delta = \pi^{-1} (\disk) = \{\delta_z : z \in \disk\}$, no?}
+Por lo tanto, $\phi(f) = f(\lambda)$ para toda $f \in \bholomorphic{\disk}$, es decir, $\phi$ es la evaluación en $\lambda$, $\delta_\lambda$. Esto prueba que $\pi$ es inyectiva sobre los puntos del disco unidad $\disk$. \\
 
 Observamos que la topología usual en $\disk$ se puede describir también a través del álgebra $\bholomorphic{\disk}$. De hecho, $\{z_j\}$ tiende a $c$ si y solo si para toda $f \in \bholomorphic{\disk}$, $\{f(z_j)\}$ tiende a $f(c)$. \\
 
-Si tomamos $\Delta = \pi^{-1} (\disk) = \{\phi_z : z \in \disk\}$, entonces $\pi$ lleva $\Delta$ homeomórficamente en el disco $\disk$ ya que la topología de $\Delta$ es la topología débil definida por las aplicaciones $\widehat f$ y la topología de $\disk$ es la topología débil definida por las aplicaciones $f \in \bholomorphic{\disk}$. \\
+Si tomamos $\Delta = \pi^{-1} (\disk) = \{\delta_z : z \in \disk\}$, entonces $\pi$ lleva $\Delta$ homeomórficamente en el disco $\disk$ ya que la topología de $\Delta$ es la topología débil definida por las aplicaciones $\widehat f$ y la topología de $\disk$ es la topología débil definida por las aplicaciones $f \in \bholomorphic{\disk}$. \\
 \end{proof}
 
 \begin{definition}
@@ -337,8 +335,9 @@ Por lo tanto, si $\abs{\alpha} = 1$, el contenido $Cl(f, \alpha) \subset \wideha
 
 \medskip
 
-Ya conocemos funciones internas tales como los automorfismos del disco unidad o los productos de Blaschke, de los que ya hemos hablado en el Capítulo \ref{tal}. %Citar en concreto los resultados 3.3.1 y el corolario 3.3.1.1.
-Además de este tipo de funciones, la función $S(z) = \exp{\left(\frac{z + 1}{z - 1}\right)}, z \in \disk$, que introdujimos en el Ejemplo \ref{ex:exp} también es una función interna. Recordemos que si $\abs{w} = 1$ y $w \neq 1$, entonces $S$ puede extenderse a $w$ $\abs{S(w)} = 1$. \\
+Los ejemplos más sencillos de funciones internas son la identidad, los giros y las funciones $f_n(z) = z^n, n \geq 1$. Si $f$ es un función interna, lo es si se compone con cualquiera de las anteriores.
+Además, ya conocemos otros ejemplos de funciones internas tales como los automorfismos del disco unidad, los productos de Blaschke -de los que ya hemos hablado en el Capítulo \ref{tal}-. %Citar en concreto los resultados 3.3.1 y el corolario 3.3.1.1.
+o la función $S(z) = \exp{\left(\frac{z + 1}{z - 1}\right)}, z \in \disk$, que introdujimos en el Ejemplo \ref{ex:exp} también es una función interna. Recordemos que si $\abs{w} = 1$ y $w \neq 1$, entonces $S$ puede extenderse a $w$ y $\abs{S(w)} = 1$. \\
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -346,11 +345,12 @@ Vamos a retomar el Ejemplo \ref{ex:exp}, analizando el conjunto de los valores a
 
 %Como la aplicación $T$ lleva $-1$ a $0$, $i$ a $-i$ y $-i$ a $i$, la imagen del círculo $\abs{z} = 1$, ha de ser una recta. A su vez, $z = 1$ se corresponde con $\infty$, mientras que $\partial \disk \setminus \{1\}$ se corresponde con el eje imaginario. \\
 
-Las transformaciones de Möbius tienen la propiedad de que llevan circunferencias y rectas en circunferencias y rectas. Por lo que $T$ lleva el eje real en sí mismo, mientras que cada circunferencia con centro en el eje real que pasa por $1$ se aplica sobre una recta paralela al eje imaginario, como podemos ver en la figura \ref{fig:exp}. En concreto, si la circunferencia $C_t$ tiene diámetro $[t, 1]$, su imagen es la recta
+Las transformaciones de Möbius tienen la propiedad de que llevan circunferencias y rectas en circunferencias y rectas. Por lo que $T$ lleva el eje real en sí mismo, mientras que cada circunferencia con centro en el eje real que pasa por $1$ se aplica sobre una recta paralela al eje imaginario, como podemos ver en la figura \ref{fig:exp}. En concreto, si la circunferencia $C_t$ tiene diámetro de extremos los puntos $t$ y $1$, su imagen es la recta
 \begin{equation}
-    \{z \in \complex : \Re(z) = \frac{t + 1}{t - 1}\}
+    \left\{z \in \complex : \Re(z) = \frac{t + 1}{t - 1}\right\}.
 \end{equation}
-Usamos este hecho para observar que cada $w \in \disk$ es límite de una sucesión $\{S(z_n)\}$, con $\lim_{n \to \infty} z_n = 1$. Veamos esto último, distinguiendo tres casos:
+
+Utilizamos este hecho para observar que cada $w \in \disk$ es límite de una sucesión $\{S(z_n)\}$, con $\lim_{n \to \infty} z_n = 1$. Veamos esto último, distinguiendo tres casos:
 
 \begin{itemize}
     \item Si $w = 0$, la sucesión $z_n = 1 - \frac{1}{n}$ converge a $1$ y, como $S(z_n) = e^{-(2n-1)}$, la sucesión $\{S(z_n)\}$ tiende a 0.
@@ -375,13 +375,13 @@ Usamos este hecho para observar que cada $w \in \disk$ es límite de una sucesi�
     \begin{tikzpicture}[scale=2]
         \draw[->,color=black] (-3.5, 0) -- (1.5, 0); % eje x
         \foreach \x in {-3, -2, -1, 0, 1}
-        \draw[shift={(\x,0)},color=black] (0pt,2pt) -- (0pt,-2pt) node[below]{\footnotesize $\x$};
+        \draw[shift={(\x,0)},color=black] (0pt,2pt) -- (0pt,-2pt) node[below]{\scriptsize $\x$};
 
         \draw[->,color=black] (0, -1.5) -- (0, 1.5); % eje y
         \foreach \y in {-1, 1}
-        \draw[shift={(0,\y)},color=black] (2pt,0pt) -- (-2pt,0pt) node[left] {\footnotesize $\y$};
+        \draw[shift={(0,\y)},color=black] (2pt,0pt) -- (-2pt,0pt) node[left] {\scriptsize $\y$};
 
-        \fill[color=cccccc,fill=cccccc,fill opacity=0.3499999940395355] (0, 1.5) -- (-3.5, 1.5) -- (-3.5, -1.5) -- (0, -1.5) -- cycle;
+        \fill[color=cccccc,fill=cccccc,fill opacity=0.35] (0, 1.5) -- (-3.5, 1.5) -- (-3.5, -1.5) -- (0, -1.5) -- cycle;
 
         %\draw [smooth,samples=100,domain=0:1] plot(\x,{(\x + 1)/(\x - 1)}); %curva
 
@@ -405,7 +405,7 @@ Usamos este hecho para observar que cada $w \in \disk$ es límite de una sucesi�
         \draw [dash pattern=on 1pt off 1pt,color=wwwwqq] (0.75, 0) circle (0.25cm);
         \draw [dash pattern=on 1pt off 1pt,color=wwwwqq] (-3.,-1.5) -- (-3, 1.5);
     \end{tikzpicture}
-    \caption{Exponencial}
+    \caption{Imagen de $C_t$ a través de $T$.}
     \label{fig:exp}
 \end{figure}
 
