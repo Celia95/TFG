@@ -2,14 +2,13 @@ import cmath
 
 
 class AbstractFunction:
-    def __init__(self, f, label):
+    def __init__(self, f):
         self.f = f
-        self.label = label
 
 
 class BoundaryFunction(AbstractFunction):
-    def __init__(self, f, label, steps=300):
-        AbstractFunction.__init__(self, f, label)
+    def __init__(self, f, steps=300):
+        AbstractFunction.__init__(self, f)
         self.__steps = steps
 
     def eval(self, r, theta):
@@ -38,10 +37,18 @@ class BoundaryFunction(AbstractFunction):
 
 
 class ComplexFunction(AbstractFunction):
-    def __init__(self, f, label):
-        AbstractFunction.__init__(self, f, label)
+    def __init__(self, f):
+        AbstractFunction.__init__(self, f)
 
     def eval(self, r, theta):
         a = r * cmath.e ** (theta * 1j)
         return self.f(a)
 
+
+class DifferenceFunction(AbstractFunction):
+    def __init__(self, f, g):
+        self.__f = f
+        self.__g = g
+
+    def eval(self, r, theta):
+        return self.__f.eval(r, theta) - self.__g.eval(r, theta)

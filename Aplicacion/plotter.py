@@ -6,8 +6,9 @@ from misc import frange
 
 
 class Plotter:
-    def __init__(self, abstract_function):
+    def __init__(self, abstract_function, label=''):
         self.__abstract_function = abstract_function
+        self.label = label
 
     def plot(self, file_name="disco.png", show=True, radio=1):
         step_distance = 0.01 * radio
@@ -17,15 +18,15 @@ class Plotter:
         for r in frange(0, radio + step_distance, step_distance):
             delta_theta = self.__delta(r, step_distance)
             for theta in frange(-math.pi, math.pi, delta_theta):
-                a = r * cmath.e ** (theta * 1j)
                 try:
-                    fa = self.__abstract_function.eval(r, theta)
-                    rgb.append(self.__complex_color(fa))
+                    a = r * cmath.e ** (theta * 1j)
                     x.append(a.real)
                     y.append(a.imag)
+                    fa = self.__abstract_function.eval(r, theta)
+                    rgb.append(self.__complex_color(fa))
                 except (ArithmeticError, ValueError):
-                    pass
-        self.__plot(x, y, rgb, self.__abstract_function.label, file_name, show)
+                    rgb.append(1, 1, 1)
+        self.__plot(x, y, rgb, self.label, file_name, show)
 
     @staticmethod
     def __delta(r, step_distance):
@@ -82,7 +83,7 @@ class Plotter:
         ax.axis('equal')
 
         plt.title(label)
-        plt.scatter(x, y, c=rgb, s=1)
+        plt.scatter(x, y, c=rgb, s=0.5)
         plt.savefig(file_name, dpi=1000)
         if show:
             plt.show()
