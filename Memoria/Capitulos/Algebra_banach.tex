@@ -336,7 +336,7 @@ Por lo tanto, si $\abs{\alpha} = 1$, el contenido $Cl(f, \alpha) \subset \wideha
 \medskip
 
 Los ejemplos más sencillos de funciones internas son la identidad, los giros y las funciones $f_n(z) = z^n, n \geq 1$. Si $f$ es un función interna, lo es si se compone con cualquiera de las anteriores.
-Además, ya conocemos otros ejemplos de funciones internas tales como los automorfismos del disco unidad, los productos de Blaschke -de los que ya hemos hablado en el Capítulo \ref{tal}-. %Citar en concreto los resultados 3.3.1 y el corolario 3.3.1.1.
+Además, ya conocemos otros ejemplos de funciones internas tales como los automorfismos del disco unidad, los productos de Blaschke -de los que ya hemos hablado en el Capítulo \ref{cap:ejemplos}-. %Citar en concreto los resultados 3.3.1 y el corolario 3.3.1.1.
 o la función $S(z) = \exp{\left(\frac{z + 1}{z - 1}\right)}, z \in \disk$, que introdujimos en el Ejemplo \ref{ex:exp} también es una función interna. Recordemos que si $\abs{w} = 1$ y $w \neq 1$, entonces $S$ puede extenderse a $w$ y $\abs{S(w)} = 1$. \\
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -370,7 +370,7 @@ Utilizamos este hecho para observar que cada $w \in \disk$ es límite de una suc
 \definecolor{qqzzqq}{rgb}{0, 0.6, 0}
 \definecolor{ffttqq}{rgb}{1, 0.2, 0}
 \definecolor{ccqqcc}{rgb}{0.8, 0, 0.8}
-\begin{figure}[h]{}
+\begin{figure}[!htbp]
     \centering
     \begin{tikzpicture}[scale=2]
         \draw[->,color=black] (-3.5, 0) -- (1.5, 0); % eje x
@@ -443,6 +443,13 @@ Así como para funciones internas se tiene la alternativa de que el conjuntos de
 
     Como $\mu \in Cl(h,1)$ si y solo si $\xbar{\mu} \in Cl(h,1)$, pues $h(\xbar{z}) = \xbar{h(z)}$, y $\abs{h(z)} = \abs{z} \to 1$ si $z \to 1$, concluimos que $Cl(h,1) = \partial \disk$. \\
 
-    Observamos que la función $h$ no es holomorfa, aunque sí está acotada en módulo por $1$ y tiene límite (radial) $h^*(w) = 1$ en todo $w\neq 1$ con $\abs{w} = 1$.
-\end{proof}
+    Observamos que la función $h$ no es holomorfa, aunque sí está acotada en módulo por $1$ y tiene límite (radial) $h^*(w) = 1$ en todo $w\neq 1$ con $\abs{w} = 1$. La figura \ref{fig:h(z)} muestra el comportamiento descrito. \\
 
+    \begin{figure}[!htbp]
+        \centering
+        \includegraphics[width=0.7\textwidth]{../Aplicacion/h(z).png}
+        \caption{Representación de $-z \frac{\xbar{z} -1}{z - 1}$.}
+        \label{fig:h(z)}
+    \end{figure}
+
+\end{proof}

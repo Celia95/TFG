@@ -1,4 +1,5 @@
 \chapter{Series de potencias. Productos infinitos}
+\label{cap:ejemplos}
 
 \todo[inline]{Introducción}
 
@@ -75,7 +76,7 @@ Después de un número finito de iteraciones, dado que la curva es un conjunto c
 
 Así, decimos que hemos obtenido la prolongación analítica de $\sum_{n=0}^{\infty} z^n$ que pasa por la curva $\gamma$. \\
 
-\begin{figure}[h]{}
+\begin{figure}[!htbp]
     \centering
     \begin{tikzpicture}[scale=0.8, use Hobby shortcut]
         \draw (4, 1) circle (3.1622776601683795cm);
@@ -98,7 +99,7 @@ Así, decimos que hemos obtenido la prolongación analítica de $\sum_{n=0}^{\in
 
 Podemos hacer uso de la aplicación que se ha desarrollado como complemento para visualizar con mayor claridad el comportamiento de esta función en el disco unidad. La figura \ref{fig:ejemplo1} muestra la función globalmente analítica $\frac{1}{1-z}$ en $\partial \disk \setminus \{1\}$. \\
 
-\begin{figure}[h]
+\begin{figure}[!htbp]
     \centering
     \includegraphics[width=0.7\textwidth]{../Aplicacion/1:(1-z).png}
     \caption{Representación de la función $\frac{1}{1-z}$ en el disco unidad.}
@@ -152,7 +153,7 @@ A continuación, presentamos otra serie con radio de convergencia $1$, que conve
 
     De nuevo, haciendo uso de la aplicación, hemos generado la figura  \ref{fig:ejemplo2} que muestra la función $\log{\frac{1}{1 - z}}$ en $\partial \disk$. \\
 
-\begin{figure}[h]
+\begin{figure}[!htbp]
     \centering
     \includegraphics[width=0.7\textwidth]{../Aplicacion/log(1:(1-z)).png}
     \caption{Representación de la función $\log{\frac{1}{1 - z}}$ en el disco unidad.}
@@ -277,7 +278,7 @@ Por último, tenemos una función holomorfa y acotada en el disco unidad, con un
 
      Gracias a la figura \ref{fig:ejemplo5} se puede observar el comportamiento de la función en el disco. Más concretamente, la singularidad en el punto $z=1$. \\
 
-\begin{figure}[h]
+\begin{figure}[!htbp]
     \centering
     \includegraphics[width=0.7\textwidth]{../Aplicacion/e^((z+1):(z-1)).png}
     \caption{Representación de la función $\exp{\left(\frac{z + 1}{z - 1}\right)}$ en el disco unidad.}
@@ -438,4 +439,3 @@ Después de la discusión anterior podemos dar una formulación general de los p
         B(z) = e^{it}z^m \prod_{\abs{\alpha_n} \not = 0} \frac{\alpha_n - z}{1 - \xbar{\alpha_n}z} \dfrac{\abs{\alpha_n}}{\alpha_n}.
     \end{equation*}
 \end{corollary}
-

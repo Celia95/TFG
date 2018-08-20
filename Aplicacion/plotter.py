@@ -25,7 +25,7 @@ class Plotter:
                     fa = self.__abstract_function.eval(r, theta)
                     rgb.append(self.__complex_color(fa))
                 except (ArithmeticError, ValueError):
-                    rgb.append(1, 1, 1)
+                    rgb.append((1, 1, 1))
         self.__plot(x, y, rgb, self.label, file_name, show)
 
     @staticmethod
@@ -84,7 +84,7 @@ class Plotter:
 
         plt.title(label)
         plt.scatter(x, y, c=rgb, s=0.5)
-        plt.savefig(file_name, dpi=1000)
+        plt.savefig(file_name, dpi=500)
         if show:
             plt.show()
 

@@ -85,7 +85,7 @@ Esta generalización del Lema de Schwarz afirma que cualquier función holomorfa
 
 Esta distancia es en realidad una métrica en $\disk$ que induce la topología euclídea usual. En particular, la distancia del origen a cualquier otro punto del disco es la euclídea. \\
 
-\begin{figure}[h]{}
+\begin{figure}[!htbp]
     \begin{minipage}[h]{0.5\textwidth}
         \centering
         \begin{tikzpicture}[scale=0.35]
@@ -151,7 +151,7 @@ Cuando $\lim_{n \to \infty} p_n = w$ y $\lim_{n \to \infty} \frac{1-\abs{p_n}^2}
 
 Es fácil comprobar que este horodisco coincide con el disco euclídeo $D(\frac{w}{1+\lambda}, \frac{\lambda}{1+\lambda})$. En particular, $H(w, \lambda)$ es tangente a la frontera del disco en el punto $w$. Un disco así aumenta de tamaño con $\lambda$ y ocupa el disco unidad cuando $\lambda \to \infty$. La figura \ref{fig:noeuclideos} muestra la evolución de $\Delta(p,r)$ cuando $p$ tiende a un punto $w$ de la frontera del disco. \\
 
-\begin{figure}[h]{}
+\begin{figure}[!htbp]
     \begin{minipage}[h]{0.35\textwidth}
         \centering
         \begin{tikzpicture}[scale=0.35]
@@ -298,7 +298,7 @@ Veamos con un par de ejemplos qué tipo de condición impone \eqref{eq:condjulia
 
     La figura \ref{fig:ejemplo} muestra cómo se transforma el disco mediante la aplicación $g$. Dado que tanto $\sigma$ como $\sigma^{-1}$ son transformaciones conformes y, como hemos estudiado anteriormente, transforman circunferencias y rectas en circunferencias y rectas, la imagen de $g$ debe ser la región limitada por los arcos de circunferencia $\gamma_1$ y $\gamma_2$, que forman con el eje real un ángulo de $\frac{a \pi}{2}$ y $\frac{-a \pi}{2}$, respectivamente. \\
 
-    \begin{figure}[h]{}
+    \begin{figure}[!htbp]
         \centering
         \begin{tikzpicture}[scale=1.2]
             \draw[fill=cccccc,fill opacity=0.35] (0,0) circle (1cm);
@@ -388,4 +388,3 @@ A continuación presentamos el Teorema de Wolff que garantiza que toda función 
         \item Para todo horodisco $H(w, \lambda)$ se tiene $f(H(w, \lambda)) \subset  H(w, \lambda)$.
     \end{enumerate}
 \end{theorem}
-
