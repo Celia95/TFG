@@ -43,9 +43,7 @@ Puesto que el color asignado al número $0$ es el negro, sabemos que las raíces
 
 Por último cuando avanzamos en el sentido contrario a las agujas del reloj, pasamos por los colores del círculo cromático $3$ veces. Esto muestra el hecho de que el argumento de $z^3$ es tres veces el argumento de $z$, y por lo tanto la imagen de un círculo centrado en el origen bajo la función cuadrática se envuelve alrededor del origen tres veces. \\
 
-La figura \ref{fig:1/z} muestra la representación de la función $f(z) = \frac{1}{z}$ con la técnica del coloreado. Podemos observar que en este caso en el origen se envuelven los colores del círculo cromático una única vez en sentido contrario, lo que indica que se trata de un polo simple. \\
-
-%$1/z^2$ como ejemplos de funciones con polo doble, donde el origen se rodea por todos los colores dos veces pero en sentido contrario;
+La figura \ref{fig:1/z} muestra la representación de la función $f(z) = \frac{1}{z}$ con la técnica del coloreado. En este caso, el color que se le ha asignado al $0$ es blanco, lo que indica que $\frac{1}{z}$ tiende a infinito cuando $z$ tiende a $0$. Es decir, nos encontramos ante un polo de la función. Podemos observar que en el origen se envuelven los colores del círculo cromático una única vez en sentido contrario, lo que indica que se trata de un polo simple. \\
 
 \begin{figure}[!htbp]
     \centering
@@ -84,52 +82,6 @@ Además, el dibujo también muestra que el polinomio es de grado $8$. Para $z$ d
 Introducimos un modelo de color gracias al cual vamos a poder representar fácilmente funciones complejas siguiendo el esquema de asignación de colores explicado anteriormente. Dicho modelo se conoce como HVS (del inglés, \textit{Hue, Saturation, Value} - Tono, Saturación, Valor). \\
 
 El primero de los atributos, que determina el tono de un color, se puede especificar por el ángulo que ocupa alrededor de un punto. Según va aumentando el ángulo, el color va variando de rojo, amarillo, verde, cyan, azul, magenta para volver de nuevo al rojo. Así pues el tono asociado a un número complejo está directamente relacionado con su argumento. La saturación es la intensidad de un tono específico, basándose en la pureza del color: un color muy saturado es vivo e intenso, mientras que un color menos saturado es más descolorido y gris. Por último, el valor indica la cantidad de luz que tiene un color. Cuánto más oscuro sea, menor será su valor y cuánto más claro, mayor. De este modo, la saturación y el valor asociadas a un número complejo están relacionados con el módulo del mismo. \\
-
-\begin{comment}
-\begin{figure}[!htbp]
-    \begin{minipage}[h]{0.3\textwidth}
-        \centering
-        \begin{tikzpicture}[scale=0.5]
-        \foreach \x in {0,0.0111,...,1}{
-            \definecolor{currentcolor}{hsb}{\x, 1, 1}
-            \draw[draw=none, fill=currentcolor]
-                (-360*\x+88:2) -- (-360*\x+88:3.8)
-                -- (-360*\x+92:3.8) -- (-360*\x+92:2) -- cycle;
-        }
-        \end{tikzpicture}
-        \label{fig:hue}
-        %\caption{Tono}
-    \end{minipage} \hfill
-    \begin{minipage}[h]{0.3\textwidth}
-        \centering
-        \begin{tikzpicture}[scale=0.5]
-        \foreach \x in {0,0.0111,...,1}{
-            \definecolor{currentcolor}{hsb}{1, \x, 1}
-            \draw[draw=none, fill=currentcolor]
-                (-360*\x+88:2) -- (-360*\x+88:3.8)
-                -- (-360*\x+92:3.8) -- (-360*\x+92:2) -- cycle;
-        }
-        \end{tikzpicture}
-        \label{fig:saturation}
-        %\caption{Saturación}
-    \end{minipage} \hfill
-    \begin{minipage}[h]{0.3\textwidth}
-        \centering
-        \begin{tikzpicture}[scale=0.5]
-        \foreach \x in {0,0.0111,...,1}{
-            \definecolor{currentcolor}{hsb}{1, 1, \x}
-            \draw[draw=none, fill=currentcolor]
-                (-360*\x+88:2) -- (-360*\x+88:3.8)
-                -- (-360*\x+92:3.8) -- (-360*\x+92:2) -- cycle;
-        }
-        \end{tikzpicture}
-        \label{fig:value}
-        %\caption{Valor}
-    \end{minipage}
-    \caption{Tono, saturación y valor}
-    \label{fig:hsv}
-\end{figure}
-\end{comment}
 
 \begin{figure}[!htbp]
     \begin{minipage}[h]{\textwidth}
@@ -192,53 +144,58 @@ A lo largo del trabajo nos vamos a centrar en el comportamiento de funciones en 
 
 La aplicación que se ha desarrollado tiene tres funcionalidades diferentes. En primer lugar, permite representar funciones complejas en un disco de radio determinado, como ya se ha mostrado en las figuras de la sección anterior, cuyos dibujos han sido obtenidos al ejecutar el programa realizado. \\
 
-\todo[inline]{Explicar que lo hago tanto para funciones continuas como para funciones con alguna discontinuidad en el borde.}
-
-Por otra parte, también se puede resolver el problema de Dirichlet para el disco haciendo uso de la integral de Poisson. Dada una función $f$ continua definida en el borde del disco, la solución dada por la integral de Poisson será una función continua en el disco cerrado y armónica en el disco abierto. \\
+Por otra parte, también se puede resolver el problema de Dirichlet para el disco haciendo uso de la integral de Poisson. Dada una función $f$ definida en el borde del disco, la solución dada por la integral de Poisson definirá una función continua y armónica en el disco abierto. Además, si $f$ es una función continua, la solución será también una función continua en el disco cerrado, que coincidirá con $f$ en el borde del disco. \\
 
 La función $f$ que recibe el programa parametriza el borde del disco en función del argumento. Así pues, para poder definir funciones con mayor facilidad, su dominio de definición es $[-\pi, \pi]$ de manera que $\theta \in [-\pi, \pi]$ se corresponde con el punto $z = e^{i \theta} = \cos(\theta) + i \sen(\theta) \in \complex$. \\
 
 Podemos utilizar la representación de funciones que se ha desarrollado para comprobar que la integral de Poisson se comporta como se espera cuando la parametrización dada se corresponde, en el borde, con la función que se va a dibujar. A continuación se pueden observar algunos ejemplos. \\
 
+La figura \ref{fig:comp_e^z} se corresponde con la extensión al disco de la función $f : [-\pi, \pi] \to \complex, t \to e^{10 \cos(t)+10i \sen(t)}$. A su vez, esta función parametriza el borde del disco de tal manera que cada punto $t \in [-\pi, \pi]$ se corresponde con un punto $z = e^{i \theta} = \cos(\theta) + i \sen(\theta) \in \partial \disk$. Deshaciendo este cambio, obtenemos que la función $f$ se puede escribir como $f: \partial \disk \to \complex, z \mapsto e^{10z}$. Volviendo a la figura \ref{fig:e^z} podemos comprobar que se trata de la misma representación. \\
+
 \begin{figure}[!htbp]
     \centering
     \includegraphics[width=0.7\textwidth]{../Aplicacion/e^(10cos(t)+10isen(t)).png}
     \caption{Extensión al disco de la función $f(t) = e^{10 \cos(t)+10i \sen(t)}$.}
-    \label{fig:comparacion1}
+    \label{fig:comp_e^z}
 \end{figure}
+
+La figura \ref{fig:comp_z} representa la extensión al disco de la función $f: [-\pi, \pi] \to \complex, t \to 10(\cos(t)+10i \sen(t))$. Deshaciendo este cambio como en el ejemplo anterior, tenemos que la función $f$ se puede escribir de la siguiente manera $f: \partial \disk \to \complex, z \mapsto 10z$. De nuevo, si nos fijamos en la figura \ref{fig:z} podemos observar que coinciden. \\
 
 \begin{figure}[!htbp]
     \centering
     \includegraphics[width=0.7\textwidth]{../Aplicacion/10cos(t)+10isen(t).png}
     \caption{Extensión al disco de la función $f(t) = 10(\cos(t) + i \sen(t))$.}
-    \label{fig:comparacion2}
+    \label{fig:comp_z}
 \end{figure}
 
-\begin{comment}
-    \begin{figure}[!htbp]
-        \centering
-        \includegraphics[width=0.7\textwidth]{../Aplicacion/cos^2(t)-sen^2(t)+(2cos(t)sen(t))i.png}
-        \caption{Extensión al disco de la función $f(t) = \cos^2(t) - \sen^2(t) + i (2 \cos(t) \sen(t))$.}
-        \label{fig:comparacion3}
-    \end{figure}
-\end{comment}
+La figura \ref{fig:comp_z^3} muestra la extensión al disco de la función $f: [-\pi, \pi] \to \complex, t \to (5\cos(t)+5i \sen(t))^3$ que se corresponde con  $f: \partial \disk \to \complex, z \mapsto (5z)^3$. Esta representación coincide con la que se observa en la figura \ref{fig:z^3}. \\
 
 \begin{figure}[!htbp]
     \centering
     \includegraphics[width=0.7\textwidth]{../Aplicacion/(5cos(t)+5isen(t))^3.png}
     \caption{Extensión al disco de la función $f(t) = (5\cos(t)+ 5i \sen(t))^3$.}
-    \label{fig:comparacion3}
+    \label{fig:comp_z^3}
 \end{figure}
 
+Por último, la figura \ref{fig:comparacion4} se corresponde con la extensión al disco de la función $f: [-\pi, \pi] \to \complex, t \to \cos^2(t)-\sen^2(t)$ que también puede escribirse como $f: \partial \disk \to \complex, z \mapsto \Re(z^2)$. \\
 
 \begin{figure}[!htbp]
     \centering
     \includegraphics[width=0.7\textwidth]{../Aplicacion/cos^2(t)-sen^2(t).png}
     \caption{Extensión al disco de la función $f(t) = \cos^2(t) - \sen^2(t)$.}
-    \label{fig:comparacion4} %\Re (z^2)
+    \label{fig:comparacion4}
 \end{figure}
 
 Esta misma comprobación se puede llevar a cabo mediante la última funcionalidad de la aplicación que permite representar la diferencia de funciones. Por lo tanto, si el cálculo de la integral de Poisson fuera perfecto, el dibujo resultante sería negro en su totalidad. \\
+
+Sin embargo, debido a errores numéricos este cálculo no es totalmente exacto y presenta algunas inexactitudes sobre todo en puntos cercanos al borde del disco o cuyo módulo, a través de la función, es grande. Podemos ver esto reflejado en la figura \ref{fig:diferencia} que muestra la diferencia entre las figuras \ref{fig:comp_e^z} y \ref{fig:e^z}. \\
+
+\begin{figure}[!htbp]
+    \centering
+    \includegraphics[width=0.64\textwidth]{../Aplicacion/diff_e^z.png}
+    \caption{Diferencia entre las figuras \ref{fig:comp_e^z} y \ref{fig:e^z}.}
+    \label{fig:diferencia}
+\end{figure}
 
 Como hemos comentado previamente, $f$ ha de ser continua para que se pueda extender con continuidad al disco cerrado. Pero, ¿qué pasa cuando no lo es? El resultado será una función con parte real e imaginaria armónicas en el interior (no necesariamente una conjugada de la otra) pero que no se puede prolongar con continuidad a la frontera, como es lógico. Además, si $f$ es continua a trozos, la función que se obtiene a partir de ella es armónica y continua en los puntos del borde donde lo sea $f$. \\
 
