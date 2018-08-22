@@ -71,6 +71,13 @@ plotter = Plotter(BoundaryFunction(lambda t: 20j if -cmath.pi < t < 0 else -20 i
 plotter.plot('atrozos(2).png', show=False)
 
 
+sigma = lambda z: (1+z)/(1-z)
+sigmainv = lambda z: (z-1)/(z+1)
+phi = lambda z, a: z ** a
+g = lambda z, a: sigmainv(phi(sigma(z), a))
+
+plotter = Plotter(ComplexFunction(lambda z: g(z, a=0.5)))
+plotter.plot('lente.png', show=False)
 
 plotter = Plotter(ComplexFunction(lambda t: 1/(1-t)))
 plotter.plot('1:(1-z).png', show=False)

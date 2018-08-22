@@ -68,7 +68,18 @@ Las funciones $e^z$ y $\sen(z)$ van a ilustrar el caso de las funciones periódi
     \label{fig:sen(z)}
 \end{figure}
 
+La figura \ref{fig:log(z)} representa la función $\log(z)$, una función no continua. Al haber discontinuidad en una semirrecta -porque no se puede definir un argumento continuo-, queda muy patente que la técnica del coloreado permite detectar estas discontinuidades. \\ % También es muy drástico cómo se ven las singularidades esenciales (por ejemplo, en $z=0$ para $\sen(1/z)$.
+
+\begin{figure}[!htbp]
+    \centering
+    \includegraphics[width=0.7\textwidth]{../Aplicacion/log(z).png}
+    \caption{Representación de la función $f(z) = \log(z)$.}
+    \label{fig:log(z)}
+\end{figure}
+
 Por último, la figura \ref{fig:z^8-2z^7+2z^6-4z^5+2z^4-2z^3-5z^2+4z-4} es la representación de la función $f(z) = z^8-2z^7+2z^6-4z^5+2z^4-2z^3-5z^2+4z-4$ mediante la técnica del coloreado. Las raíces de $f$ vienen representadas por los $6$ puntos negros en el dibujo. Sin embargo, este polinomio tiene $8$ raíces de las cuales $2$ son raíces dobles. Las raíces simples ocurren en los puntos $-1$, $2$ y $\frac{(-1 \rpm i \sqrt{7})}{2}$, y las raíces dobles en $\frac{1 \rpm i \sqrt{3}}{2}$.  La región que rodea a las raíces dobles es algo más oscura que la que rodea a las raíces simples, y en las raíces dobles los colores del círculo cromático la envuelven dos veces, mientras que en las raíces simples la envuelven una sola vez. \\
+
+Además, el dibujo también muestra que el polinomio es de grado $8$. Para $z$ de módulo grande, el término de $z^8$ domina a los otros términos, y por consiguiente la parte exterior del dibujo es similar a la representación de la función $z^8$. Esto puede observarse en que los colores del círculo cromático aparecen ocho veces. \\
 
 \begin{figure}[!htbp]
     \centering
@@ -76,8 +87,6 @@ Por último, la figura \ref{fig:z^8-2z^7+2z^6-4z^5+2z^4-2z^3-5z^2+4z-4} es la re
     \caption{$f(z) = z^8-2z^7+2z^6-4z^5+2z^4-2z^3-5z^2+4z-4$}
     \label{fig:z^8-2z^7+2z^6-4z^5+2z^4-2z^3-5z^2+4z-4}
 \end{figure}
-
-Además, el dibujo también muestra que el polinomio es de grado $8$. Para $z$ de módulo grande, el término de $z^8$ domina a los otros términos, y por consiguiente la parte exterior del dibujo es similar a la representación de la función $z^8$. Esto puede observarse en que los colores del círculo cromático aparecen ocho veces. \\
 
 Introducimos un modelo de color gracias al cual vamos a poder representar fácilmente funciones complejas siguiendo el esquema de asignación de colores explicado anteriormente. Dicho modelo se conoce como HVS (del inglés, \textit{Hue, Saturation, Value} - Tono, Saturación, Valor). \\
 
@@ -192,18 +201,21 @@ Sin embargo, debido a errores numéricos este cálculo no es totalmente exacto y
 
 \begin{figure}[!htbp]
     \centering
-    \includegraphics[width=0.64\textwidth]{../Aplicacion/diff_e^z.png}
+    \includegraphics[width=0.7\textwidth]{../Aplicacion/diff_e^z.png}
     \caption{Diferencia entre las figuras \ref{fig:comp_e^z} y \ref{fig:e^z}.}
     \label{fig:diferencia}
 \end{figure}
 
 Como hemos comentado previamente, $f$ ha de ser continua para que se pueda extender con continuidad al disco cerrado. Pero, ¿qué pasa cuando no lo es? El resultado será una función con parte real e imaginaria armónicas en el interior (no necesariamente una conjugada de la otra) pero que no se puede prolongar con continuidad a la frontera, como es lógico. Además, si $f$ es continua a trozos, la función que se obtiene a partir de ella es armónica y continua en los puntos del borde donde lo sea $f$. \\
 
+La figura \ref{fig:atrozos} ilustra lo que se acaba de comentar. A la izquierda se observa la función $f(t) = 0$ si $- \pi < t < 0$ y $f(t) = 100$ si $0 \leq t \leq \pi$; y a la derecha se representa la función $f(t) = 20i$ si $- \pi < t < 0$, $f(t) = -20$ si $0 \leq t < \frac{\pi}{2}$ y $f(t) = 20$ si $\frac{\pi}{2} \leq t \leq \pi$. \\
+
 \begin{figure}[!htbp]
     \centering
     \includegraphics[width=0.49\textwidth]{../Aplicacion/atrozos.png}
     \hfil
     \includegraphics[width=0.49\textwidth]{../Aplicacion/atrozos(2).png}
-\caption{A la izquierda se muestra la representación de la función $f(t) = 0$ si $- \pi < t < 0$ y $f(t) = 100$ si $0 \leq t \leq \pi$; a la derecha se muestra la representación de la función $f(t) = 20i$ si $- \pi < t < 0$, $f(t) = -20$ si $0 \leq t < \frac{\pi}{2}$ y $f(t) = 20$ si $\frac{\pi}{2} \leq t \leq \pi$.}
+    \caption{Funciones definidas a trozos.}
     \label{fig:atrozos}
 \end{figure}
+

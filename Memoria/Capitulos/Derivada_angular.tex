@@ -333,6 +333,16 @@ Veamos con un par de ejemplos qué tipo de condición impone \eqref{eq:condjulia
         \label{fig:ejemplo}
     \end{figure}
 
+    La figura \ref{fig:lente} muestra, a su vez, la representación de la función $g$ mediante la técnica del coloreado. Estas funciones se suelen llamar \textit{lenticulares} ya que la imagen del disco es como una lente. Podemos observar todos los colores, pero bastante oscuros, salvo en los puntos $1$ y $-1$ que tienen la intensidad usual. \\
+
+    \begin{figure}[!htbp]
+        \centering
+        \includegraphics[width=0.7\textwidth]{../Aplicacion/lente.png}
+        \caption{Representación de la función $g = \sigma^{-1} \circ \phi_a \circ \sigma$, con $a = \frac{1}{2}$.}
+        \label{fig:lente}
+    \end{figure}
+
+    \begin{comment}
     La tabla \ref{tab:ejemplo} muestra, a su vez, los valores de los cocientes de tipo \eqref{eq:condjulia3} para la sucesión $p_n = 1 - \frac{1}{n}$ con $n = 10^2, 10^3, 10^6, 10^9$ y $10^{12}$ y distintos valores de $a$. En todos los casos, la sucesión $\{p_n\}$ verifica que $\lim_{n \to \infty} \frac{1-\abs{f(p_n)}}{1-\abs{p_n}} = \infty$ pero alcanza valores mayores más rápidamente a medida que $a$ sea menor y, por lo tanto, la imagen se aparta más del borde de $\disk$. \\
 
     \newcolumntype{g}{>{\columncolor{Gray}}c}
@@ -351,6 +361,8 @@ Veamos con un par de ejemplos qué tipo de condición impone \eqref{eq:condjulia
         \caption{Valores de los cocientes de tipo \eqref{eq:condjulia3} para la sucesión $p_n = 1 - \frac{1}{n}$.}
         \label{tab:ejemplo}
     \end{table}
+    \end{comment}
+
 \end{example}
 
 En $1929$, Carathéodory, probó que bajo las hipótesis del Teorema de Julia, la derivada también admite límite radial en dicho punto del borde. A continuación enunciamos sin demostración el teorema de Julia-Carathéodory. \\
