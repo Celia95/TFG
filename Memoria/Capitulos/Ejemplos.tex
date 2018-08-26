@@ -15,12 +15,12 @@ donde $z \in \complex$. \\
 \begin{definition}
     Se llama radio de convergencia de una serie de potencias a
     \begin{equation*}
-        R = \sup \left\{ \abs{z - z_0} : \sum _{n=0}^{\infty} a_n (z - z_0)^n \text{ converge } \right\} \subset [0, \infty].
+        R = \sup \left\{ \abs{z - z_0} : \sum _{n=0}^{\infty} a_n (z - z_0)^n \text{ converge } \right\} \in [0, \infty].
     \end{equation*}
 \end{definition}
 \medskip
 
-Así pues, cuando el radio de convergencia cumple que $0 < R < \infty$, $R$ es el único número real tal que la serie converge si $\abs{z - z_0} < R$, y diverge si $\abs{z - z_0} > R$. Por ello, decimos que $D(z_0,r)$ es el disco de convergencia de la serie. \\
+Cuando el radio de convergencia cumple que $0 < R < \infty$, $R$ es el único número real tal que la serie converge si $\abs{z - z_0} < R$, y diverge si $\abs{z - z_0} > R$. Por ello, decimos que $D(z_0,r)$ es el disco de convergencia de la serie. \\
 
 En la frontera del disco de convergencia, esto es, cuando $\abs{z - z_0} = r$, el comportamiento de la serie de potencias puede ser complicado, es decir, puede converger para unos valores de $z$ y divergir para otros. \\
 
@@ -30,7 +30,7 @@ Todas las series que vamos a presentar tienen radio de convergencia $1$ y están
 %EJEMPLO 1
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-En primer lugar tenemos la serie geométrica, una serie con radio de convergencia $1$, no acotada y que no converge en ningún punto de la frontera de su disco de convergencia. Sin embargo, la serie puede extenderse a una función globalmente analítica en $\complex \setminus{1}$ mediante una cantidad finita de prolongaciones analíticas. \\
+En primer lugar tenemos la serie geométrica, una serie con radio de convergencia $1$, no acotada y que no converge en ningún punto de la frontera de su disco de convergencia. Sin embargo, la serie puede extenderse a una función globalmente analítica en $\complex \setminus \{1\}$ mediante una cantidad finita de prolongaciones analíticas. \\
 
 
 \begin{example}
@@ -306,7 +306,7 @@ Introducimos la noción de producto infinito convergente, relacionándola con la
 
 \medskip
 
-Los siguientes dos resultados nos van a permitir relacionar la convergencia de un producto infinito con la convergencia de las series de potencias, lo cual nos va a ser de gran ayuda ya que estas últimas son mucho más fáciles de manejar. \\
+Los siguientes dos resultados nos van a permitir relacionar la convergencia de un producto infinito con la convergencia de las series, lo cual nos va a ser de gran ayuda ya que estas últimas son mucho más fáciles de manejar. \\
 
 \begin{prop}
     Sea $\{u_n\}$ una sucesión de números complejos no nulos. Si $\lim u_n =1$ y la serie

@@ -13,14 +13,14 @@ Así, si $f$ es una función definida en $\disk$ y $w \in \partial \disk$, enton
     \begin{equation}
         \angle \lim_{z \to w} f(z) = L
     \end{equation}
-    significa que $f(z) \to L$ cuando $z \to w$ a través de cualquier sector de $w$. Cuando esto ocurre, decimos que $L$ es el límite radial de $f$ en $w$. \\
+    significa que $f(z) \to L$ cuando $z \to w$ a través de cualquier sector de $w$. Cuando esto ocurre, decimos que $L$ es el límite angular de $f$ en $w$. \\
 
 \begin{definition}
     Decimos que una función $f$ holomorfa del disco $\disk$ en sí mismo tiene derivada angular en $w \in \partial \disk$ si para algún $\eta \in \partial \disk$, el límite
     \begin{equation*}
         \angle \lim_{z \to w} \frac{\eta - f(z)}{w - z}
     \end{equation*}
-    existe. Se dice que dicho límite es la derivada angular de $f$ en $w$ y lo denotamos por $f'(w)$.
+    existe. Se dice que dicho límite es la derivada angular de $f$ en $w$ y lo denotamos por $\angle f'(w)$.
 \end{definition}
 
 Basándonos en estas nociones previas, la existencia de derivada angular de $f$ en $w$ implica que $f$ tiene límite radial $\eta$ en $w$. De hecho, también se da la posibilidad de que la derivada de $f$ tenga límite radial en $w$. \\
@@ -28,7 +28,7 @@ Basándonos en estas nociones previas, la existencia de derivada angular de $f$ 
 Enunciamos a continuación un resultado del libro \citet[capítulo 13]{conway2} que nos va a permitir hacer un refinamiento del Teorema de Fatou introducido en el Capítulo \ref{cap:fatou}. \\ % Corolario 5.5
 
 \begin{corollary}
-    Si $f \in \bholomorphic{\disk}$ tiene límite radial $\zeta$ en $w \in \partial \disk$, entonces $f$ tiene derivada angular $\zeta$ en $w$. % límite no tangencial
+    Si $f \in \bholomorphic{\disk}$ tiene límite radial $\zeta$ en $w \in \partial \disk$, entonces $f$ tiene límite angular $\zeta$ en $w$.
 \end{corollary}
 
 Por el Teorema de Fatou sabemos que toda función $f \in \bholomorphic{\disk}$ tiene límite radial en casi todo punto del borde del disco, entonces también tendrá límite angular en casi todo punto del borde. \\
@@ -116,7 +116,7 @@ La figura \ref{fig:automorfismo} muestra la imagen de discos concéntricos $D(0,
 
 Para poder realizar una interpretación geométrica vamos a tener que estudiar los discos asociados con la distancia pseudo-hiperbólica. Si $p \in \disk$ y $0 < r < 1$, denotamos por $\Delta(p,r)$ al disco no euclídeo de (pseudo-) centro $p$ y (pseudo-) radio $r$ dado por $\Delta(p,r) = \alpha_p(D(0,r))$. Al ser $\alpha_p$ autoinversa se tiene que
 \begin{equation*}
-    \Delta(p,r) = \left\{z \in \disk: \abs{\frac{p-z}{1 - \xbar{p}z}} < r\right\} = \left\{z \in \disk: \abs{\alpha_p(z)} < 1\right\}.
+    \Delta(p,r) = \left\{z \in \disk: \abs{\frac{p-z}{1 - \xbar{p}z}} < r\right\} = \left\{z \in \disk: \abs{\alpha_p(z)} < r \right\}.
 \end{equation*}
 
 Con esta noción, el Lema de Schwarz-Pick se puede formular en los mismos términos geométricos en que interpretamos el Lema de Schwarz, referido a los discos no euclídeos $\Delta(p,r)$. \\
@@ -133,7 +133,7 @@ Con el Teorema de Julia se resuelve el equivalente al Lema de Schwarz-Pick para 
 
 La pregunta natural en este ámbito se centra en la relación que deben guardar los centros $p_n$ y los radios $r_n$ para que la sucesión de discos $\{\Delta(p_n, r_n)\}$ converja (en el sentido adecuado) a un disco tangente. Observamos que cuanto más próximo esté $r_n$ al valor $1$, el disco $\Delta(p_n, r_n)$ es mayor, y el cociente entre las sucesiones $1 - \abs{p_n}$ y $1 - r_n$ determinará el tamaño del disco límite. Observando que
 \begin{equation*}
-    \abs{\frac{z-p}{1 - \xbar{p}z}} < r \Leftrightarrow 1 - r^2 > 1 -  \abs{\frac{z-p}{1 - \xbar{p}z}}^2 = \frac{(1-\abs{p}^2)(1-\abs{z}^2)}{\abs{1-\xbar{p}z}^2},
+    \abs{\frac{z-p}{1 - \xbar{p}z}} < r \Leftrightarrow 1 - r^2 < 1 -  \abs{\frac{z-p}{1 - \xbar{p}z}}^2 = \frac{(1-\abs{p}^2)(1-\abs{z}^2)}{\abs{1-\xbar{p}z}^2},
 \end{equation*}
 podemos describir los discos no euclídeos como
 \begin{equation*}

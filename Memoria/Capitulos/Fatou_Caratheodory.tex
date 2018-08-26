@@ -34,7 +34,7 @@ El capítulo se completa con varios resultados de naturaleza geométrica, en los
     Por otra parte,
     \begin{equation}
         \label{eq:poisson3}
-        \Re \left[ \dfrac{1 + re^{it}}{1-re^{it}} \right] = \Re \left[ \dfrac{(1 + re^{it})(1 - re^{it})}{\abs{1-re^{it}}^2} \right] = \dfrac{1 - r^2}{1 - 2r \cos t + r^2}.
+        \Re \left[ \dfrac{1 + re^{it}}{1-re^{it}} \right] = \Re \left[ \dfrac{(1 + re^{it})(1 - re^{-it})}{\abs{1-re^{it}}^2} \right] = \dfrac{1 - r^2}{1 - 2r \cos t + r^2}.
     \end{equation}
     así que
     \begin{equation}
@@ -186,10 +186,12 @@ Para demostrar el Teorema de Fatou haremos uso de un resultado clásico, que pue
     \label{th:fatouaux1}
     Si $f \in L^1(\partial \disk)$ y $F = P[f]$, entonces
     \begin{equation*}
-        \lim_{r \to 1} F(re^{i \theta}) = f(e^{i \theta}).
+        \lim_{r \to 1} F(re^{i \theta}) = f(e^{i \theta})
     \end{equation*}
+    en casi todo punto. \\
 \end{theorem}
-\medskip
+
+\todo[inline]{Utilizo la notación $\norminf{\cdot}$ tanto para la norma del supremo del módulo de $f$ para las funciones de $\bholomorphic{\disk}$ como para el supremo esencial para las funciones de $L^\infty$.}
 
 En lo sucesivo, nos centraremos en el estudio de las funciones holomorfas y acotadas en el disco unidad. El conjunto de todas estas funciones es un espacio vectorial, que notaremos por $\bholomorphic{\disk}$. \\
 
@@ -264,17 +266,17 @@ Gracias a la expresión de la fórmula de Cauchy anterior, tenemos un teorema de
     \end{equation*}
     donde $z \in \disk$. \\
 
-    Como $f$ es acotada y $f^* = 0$ en casi todo punto de $J$, tenemos que $g^* = 0$ en casi todo punto de $T$, y $g \in \bholomorphic{\disk}$. Como $g$ es la integral de Cauchy de $g^*$, $g(z) = 0$ para todo $z \in \disk$. Si el conjunto de los ceros de $f$ es como mucho numerable, entonces también lo es el conjunto de los ceros de $g$ pues es la unión de $n$ conjuntos obtenidos por rotaciones. Pero todo punto de $\disk$ es un cero de $g$ por lo que $f = 0$. \\
+    Como $f$ es acotada y $f^* = 0$ en casi todo punto de $J$, tenemos que $g^* = 0$ en casi todo punto de $\partial \disk$, y $g \in \bholomorphic{\disk}$. Como $g$ es la integral de Cauchy de $g^*$, $g(z) = 0$ para todo $z \in \disk$. Si el conjunto de los ceros de $f$ es como mucho numerable, entonces también lo es el conjunto de los ceros de $g$ pues es la unión de $n$ conjuntos obtenidos por rotaciones. Pero todo punto de $\disk$ es un cero de $g$ por lo que $f = 0$. \\
 \end{proof}
 
 Como se puede observar de este último resultado, el comportamiento en (un subconjunto de) la frontera determina el comportamiento dentro del disco. \\
 
-\section{Aplicaciones conformes. Teorema de Carathéodory}
+\section{Aplicaciones conformes. Teorema de \\ Carathéodory}
 
 En esta sección, vamos a estudiar el concepto de función conforme, que está ligado al de función holomorfa en el contexto de las funciones complejas con derivadas parciales continuas. El resultado principal es el Teorema de Carathéodory, que permite extender con continuidad a la frontera cualquier función conforme entre el disco y un dominio de Jordan. \\
 
 \begin{definition}[Aplicación conforme]
-    Sean $U$ y $V \subset \complex^n$. Se dice que una aplicación $f: U \to V$ es conforme en un punto $u \in U$ si preserva la orientación y los ángulos entre curvas que pasan por $u$.
+    Sean $U$ y $V \subset \complex$. Se dice que una aplicación $f: U \to V$ es conforme en un punto $u \in U$ si preserva la orientación y los ángulos entre curvas que pasan por $u$.
 \end{definition}
 \medskip
 
@@ -344,7 +346,7 @@ A continuación, vamos a probar un resultado recíproco a éste que incluye algu
         e^{-i(\theta + \alpha)} \lambda_{\theta}'(0)= \abs{\lambda_{\theta}'(0)} > 0.
     \end{equation}
 
-    Además, la regla de la cadena nos dice que %\eqref{eq:cauchy-riemann}
+    Además, la regla de la cadena nos dice que si $f = u + iv$ %\eqref{eq:cauchy-riemann}
     \begin{equation}
         \begin{split}
         \label{eq:nonulo}
@@ -486,9 +488,9 @@ A continuación, vamos a probar un resultado recíproco a éste que incluye algu
         \diam(U_n) \to 0.
     \end{equation}
 
-    Tomamos $D_n = \disk \cup \{ z: \abs{z - \zeta} < \delta_n \}$. Sabemos que para $n$ suficientemente grande, $\varphi(D_n) = U_n$. Si no, por conexión tendríamos que $\varphi(\disk \setminus \xbar{D_n}) = U_n$ y
+    Tomamos $D_n = \disk \cap \{ z: \abs{z - \zeta} < \delta_n \}$. Sabemos que para $n$ suficientemente grande, $\varphi(D_n) = U_n$. Si no, por conexión tendríamos que $\varphi(\disk \setminus \xbar{D_n}) = U_n$ y
     \begin{equation*}
-        \diam (U_n) \geq \diam (\varphi(B(0, 1/2))) > 0
+        \diam (U_n) \geq \diam(\varphi(D(0, 1/2))) > 0
     \end{equation*}
 
     que contradice con \eqref{eq:res2}. Entonces $\diam(\varphi(D_n)) \to 0$ y $\bigcap \xbar{\varphi(D_n)}$ es un solo punto pues $\varphi(D_{n+1}) \subset \varphi(D_n)$. Esto significa que $\varphi$ tiene una extensión continua en $\disk \cap \{ \zeta \}$. La extensión a todos estos puntos define una aplicación continua en $\closedisk$. \\

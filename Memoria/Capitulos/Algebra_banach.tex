@@ -74,7 +74,7 @@ Recordemos que $\varphi: B \to \complex$ es un homomorfismo de álgebras si para
     \end{split}
 \end{equation}
 
-El espectro de $B$, denotado por $\fiber(B)$, es el espacio de los homomorfismos $\varphi: B \to \complex$ no nulos. Observamos que tales homomorfismos verifican que son continuos y $\norm{\varphi} = 1$ ya que $\varphi(1) = 1$. \\ % Se cumple para cualquiera o solo para los $\phi$?
+El espectro de $B$, denotado por $\fiber(B)$, es el espacio de los homomorfismos $\varphi: B \to \complex$ no nulos. Observamos que tales homomorfismos verifican que son continuos y $\norm{\varphi} = 1$. \\
 
 Tal y como hemos definido $\fiber(B)$, es un subconjunto del espacio dual $B^*$. De hecho, está contenido en la bola unidad de $B^*$ que, dotada con la topología débil-*, es un compacto. Por lo que al ser $\fiber(B)$ cerrado en $B^*$, este es, a su vez, un espacio Hausdorff compacto. \\
 
@@ -192,7 +192,7 @@ Como $\pi(\fiber) = \closedisk$, para cada $\phi \in \fiber$ existe un único es
 
 Observemos que la imagen de toda función constante por cualquier elemento del espectro es ella misma. Además, la identidad es una función de $\bholomorphic{\disk}$ de norma 1. En efecto, como la función $1 \in \bholomorphic{\disk}$, si tomamos $\phi \in \fiber$ y $f$ cualquier función en la que $\phi$ no se anula, puesto que $\phi$ respeta el producto, tenemos $\phi(f) = \phi(f \cdot 1) = \phi(f) \cdot \phi(1)$. Es decir, $\phi(1) = 1$. \\
 
-En relación con la Definición \ref{def:fibra}, es sencillo ver que las fibras sobre los puntos del disco abierto tienen un único elemento puesto que si $\pi(\phi)=\lambda$, entonces $\phi = \delta_\lambda$. Mientras que sobre los números del borde del disco la fibra tiene muchos. \\
+En relación con la definición \ref{def:fibra}, hemos visto previamente que las fibras sobre los puntos del disco abierto tienen un único elemento puesto que si $\pi(\phi)=\lambda$, entonces $\phi = \delta_\lambda$. Mientras que sobre los números del borde del disco la fibra tiene muchos. \\
 
 La fibra $\fiber_\alpha$ es un conjunto cerrado de $\fiber$ por ser la imagen inversa de un cerrado por una función continua. Intuitivamente, los elementos de $\fiber_\alpha$ son los homomorfismos complejos de $\fiber$ que se comportan como la ``evaluación en $\alpha$'', es decir, los homomorfismos $\phi \in \bholomorphic{\disk}$ que llevan cada $f \in \bholomorphic{\disk}$ en algo parecido al valor límite $f(z)$ cuando $z$ se aproxima a $\alpha$. Vamos a ver esto con más detalle a continuación. \\
 
@@ -350,7 +350,7 @@ Las transformaciones de Möbius tienen la propiedad de que llevan circunferencia
     \left\{z \in \complex : \Re(z) = \frac{t + 1}{t - 1}\right\}.
 \end{equation}
 
-Utilizamos este hecho para observar que cada $w \in \disk$ es límite de una sucesión $\{S(z_n)\}$, con $\lim_{n \to \infty} z_n = 1$. Veamos esto último, distinguiendo tres casos:
+Utilizamos este hecho para observar que cada $w \in \closedisk$ es límite de una sucesión $\{S(z_n)\}$, con $\lim_{n \to \infty} z_n = 1$. Veamos esto último, distinguiendo tres casos:
 
 \begin{itemize}
     \item Si $w = 0$, la sucesión $z_n = 1 - \frac{1}{n}$ converge a $1$ y, como $S(z_n) = e^{-(2n-1)}$, la sucesión $\{S(z_n)\}$ tiende a 0.
@@ -422,7 +422,7 @@ El Teorema anterior nos muestra que a pesar del Teorema de Fatou, el comportamie
 
 \todo[inline]{Hablar de los productos de Blaschke: decir que la sucesión $(\alpha_n)$ tiene puntos límite en el borde del disco, en los que entonces $B$ no va a tener límite y eso da lugar a puntos $w$ donde $Cl(B,w)$ es todo el disco cerrado.}
 
-Así como para funciones internas se tiene la alternativa de que el conjuntos de valores adherentes o bien es un solo punto o bien es todo el disco, tratando con funciones no holomorfas se pueden presentar situaciones intermedias, como puede verse en el siguiente ejemplo. \\
+Así como para funciones internas se tiene la alternativa de que el conjunto de valores adherentes o bien es un solo punto o bien es todo el disco, tratando con funciones no holomorfas se pueden presentar situaciones intermedias, como puede verse en el siguiente ejemplo. \\
 
 \begin{example}
     Sea $h: \disk \to \disk$ dada por
