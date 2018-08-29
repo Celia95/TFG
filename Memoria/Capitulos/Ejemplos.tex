@@ -1,7 +1,7 @@
 \chapter{Series de potencias. Productos infinitos}
 \label{cap:ejemplos}
 
-\todo[inline]{Introducción}
+% Introducción
 
 \section{Ejemplos de series de potencias}
 \label{sec:ejemplos}
@@ -148,8 +148,8 @@ A continuación, presentamos otra serie con radio de convergencia $1$, que conve
     Vamos a ver que la suma de la serie es $\log{\frac{1}{1 - z}}$ cuando $z \not = 1$. En efecto, derivando tenemos que
     \begin{equation*}
         g'(z) = \sum_{n=1}^{\infty} z^{n-1} \Rightarrow z g'(z) = \sum_{n=1}^{\infty} z^n = \frac{z}{1 - z}.
-     \end{equation*}
-     Si integramos ahora la expresión de la derecha tenemos que la suma es $\log{\frac{1}{1 - z}}$ puesto que $g(0) = 0$. \\ % No estoy segura de que sea $g(0) = 0$ lo que necesitamos aquí.
+    \end{equation*}
+    Si integramos ahora la expresión de la derecha tenemos que la suma es $\log{\frac{1}{1 - z}}$ puesto que $g(0) = 0$. \\
 
     De nuevo, haciendo uso de la aplicación, hemos generado la figura  \ref{fig:ejemplo2} que muestra la función $\log{\frac{1}{1 - z}}$ en $\partial \disk$. \\
 
@@ -159,11 +159,7 @@ A continuación, presentamos otra serie con radio de convergencia $1$, que conve
     \caption{Representación de la función $\log{\frac{1}{1 - z}}$ en el disco unidad.}
     \label{fig:ejemplo2}
 \end{figure}
-
-
-
 \end{proof}
-% Utilizando un argumento análogo, podemos presentar ejemplos de series con disco de convergencia de radio $1$, pero que divergen en una cantidad arbitraria de puntos del borde del disco. Por ejemplo, la serie $\sum_{n=0}^{\infty} \frac{z^{pn}}{n}$, diverge en las $p$ raíces $p$-ésimas de la unidad.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %EJEMPLO 3
@@ -254,12 +250,9 @@ Por último, tenemos una función holomorfa y acotada en el disco unidad, con un
 \end{example}
 
 \begin{proof}
-    La función $S$ es holomorfa en el disco unidad ya que es la composición de funciones holomorfas. Obsérvese que el único punto singular es $z = 1$. Su desarrollo en serie de potencias en torno al $0$ tiene, por tanto, radio de convergencia $1$. Además, tanto $S$ como todas su derivadas tienen límite radial 0 en $e^{i \theta} = 1$ . \\
+    La función $S$ es holomorfa en el disco unidad ya que es la composición de funciones holomorfas. Obsérvese que el único punto singular es $z = 1$. Su desarrollo en serie de potencias en torno al $0$ tiene, por tanto, radio de convergencia $1$. Además, tanto $S$ como todas su derivadas tienen límite radial 0 en $e^{i \theta} = 1$. \\
 
     Consideramos la transformación de Möbius $T(z) = \frac{z + 1}{z - 1}$ definida en el disco unidad. La imagen del disco por $T$ es el semiplano izquierdo $H = \{w: \Re (w) < 0\}$. Por lo que la exponencial $e^{T(z)}$ aplica el disco $\disk$ en sí mismo. Además, es holomorfa en $\closedisk \setminus \{1\}$, puede extenderse con continuidad a $\closedisk \setminus \{1\}$ y la extensión, en módulo, está acotada por $1$. \\
-    %\begin{equation*}
-    %    \abs{e^z} = \abs{e^{x+iy}} = \abs{e^{x}(\cos y + i\sen y)} = e^{x} < 1.
-    %\end{equation*}
 
     Veamos a continuación que no podemos extender la función $S$ con continuidad al punto $1$. Tomemos una sucesión $\{t_n\}$ en el intervalo $(-1,1)$ que converge a $1$ cuando $n$ tiende a $\infty$. Se tiene que $T(t_n)  = \frac{t + 1}{t - 1}$ tiende a $- \infty$ cuando $t$ tiende a $1^-$. Por lo tanto,
     \begin{equation*}
@@ -267,26 +260,25 @@ Por último, tenemos una función holomorfa y acotada en el disco unidad, con un
     \end{equation*}
 
     Sin embargo, la función $S$ no tiene límite en $1$. Por ejemplo, si tomamos la sucesión $\{z_n\}$ definida por $z_n = T(w_n)$, siendo $\{w_n\}$ la sucesión de término general $-1 + 2n \pi i$. Entonces,
-     \begin{equation*}
-         z_n = \frac{2n \pi i}{-2 + 2n \pi i} = \frac{n \pi i}{n \pi i - 1} =  \frac{(n \pi i + 1) n \pi i}{- n^2 \pi^2 - 1} = \frac{-n^2 \pi^2 + i n \pi}{-n^2 \pi^2 - 1}.
-     \end{equation*}
+    \begin{equation*}
+        z_n = \frac{2n \pi i}{-2 + 2n \pi i} = \frac{n \pi i}{n \pi i - 1} =  \frac{(n \pi i + 1) n \pi i}{- n^2 \pi^2 - 1} = \frac{-n^2 \pi^2 + i n \pi}{-n^2 \pi^2 - 1}.
+    \end{equation*}
 
-     Como $T = T^{-1}$ tenemos
-     \begin{equation*}
-         e^{T(z_n)} = e^{w_n} \to e^{-1} \not = 0.
-     \end{equation*}
+    Como $T = T^{-1}$ tenemos
+    \begin{equation*}
+        e^{T(z_n)} = e^{w_n} \to e^{-1} \not = 0.
+    \end{equation*}
 
-     Gracias a la figura \ref{fig:ejemplo5} se puede observar el comportamiento de la función en el disco. Más concretamente, la singularidad en el punto $z=1$. \\
+    Gracias a la figura \ref{fig:ejemplo5} se puede observar el comportamiento de la función en el disco. Más concretamente, la singularidad esencial que presenta en el punto $z = 1$. Aparentemente el programa está teniendo problemas al representar la función cerca del punto $z=1$. La razón es el Teorema grande de Picard, que dice, en términos generales, que una función holomorfa cercana a una singularidad esencial toma todos los valores complejos posibles salvo a lo sumo un valor excepcional. En nuestro caso particular, la función no puede evaluarse en $z=1$, por lo que a medida que nos acercamos al punto, el argumento (es decir, el color) cambia, gira alrededor, etcétera, de forma cada vez más rápida. \\
 
-\begin{figure}[!htbp]
-    \centering
-    \includegraphics[width=0.7\textwidth]{../Aplicacion/e^((z+1):(z-1)).png}
-    \caption{Representación de la función $\exp{\left(\frac{z + 1}{z - 1}\right)}$ en el disco unidad.}
-    \label{fig:ejemplo5}
-\end{figure}
+    \begin{figure}[!htbp]
+        \centering
+        \includegraphics[width=0.7\textwidth]{../Aplicacion/e^((z+1):(z-1)).png}
+        \caption{Representación de la función $\exp{\left(\frac{z + 1}{z - 1}\right)}$ en el disco unidad.}
+        \label{fig:ejemplo5}
+    \end{figure}
 
      Estudiaremos este ejemplo con más detalle en el Capítulo \ref{cap:banach}, centrándonos de nuevo en el comportamiento de la función en el punto singular $z = 1$. \\
-
 \end{proof}
 
 \section{Productos infinitos}
@@ -369,8 +361,6 @@ La demostración del resultado que presentamos a continuación es análoga a las
 
 Tras los ejemplos de funciones holomorfas en el disco unidad que presentamos en la primera sección, definidas mediante su serie de potencias centrada en 0 o a través de su expresión analítica explícita, utilizamos la noción de producto infinito de funciones para presentar una clase especial de funciones holomorfas y acotadas en el disco. Se trata de los productos de Blaschke, que se obtienen a través de un producto infinito de automorfismos del disco unidad. Cada uno de ellos está ligado a un valor $\alpha$ en el disco, el único punto donde el automorfismo se anula, y la convergencia del producto infinito se describe dada en términos de los distintos valores $\alpha_n$. En concreto, la sucesión $\{\alpha_n\}$ debe aproximarse rápidamente al borde del disco, como muestra el resultado que se presenta a continuación. \\
 
-\todo[inline]{Se está utilizando que la topología de la convergencia uniforme sobre compactos es la apropiada, ya que los límites en ella de elementos de $\bholomorphic{\disk}$ existen y son otra vez funciones holomorfas.}
-
 \begin{theorem}
     Sea $\{\alpha_n\}$ una sucesión en el disco unidad $\disk$ tal que $\alpha_n \not = 0$ para todo $n$ y $\sum_{n=1}^{\infty} (1 - \abs{\alpha_n})$ converge. Entonces el producto de Blaschke
     \begin{equation*}
@@ -401,7 +391,7 @@ Tras los ejemplos de funciones holomorfas en el disco unidad que presentamos en 
     \end{equation*}
     y la serie $\sum_{n=1}^{\infty} \abs{1 - b_n(z)}$ converge absoluta y uniformemente en el disco cerrado de radio $r$. Por lo que $B(z) = \prod_{n=1}^{\infty} b_n$ converge uniformemente sobre los compactos de $\disk$. \\
 
-    Como $b_n(z)$ son funciones holomorfas en $\disk$ y su producto infinito converge uniformemente en los compactos de $\disk$, se tiene que $B(z)$ define una función holomorfa en el disco unidad. \\ %$f$ tiene los mismos ceros que $\alpha_n$ por la definición de producto infinito.
+    Como $b_n(z)$ son funciones holomorfas en $\disk$ y su producto infinito converge uniformemente en los compactos de $\disk$, se tiene que $B(z)$ define una función holomorfa en el disco unidad. Se está utilizando que la topología de la convergencia uniforme sobre compactos es la apropiada, ya que los límites en ella de elementos de $\bholomorphic{\disk}$ existen y son, de nuevo, funciones holomorfas. \\ %$f$ tiene los mismos ceros que $\alpha_n$ por la definición de producto infinito.
 
     Además, se cumple $\abs{B(z)} \leq 1$ por la caracterización de los automorfismos del disco unidad ya que los términos $\dfrac{\alpha_n - z}{1 - \xbar{\alpha_n}z}$ definen un automorfismo del disco unidad que lleva el disco abierto en el disco abierto y el borde en el borde. \\
 

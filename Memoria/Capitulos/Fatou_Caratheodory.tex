@@ -80,6 +80,20 @@ El capítulo se completa con varios resultados de naturaleza geométrica, en los
     \eqref{eq:property5} De la ecuación \eqref{eq:poisson4}, tenemos que $\lim_{r \to 1^-} (1 - r^2) = 0$ y $\lim_{r \to 1^-} (1 - 2r \cos \delta + r^2) \not = 0$ así que $\lim_{r \to 1^-} P_r(\delta) = 0$. \\
 \end{proof}
 
+Introducimos la noción de función integrable en el sentido de Lebesgue que utilizaremos a partir de ahora para dar la definición de integral de Poisson o para enunciar el Teorema de Fatou más adelante. \\
+
+\begin{definition}
+    Si $0 < p < \infty$ y $f$ es una función compleja medible en un conjunto $X$ (en el sentido de Lebesgue), definimos la norma de $f$ como
+    \begin{equation*}
+        \norm{f}_p = \left(\int_X \abs{f}^p d \mu \right)^{1/p},
+    \end{equation*}
+    siendo $\mu$ una medida de Lebesgue en $X$. \\ % Si $f$ es una función medible, también lo será $\abs{f}$ por lo que la integral anterior está bien definida.
+
+    El conjunto $L^p(X)$ estará formado por aquellas $f$ tales que $\norm{f}_p < \infty$. \\
+
+    Es usual denotar por $L^0(X)$ al conjunto de las funciones medibles de $X$. A su vez, las funciones de $L^1$ se llaman funciones sumables. \\
+\end{definition}
+
 \begin{definition}[Integral de Poisson]
     Se llama integral de Poisson de una función $f \in L^1(\partial \disk)$ a la función $F$ dada por
     \begin{equation*}
@@ -90,7 +104,7 @@ El capítulo se completa con varios resultados de naturaleza geométrica, en los
 \end{definition}
 \medskip
 
-Observamos que si $f$ lleva la frontera del disco $\partial \disk$ en los reales, \eqref{eq:poisson2} nos muestra que % extender esto
+Observamos que si $f$ lleva la frontera del disco $\partial \disk$ en los reales, \eqref{eq:poisson2} nos muestra que
 \begin{equation*}
     P[f](z) = \Re \left[ \dfrac{1}{2 \pi} \int_{-\pi}^{\pi} \dfrac{e^{it} + z}{e^{it} - z} f(e^{it}) dt \right].
 \end{equation*}
@@ -182,7 +196,7 @@ Como veremos más adelante, las funciones holomorfas y acotadas en el disco unid
 
 Para demostrar el Teorema de Fatou haremos uso de un resultado clásico, que puede consultarse en \citet[capítulo 11]{rudin}. \\
 
-\begin{theorem} % Corolario del Teorema 11.10 % Es necesario o basta con el anterior?
+\begin{theorem} % Corolario del Teorema 11.10
     \label{th:fatouaux1}
     Si $f \in L^1(\partial \disk)$ y $F = P[f]$, entonces
     \begin{equation*}
@@ -191,9 +205,7 @@ Para demostrar el Teorema de Fatou haremos uso de un resultado clásico, que pue
     en casi todo punto. \\
 \end{theorem}
 
-\todo[inline]{Utilizo la notación $\norminf{\cdot}$ tanto para la norma del supremo del módulo de $f$ para las funciones de $\bholomorphic{\disk}$ como para el supremo esencial para las funciones de $L^\infty$.}
-
-En lo sucesivo, nos centraremos en el estudio de las funciones holomorfas y acotadas en el disco unidad. El conjunto de todas estas funciones es un espacio vectorial, que notaremos por $\bholomorphic{\disk}$. \\
+En lo sucesivo, nos centraremos en el estudio de las funciones holomorfas y acotadas en el disco unidad. El conjunto de todas estas funciones es un espacio vectorial, que denotaremos por $\bholomorphic{\disk}$. Además, utilizaremos la notación $\norminf{\cdot}$ tanto para la norma del supremo del módulo de $f$ para las funciones de $\bholomorphic{\disk}$ como para el supremo esencial de $\abs{f}$ para las funciones de $L^\infty$. Recordamos que si $f$ es una función compleja medible en un conjunto $X$, $L^\infty(X)$ estárá formado aquellas $f$ tales que $\norminf{f} < \infty$. Las funciones de  $L^\infty(X)$ se suelen denominar funciones esencialmente acotadas en $X$. \\
 
 \begin{theorem}[Teorema de Fatou]
     Para toda función $f \in \bholomorphic{\disk}$, existe una función $f^* \in L^{\infty} (\partial \disk)$ definida por
@@ -219,7 +231,7 @@ En lo sucesivo, nos centraremos en el estudio de las funciones holomorfas y acot
 \end{theorem}
 
 \begin{proof}
-    La existencia de $f^*$ se sigue del Teoremas \ref{th:fatouaux1} y de la versión para elementos de $L^\infty$ del Teorema \ref{th:fatouaux2}. Además, por \eqref{eq:fatou1}, tenemos que $\norminf{f^*} \leq \norminf{f}$. \\ % No estoy segura de la primera frase.
+    La existencia de $f^*$ se sigue del Teoremas \ref{th:fatouaux1} y de la versión para elementos de $L^\infty$ del Teorema \ref{th:fatouaux2}. Además, por \eqref{eq:fatou1}, tenemos que $\norminf{f^*} \leq \norminf{f}$. \\
 
     Si $z \in U$ y $\abs{z} < r < 1$, tomemos $\gamma_r(t) = r e^{it}, 0 \leq t \leq 2\pi$. Entonces,
     \begin{equation*}
@@ -227,7 +239,7 @@ En lo sucesivo, nos centraremos en el estudio de las funciones holomorfas y acot
         \dfrac{r}{2 \pi} \int_{-\pi}^{\pi} \dfrac{f(re^{it})}{re^{it} - z}e^{it} dt
     \end{equation*}
 
-    Sea $\{r_n\}$ una sucesión tal que $r_n \to 1$. Por el teorema de la convergencia dominada de Lebesgue tenemos que % aplicado a $f_n = \frac{r_n}{2 \pi} \frac{f(r_n e^{it})}{r_n e^{it} - z} e^{it}$,  $\lim_{n \to \infty} \int_S f_n d \mu = \int_S f d \mu$
+    Sea $\{r_n\}$ una sucesión tal que $r_n \to 1$. Por el teorema de la convergencia dominada de Lebesgue tenemos que %aplicado a $f_n = \frac{r_n}{2 \pi} \frac{f(r_n e^{it})}{r_n e^{it} - z} e^{it}$,  $\lim_{n \to \infty} \int_S f_n d \mu = \int_S f d \mu$
     \begin{equation}
         \label{eq:fatou_proof}
         f(z) = \lim_{n \to \infty} \frac{r_n}{2 \pi} \int_{-\pi}^{\pi} \frac{f(r_n e^{it})}{r_n e^{it} - z} e^{it} dt =  \dfrac{1}{2 \pi} \int_{-\pi}^{\pi} \dfrac{f^* (e^{it})}{1 - ze^{-it}} dt.
@@ -271,7 +283,7 @@ Gracias a la expresión de la fórmula de Cauchy anterior, tenemos un teorema de
 
 Como se puede observar de este último resultado, el comportamiento en (un subconjunto de) la frontera determina el comportamiento dentro del disco. \\
 
-\section{Aplicaciones conformes. Teorema de \\ Carathéodory}
+\section{Aplicaciones conformes. Teorema de Carathéodory}
 
 En esta sección, vamos a estudiar el concepto de función conforme, que está ligado al de función holomorfa en el contexto de las funciones complejas con derivadas parciales continuas. El resultado principal es el Teorema de Carathéodory, que permite extender con continuidad a la frontera cualquier función conforme entre el disco y un dominio de Jordan. \\
 
@@ -346,7 +358,7 @@ A continuación, vamos a probar un resultado recíproco a éste que incluye algu
         e^{-i(\theta + \alpha)} \lambda_{\theta}'(0)= \abs{\lambda_{\theta}'(0)} > 0.
     \end{equation}
 
-    Además, la regla de la cadena nos dice que si $f = u + iv$ %\eqref{eq:cauchy-riemann}
+    Además, la regla de la cadena nos dice que si $f = u + iv$
     \begin{equation}
         \begin{split}
         \label{eq:nonulo}

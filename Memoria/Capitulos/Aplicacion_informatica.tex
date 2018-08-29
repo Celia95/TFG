@@ -3,7 +3,7 @@
 
 En este capítulo se describen las aplicaciones informáticas que se han desarrollado como complemento a las ideas que se exponen a lo largo del trabajo y que servirán de gran ayuda para visualizar los resultados que se exponen. \\
 
-Se han desarrollado dos aplicaciones en Python. La primera de ellas permite generar el coloreado de las funciones complejas en un disco de radio arbitrario mientras que la segunda permite extender una función $f: \partial \disk \to \complex$ apropiada, posiblemente real, a una función armónica en el disco abierto. Para producir el coloreado de ambas aplicaciones se utiliza la técnica de visualización de las funciones complejas conocida como coloreado del dominio. \\
+Se han desarrollado dos aplicaciones en Python. La primera de ellas permite generar el coloreado de las funciones complejas en un disco de radio arbitrario mientras que la segunda permite extender una función $f: \partial \disk \to \complex$ apropiada a una función armónica en el disco abierto. Para producir el coloreado de ambas aplicaciones se utiliza la técnica de visualización de las funciones complejas conocida como coloreado del dominio. \\
 
 \section{Técnica del coloreado del dominio}
 
@@ -17,7 +17,7 @@ En cuanto al argumento, conforme vamos aumentando el argumento el color recorre 
 
 En cuanto al módulo, los puntos cercanos al origen se corresponden con colores oscuros mientras que los puntos alejados tienen colores claros. Así, cuando $\abs{z}$ tiende a $0$, el color asignado se acerca al negro, en cambio cuando $\abs{z}$ tiende a infinito, el color de $z$ se aproxima al blanco. \\
 
-Con esta representación, cada número complejo tiene asignado un color diferente, por lo que un número complejo puede especificarse de manera única por su color. Dado   $\disk \subset \complex$, podemos representar cualquier función $f: \disk \to \complex$ de la siguiente manera: a cada punto $z$ del dominio se le asigna el color correspondiente a $f(z)$. De este modo, se representa cualquier función compleja en dos dimensiones con los colores, tomando como referencia la figura \ref{fig:z}, que representa la función identidad $f(z) = z$. \\
+Con esta representación, cada número complejo tiene asignado un color diferente, por lo que un número complejo puede especificarse de manera única por su color. Dado $U \subset \complex$, podemos representar cualquier función $f: U \to \complex$ de la siguiente manera: a cada punto $z$ del dominio se le asigna el color correspondiente a $f(z)$. De este modo, se representa cualquier función compleja en dos dimensiones con los colores, tomando como referencia la figura \ref{fig:z}, que representa la función identidad $f(z) = z$ en el disco de radio $10$. \\
 
 \begin{figure}[!htbp]
     \centering
@@ -39,7 +39,14 @@ Por ejemplo, la figura \ref{fig:z^3} representa la función $f(z) = z^3$. Podemo
 
 Puesto que el color asignado al número $0$ es el negro, sabemos que las raíces del polinomio se corresponden con los puntos negros. En el caso que nos ocupa, el $0$ es una raíz triple de la función y se puede observar en que los colores del círculo cromático la envuelven tres veces. \\
 
-Por último cuando avanzamos en el sentido contrario a las agujas del reloj, pasamos por los colores del círculo cromático $3$ veces. Esto muestra el hecho de que el argumento de $z^3$ es tres veces el argumento de $z$, y por lo tanto la imagen de un círculo centrado en el origen bajo la función cúbica se envuelve alrededor del origen tres veces. Esto se explica porque para cada número de módulo $s=r^3$ encontramos tres raíces distintas de módulo $r$. Si representamos la función $f(z)=e^(z^3)-1$, observamos una imagen que, cerca del $0$, es análoga a la anterior, pues tiene un cero triple en $z=0$. \\
+Por último cuando avanzamos en el sentido contrario a las agujas del reloj, pasamos por los colores del círculo cromático $3$ veces. Esto muestra el hecho de que el argumento de $z^3$ es tres veces el argumento de $z$, y por lo tanto la imagen de un círculo centrado en el origen bajo la función cúbica se envuelve alrededor del origen tres veces. Esto se explica porque para cada número de módulo $s=r^3$ encontramos tres raíces distintas de módulo $r$. Si representamos la función $f(z)=e^{z^3}-1$, observamos una imagen que, cerca del $0$, es análoga a la anterior, pues tiene un cero triple en $z=0$. La figura \ref{fig:e^(z^3)-1} muestra este último ejemplo. \\
+
+\begin{figure}[!htbp]
+    \centering
+    \includegraphics[width=0.7\textwidth]{../Aplicacion/e^(z^3)-1.png}
+    \caption{Representación de la función $f(z) = e^{z^3}-1$.}
+    \label{fig:e^(z^3)-1}
+\end{figure}
 
 La figura \ref{fig:1/z} muestra la representación de la función $f(z) = \frac{1}{z}$ con la técnica del coloreado. En este caso, el color que se le ha asignado al $0$ es blanco, lo que indica que $\frac{1}{z}$ tiende a infinito cuando $z$ tiende a $0$. Es decir, nos encontramos ante un polo de la función. Podemos observar que en el origen se envuelven los colores del círculo cromático una única vez en sentido contrario, lo que indica que se trata de un polo simple. La función $\frac{\cos z}{z}$, por ejemplo, también tiene un cero simple en $z=0$ y un representación análoga a $\frac{1}{z}$ en un entorno del origen. \\
 
@@ -50,7 +57,7 @@ La figura \ref{fig:1/z} muestra la representación de la función $f(z) = \frac{
     \label{fig:1/z}
 \end{figure}
 
-Las funciones $e^z$ y $\sen(z)$ van a ilustrar el caso de las funciones periódicas. Se puede ver su representación en las figuras \ref{fig:e^z} y \ref{fig:sen(z)}, respectivamente. \\
+Las funciones $e^z$ y $\sen(z)$ van a ilustrar el caso de las funciones periódicas. Se puede ver su representación en las figuras \ref{fig:e^z} y \ref{fig:sen(z)}, respectivamente. Observamos que en el caso de la exponencial ahora los colores van cambiando conforme avanzamos verticalmente. Si escribimos $z = x + iy$, entonces $e^z = e^{x+i y} = e^x e^{i y}$. Por lo que $y$, la parte imaginaria de $z$, determina el argumento y, por tanto, el color. Queda claro que el argumento es periódico de período $2 \pi$ en la dirección imaginaria. \\
 
 \begin{figure}[!htbp]
     \centering
@@ -66,7 +73,7 @@ Las funciones $e^z$ y $\sen(z)$ van a ilustrar el caso de las funciones periódi
     \label{fig:sen(z)}
 \end{figure}
 
-La figura \ref{fig:log(z)} representa la función $\log(z)$, una función no continua. Al haber discontinuidad en una semirrecta -porque no se puede definir un argumento continuo-, queda muy patente que la técnica del coloreado permite detectar estas discontinuidades. \\ % También es muy drástico cómo se ven las singularidades esenciales (por ejemplo, en $z=0$ para $\sen(1/z)$.
+La figura \ref{fig:log(z)} representa la función $\log(z)$, una función no continua. Al haber discontinuidad en una semirrecta -porque no se puede definir un argumento continuo-, queda muy patente que la técnica del coloreado permite detectar estas discontinuidades. También es muy drástico cómo se ven las singularidades esenciales, por ejemplo, en $z = 0$ para $\sen(\frac{1}{z})$. En el capítulo \ref{cap:ejemplos} se mostrará mediante un ejemplo cómo se representan las singularidades esenciales con la técnica del coloreado. \\
 
 \begin{figure}[!htbp]
     \centering
@@ -88,9 +95,7 @@ Además, el dibujo también muestra que el polinomio es de grado $8$. Para $z$ d
 
 Introducimos un modelo de color gracias al cual vamos a poder representar fácilmente funciones complejas siguiendo el esquema de asignación de colores explicado anteriormente. Dicho modelo se conoce como HVS (del inglés, \textit{Hue, Saturation, Value} - Tono, Saturación, Valor). \\
 
-\todo[inline]{Se fija el rojo para los números reales positivos.}
-
-El primero de los atributos, que determina el tono de un color, se puede especificar por el ángulo que ocupa alrededor de un punto. Según va aumentando el ángulo, el color va variando de rojo, amarillo, verde, cyan, azul, magenta para volver de nuevo al rojo. Así pues el tono asociado a un número complejo está directamente relacionado con su argumento. La saturación es la intensidad de un tono específico, basándose en la pureza del color: un color muy saturado es vivo e intenso, mientras que un color menos saturado es más descolorido y gris. Por último, el valor indica la cantidad de luz que tiene un color. Cuánto más oscuro sea, menor será su valor y cuánto más claro, mayor. De este modo, la saturación y el valor asociadas a un número complejo están relacionados con el módulo del mismo. \\
+El primero de los atributos, que determina el tono de un color, se puede especificar por el ángulo que ocupa alrededor de un punto. Según va aumentando el ángulo, el color va variando de rojo -para los números reales positivos-, amarillo, verde, cyan, azul, magenta para volver de nuevo al rojo. Así pues el tono asociado a un número complejo está directamente relacionado con su argumento. Por otra parte, la saturación es la intensidad de un tono específico, basándose en la pureza del color: un color muy saturado es vivo e intenso, mientras que un color menos saturado es más descolorido y gris. Por último, el valor indica la cantidad de luz que tiene un color. Cuánto más oscuro sea, menor será su valor y cuánto más claro, mayor. De este modo, la saturación y el valor asociadas a un número complejo están relacionados con el módulo del mismo. \\
 
 \begin{figure}[!htbp]
     \begin{minipage}[h]{\textwidth}
@@ -198,8 +203,6 @@ Por último, la figura \ref{fig:comparacion4} se corresponde con la extensión a
 Esta misma comprobación se puede llevar a cabo mediante la última funcionalidad de la aplicación que permite representar la diferencia de funciones. Por lo tanto, si el cálculo de la integral de Poisson fuera perfecto, el dibujo resultante sería negro en su totalidad. Esto se consigue en la mayoría de los ejemplos, con funciones acotadas por valores no muy grandes. \\
 
 Sin embargo, debido a errores numéricos este cálculo no es totalmente exacto y presenta algunas inexactitudes sobre todo en puntos cercanos al borde del disco o cuyo módulo, a través de la función, es grande. Podemos ver esto reflejado en la figura \ref{fig:diferencia} que muestra la diferencia entre las figuras \ref{fig:comp_e^z} y \ref{fig:e^z}. \\
-
-\todo[inline]{Sería perfecto si pudieras comparar los datos numéricos en un par de casos, para calcular la norma infinito de la diferencia y ver cuál es el error relativo según la cota de la función: me parece que el error relativo va a ser pequeño aunque la función sea grande en módulo, como $\exp(10z)$.}
 
 \begin{figure}[!htbp]
     \centering

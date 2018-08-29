@@ -118,7 +118,7 @@ Existe una correspondencia uno a uno entre los homomorfismos $\phi: \bholomorphi
 \end{equation*}
 \end{comment}
 
-\todo[inline]{Hablar más de la relación de $\fiber$ con los ideales maximales, o también citar un libro de álgebra en el que se hable sobre esto.}
+% Hablar más de la relación de $\fiber$ con los ideales maximales, o también citar un libro de álgebra en el que se hable sobre esto.
 
 En principio, los únicos homomorfismos complejos que se pueden identificar claramente son las evaluaciones en puntos del disco abierto $\disk$. Si $z \in \disk$,
 \begin{equation*}
@@ -335,15 +335,13 @@ Por lo tanto, si $\abs{\alpha} = 1$, el contenido $Cl(f, \alpha) \subset \wideha
 
 \medskip
 
-Los ejemplos más sencillos de funciones internas son la identidad, los giros y las funciones $f_n(z) = z^n, n \geq 1$. Si $f$ es un función interna, lo es si se compone con cualquiera de las anteriores.
-Además, ya conocemos otros ejemplos de funciones internas tales como los automorfismos del disco unidad, los productos de Blaschke -de los que ya hemos hablado en el Capítulo \ref{cap:ejemplos}-. %Citar en concreto los resultados 3.3.1 y el corolario 3.3.1.1.
-o la función $S(z) = \exp{\left(\frac{z + 1}{z - 1}\right)}, z \in \disk$, que introdujimos en el Ejemplo \ref{ex:exp} también es una función interna. Recordemos que si $\abs{w} = 1$ y $w \neq 1$, entonces $S$ puede extenderse a $w$ y $\abs{S(w)} = 1$. \\
+Los ejemplos más sencillos de funciones internas son la identidad, los giros y las funciones $f_n(z) = z^n, n \geq 1$. Si $f$ es un función interna, lo es si se compone con cualquiera de las anteriores. Además, ya conocemos otros ejemplos de funciones internas tales como los automorfismos del disco unidad, los productos de Blaschke -de los que ya hemos hablado en el Capítulo \ref{cap:ejemplos}-, o la función $S(z) = \exp{\left(\frac{z + 1}{z - 1}\right)}, z \in \disk$, que introdujimos en el Ejemplo \ref{ex:exp}. Recordemos que si $\abs{w} = 1$ y $w \neq 1$, entonces $S$ puede extenderse a $w$ y $\abs{S(w)} = 1$. \\
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 Vamos a retomar el Ejemplo \ref{ex:exp}, analizando el conjunto de los valores adherentes de $S$ en el punto singular $1$. Dicho conjunto se corresponde con el disco unidad cerrado, es decir, $Cl(S,1) = \closedisk$. Para ver esto, vamos a empezar dando una interpretación geométrica a la transformación de Möbius $T(z) = \frac{z + 1}{z - 1}$ que hay bajo la exponencial $S$. \\
 
-%Como la aplicación $T$ lleva $-1$ a $0$, $i$ a $-i$ y $-i$ a $i$, la imagen del círculo $\abs{z} = 1$, ha de ser una recta. A su vez, $z = 1$ se corresponde con $\infty$, mientras que $\partial \disk \setminus \{1\}$ se corresponde con el eje imaginario. \\
+% Como la aplicación $T$ lleva $-1$ a $0$, $i$ a $-i$ y $-i$ a $i$, la imagen del círculo $\abs{z} = 1$, ha de ser una recta. A su vez, $z = 1$ se corresponde con $\infty$, mientras que $\partial \disk \setminus \{1\}$ se corresponde con el eje imaginario. \\
 
 Las transformaciones de Möbius tienen la propiedad de que llevan circunferencias y rectas en circunferencias y rectas. Por lo que $T$ lleva el eje real en sí mismo, mientras que cada circunferencia con centro en el eje real que pasa por $1$ se aplica sobre una recta paralela al eje imaginario, como podemos ver en la figura \ref{fig:exp}. En concreto, si la circunferencia $C_t$ tiene diámetro de extremos los puntos $t$ y $1$, su imagen es la recta
 \begin{equation}
@@ -418,9 +416,7 @@ El siguiente resultado nos muestra que la situación que se da en este caso conc
     Sea $f$ una función interna en el disco abierto $\disk$ y sea $\alpha \in \partial \disk$ una singularidad de $f(z)$. Entonces $Cl(f, \alpha) = \closedisk$.
 \end{theorem}
 
-El Teorema anterior nos muestra que a pesar del Teorema de Fatou, el comportamiento en los puntos de la frontera puede ser impredecible. Por ejemplo, si consideramos un producto de Blaschke cuyos ceros sean densos en $\partial \disk$, entonces todo $\alpha \in \partial \disk$ está en las condiciones del teorema y el conjunto de valores adherentes es el disco cerrado. Sin embargo, la función tendrá límites radiales en casi todo punto. \\
-
-\todo[inline]{Hablar de los productos de Blaschke: decir que la sucesión $(\alpha_n)$ tiene puntos límite en el borde del disco, en los que entonces $B$ no va a tener límite y eso da lugar a puntos $w$ donde $Cl(B,w)$ es todo el disco cerrado.}
+El Teorema anterior nos muestra que a pesar del Teorema de Fatou, el comportamiento en los puntos de la frontera puede ser impredecible. Por ejemplo, si consideramos un producto de Blaschke cuyos ceros sean densos en $\partial \disk$, entonces todo $\alpha \in \partial \disk$ está en las condiciones del teorema y el conjunto de valores adherentes $Cl(B, \alpha)$ es todo el disco cerrado. Sin embargo, la función tendrá límites radiales en casi todo punto. \\
 
 Así como para funciones internas se tiene la alternativa de que el conjunto de valores adherentes o bien es un solo punto o bien es todo el disco, tratando con funciones no holomorfas se pueden presentar situaciones intermedias, como puede verse en el siguiente ejemplo. \\
 
@@ -429,8 +425,6 @@ Así como para funciones internas se tiene la alternativa de que el conjunto de 
     \begin{equation*}
         h(z) = -z \frac{\xbar{z} -1}{z - 1}.
     \end{equation*}
-
-    %$h$ es una involución biyectiva de $\disk$ en $\disk$. $h$ tiene una extensión continua a $\closedisk \setminus \{1\}$ (con el valor constantemente 1).
     Entonces el conjunto de valores adherentes $Cl(h,1)$ de $h$ en $1$ se corresponde con la circunferencia unidad $\partial \disk$.
 \end{example}
 
@@ -451,5 +445,4 @@ Así como para funciones internas se tiene la alternativa de que el conjunto de 
         \caption{Representación de $-z \frac{\xbar{z} -1}{z - 1}$.}
         \label{fig:h(z)}
     \end{figure}
-
 \end{proof}
