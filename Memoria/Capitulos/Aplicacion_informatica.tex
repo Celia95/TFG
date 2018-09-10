@@ -3,7 +3,7 @@
 
 En este capítulo se describen las aplicaciones informáticas que se han desarrollado como complemento a las ideas que se exponen a lo largo del trabajo y que servirán de gran ayuda para visualizar los resultados que se exponen. \\
 
-Se han desarrollado dos aplicaciones en Python. La primera de ellas permite generar el coloreado de las funciones complejas en un disco de radio arbitrario mientras que la segunda permite extender una función $f: \partial \disk \to \complex$ apropiada a una función armónica en el disco abierto. Para producir el coloreado de ambas aplicaciones se utiliza la técnica de visualización de las funciones complejas conocida como coloreado del dominio. \\
+Se ha desarrollado una aplicación en Python con varias funcionalidades. La primera de ellas permite generar el coloreado de las funciones complejas en un disco de radio arbitrario mientras que la segunda permite extender una función $f: \partial \disk \to \complex$ apropiada a una función armónica en el disco abierto. Para producir el coloreado de ambas aplicaciones se utiliza la técnica de visualización de las funciones complejas conocida como coloreado del dominio. \\
 
 \section{Técnica del coloreado del dominio}
 
@@ -15,7 +15,7 @@ En concreto, la técnica del coloreado consiste en asignar a cada número comple
 
 En cuanto al argumento, conforme vamos aumentando el argumento el color recorre el círculo cromático, variando de rojo, amarillo, verde, cyan, azul, magenta y volviendo de nuevo al rojo. Según esta asignación, los puntos reales se corresponden con el rojo en el eje positivo mientras que en el eje negativo se corresponden con el cyan. \\
 
-En cuanto al módulo, los puntos cercanos al origen se corresponden con colores oscuros mientras que los puntos alejados tienen colores claros. Así, cuando $\abs{z}$ tiende a $0$, el color asignado se acerca al negro, en cambio cuando $\abs{z}$ tiende a infinito, el color de $z$ se aproxima al blanco. \\
+En lo que respecta al módulo, los puntos cercanos al origen se corresponden con colores oscuros mientras que los puntos alejados tienen colores claros. Así, cuando $\abs{z}$ tiende a $0$, el color asignado se acerca al negro, en cambio cuando $\abs{z}$ tiende a infinito, el color de $z$ se aproxima al blanco. \\
 
 Con esta representación, cada número complejo tiene asignado un color diferente, por lo que un número complejo puede especificarse de manera única por su color. Dado $U \subset \complex$, podemos representar cualquier función $f: U \to \complex$ de la siguiente manera: a cada punto $z$ del dominio se le asigna el color correspondiente a $f(z)$. De este modo, se representa cualquier función compleja en dos dimensiones con los colores, tomando como referencia la figura \ref{fig:z}, que representa la función identidad $f(z) = z$ en el disco de radio $10$. \\
 
@@ -150,8 +150,6 @@ Ahora bien, Python también admite una representación de colores por medio de t
 
 De esta manera podremos representar cualquier color en Python como combinación de su tono, saturación y brillo, que dependen a su vez del módulo y el argumento del número complejo. \\
 
-% Al hacer pruebas con diversas funciones, se ha observado que en los puntos cercanos a las raíces de las funciones su módulo es muy pequeño, pero que rápidamente se dispara en los extremos de los intervalos. Por eso se ha decidido ajustar el color del módulo de forma que los tonos oscuros los tomen los números cuyo módulo está comprendido entre cero y uno, y se toman los tonos claros entre los módulos uno y el valor del radio. \\
-
 \section{Representación de funciones. Problema de Dirichlet}
 
 A lo largo del trabajo nos vamos a centrar en el comportamiento de funciones en el borde del disco unidad. Por ello, la representación de funciones se realiza en discos centrados en $0$ de radio arbitrario, siendo $1$ el valor por defecto. La propia forma del dominio sugiere tomar un mallado circular y evaluar la función en cada punto. \\
@@ -160,7 +158,7 @@ La aplicación que se ha desarrollado tiene tres funcionalidades diferentes. En 
 
 Por otra parte, también se puede resolver el problema de Dirichlet para el disco haciendo uso de la integral de Poisson. Dada una función $f$ definida en el borde del disco, la solución dada por la integral de Poisson definirá una función armónica en el disco abierto. Además, si $f$ es una función continua, la solución será también una función continua en el disco cerrado, que coincidirá con $f$ en el borde del disco. \\
 
-La función $f$ que recibe el programa parametriza el borde del disco en función del argumento. Así pues, para poder definir funciones con mayor facilidad, su dominio de definición es $[-\pi, \pi]$ de manera que $\theta \in [-\pi, \pi]$ se corresponde con el punto $z = e^{i \theta} = \cos(\theta) + i \sen(\theta) \in \complex$. \\
+La función $f$ que recibe el programa parametriza el borde del disco en función del argumento. Así pues, para poder definir funciones con mayor facilidad, su dominio de definición es $[-\pi, \pi]$ de manera que $\theta \in [-\pi, \pi]$ se corresponde con el punto $z = e^{i \theta} = \cos(\theta) + i \sen(\theta) \in \partial \disk$. \\
 
 Podemos utilizar la representación de funciones que se ha desarrollado para comprobar que la integral de Poisson se comporta como se espera cuando la parametrización dada se corresponde, en el borde, con la función que se va a dibujar. A continuación se pueden observar algunos ejemplos. \\
 
@@ -202,7 +200,7 @@ Por último, la figura \ref{fig:comparacion4} se corresponde con la extensión a
 
 Esta misma comprobación se puede llevar a cabo mediante la última funcionalidad de la aplicación que permite representar la diferencia de funciones. Por lo tanto, si el cálculo de la integral de Poisson fuera perfecto, el dibujo resultante sería negro en su totalidad. Esto se consigue en la mayoría de los ejemplos, con funciones acotadas por valores no muy grandes. \\
 
-Sin embargo, debido a errores numéricos este cálculo no es totalmente exacto y presenta algunas inexactitudes sobre todo en puntos cercanos al borde del disco o cuyo módulo, a través de la función, es grande. Podemos ver esto reflejado en la figura \ref{fig:diferencia} que muestra la diferencia entre las figuras \ref{fig:comp_e^z} y \ref{fig:e^z}. \\
+Sin embargo, debido a errores numéricos, este cálculo no es totalmente exacto y presenta algunas inexactitudes sobre todo en puntos cercanos al borde del disco o cuyo módulo, a través de la función, es grande. Podemos ver esto reflejado en la figura \ref{fig:diferencia} que muestra la diferencia entre las figuras \ref{fig:comp_e^z} y \ref{fig:e^z}. \\
 
 \begin{figure}[!htbp]
     \centering

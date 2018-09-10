@@ -9,6 +9,8 @@ El capítulo se completa con varios resultados de naturaleza geométrica, en los
 
 \section{La Integral de Poisson}
 
+En primer lugar vamos a realizar una breve introducción al núcleo de Poisson, una de las muchas herramientas que necesitaremos en la demostración de resultados posteriores de este capítulo. A su vez estudiaremos el concepto de integral de Poisson que nos permitirá la extensión de funciones continuas en el borde del disco a funciones armónicas en el disco unidad.
+
 \begin{definition}[Núcleo de Poisson]
     Se llama núcleo de Poisson a la función $P$ definida por
     \begin{equation}
@@ -55,7 +57,7 @@ El capítulo se completa con varios resultados de naturaleza geométrica, en los
         \alignno \label{eq:property1} \\
         & P_r(t) > 0 \text{ para todo } t \in \real;
         \alignno \label{eq:property2} \\
-        & P_r(t) = P_r(-t) \text{ para todo } t \in \real, \text{ y } P_r(t) \text{ es periódica en } t \text{ de periodo } 2 \pi;
+        & P_r(t) = P_r(-t) \text{ para todo } t \in \real, \text{ y } P_r(t) \text{ es periódica de periodo } 2 \pi;
         \alignno \label{eq:property3} \\
         & P_r(t) < P_r(\delta) \text{ si } 0 < \delta < \abs{t} \leq \pi;
         \alignno \label{eq:property4}\\
@@ -139,7 +141,7 @@ El siguiente teorema proporciona una solución al problema de Dirichlet. De hech
 
     Vamos a probar que para todo $\alpha \in [- \pi, \pi]$ y todo $\varepsilon > 0$, existe un $\delta > 0$ tal que para todo $z \in D(e^{i \alpha}, \delta) \cap \closedisk$ se verifica
     \begin{equation*}
-        \abs{u(re^{i \theta}) - f(e^{i \alpha})} < \varepsilon
+        \abs{u(re^{i \theta}) - f(e^{i \alpha})} < \varepsilon.
     \end{equation*}
 
     Una vez probemos esto último, tendremos que $u$ es continua en $e^{i \alpha}$ puesto que $f$ es una función continua. \\
@@ -169,12 +171,12 @@ El siguiente teorema proporciona una solución al problema de Dirichlet. De hech
     \begin{equation*}
         \dfrac{1}{2 \pi} \int_{\abs{x} \leq \frac{\delta}{2}} P_r (x) dx \leq \dfrac{1}{2 \pi} \int_{-\pi}^{\pi} P_r (x) dx = 1,
     \end{equation*}
-    el primer sumando es menor que $\frac{\varepsilon}{3}$. Por otra parte si $\abs{x} \geq \frac{\delta}{2}$ y $\abs{\theta} \leq \frac{\delta}{2}$ entonces $P_r(\abs{x}) \leq P_r(\frac{\delta}{2}) < \frac{\varepsilon}{3M}$ pues $r \in (\rho, 1).$ Como $\abs{f(e^{i (\theta + x)}) - f(e^{i \alpha})} \leq M$, se tiene que el segundo sumando es menos que $\frac{\varepsilon}{3}$, con lo que $\abs{u(re^{i \theta}) - u(e^{i \alpha})} < \varepsilon$. \\
+    el primer sumando es menor que $\frac{\varepsilon}{3}$. Por otra parte si $\abs{x} \geq \frac{\delta}{2}$ y $\abs{\theta} \leq \frac{\delta}{2}$ entonces $P_r(\abs{x}) \leq P_r(\frac{\delta}{2}) < \frac{\varepsilon}{3M}$ pues $r \in (\rho, 1).$ Como $\abs{f(e^{i (\theta + x)}) - f(e^{i \alpha})} \leq M$, se tiene que el segundo sumando es menor que $\frac{\varepsilon}{3}$, con lo que $\abs{u(re^{i \theta}) - u(e^{i \alpha})} < \varepsilon$. \\
 
     Finalmente, para ver que $u$ es única, supongamos que $v$ es una función continua en $\closedisk$ que es armónica en $\disk$ y $v(e^{i \theta}) = f(e^{i \theta})$ para todo $\theta$. Entonces $u - v$ es armónica en $\disk$ y $(u - v)(z) = 0$ para todo $z \in \partial \disk$. Se sigue del Principio del Módulo Máximo que $u - v \equiv 0$. \\
 \end{proof}
 
-El Principio del Módulo Máximo para funciones armónicas nos asegura que dichas funciones no pueden alcanzar el máximo en un punto interior del dominio, sino que ha de alcanzarse en la frontera. \\
+Profundizamos un poco más en el último paso de la demostración previa. El Principio del Módulo Máximo para funciones armónicas nos asegura que dichas funciones no pueden alcanzar el máximo en un punto interior del dominio, sino que ha de alcanzarse en la frontera. \\
 
 \begin{theorem}[Principio del Módulo Máximo]
     Sea $U \subseteq \complex$ un conjunto acotado, y sea $f: \xbar{U} \to \real$ una función continua que es armónica en $U$. Entonces el máximo de $\abs{f}$ en $\xbar{U}$ se alcanza en la frontera del conjunto, $\partial U$. En otras palabras,
@@ -183,7 +185,7 @@ El Principio del Módulo Máximo para funciones armónicas nos asegura que dicha
     \end{equation*}
 \end{theorem}
 
-En particular, el resultado que hemos utilizado para finalizar la demostración es un caso especial del Teorema anterior cuya demostración se puede encontrar en \citet[capítulo 10]{conway1}. \\
+En particular, el resultado que hemos utilizado para finalizar la demostración es un caso especial del teorema anterior cuya demostración se puede encontrar en \citet[capítulo 10]{conway1}. \\
 
 \begin{corollary}
     Sea $U \subseteq \complex$ un conjunto acotado, y sea $f: \xbar{U} \to \real$ una función continua que es armónica en $U$. Si $f(z) = 0$ para todo $z \in \partial U$ entonces $f(z) = 0$ para todo $z \in U$.
@@ -231,7 +233,7 @@ En lo sucesivo, nos centraremos en el estudio de las funciones holomorfas y acot
 \end{theorem}
 
 \begin{proof}
-    La existencia de $f^*$ se sigue del Teoremas \ref{th:fatouaux1} y de la versión para elementos de $L^\infty$ del Teorema \ref{th:fatouaux2}. Además, por \eqref{eq:fatou1}, tenemos que $\norminf{f^*} \leq \norminf{f}$. \\
+    La existencia de $f^*$ se sigue del Teorema \ref{th:fatouaux1} y de la versión para elementos de $L^\infty$ del Teorema \ref{th:fatouaux2}. Además, por \eqref{eq:fatou1}, tenemos que $\norminf{f^*} \leq \norminf{f}$. \\
 
     Si $z \in U$ y $\abs{z} < r < 1$, tomemos $\gamma_r(t) = r e^{it}, 0 \leq t \leq 2\pi$. Entonces,
     \begin{equation*}
@@ -297,7 +299,7 @@ En esta sección, vamos a estudiar el concepto de función conforme, que está l
 \end{prop}
 
 \begin{proof}
-    Supongamos que $f(z)$ es una función holomorfa en $U$ tal que $f'(z) \not = 0$ para $z \in U$ y consideremos $f:z \to w=f(z)$. Sea $\gamma: [a,b] \to U$ una curva suave. Consideremos $\lambda = (f \circ  \gamma)(t)$. Por la regla de la cadena, $\lambda$ es continuamente diferenciable y como $f'(\gamma(t)) \not = 0$, tenemos
+    Supongamos que $f(z)$ es una función holomorfa en $U$ tal que $f'(z) \not = 0$ para $z \in U$ y consideremos $f:z \to w=f(z)$. Sea $\gamma: [a,b] \to U$ una curva suave. Tomemos $\lambda = (f \circ  \gamma)(t)$. Por la regla de la cadena, $\lambda$ es continuamente diferenciable y como $f'(\gamma(t)) \not = 0$, tenemos
     \begin{equation}
         \label{eq:cadena}
         \lambda'(t) = f'(\gamma(t))\gamma'(t).
@@ -322,7 +324,7 @@ En esta sección, vamos a estudiar el concepto de función conforme, que está l
 
 \begin{comment} % Una demostración equivalente
 \begin{proof}
-    Supongamos que $f(z)$ es una función holomorfa en $U$ tal que $f'(z) \not = 0$ para $z \in U$ y consideremos $f:z \to w = f(z)$. Sea $\gamma: [a,b] \to U$ una curva suave. Consideremos $\lambda = (f \circ  \gamma)(t)$. Por la regla de la cadena, $\lambda$ es continuamente diferenciable y como $f'(\gamma(t)) \not = 0$, tenemos
+    Supongamos que $f(z)$ es una función holomorfa en $U$ tal que $f'(z) \not = 0$ para $z \in U$ y consideremos $f:z \to w = f(z)$. Sea $\gamma: [a,b] \to U$ una curva suave. Tomemos $\lambda = (f \circ  \gamma)(t)$. Por la regla de la cadena, $\lambda$ es continuamente diferenciable y como $f'(\gamma(t)) \not = 0$, tenemos
     \begin{equation}
         \label{eq:cadena}
         \lambda'(t) = f'(\gamma(t))\gamma'(t).
@@ -343,7 +345,7 @@ En esta sección, vamos a estudiar el concepto de función conforme, que está l
 \end{proof}
 \end{comment}
 
-A continuación, vamos a probar un resultado recíproco a éste que incluye algunas restricciones adicionales sobre $f$. \\
+A continuación, vamos a probar un resultado recíproco a este que incluye algunas restricciones adicionales sobre $f$. \\
 
 \begin{prop}
     Sean $U \subset \complex$ y $f: U \to \complex$ una aplicación conforme en $U$ que admite derivadas parciales continuas con respecto a $x$ e $y$. Entonces $f \in \holomorphic{U}$ y $f'(z) \not = 0$ para todo $z \in U$.
@@ -426,6 +428,8 @@ A continuación, vamos a probar un resultado recíproco a éste que incluye algu
     por lo que $\frac{d}{dt} f(\gamma (t)) \not = 0$ en $t = 0$ pues $\rho' (t) + i \sigma' (t) = \gamma' (t) \not = 0$. Es decir, la curva $f (\gamma)$ es suave en un entorno de su origen. Por lo tanto, si $\gamma_1$ y $\gamma_2$ son curvas suaves con origen $c$, el ángulo entre $f(\gamma_1)$ y $f(\gamma_2)$ en $f(c)$ está bien definido. \\
 \end{proof}
 \end{comment}
+
+Una vez llegados a este punto contamos con las herramientas necesarias para demostrar el Teorema de Carathéodory que nos permitirá resolver el problema de Dirichlet para cualquier dominio de Jordan. \\
 
 \begin{theorem}[Teorema de Carathéodory]
     \label{th:caratheodory}
@@ -565,11 +569,10 @@ El teorema anterior puede aplicarse a situaciones más generales cuando el domin
     Si $g = u + iv$ es una función holomorfa en $V^+$ y $\lim_{n \to \infty} v(z_n) = 0$ para toda sucesión $\{z_n\}\subset V^+$ que converge a un punto de $\gamma$. Entonces $g$ tiene una prolongación analítica en $V$.
 \end{theorem}
 
-
-El resultado que presentamos a continuación es un recíproco parcial del teorema de Carathéodory. Muestra que la inyectividad en el borde del dominio se traslada al interior, en condiciones adecuadas. \\
+Por último, el resultado que presentamos a continuación es un recíproco parcial del teorema de Carathéodory. Muestra que la inyectividad en el borde del dominio se traslada al interior, en condiciones adecuadas. \\
 
 \begin{theorem}
-    Sea $\Gamma$ una curva simple, cerrada y suave con interior $\Omega$. Sea $f \in \holomorphic{\Gamma \, \cup \, \Omega}$ una aplicación inyectiva en $\Gamma$. Entonces $f$ es holomorfa e inyectiva en $\Omega$. \\
+    Sea $\Gamma$ una curva simple, cerrada y suave con interior $\Omega$. Sea $f \in \holomorphic{\Gamma \, \cup \, \Omega}$ una aplicación inyectiva en $\Gamma$. Entonces $f$ es holomorfa e inyectiva en $\Omega$.
 \end{theorem}
 
 \begin{proof}
