@@ -1,0 +1,153 @@
+\documentclass[spanish, a4paper, 12pt]{article}
+\usepackage[spanish]{babel}
+\usepackage[utf8]{inputenc}
+\include{mathematics}
+\begin{document}
+\title{Notas para la presentación}
+\author{Celia de Frutos Palacios}
+\date{}
+\maketitle
+
+\textbf{Diapositiva 1} \\
+
+Presentarme y decir buenos días. \\
+
+\textbf{Diapositiva 2} \\
+
+El principal objetivo de este trabajo es analizar el comportamiento de las funciones complejas en el disco unidad. Se han estudiado gran cantidad de resultados teóricos y ejemplos prácticos que han servido para analizar el comportamiento que pueden tener algunas funciones en los puntos del borde. Nos hemos centrado por tanto en saber en qué circunstancias se puede extender una función al borde del disco con continuidad. \\
+
+\textbf{Diapositiva 3} \\
+
+Pedir ayuda a Angelines con esto. \\
+
+\textbf{Diapositiva 4} \\
+
+Parte de este trabajo va a estar centrado en resolver el problema de Dirichlet para el disco. Vamos a querer encontrar una función armónica en el disco que coincida con otra función dada en el borde. \\
+
+\textbf{Diapositiva 5} \\
+
+Este problema fue resuelto afirmativamente gracias a la integral de Poisson que viene dada por esta fórmula (señalar formula). Así la función buscada será aquella que tome los valores de la integral de Poisson en los puntos del disco y los de la función $f$ en los puntos del borde. Esto se estudiará con más detalle cuando hablemos de la aplicación informática. \\
+
+\textbf{Diapositiva 6} \\
+
+Las funciones holomorfas y acotadas en el disco unidad pueden tener un comportamiento irregular en los puntos del borde del disco, sin admitir una extensión continua. Sin embargo, esta clase de funciones sí tienen límites radiales en casi todo punto. Gracias al teorema de Fatou, la existencia de límites radiales permite definir una función acotada sobre el borde. \\
+
+Como se demuestra en el documento, $f$ es la integral de Poisson de $f^*$ por lo que $f^*$ es la solución al problema de Dirichlet de $f$. \\
+
+A su vez, el Teorema de Carathéodory permite extender con continuidad a la frontera cualquier función conforme entre el disco y un dominio de Jordan. Por función conforme se entiende aquella que preserva tanto la orientación como los ángulos entre curvas.\\
+
+Intuitivamente, el teorema de Carathéodory nos dice que, en comparación con los conjuntos abiertos simplemente conexos en $\complex$, los dominios de Jordan se comportan particularmente bien. \\
+
+\textbf{Diapositiva 7} \\
+
+La siguiente figura muestra cómo una función con una singularidad en el punto $-i$, es decir, que no puede extenderse a dicho punto, sí que tiene límite radial. \\
+
+\textbf{Diapositiva 8} \\
+
+A continuación voy a hablar de la aplicación informática que he desarrollado. Se pueden distinguir tres funcionalidades distintas. La primera permite representar cualquier función compleja mientras que la segunda resuelve el problema de Dirichlet para el disco unidad. Hay una funcionalidad adicional que realiza la diferencia entre dos dibujos de manera que se puede comprobar la gran precisión de la integral de Poisson pese a los errores numéricos. \\
+
+Para representar las funciones complejas se ha utilizado la Técnica de coloreado del dominio que asigna a cada número complejo un color según su módulo y su argumento. Gracias a esta técnica se va a poder visualizar las funciones complejas y gran parte de las propiedades analíticas o geométricas que poseen como por ejemplo la existencia de ceros, polos o singularidades esenciales como en la imagen anterior. \\
+
+\textbf{Diapositivas 9} \\
+
+Esta imagen representa la función $z^3$. Podemos observar que el centro del dibujo tiene un color muy oscuro. La razón es que cuando el módulo de $z$ es pequeño, el de $z^3$ lo es mucho más, y por lo tanto el color asignado a $z^3$ es muy oscuro. También podemos ver que los colores se vuelven más claros conforme nos vamos alejando del centro. Por último cuando avanzamos en el sentido contrario a las agujas del reloj, pasamos por los colores del círculo cromático $3$ veces. Esto muestra el hecho de que el argumento de $z^3$ es tres veces el argumento de $z$. \\
+
+\textbf{Diapositiva 10} \\
+
+La siguiente imagen muestra la función $e^{z^3}-1$. Observamos a simple vista que se asemeja a la anterior. De hecho para comprobar que cerca del cero son idénticas, se muestra la diferencia entre ambas funciones en la siguiente diapositiva. \\
+
+\textbf{Diapositiva 11} \\
+
+Como puede observarse, cerca del cero se ve un color muy oscuro, casi negro, puesto que este color está asociado al $0$. Además los colores del círculo cromático se repiten $6$ veces debido a que la resta de ambas funciones da un polinomio de grado $6$. \\
+
+\textbf{Diapositiva 12} \\
+
+Esta figura muestra la extensión al disco de esta función (señalar función) que está definida en el borde. La solución dada por la integral de Poisson definirá una función armónica en el disco abierto. Además, si $f$ es una función continua, como en este caso, la solución será también una función continua en el disco cerrado, que coincidirá con $f$ en el borde del disco. \\
+
+
+% Esta misma comprobación se puede llevar a cabo mediante la última funcionalidad de la aplicación que permite representar la diferencia de funciones. Por lo tanto, si el cálculo de la integral de Poisson fuera perfecto, el dibujo resultante sería negro en su totalidad. Esto se consigue en la mayoría de los ejemplos, con funciones acotadas por valores no muy grandes. \\
+
+% Sin embargo, debido a errores numéricos, este cálculo no es totalmente exacto y presenta algunas inexactitudes sobre todo en puntos cercanos al borde del disco o cuyo módulo, a través de la función, es grande. Podemos ver esto reflejado en la figura \ref{fig:diferencia} que muestra la diferencia entre las figuras \ref{fig:comp_e^z} y \ref{fig:e^z}. \\
+
+\textbf{Diapositiva 13} \\
+
+Como hemos comentado previamente, $f$ ha de ser continua para que se pueda extender con continuidad al disco cerrado. Pero, ¿qué pasa cuando no lo es? El resultado será una función con parte real e imaginaria armónicas en el interior pero que no se puede prolongar con continuidad a la frontera. Además, si $f$ es continua a trozos, la función que se obtiene a partir de ella es armónica y continua en los puntos del borde donde lo sea $f$, como se ve en las imágenes. \\
+
+\textbf{Diapositiva 14} \\
+
+Para representar el color de las funciones complejas se ha utilizado un modelo de color distinto al usual RGB que se conoce como HSV. Según este modelo, cada color viene determinado por su tono, saturación y valor, que en este código se representan por las variables h, s y v. Además se utiliza una función para transformar un color HSV a RGB. \\
+
+\textbf{Diapositiva 15} \\
+
+Aquí se puede ver que si un punto pertenece al disco abierto, se calcula la correspondiente integral de Poisson mientras que si el punto pertenece al borde del disco, se calcula la evaluación por $f$ del punto. \\
+
+\textbf{Diapositiva 16} \\
+
+La integral de Poisson de $f$ en cada punto del disco se calcula utilizando la regla del trapecio compuesta que sirve para aproximar una integral definida en $n$ trapecios. \\
+
+\textit{Realizar demostración de la aplicación:} A continuación voy a hacer una demostración del funcionamiento de la aplicación. La ejecución está realizando el cálculo de la integral de Poisson de la función $(5 \cos(t) + 5 i \sen(t)^3$ que se corresponde con la función $(5z)^3$. He tenido que ajustar la resolución de la imagen y el número de pasos de la regla del trapecio para agilizar el proceso. Sin embargo las imágenes que se muestran tanto en la presentación como en el trabajo han sido realizadas con mayor calidad. \\
+
+\textbf{Diapositiva 17} \\
+
+A continuación voy a introducir algunos conceptos sobre álgebras de Banach. (leer las dos definiciones). Así pues, teniendo en cuenta estas dos definiciones, podemos decir que $\bholomorphic{\disk}$ es un álgebra de Banach conmutativa. \\
+
+\textbf{Diapositiva 18} \\
+
+Entonces podemos definir el espacio dual de $\bholomorphic{\disk}$ como (leer definición) y también el espectro de  $\bholomorphic{\disk}$ que será un subconjunto del espacio dual formado por aquellos homomorfismos no nulos. \\
+
+Vamos a querer asociar cada $f \in \bholomorphic{\disk}$ con una función continua sobre el espectro. Para ello vamos a definir la función $f$ gorro que es continua para todo $f$. Y esto da lugar a la transformada de Gelfand. \\
+
+\textbf{Diapositiva 19} \\
+
+Volviendo al estudio de nuestro trabajo, nos vamos a interesar por cuándo una función $f$ se puede extender con continuidad a los puntos de la frontera. Para ello introducimos las fibras. (Leer definición). Las fibras y la transformada de Gelfand de la que ya hemos hablado van a determinar cuándo podemos extender una función a un punto del borde. De esta manera, la transformada de Gelfand de $f$ es constante en la fibra de $\alpha$ si y solo si $f$ se puede extender con continuidad en $\alpha$. \\
+
+\textbf{Diapositiva 20} \\
+
+A continuación definimos el conjunto de valores adherentes y su relación con la transformada de Gelfand y las fibras en puntos del borde. \\
+
+$\zeta$ pertenecerá al conjunto de valores adherentes de $f$ en $\alpha$ si y solo si existe una sucesión $z_n$ en $\disk$ que tiende a $\alpha$ tal que $f(z_n)$ tiende a $\zeta$. A cada número $\zeta \in Cl(f, \alpha)$ se le denomina valor adherente de $f$ en $\alpha$. \\
+
+El conjunto de valores adherentes determina cuándo una función es continua en un determinado punto. Así, $f$ será continua en $\alpha$ si y solo si el conjunto de valores adherentes es un solo punto. \\
+
+Por último, el conjunto de valores adherentes de $f$ en un punto
+del borde $\alpha$ coincide con la imagen de la fibra de $\alpha$ a través de la transformada de Gelfand de $f$. \\
+
+\textbf{Diapositiva 21} \\
+
+En esta imagen se puede observar la representación de la función $e^{\frac{z+1}{z-1}}$. La función tiene una singularidad esencial en $1$ por lo que no puede extenderse con continuidad en ese punto y por lo tanto el conjunto de valores adherentes será un conjunto grande. En particular, al ser una función interna, es el disco cerrado. \\
+
+\textbf{Diapositiva 22} \\
+
+A continuación vamos a introducir los conceptos de límite y derivada angular. (Leer la definición de límite angular) Esto significa que $f(z) \to L$ cuando $z \to w$ a través de cualquier sector de $w$.  (Leer la definición de derivada angular). Basándonos en estas nociones previas, la existencia de derivada angular de $f$ en $w$ implica que $f$ tiene límite radial $\eta$ en $w$. Por el Teorema de Fatou sabemos que toda función $f \in \bholomorphic{\disk}$ tiene límite radial en casi todo punto del borde del disco, entonces también tendrá límite angular en casi todo punto del borde. \\
+
+\textbf{Diapositiva 23} \\
+
+Vamos a estudiar un resultado que surge a partir del Lema de Schwarz cuando se le aplica un cambio conforme de variable. \\
+
+La herramienta clave para deducir el Lema de Schwarz-Pick a partir del Lema de Schwarz es la familia de automorfismos $\alpha_p$ dada por esta fórmula (señalar). \\
+
+Para poder realizar una interpretación geométrica del Lema de Schwarz-Pick vamos a tener que estudiar los discos asociados con la distancia pseudo-hiperbólica que viene dada por $\alpha_p(z)$. De esta manera, un disco no euclídeo de centro $p$ y radio $r$ está formado por los puntos que estén a distancia pseudo-hiperbólica de $p$ menor que $r$. \\
+
+Con estas nociones, el Lema de Schwarz-Pick se puede formular en los mismos términos geométricos en los que solemos interpretar el Lema de Schwarz, referido a los discos no euclídeos $\Delta(p,r)$. \\
+
+\textbf{Diapositiva 24} \\
+
+Con el Teorema de Julia se resuelve el equivalente al Lema de Schwarz-Pick para discos que no son interiores al disco unidad, sino tangentes en su borde. El punto de vista geométrico que deseamos destacar del Teorema de Julia nos conduce a describir estos discos tangentes en un punto $w$ del borde de $\disk$ a través de discos no euclídeos cuyos centros van aproximándose a ese punto $w$ en la frontera del disco unidad. \\
+
+Una vez hemos determinado la relación que han de tener los centros con los radios para que la sucesión de discos no euclídeos converja a un disco tangente, surge la noción de horodisco (señalar y leer). La siguiente imagen muestra la evolución de $\Delta(p,r)$ cuando $p$ tiende a un punto $w$ de la frontera del disco. \\
+
+\textbf{Diapositiva 25} \\
+
+Teorema de Julia: no sé muy bien qué decir aquí. \\
+
+Meto el lema de convergencia de discos? \\
+
+\textbf{Diapositiva 26} \\
+
+Veamos con un ejemplo qué tipo de condición impone \eqref{eq:condjulia3} sobre el modo en que la imagen de $f$ se acerca al borde del disco. \\
+
+En este ejemplo la imagen se aparta del borde cerca del punto $1$. Esto es debido a que los cocientes \eqref{eq:condjulia3} no están acotados. (Esto lleva asociado que exista o no la derivada angular de la función en el límite angular de la función.) \\
+
+    La figura muestra la representación de la función $g$. Estas funciones se suelen llamar \textit{lenticulares} ya que la imagen del disco es como una lente. Podemos observar todos los colores, pero bastante oscuros, salvo en los puntos $1$ y $-1$ que tienen la intensidad usual. \\
+
+\end{document}
