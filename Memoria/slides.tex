@@ -23,18 +23,12 @@
 \usepackage{verbatim}
 \usepackage{mathtools}
 \usepackage{tikz}
-\usetikzlibrary{babel, hobby, calc}
 \usefonttheme[onlymath]{serif}
-
-\definecolor{lavander}{RGB}{230, 225, 250}
-
 
 \providecommand{\abs}[1]{\left\lvert#1\right\rvert}
 \providecommand{\norm}[1]{\left\lVert#1\right\rVert}
 \providecommand{\norminf}[1]{\norm{#1}_{\infty}}
-\providecommand{\holomorphic}[1]{\mathcal{H}(#1)}
 \providecommand{\bholomorphic}[1]{\mathcal{H}^{\infty}(#1)}
-\newcommand{\rpm}{\raisebox{.2ex}{$\scriptstyle\pm$}}
 
 \newcommand*\xbar[1]{%
    \hbox{%
@@ -51,14 +45,9 @@
 }
 
 \newcommand{\complex}{\mathbb{C}}
-\newcommand{\real}{\mathbb{R}}
-\newcommand{\integer}{\mathbb{Z}}
-\newcommand{\naturals}{\mathbb{N}}
 \newcommand{\disk}{\mathbb{D}}
 \newcommand{\closedisk}{\overline{\disk}}
-\newcommand{\diam}{\operatorname{diam}}
 \renewcommand{\Re}{\operatorname{Re}}
-\renewcommand{\Im}{\operatorname{Im}}
 \newcommand{\id}{\operatorname{id}}
 \newcommand{\fiber}{\mathfrak{M}}
 
@@ -79,6 +68,7 @@
 \expandafter\let\expandafter\oldalignstar\csname align*\endcsname
 \expandafter\def\csname align*\endcsname{\refstepcounter{equation}\oldalignstar}
 
+\definecolor{lavander}{RGB}{230, 225, 250}
 \definecolor{Numbers}{rgb}{0.5,0.5,0.5}
 \definecolor{Keywords}{rgb}{0,0,1}
 \definecolor{Emph}{rgb}{0.58,0,0.82}
@@ -139,25 +129,25 @@ language=python
     \begin{itemize}
         \item Estudiar el comportamiento de funciones en el disco unidad.
         \item Analizar cuándo una función puede extenderse a la frontera.
+        \item Mostrar la interacción entre los valores en la frontera y el interior del disco.
+        \item Desarrollar aplicaciones informáticas que permitan visualizar y analizar ejemplos concretos.
     \end{itemize}
 \end{frame}
 
 \begin{frame}
     \frametitle{Antecedentes}
     \begin{itemize}
-        \item Cauchy: introducción de las funciones holomorfas.
-        \item Riemann: punto de vista geométrico y funciones conformes
-        \item Weierstrass: series de potencias y productos infinitos
+        \item Cauchy: uso de integración en el estudio de funciones holomorfas.
+        \item Riemann: punto de vista geométrico y funciones conformes.
+        \item Weierstrass: series de potencias y productos infinitos.
     \end{itemize}
-    Nuestro propósito es unir las perspectivas de estos tres matemáticos.
+    En el desarrollo del trabajo nos adentramos en cuestiones que desarrollan aspectos de nuestro problema desde los tres puntos de vista: analítico, geométrico y algebraico.
 \end{frame}
-
-%\section{Teorema de Fatou. Teorema de Carathéodory}
 
 \begin{frame}
     \frametitle{Problema de Dirichlet}
     \begin{block}{}
-        Dada una función $f: \partial \disk \to \complex$ queremos encontrar una función armónica en el disco que coincide en el borde del disco con $f$.
+        Dada una función $f: \partial \disk \to \complex$ continua queremos encontrar una función armónica en el disco que coincide en el borde del disco con $f$.
     \end{block}
 \end{frame}
 
@@ -206,8 +196,6 @@ language=python
     \end{figure}
 \end{frame}
 
-%\section{Aplicación informática}
-
 \begin{frame}
     \frametitle{Aplicación informática}
     \begin{itemize}
@@ -215,6 +203,15 @@ language=python
         \item Representación de funciones complejas.
         \item Resolución del problema de Dirichlet para el disco.
     \end{itemize}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Técnica de coloreado del dominio}
+    \begin{figure}[!htbp]
+        \centering
+        \includegraphics[width=0.7\textwidth]{../Aplicacion/z.png}
+        \label{fig:z}
+    \end{figure}
 \end{frame}
 
 \begin{frame}
@@ -234,7 +231,7 @@ language=python
         \label{fig:e^(z^3)-1}
     \end{figure}
     \begin{equation*}
-        e^{z^3} - 1 =\sum_{n=0}^{\infty} \frac {z^{3n}}{n!} - 1= z^3 + \frac{z^6}{2!} +\frac{z^9}{3!} + \cdots
+        e^{z^3} - 1 = z^3 + \frac{z^6}{2!} + \frac{z^9}{3!} + \cdots
     \end{equation*}
 \end{frame}
 
@@ -246,6 +243,10 @@ language=python
         \includegraphics[width=0.7\textwidth]{../Aplicacion/diff6.png}
         \label{fig:diff6}
     \end{figure}
+    \begin{equation*}
+        e^{z^3} - 1 - z^3 = \frac{z^6}{2!} + \frac{z^9}{3!} + \frac{z^{12}}{4!} + \cdots
+    \end{equation*}
+
 \end{frame}
 
 \begin{frame}
@@ -283,8 +284,6 @@ language=python
     \lstinputlisting[language=Python, firstline=20, lastline=36]{../Aplicacion/function.py}
 \end{frame}
 
-%\section{$\bholomorphic{\disk}$ como álgebra de Banach}
-
 \begin{frame}
     \frametitle{Conceptos sobre álgebras de Banach}
     \begin{itemize}
@@ -298,8 +297,6 @@ language=python
         \item $(\bholomorphic{\disk}, \norminf{\cdot})$ es un álgebra de Banach conmutativa.
     \end{itemize}
 \end{frame}
-
-%Topología débil estrella, fibras,
 
 \begin{frame}
     \frametitle{Espectro de $\bholomorphic{\disk}$ y transformada de Gelfand}
@@ -364,24 +361,6 @@ language=python
     \end{figure}
 \end{frame}
 
-%\section{Transformaciones en el disco}
-
-\begin{frame}
-    \frametitle{Límite y derivada angular}
-    \begin{itemize}
-        \item Si $f$ es una función definida en $\disk$ y $w \in \partial \disk$, se define el límite angular de $f$ en $w$ como
-            \begin{equation*}
-                \angle \lim_{z \to w} f(z) = L.
-            \end{equation*}
-
-        \item Decimos que una función $f$ holomorfa del disco $\disk$ en sí mismo tiene derivada angular en $w \in \partial \disk$ si para algún $\eta \in \partial \disk$, el límite
-            \begin{equation*}
-                \angle \lim_{z \to w} \frac{\eta - f(z)}{w - z}
-            \end{equation*}
-            existe. Se dice que dicho límite es la derivada angular de $f$ en $w$ y lo denotamos por $\angle f'(w)$.
-    \end{itemize}
-\end{frame}
-
 \begin{frame}
     \frametitle{Lema de Schwarz-Pick}
     \begin{itemize}
@@ -443,10 +422,25 @@ language=python
     \end{figure}
 \end{frame}
 
+\begin{frame}
+    \frametitle{Límite y derivada angular}
+    \begin{itemize}
+        \item Si $f$ es una función definida en $\disk$ y $w \in \partial \disk$, se define el límite angular de $f$ en $w$ como
+            \begin{equation*}
+                \angle \lim_{z \to w} f(z) = L.
+            \end{equation*}
+
+        \item Decimos que una función $f$ holomorfa del disco $\disk$ en sí mismo tiene derivada angular en $w \in \partial \disk$ si para algún $\eta \in \partial \disk$, el límite
+            \begin{equation*}
+                \angle \lim_{z \to w} \frac{\eta - f(z)}{w - z}
+            \end{equation*}
+            existe. Se dice que dicho límite es la derivada angular de $f$ en $w$ y lo denotamos por $\angle f'(w)$.
+    \end{itemize}
+\end{frame}
 
 \begin{frame}
     \frametitle{Teorema de Julia}
-    \begin{block}{}%{Teorema de Julia}
+    \begin{block}{}
         Si $f$ es una función holomorfa del disco $\disk$ en sí mismo no constante, y existen $w, \mu \in \partial \disk$ y una sucesión $\{p_n\} \in \disk$ que verifican
         {
         \leqnomode
@@ -475,7 +469,7 @@ language=python
         \end{align}
         }
     \end{block}
-\end{frame} %Además, si se da la igualdad en \eqref{eq:julia2} para algún $\lambda > 0$, entonces $f$ es un automorfismo del disco.
+\end{frame}
 
 \begin{frame}
     \frametitle{Representación de la función $g = \sigma^{-1} \circ \phi_a \circ \sigma$, con $a = \frac{1}{2}$.}
@@ -486,15 +480,16 @@ language=python
     \end{figure}
 \end{frame}
 
-\end{document}
-
 \begin{frame}
-    \frametitle{}
+    \frametitle{Bibliografía}
     \begin{itemize}
-        \item
+        \item \textit{Real and Complex Analysis} de Walter Rudin.
+        \item \textit{Harmonic measure} de John B. Garnett y Donald E. Marshall.
+        \item \textit{The Fundamental Theorem of Algebra: A Visual Approach} de Daniel J. Velleman.
+        \item \textit{Banach Spaces of Analytic Functions} de Kenneth Hoffman.
+        \item \textit{Composition Operators and Classical Function Theory} de Joel H. Shapiro.
     \end{itemize}
-    \begin{block}{}
-
-    \end{block}
 \end{frame}
+
+\end{document}
 
