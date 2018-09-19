@@ -351,11 +351,11 @@ Las transformaciones de Möbius tienen la propiedad de que llevan circunferencia
 Utilizamos este hecho para observar que cada $w \in \closedisk$ es límite de una sucesión $\{S(z_n)\}$, con $\lim_{n \to \infty} z_n = 1$. Veamos esto último, distinguiendo tres casos:
 
 \begin{itemize}
-    \item Si $w = 0$, la sucesión $z_n = 1 - \frac{1}{n}$ converge a $1$ y, como $S(z_n) = e^{-(2n-1)}$, la sucesión $\{S(z_n)\}$ tiende a 0.
+    \item si $w = 0$, la sucesión $z_n = 1 - \frac{1}{n}$ converge a $1$ y, como $S(z_n) = e^{-(2n-1)}$, la sucesión $\{S(z_n)\}$ tiende a 0;
 
-    \item Si $0 < \abs{w} < 1, w = e^{a+bi}$, con $a < 0$, la sucesión $\{z_n\}$ definida por $z_n = T^{-1}(a + (b+2 \pi n)i) \in \disk$ tiende a $1$ y como $S(z_n) = e^{a+(b+ 2 \pi n)i} = w$, se cumple que $\{S(z_n)\}$ tiende a $w$.
+    \item si $0 < \abs{w} < 1, w = e^{a+bi}$, con $a < 0$, la sucesión $\{z_n\}$ definida por $z_n = T^{-1}(a + (b+2 \pi n)i) \in \disk$ tiende a $1$ y como $S(z_n) = e^{a+(b+ 2 \pi n)i} = w$, se cumple que $\{S(z_n)\}$ tiende a $w$;
 
-    \item Si $\abs{w} = 1$, tomando una sucesión $\{w_n\} \subset \disk$ convergente a $w$ y para cada $n$ un valor $z_n \in \disk$ con $S(z_n) = w_n$ y tal que $\abs{z_n - 1} < 1$, se tiene que $w$ es también un valor de adherencia de $S$ en $1$.
+    \item por último, si $\abs{w} = 1$, tomando una sucesión $\{w_n\} \subset \disk$ convergente a $w$ y para cada $n$ un valor $z_n \in \disk$ con $S(z_n) = w_n$ y tal que $\abs{z_n - 1} < 1$, se tiene que $w$ es también un valor de adherencia de $S$ en $1$.
 \end{itemize}
 
 \definecolor{uququq}{rgb}{0.25, 0.25, 0.25}
