@@ -118,9 +118,9 @@ También haciendo el cambio de variable $\theta - t = x$ se tiene la igualdad
 
 El siguiente teorema proporciona una solución al problema de Dirichlet. De hecho esta solución es única y coincide precisamente con la integral de Poisson de $f$. \\
 
-\begin{theorem} % Teorema 11.11 de rudin, Teorema 12.5 de los apuntes de compleja
+\begin{theorem}
     \label{th:fatouaux2}
-    Sean $f:\partial \disk \to \real$ una función continua y $F = P[f]$. Entonces la función
+    Sean $f:\partial \disk \to \real$ una función continua y $F = P[f]$. Entonces
     \begin{equation*}
         u : z = re^{i \theta} \in \closedisk \mapsto u(re^{i \theta}) =
         \begin{cases}
@@ -128,7 +128,7 @@ El siguiente teorema proporciona una solución al problema de Dirichlet. De hech
             F(re^{i\theta}) & \text{si } 0 \leq r<1
         \end{cases}
     \end{equation*}
-    es continua en $\closedisk$, armónica en $\disk$ y coincide con $f$ en $\partial \disk$.
+    es la única función tal que es continua en $\closedisk$, armónica en $\disk$ y coincide con $f$ en $\partial \disk$.
 \end{theorem}
 
 \begin{proof}
@@ -198,7 +198,7 @@ Como veremos más adelante, las funciones holomorfas y acotadas en el disco unid
 
 Para demostrar el Teorema de Fatou haremos uso de un resultado clásico, que puede consultarse en \citet[capítulo 11]{rudin}. \\
 
-\begin{theorem} % Corolario del Teorema 11.10
+\begin{theorem}
     \label{th:fatouaux1}
     Si $f \in L^1(\partial \disk)$ y $F = P[f]$, entonces
     \begin{equation*}
@@ -322,29 +322,6 @@ En esta sección, vamos a estudiar el concepto de función conforme, que está l
     Así, el ángulo entre las curvas $\lambda_1$ y $\lambda_2$ en $d = \lambda_1(a) = \lambda_2(a)$ es igual al ángulo $\theta$ entre las curvas $\gamma_1$ y $\gamma_2$ en $c$. \\
 \end{proof}
 
-\begin{comment} % Una demostración equivalente
-\begin{proof}
-    Supongamos que $f(z)$ es una función holomorfa en $U$ tal que $f'(z) \not = 0$ para $z \in U$ y consideremos $f:z \to w = f(z)$. Sea $\gamma: [a,b] \to U$ una curva suave. Tomemos $\lambda = (f \circ  \gamma)(t)$. Por la regla de la cadena, $\lambda$ es continuamente diferenciable y como $f'(\gamma(t)) \not = 0$, tenemos
-    \begin{equation}
-        \label{eq:cadena}
-        \lambda'(t) = f'(\gamma(t))\gamma'(t).
-    \end{equation}
-
-    Por lo tanto, $\lambda$ es una curva suave en el plano $w$.
-
-    Sean $\gamma_1, \gamma_2: [a,b] \to U$ curvas suaves tales que $c=\gamma_1(a) = \gamma_2(a)$. Definimos el ángulo $\theta$ entre $\gamma_1$ y $\gamma_2$ en $c$ como el argumento de $\frac{\gamma_2'(a)}{\gamma_1'(a)}$, es decir,
-    \begin{equation*}
-        \dfrac{\gamma_2'(a)}{\gamma_1'(a)} = \abs{\dfrac{\gamma_2'(a)}{\gamma_1'(a)}} e^{i\theta}.
-    \end{equation*}
-
-    La aplicación $f$ lleva las curvas $\gamma_1$ y $\gamma_2$ en curvas suaves $\lambda_1=f(\gamma_1)$ y $\lambda_2=f(\gamma_2)$ que tienen como punto inicial $d=f(c)$. Por \eqref{eq:cadena} tenemos
-    \begin{equation*}
-        \dfrac{\lambda_2'(a)}{\lambda_1'(a)} = \dfrac{\gamma_2'(a)}{\gamma_1'(a)}
-    \end{equation*}
-    entonces el ángulo entre las curvas $\lambda_1$ y $\lambda_2$ en $d = \lambda_1(a) = \lambda_2(a)$ es igual al ángulo $\theta$ entre las curvas $\gamma_1$ y $\gamma_2$ en $c$. \\
-\end{proof}
-\end{comment}
-
 A continuación, vamos a probar un resultado recíproco a este que incluye algunas restricciones adicionales sobre $f$. \\
 
 \begin{prop}
@@ -397,38 +374,6 @@ A continuación, vamos a probar un resultado recíproco a este que incluye algun
     Como vemos, $u(x,y)$ y $v(x,y)$ satisfacen las ecuaciones de Cauchy-Riemann en $U$. Luego $f(z) = u(x,y) + i v(x,y)$ es holomorfa en $z = x + iy \in U$. Además se tiene que $f(z) \not = 0, z \in U$. En efecto, como $\lambda'_\theta(0) \neq 0$, \eqref{eq:nonulo} garantiza que no pueden anularse a la vez $u_x$ y $u_y$. Por lo tanto, como $\abs{f'(x+iy)}^2 = u_x^2(x,y)+u_y^2(x,y)$, se tiene el resultado. \\
 \end{proof}
 
-\begin{comment} % Es lo mismo que el anterior del anterior
-\begin{prop}
-    Sea $U \subset \complex$. Una aplicación $f: U \to \complex$ es conforme en $U$ si satisface las condiciones de Cauchy-Riemann y $f'(z) \not = 0$ para todo $z \in U$.
-\end{prop}
-
-\begin{proof}
-    Sea $f$ una función continua tal que $f(z) = u(x,y) + i v(x,y), \, z = x+iv$. Sabemos, por hipótesis, que $u(x,y)$ y $v(x,y)$ son funciones continuamente diferenciables. \\
-
-    Consideremos la curva suave $\gamma : [a,b] \to U$, que escribimos como $\gamma (t) = \rho (t) + i \sigma (t)$. Entonces,
-    \begin{equation*}
-        f(\gamma (t)) = u(\rho (t), \sigma (t)) + i v(\rho (t), \sigma (t)).
-    \end{equation*}
-
-    Como $f(\gamma (t))$ es continuamente diferenciable,
-    \begin{equation}
-        \label{eq:cauchy-riemann}
-        \frac{d}{dt}f(\gamma (t)) = u_x \rho' (t) + u_y \sigma' (t) + i (v_x \rho'(t) + v_y \sigma'(t)).
-    \end{equation}
-
-    Por hipótesis tenemos que
-    \begin{equation*}
-        \frac{\partial (u,v)}{\partial (x,y)} =
-        \left|
-        \begin{matrix}
-            u_x(x,y) & u_y(x,y) \\ v_x(x,y) & v_y(x,y)
-        \end{matrix}
-        \right| \not = 0,
-    \end{equation*}
-    por lo que $\frac{d}{dt} f(\gamma (t)) \not = 0$ en $t = 0$ pues $\rho' (t) + i \sigma' (t) = \gamma' (t) \not = 0$. Es decir, la curva $f (\gamma)$ es suave en un entorno de su origen. Por lo tanto, si $\gamma_1$ y $\gamma_2$ son curvas suaves con origen $c$, el ángulo entre $f(\gamma_1)$ y $f(\gamma_2)$ en $f(c)$ está bien definido. \\
-\end{proof}
-\end{comment}
-
 Una vez llegados a este punto contamos con las herramientas necesarias para demostrar el Teorema de Carathéodory que nos permitirá resolver el problema de Dirichlet para cualquier dominio de Jordan. \\
 
 \begin{theorem}[Teorema de Carathéodory]
@@ -464,7 +409,6 @@ Una vez llegados a este punto contamos con las herramientas necesarias para demo
             \begin{tikzpicture}[thick]
                 \filldraw (1.35,1.48) circle (1pt) node[above right=1pt,font=\small]{$\zeta$};
                 \draw (0,0) circle (2cm);
-                %\draw [thick, domain=152:303] plot ({1.35 + cos(\x)}, {1.48 + sin(\x)});
                 \centerarc[thick](1.35,1.48)(148:307:0.7);
             \node[font=\small] at (0.7,0.8) {$\gamma_{\delta_n}$};
             \end{tikzpicture}

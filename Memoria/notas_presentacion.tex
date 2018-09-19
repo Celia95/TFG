@@ -34,8 +34,6 @@ Las funciones holomorfas y acotadas en el disco unidad pueden tener un comportam
 
 A su vez, el Teorema de Carathéodory permite extender con continuidad a la frontera cualquier función conforme entre el disco y un dominio de Jordan. Por función conforme se entiende aquella que preserva tanto la orientación como los ángulos entre curvas.\\
 
-Intuitivamente, el teorema de Carathéodory nos dice que los dominios de Jordan se comportan particularmente bien. \\
-
 \textbf{Diapositiva 7} \\
 
 La siguiente figura muestra cómo una función con una singularidad en el punto $-i$, es decir, que no puede extenderse a dicho punto, sí que tiene límite radial. \\
@@ -44,11 +42,11 @@ La siguiente figura muestra cómo una función con una singularidad en el punto 
 
 A continuación voy a hablar de la aplicación informática que he desarrollado. Se pueden distinguir tres funcionalidades distintas. La primera permite representar cualquier función compleja mientras que la segunda resuelve el problema de Dirichlet para el disco unidad. Hay una funcionalidad adicional que realiza la diferencia entre dos dibujos de manera que se puede comprobar la gran precisión de la integral de Poisson pese a los errores numéricos. \\
 
-\textbf{Diapositivas 9} \\
+\textbf{Diapositiva 9} \\
 
 Para representar las funciones complejas se ha utilizado la Técnica de coloreado del dominio que asigna a cada número complejo un color según su módulo y su argumento, como se puede ver en la imagen que muestra la representación de la función identidad. Gracias a esta técnica se va a poder visualizar las funciones complejas y gran parte de las propiedades analíticas o geométricas que poseen como por ejemplo la existencia de ceros, polos o singularidades esenciales, como en la imagen anterior. \\
 
-\textbf{Diapositivas 10} \\
+\textbf{Diapositiva 10} \\
 
 Esta imagen representa la función $z^3$. Podemos observar que el centro del dibujo tiene un color muy oscuro. La razón es que cuando el módulo de $z$ es pequeño, el de $z^3$ lo es mucho más, y por lo tanto el color asignado a $z^3$ es muy oscuro. También podemos ver que los colores se vuelven más claros conforme nos vamos alejando del centro. Por último cuando avanzamos en el sentido contrario a las agujas del reloj, pasamos por los colores del círculo cromático $3$ veces. Esto muestra el hecho de que el argumento de $z^3$ es tres veces el argumento de $z$. \\
 
@@ -133,7 +131,7 @@ Un sector de $\disk$ en un punto $w \in \partial \disk$ es la región entre dos 
 
 A continuación vamos a introducir los conceptos de límite y derivada angular. El límite angular de una función definida en $\disk$ en un punto $w$ de la frontera viene dado por esta expresión entendiendo que nos estamos aproximando a través de cualquier sector de $w$. \\
 
-A su vez la derivada angular de una función holomorfa del disco en sí mismo se define como el límite angular de los cocientes incrementales y la denotamos por $\angle f'(w)$. Basándonos en estas nociones previas, la existencia de derivada angular de $f$ en $w$ implica que $f$ tiene límite radial $\eta$ en $w$. \\
+A su vez la derivada angular de una función holomorfa del disco en sí mismo se define como el límite angular de los cocientes incrementales y la denotamos por $\angle f'(w)$. Basándonos en estas nociones previas, la existencia de derivada angular de $f$ en $w$ implica que $f$ tiene límite radial en $w$. \\
 
 \textbf{Diapositiva 26} \\
 
@@ -141,7 +139,7 @@ El Teorema de Julia precisa las condiciones analíticas que garantizan que $f$ a
 
 \textbf{Diapositiva 27} \\
 
-En este ejemplo, la imagen se aparta del borde cerca del punto $1$. Esto es debido a que los cocientes c) no están acotados. (Esto lleva asociado que exista o no la derivada angular de la función en el límite angular de la función.) \\
+En este ejemplo, la imagen se aparta del borde cerca del punto $1$. Esto es debido a que los cocientes c) no están acotados. \\
 
 Como podemos observar, los puntos 1 y -1 son invariantes por $g$, pero la imagen del disco cubre solo una región lenticular, lo que se muestra en que, salvo en los dos puntos indicados, la imagen es significativamente más oscura que en una representación de la identidad en el disco. \\
 
